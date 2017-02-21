@@ -1224,12 +1224,6 @@ namespace GlobalSanicElectronics {
             
             private global::System.Data.DataColumn columnZip;
             
-            private global::System.Data.DataColumn columnOrderNumber;
-            
-            private global::System.Data.DataColumn columnRefundNumber;
-            
-            private global::System.Data.DataColumn columnRepairNumber;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CustomerInformationDataTable() {
@@ -1337,30 +1331,6 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn OrderNumberColumn {
-                get {
-                    return this.columnOrderNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RefundNumberColumn {
-                get {
-                    return this.columnRefundNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RepairNumberColumn {
-                get {
-                    return this.columnRepairNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1396,7 +1366,7 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CustomerInformationRow AddCustomerInformationRow(string Username, string Password, string Email, string DOB, string Address, string City, string State, string Zip, string OrderNumber, string RefundNumber, string RepairNumber) {
+            public CustomerInformationRow AddCustomerInformationRow(string Username, string Password, string Email, string DOB, string Address, string City, string State, string Zip) {
                 CustomerInformationRow rowCustomerInformationRow = ((CustomerInformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1407,10 +1377,7 @@ namespace GlobalSanicElectronics {
                         Address,
                         City,
                         State,
-                        Zip,
-                        OrderNumber,
-                        RefundNumber,
-                        RepairNumber};
+                        Zip};
                 rowCustomerInformationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerInformationRow);
                 return rowCustomerInformationRow;
@@ -1449,9 +1416,6 @@ namespace GlobalSanicElectronics {
                 this.columnCity = base.Columns["City"];
                 this.columnState = base.Columns["State"];
                 this.columnZip = base.Columns["Zip"];
-                this.columnOrderNumber = base.Columns["OrderNumber"];
-                this.columnRefundNumber = base.Columns["RefundNumber"];
-                this.columnRepairNumber = base.Columns["RepairNumber"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1475,12 +1439,6 @@ namespace GlobalSanicElectronics {
                 base.Columns.Add(this.columnState);
                 this.columnZip = new global::System.Data.DataColumn("Zip", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnZip);
-                this.columnOrderNumber = new global::System.Data.DataColumn("OrderNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrderNumber);
-                this.columnRefundNumber = new global::System.Data.DataColumn("RefundNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRefundNumber);
-                this.columnRepairNumber = new global::System.Data.DataColumn("RepairNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepairNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCustomerID}, true));
                 this.columnCustomerID.AutoIncrement = true;
@@ -1505,9 +1463,6 @@ namespace GlobalSanicElectronics {
                 this.columnState.MaxLength = 2;
                 this.columnZip.AllowDBNull = false;
                 this.columnZip.MaxLength = 5;
-                this.columnOrderNumber.MaxLength = 50;
-                this.columnRefundNumber.MaxLength = 50;
-                this.columnRepairNumber.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3580,90 +3535,6 @@ namespace GlobalSanicElectronics {
                     this[this.tableCustomerInformation.ZipColumn] = value;
                 }
             }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string OrderNumber {
-                get {
-                    try {
-                        return ((string)(this[this.tableCustomerInformation.OrderNumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OrderNumber\' in table \'CustomerInformation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCustomerInformation.OrderNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string RefundNumber {
-                get {
-                    try {
-                        return ((string)(this[this.tableCustomerInformation.RefundNumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RefundNumber\' in table \'CustomerInformation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCustomerInformation.RefundNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string RepairNumber {
-                get {
-                    try {
-                        return ((string)(this[this.tableCustomerInformation.RepairNumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RepairNumber\' in table \'CustomerInformation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCustomerInformation.RepairNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOrderNumberNull() {
-                return this.IsNull(this.tableCustomerInformation.OrderNumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOrderNumberNull() {
-                this[this.tableCustomerInformation.OrderNumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRefundNumberNull() {
-                return this.IsNull(this.tableCustomerInformation.RefundNumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRefundNumberNull() {
-                this[this.tableCustomerInformation.RefundNumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRepairNumberNull() {
-                return this.IsNull(this.tableCustomerInformation.RepairNumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRepairNumberNull() {
-                this[this.tableCustomerInformation.RepairNumberColumn] = global::System.Convert.DBNull;
-            }
         }
         
         /// <summary>
@@ -5299,13 +5170,10 @@ SELECT ConsoleID, Brand, Storage, Price FROM ConsoleDirectory WHERE (ConsoleID =
             tableMapping.ColumnMappings.Add("City", "City");
             tableMapping.ColumnMappings.Add("State", "State");
             tableMapping.ColumnMappings.Add("Zip", "Zip");
-            tableMapping.ColumnMappings.Add("OrderNumber", "OrderNumber");
-            tableMapping.ColumnMappings.Add("RefundNumber", "RefundNumber");
-            tableMapping.ColumnMappings.Add("RepairNumber", "RepairNumber");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CustomerInformation] WHERE (([CustomerID] = @Original_CustomerID) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email) AND ([DOB] = @Original_DOB) AND ([Address] = @Original_Address) AND ([City] = @Original_City) AND ([State] = @Original_State) AND ([Zip] = @Original_Zip) AND ((@IsNull_OrderNumber = 1 AND [OrderNumber] IS NULL) OR ([OrderNumber] = @Original_OrderNumber)) AND ((@IsNull_RefundNumber = 1 AND [RefundNumber] IS NULL) OR ([RefundNumber] = @Original_RefundNumber)) AND ((@IsNull_RepairNumber = 1 AND [RepairNumber] IS NULL) OR ([RepairNumber] = @Original_RepairNumber)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [CustomerInformation] WHERE (([CustomerID] = @Original_CustomerID) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email) AND ([DOB] = @Original_DOB) AND ([Address] = @Original_Address) AND ([City] = @Original_City) AND ([State] = @Original_State) AND ([Zip] = @Original_Zip))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5316,16 +5184,10 @@ SELECT ConsoleID, Brand, Storage, Price FROM ConsoleDirectory WHERE (ConsoleID =
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zip", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepairNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CustomerInformation] ([Username], [Password], [Email], [DOB], [Address], [City], [State], [Zip], [OrderNumber], [RefundNumber], [RepairNumber]) VALUES (@Username, @Password, @Email, @DOB, @Address, @City, @State, @Zip, @OrderNumber, @RefundNumber, @RepairNumber);
-SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, OrderNumber, RefundNumber, RepairNumber FROM CustomerInformation WHERE (CustomerID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [CustomerInformation] ([Username], [Password], [Email], [DOB], [Address], [City], [State], [Zip]) VALUES (@Username, @Password, @Email, @DOB, @Address, @City, @State, @Zip);
+SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip FROM CustomerInformation WHERE (CustomerID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5335,13 +5197,10 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zip", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CustomerInformation] SET [Username] = @Username, [Password] = @Password, [Email] = @Email, [DOB] = @DOB, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip, [OrderNumber] = @OrderNumber, [RefundNumber] = @RefundNumber, [RepairNumber] = @RepairNumber WHERE (([CustomerID] = @Original_CustomerID) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email) AND ([DOB] = @Original_DOB) AND ([Address] = @Original_Address) AND ([City] = @Original_City) AND ([State] = @Original_State) AND ([Zip] = @Original_Zip) AND ((@IsNull_OrderNumber = 1 AND [OrderNumber] IS NULL) OR ([OrderNumber] = @Original_OrderNumber)) AND ((@IsNull_RefundNumber = 1 AND [RefundNumber] IS NULL) OR ([RefundNumber] = @Original_RefundNumber)) AND ((@IsNull_RepairNumber = 1 AND [RepairNumber] IS NULL) OR ([RepairNumber] = @Original_RepairNumber)));
-SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, OrderNumber, RefundNumber, RepairNumber FROM CustomerInformation WHERE (CustomerID = @CustomerID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [CustomerInformation] SET [Username] = @Username, [Password] = @Password, [Email] = @Email, [DOB] = @DOB, [Address] = @Address, [City] = @City, [State] = @State, [Zip] = @Zip WHERE (([CustomerID] = @Original_CustomerID) AND ([Username] = @Original_Username) AND ([Password] = @Original_Password) AND ([Email] = @Original_Email) AND ([DOB] = @Original_DOB) AND ([Address] = @Original_Address) AND ([City] = @Original_City) AND ([State] = @Original_State) AND ([Zip] = @Original_Zip));
+SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip FROM CustomerInformation WHERE (CustomerID = @CustomerID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5351,9 +5210,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Zip", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5363,12 +5219,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "City", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Zip", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Zip", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OrderNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_RepairNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5385,8 +5235,8 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Ord" +
-                "erNumber, RefundNumber, RepairNumber FROM dbo.CustomerInformation";
+            this._commandCollection[0].CommandText = "SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip FROM" +
+                " CustomerInformation";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5447,7 +5297,7 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_CustomerID, string Original_Username, string Original_Password, string Original_Email, string Original_DOB, string Original_Address, string Original_City, string Original_State, string Original_Zip, string Original_OrderNumber, string Original_RefundNumber, string Original_RepairNumber) {
+        public virtual int Delete(int Original_CustomerID, string Original_Username, string Original_Password, string Original_Email, string Original_DOB, string Original_Address, string Original_City, string Original_State, string Original_Zip) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_CustomerID));
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
@@ -5497,30 +5347,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             else {
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Zip));
             }
-            if ((Original_OrderNumber == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_OrderNumber));
-            }
-            if ((Original_RefundNumber == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_RefundNumber));
-            }
-            if ((Original_RepairNumber == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_RepairNumber));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5541,7 +5367,7 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Username, string Password, string Email, string DOB, string Address, string City, string State, string Zip, string OrderNumber, string RefundNumber, string RepairNumber) {
+        public virtual int Insert(string Username, string Password, string Email, string DOB, string Address, string City, string State, string Zip) {
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
@@ -5590,24 +5416,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Zip));
             }
-            if ((OrderNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(OrderNumber));
-            }
-            if ((RefundNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(RefundNumber));
-            }
-            if ((RepairNumber == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(RepairNumber));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5637,9 +5445,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
                     string City, 
                     string State, 
                     string Zip, 
-                    string OrderNumber, 
-                    string RefundNumber, 
-                    string RepairNumber, 
                     int Original_CustomerID, 
                     string Original_Username, 
                     string Original_Password, 
@@ -5649,9 +5454,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
                     string Original_City, 
                     string Original_State, 
                     string Original_Zip, 
-                    string Original_OrderNumber, 
-                    string Original_RefundNumber, 
-                    string Original_RepairNumber, 
                     int CustomerID) {
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
@@ -5701,98 +5503,56 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Zip));
             }
-            if ((OrderNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(OrderNumber));
-            }
-            if ((RefundNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(RefundNumber));
-            }
-            if ((RepairNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(RepairNumber));
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_CustomerID));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CustomerID));
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Username));
             }
             if ((Original_Password == null)) {
                 throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Password));
             }
             if ((Original_Email == null)) {
                 throw new global::System.ArgumentNullException("Original_Email");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Email));
             }
             if ((Original_DOB == null)) {
                 throw new global::System.ArgumentNullException("Original_DOB");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_DOB));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_DOB));
             }
             if ((Original_Address == null)) {
                 throw new global::System.ArgumentNullException("Original_Address");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Address));
             }
             if ((Original_City == null)) {
                 throw new global::System.ArgumentNullException("Original_City");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_City));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_City));
             }
             if ((Original_State == null)) {
                 throw new global::System.ArgumentNullException("Original_State");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_State));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_State));
             }
             if ((Original_Zip == null)) {
                 throw new global::System.ArgumentNullException("Original_Zip");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Zip));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Zip));
             }
-            if ((Original_OrderNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_OrderNumber));
-            }
-            if ((Original_RefundNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_RefundNumber));
-            }
-            if ((Original_RepairNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_RepairNumber));
-            }
-            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(CustomerID));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(CustomerID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5822,9 +5582,6 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
                     string City, 
                     string State, 
                     string Zip, 
-                    string OrderNumber, 
-                    string RefundNumber, 
-                    string RepairNumber, 
                     int Original_CustomerID, 
                     string Original_Username, 
                     string Original_Password, 
@@ -5833,11 +5590,8 @@ SELECT CustomerID, Username, Password, Email, DOB, Address, City, State, Zip, Or
                     string Original_Address, 
                     string Original_City, 
                     string Original_State, 
-                    string Original_Zip, 
-                    string Original_OrderNumber, 
-                    string Original_RefundNumber, 
-                    string Original_RepairNumber) {
-            return this.Update(Username, Password, Email, DOB, Address, City, State, Zip, OrderNumber, RefundNumber, RepairNumber, Original_CustomerID, Original_Username, Original_Password, Original_Email, Original_DOB, Original_Address, Original_City, Original_State, Original_Zip, Original_OrderNumber, Original_RefundNumber, Original_RepairNumber, Original_CustomerID);
+                    string Original_Zip) {
+            return this.Update(Username, Password, Email, DOB, Address, City, State, Zip, Original_CustomerID, Original_Username, Original_Password, Original_Email, Original_DOB, Original_Address, Original_City, Original_State, Original_Zip, Original_CustomerID);
         }
     }
     

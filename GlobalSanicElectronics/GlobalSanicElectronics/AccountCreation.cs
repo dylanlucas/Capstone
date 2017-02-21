@@ -15,15 +15,26 @@ namespace GlobalSanicElectronics
         public AccountCreation()
         {
             InitializeComponent();
-
-            //Clear text fields of all information so user doesn't get information in first fields in CustomerInformation table in the GSEDatabase
-            usernameTextBox.Text = "";
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //Once the user has successfully created there account take them to the main application
+            //this.customerInformationTableAdapter.Insert(usernameTextBox.Text, passwordTextBox.Text, emailTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);
 
+            System.Data.SqlClient.SqlConnection sqlConnectionLink =
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Capstone\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+
+            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
+            cmd.CommandType = System.Data.CommandType.Text;
+            cmd.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
+            cmd.Connection = sqlConnectionLink;
+
+            sqlConnectionLink.Open();
+            cmd.ExecuteNonQuery();
+            sqlConnectionLink.Close();
+
+            MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
             //Hide this form so the user can no longer see it as it is no longer needed
             //this.Hide();
 
@@ -120,6 +131,12 @@ namespace GlobalSanicElectronics
         {
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
             this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
+            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
+            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
+            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
 
             //Clear text fields of all information so user doesn't get information in first fields in CustomerInformation table in the GSEDatabase
             usernameTextBox.Text = "";
@@ -130,6 +147,30 @@ namespace GlobalSanicElectronics
             cityTextBox.Text = "";
             stateTextBox.Text = "";
             zipTextBox.Text = "";
+        }
+
+        private void customerInformationBindingNavigatorSaveItem_Click_9(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.customerInformationBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void customerInformationBindingNavigatorSaveItem_Click_10(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.customerInformationBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void customerInformationBindingNavigatorSaveItem_Click_11(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.customerInformationBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
         }
     }
 }
