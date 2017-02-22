@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GlobalSanicElectronics
 {
@@ -96,21 +97,74 @@ namespace GlobalSanicElectronics
 
         private void televisionButton_Click(object sender, EventArgs e)
         {
+            //Set this directory to be visible
+            televisionDirectoryDataGridView.Visible = true;
 
+            //All other directors to be invisible
+            consoleDirectoryDataGridView.Visible = false;
+            tabletDirectorDataGridView.Visible = false;
+            computerDirectoryDataGridView.Visible = false;
         }
 
         private void consoleButton_Click(object sender, EventArgs e)
         {
+            //Set this directory to be visible
+            consoleDirectoryDataGridView.Visible = true;
 
+            //All other directors to be invisible
+            televisionDirectoryDataGridView.Visible = false;
+            tabletDirectorDataGridView.Visible = false;
+            computerDirectoryDataGridView.Visible = false;
         }
 
         private void tabletButton_Click(object sender, EventArgs e)
         {
+            //Set this directory to be visible
+            tabletDirectorDataGridView.Visible = true;
 
+            //All other directors to be invisible
+            televisionDirectoryDataGridView.Visible = false;
+            consoleDirectoryDataGridView.Visible = false;
+            computerDirectoryDataGridView.Visible = false;
         }
 
         private void computerButton_Click(object sender, EventArgs e)
         {
+            //Set this directory to be visible
+            computerDirectoryDataGridView.Visible = true;
+
+            //All other directors to be invisible
+            televisionDirectoryDataGridView.Visible = false;
+            consoleDirectoryDataGridView.Visible = false;
+            tabletDirectorDataGridView.Visible = false;
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void MainApplication_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
+            this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
+            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
+            this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
+            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
 
         }
     }

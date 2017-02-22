@@ -65,3 +65,4 @@ I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicE
 I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
 I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
 I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.EmployeeScreen.resources

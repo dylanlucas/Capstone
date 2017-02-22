@@ -80,6 +80,12 @@
     <Compile Include="ContactScreen.Designer.cs">
       <DependentUpon>ContactScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeScreen.Designer.cs">
+      <DependentUpon>EmployeeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="GSEDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactScreen.resx">
       <DependentUpon>ContactScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeScreen.resx">
+      <DependentUpon>EmployeeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LaunchScreen.resx">
       <DependentUpon>LaunchScreen.cs</DependentUpon>

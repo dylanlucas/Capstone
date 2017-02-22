@@ -38,12 +38,24 @@ namespace GlobalSanicElectronics
             {
                 MessageBox.Show("Thank you for logging into Global Sanic Electronics! You will now be redirected to the main application");
 
-                //Hide this form so the user can no longer see it as it is no longer needed
-                this.Hide();
+                if (usernameInputTextBox.Text == "Admin")
+                {
+                    //Hide this form so the user can no longer see it as it is no longer needed
+                    this.Hide();
 
-                //Go to the MainApplication since the user has successfully logged in
-                MainApplication mainApplicationForm = new MainApplication();
-                mainApplicationForm.Show();
+                    //Go to the EmployeeScreen since its an Employee logging in and not a user
+                    EmployeeScreen employeeScreenForm = new EmployeeScreen();
+                    employeeScreenForm.Show();
+                }
+                else
+                {
+                    //Hide this form so the user can no longer see it as it is no longer needed
+                    this.Hide();
+
+                    //Go to the MainApplication since the user has successfully logged in
+                    MainApplication mainApplicationForm = new MainApplication();
+                    mainApplicationForm.Show();
+                }
             }
             else
             {
