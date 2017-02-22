@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GlobalSanicElectronics
 {
@@ -20,21 +21,31 @@ namespace GlobalSanicElectronics
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //Once the user has successfully created there account take them to the main application
-            //this.customerInformationTableAdapter.Insert(usernameTextBox.Text, passwordTextBox.Text, emailTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);
 
+            //Declare variable for Database
             System.Data.SqlClient.SqlConnection sqlConnectionLink =
                 new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Capstone\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
-            System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
-            cmd.Connection = sqlConnectionLink;
+            //Username checking
 
-            sqlConnectionLink.Open();
-            cmd.ExecuteNonQuery();
-            sqlConnectionLink.Close();
+            try
+            {
+                System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
+                createUserCommand.CommandType = System.Data.CommandType.Text;
+                createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
+                createUserCommand.Connection = sqlConnectionLink;
 
-            MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
+                sqlConnectionLink.Open();
+                createUserCommand.ExecuteNonQuery();
+                sqlConnectionLink.Close();
+
+                MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
+            } catch (SqlException ex)
+            {
+                MessageBox.Show("Username already exists! Please use a different username");
+            }
+
+            //MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
             //Hide this form so the user can no longer see it as it is no longer needed
             //this.Hide();
 
