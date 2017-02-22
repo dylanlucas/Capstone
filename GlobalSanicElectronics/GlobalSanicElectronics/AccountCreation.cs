@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace GlobalSanicElectronics
 {
@@ -26,32 +27,42 @@ namespace GlobalSanicElectronics
             System.Data.SqlClient.SqlConnection sqlConnectionLink =
                 new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Capstone\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
+            bool checkPassword = validatePassword(passwordTextBox.Text.ToString());
+
+
             //Username checking
-
-            try
+            if (usernameTextBox.Text == "")
             {
-                System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
-                createUserCommand.CommandType = System.Data.CommandType.Text;
-                createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
-                createUserCommand.Connection = sqlConnectionLink;
-
-                sqlConnectionLink.Open();
-                createUserCommand.ExecuteNonQuery();
-                sqlConnectionLink.Close();
-
-                MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
-            } catch (SqlException ex)
-            {
-                MessageBox.Show("Username already exists! Please use a different username");
+                MessageBox.Show("Please enter a username");
             }
+            else if (checkPassword == true)
+            {
+                try
+                {
+                    System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
+                    createUserCommand.CommandType = System.Data.CommandType.Text;
+                    createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
+                    createUserCommand.Connection = sqlConnectionLink;
 
-            //MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
-            //Hide this form so the user can no longer see it as it is no longer needed
-            //this.Hide();
+                    sqlConnectionLink.Open();
+                    createUserCommand.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
 
-            //Go to the MainApplication since the user has successfully logged in and created there account
-            //MainApplication mainApplicationForm = new MainApplication();
-            //mainApplicationForm.Show();
+                    MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
+
+                    //Hide this form so the user can no longer see it as it is no longer needed
+                    this.Hide();
+
+                    //Go to the MainApplication since the user has successfully logged in and created there account
+                    MainApplication mainApplicationForm = new MainApplication();
+                    mainApplicationForm.Show();
+
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Username already exists! Please use a different username");
+                }
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -183,5 +194,53 @@ namespace GlobalSanicElectronics
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
         }
+
+        private bool validatePassword(string password)
+        {
+            var input = password;
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                throw new Exception("Password field cannot be empty or blank");
+            }
+
+            var containsNumber = new Regex(@"[0-9]+");
+            var containsUpperCase = new Regex(@"[A-Z]+");
+            var properLength = new Regex(@".{8,15}");
+            var containsLowerCase = new Regex(@"[a-z]+");
+            var containsSpecialChar = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
+
+            if (!containsLowerCase.IsMatch(input))
+            {
+                MessageBox.Show("Password needs to have at least one lowercase letter");
+                return false;
+            }
+            else if (!containsUpperCase.IsMatch(input))
+            {
+                MessageBox.Show("Password needs to have at least one upppercase letter");
+                return false;
+            }
+            else if (!properLength.IsMatch(input))
+            {
+                MessageBox.Show("Password needs to be atleast 8 characters long");
+                return false;
+            }
+            else if (!containsNumber.IsMatch(input))
+            {
+                MessageBox.Show("Password need to contain atleast one number");
+                return false;
+            }
+
+            else if (!containsSpecialChar.IsMatch(input))
+            {
+                MessageBox.Show("Password should contain at least one specialChar");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
+
