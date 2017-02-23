@@ -1,0 +1,116 @@
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LoginScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.MainApplication.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RefundStatusScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairStatusScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRefundScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
+C:\Users\dylan\Desktop\Capstone\Assignment One\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase.mdf
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase_log.ldf
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LoginScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.MainApplication.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RefundStatusScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairStatusScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRefundScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
+E:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase.mdf
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase_log.ldf
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LoginScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.MainApplication.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RefundStatusScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairStatusScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRefundScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+I:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.EmployeeScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase.mdf
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase_log.ldf
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.EmployeeScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LoginScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.MainApplication.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RefundStatusScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairStatusScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRefundScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
+F:\Capstone\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase.mdf
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase_log.ldf
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.EmployeeScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LoginScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.MainApplication.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RefundStatusScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RepairStatusScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRefundScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
+I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
