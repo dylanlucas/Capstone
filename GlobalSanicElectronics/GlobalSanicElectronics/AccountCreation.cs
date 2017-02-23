@@ -28,7 +28,7 @@ namespace GlobalSanicElectronics
                 new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Capstone\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
             bool checkPassword = validatePassword(passwordTextBox.Text.ToString());
-
+            bool checkEmail = validateEmail(emailTextBox.Text.ToString());
 
             //Username checking
             if (usernameTextBox.Text == "")
@@ -37,30 +37,33 @@ namespace GlobalSanicElectronics
             }
             else if (checkPassword == true)
             {
-                try
+                if (checkEmail == true)
                 {
-                    System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
-                    createUserCommand.CommandType = System.Data.CommandType.Text;
-                    createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
-                    createUserCommand.Connection = sqlConnectionLink;
+                    try
+                    {
+                        System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
+                        createUserCommand.CommandType = System.Data.CommandType.Text;
+                        createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
+                        createUserCommand.Connection = sqlConnectionLink;
 
-                    sqlConnectionLink.Open();
-                    createUserCommand.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                        sqlConnectionLink.Open();
+                        createUserCommand.ExecuteNonQuery();
+                        sqlConnectionLink.Close();
 
-                    MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
+                        MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
 
-                    //Hide this form so the user can no longer see it as it is no longer needed
-                    this.Hide();
+                        //Hide this form so the user can no longer see it as it is no longer needed
+                        this.Hide();
 
-                    //Go to the MainApplication since the user has successfully logged in and created there account
-                    MainApplication mainApplicationForm = new MainApplication();
-                    mainApplicationForm.Show();
+                        //Go to the MainApplication since the user has successfully logged in and created there account
+                        MainApplication mainApplicationForm = new MainApplication();
+                        mainApplicationForm.Show();
 
-                }
-                catch (SqlException)
-                {
-                    MessageBox.Show("Username already exists! Please use a different username");
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Username already exists! Please use a different username");
+                    }
                 }
             }
         }
@@ -151,7 +154,9 @@ namespace GlobalSanicElectronics
 
         private void AccountCreation_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
+            try
+            {
+                // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
             this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
             this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
@@ -169,6 +174,12 @@ namespace GlobalSanicElectronics
             cityTextBox.Text = "";
             stateTextBox.Text = "";
             zipTextBox.Text = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void customerInformationBindingNavigatorSaveItem_Click_9(object sender, EventArgs e)
@@ -195,6 +206,10 @@ namespace GlobalSanicElectronics
 
         }
 
+        /**
+         * The block of code is used to make sure that the user is inputting 
+         * a good and strong password
+         */
         private bool validatePassword(string password)
         {
             var input = password;
@@ -234,6 +249,32 @@ namespace GlobalSanicElectronics
             else if (!containsSpecialChar.IsMatch(input))
             {
                 MessageBox.Show("Password should contain at least one specialChar");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /**
+         * This code is to check and make sure that the user is inputting a email that is
+         * in the correct format IE sample@stuff.com
+         */        
+        private bool validateEmail(string email)
+        {
+            var input = email;      //Gets the string when the method is called and assigns it to input
+
+            var validEmail = new Regex(@"[a-zA-Z0-9]{3,20}@[a-zA-Z0-9]{3,20}.[a-zA-Z0-9]{3}"); 
+            
+            if (!validEmail.IsMatch(input))
+            {
+                //MessageBox.Show("Ensure that yoor email is in the correct format \n correctformat@this.com");
+
+                MessageBox.Show(this, "Correct format \n \n correctformat@this.com.", 
+                                   "Wrong Email Format", MessageBoxButtons.OK, 
+                                   MessageBoxIcon.Information, 
+                                   MessageBoxDefaultButton.Button1);
                 return false;
             }
             else
