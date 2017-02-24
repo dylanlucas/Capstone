@@ -50,18 +50,21 @@
             this.televisionDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.televisionDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TelevisionDirectoryTableAdapter();
             this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.computerDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ComputerDirectoryTableAdapter();
+            this.consoleDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ConsoleDirectoryTableAdapter();
+            this.tabletDirectorTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TabletDirectorTableAdapter();
             this.televisionDirectoryBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.televisionDirectoryBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.televisionDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,14 +76,12 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.consoleDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.consoleDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ConsoleDirectoryTableAdapter();
             this.consoleDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabletDirectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabletDirectorTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TabletDirectorTableAdapter();
             this.tabletDirectorDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,7 +92,6 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.computerDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.computerDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ComputerDirectoryTableAdapter();
             this.computerDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -315,6 +315,18 @@
             this.tableAdapterManager.TelevisionDirectoryTableAdapter = this.televisionDirectoryTableAdapter;
             this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // computerDirectoryTableAdapter
+            // 
+            this.computerDirectoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // consoleDirectoryTableAdapter
+            // 
+            this.consoleDirectoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // tabletDirectorTableAdapter
+            // 
+            this.tabletDirectorTableAdapter.ClearBeforeFill = true;
+            // 
             // televisionDirectoryBindingNavigator
             // 
             this.televisionDirectoryBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -345,6 +357,31 @@
             this.televisionDirectoryBindingNavigator.TabIndex = 13;
             this.televisionDirectoryBindingNavigator.Text = "bindingNavigator1";
             this.televisionDirectoryBindingNavigator.Visible = false;
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -378,17 +415,10 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -396,7 +426,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -405,38 +435,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // televisionDirectoryBindingNavigatorSaveItem
             // 
             this.televisionDirectoryBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.televisionDirectoryBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("televisionDirectoryBindingNavigatorSaveItem.Image")));
             this.televisionDirectoryBindingNavigatorSaveItem.Name = "televisionDirectoryBindingNavigatorSaveItem";
-            this.televisionDirectoryBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.televisionDirectoryBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.televisionDirectoryBindingNavigatorSaveItem.Text = "Save Data";
             this.televisionDirectoryBindingNavigatorSaveItem.Click += new System.EventHandler(this.televisionDirectoryBindingNavigatorSaveItem_Click_1);
             // 
@@ -457,6 +469,7 @@
             this.televisionDirectoryDataGridView.Location = new System.Drawing.Point(220, 83);
             this.televisionDirectoryDataGridView.Name = "televisionDirectoryDataGridView";
             this.televisionDirectoryDataGridView.ReadOnly = true;
+            this.televisionDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.televisionDirectoryDataGridView.Size = new System.Drawing.Size(841, 395);
             this.televisionDirectoryDataGridView.TabIndex = 13;
             this.televisionDirectoryDataGridView.Visible = false;
@@ -473,51 +486,54 @@
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Brand";
             this.dataGridViewTextBoxColumn2.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Size";
             this.dataGridViewTextBoxColumn3.HeaderText = "Size";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewCheckBoxColumn1
             // 
             this.dataGridViewCheckBoxColumn1.DataPropertyName = "LED";
             this.dataGridViewCheckBoxColumn1.HeaderText = "LED";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewCheckBoxColumn2
             // 
             this.dataGridViewCheckBoxColumn2.DataPropertyName = "Smart";
             this.dataGridViewCheckBoxColumn2.HeaderText = "Smart";
             this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Resolution";
             this.dataGridViewTextBoxColumn4.HeaderText = "Resolution";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Color";
             this.dataGridViewTextBoxColumn5.HeaderText = "Color";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
             this.dataGridViewTextBoxColumn6.HeaderText = "Price";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // consoleDirectoryBindingSource
             // 
             this.consoleDirectoryBindingSource.DataMember = "ConsoleDirectory";
             this.consoleDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // consoleDirectoryTableAdapter
-            // 
-            this.consoleDirectoryTableAdapter.ClearBeforeFill = true;
             // 
             // consoleDirectoryDataGridView
             // 
@@ -532,6 +548,7 @@
             this.consoleDirectoryDataGridView.Location = new System.Drawing.Point(420, 83);
             this.consoleDirectoryDataGridView.Name = "consoleDirectoryDataGridView";
             this.consoleDirectoryDataGridView.ReadOnly = true;
+            this.consoleDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.consoleDirectoryDataGridView.Size = new System.Drawing.Size(443, 395);
             this.consoleDirectoryDataGridView.TabIndex = 13;
             this.consoleDirectoryDataGridView.Visible = false;
@@ -569,10 +586,6 @@
             this.tabletDirectorBindingSource.DataMember = "TabletDirector";
             this.tabletDirectorBindingSource.DataSource = this.gSEDatabaseDataSet;
             // 
-            // tabletDirectorTableAdapter
-            // 
-            this.tabletDirectorTableAdapter.ClearBeforeFill = true;
-            // 
             // tabletDirectorDataGridView
             // 
             this.tabletDirectorDataGridView.AutoGenerateColumns = false;
@@ -590,6 +603,7 @@
             this.tabletDirectorDataGridView.Location = new System.Drawing.Point(220, 83);
             this.tabletDirectorDataGridView.Name = "tabletDirectorDataGridView";
             this.tabletDirectorDataGridView.ReadOnly = true;
+            this.tabletDirectorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tabletDirectorDataGridView.Size = new System.Drawing.Size(841, 395);
             this.tabletDirectorDataGridView.TabIndex = 13;
             this.tabletDirectorDataGridView.Visible = false;
@@ -655,10 +669,6 @@
             this.computerDirectoryBindingSource.DataMember = "ComputerDirectory";
             this.computerDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
             // 
-            // computerDirectoryTableAdapter
-            // 
-            this.computerDirectoryTableAdapter.ClearBeforeFill = true;
-            // 
             // computerDirectoryDataGridView
             // 
             this.computerDirectoryDataGridView.AutoGenerateColumns = false;
@@ -676,6 +686,7 @@
             this.computerDirectoryDataGridView.Location = new System.Drawing.Point(220, 83);
             this.computerDirectoryDataGridView.Name = "computerDirectoryDataGridView";
             this.computerDirectoryDataGridView.ReadOnly = true;
+            this.computerDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.computerDirectoryDataGridView.Size = new System.Drawing.Size(841, 395);
             this.computerDirectoryDataGridView.TabIndex = 13;
             this.computerDirectoryDataGridView.Visible = false;
