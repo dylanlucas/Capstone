@@ -114,3 +114,6 @@ I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\De
 I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreen.resources
 I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
 I:\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.pdb

@@ -13,6 +13,9 @@ namespace GlobalSanicElectronics
 {
     public partial class MainApplication : Form
     {
+        //Variables
+        int cart;
+
         public MainApplication()
         {
             InitializeComponent();
@@ -20,7 +23,85 @@ namespace GlobalSanicElectronics
 
         private void addToCartButton_Click(object sender, EventArgs e)
         {
+            if (televisionDirectoryDataGridView.Visible == true)
+            {
+                foreach (DataGridViewRow row in televisionDirectoryDataGridView.SelectedRows)
+                {
+                    string tvID = row.Cells[0].Value.ToString();
+                    string brand = row.Cells[1].Value.ToString();
+                    string size = row.Cells[2].Value.ToString();
+                    string led = row.Cells[3].Value.ToString();
+                    string smart = row.Cells[4].Value.ToString();
+                    string resolution = row.Cells[5].Value.ToString();
+                    string color = row.Cells[6].Value.ToString();
+                    string price = row.Cells[7].Value.ToString();
 
+                    MessageBox.Show(brand + " television has been added to your cart with the price of $" + price);
+
+                    cart++;
+
+                    cartItemsTextLabel.Text = cart.ToString();
+                }
+            }
+
+            if (consoleDirectoryDataGridView.Visible == true)
+            {
+                foreach (DataGridViewRow row in consoleDirectoryDataGridView.SelectedRows)
+                {
+                    string consoleID = row.Cells[0].Value.ToString();
+                    string brand = row.Cells[1].Value.ToString();
+                    string storage = row.Cells[2].Value.ToString();
+                    string price = row.Cells[3].Value.ToString();
+
+                    MessageBox.Show(brand + " console has been added to your cart with the price of $" + price);
+
+                    cart++;
+
+                    cartItemsTextLabel.Text = cart.ToString();
+                }
+            }
+
+            if (tabletDirectorDataGridView.Visible == true)
+            {
+                foreach (DataGridViewRow row in tabletDirectorDataGridView.SelectedRows)
+                {
+                    string tabletID = row.Cells[0].Value.ToString();
+                    string brand = row.Cells[1].Value.ToString();
+                    string size = row.Cells[2].Value.ToString();
+                    string storage = row.Cells[3].Value.ToString();
+                    string processor = row.Cells[4].Value.ToString();
+                    string wifi = row.Cells[5].Value.ToString();
+                    string color = row.Cells[6].Value.ToString();
+                    string price = row.Cells[7].Value.ToString();
+
+                    MessageBox.Show(brand + " tablet has been added to your cart with the price of $" + price);
+
+                    cart++;
+
+                    cartItemsTextLabel.Text = cart.ToString();
+                }
+            }
+
+            if (computerDirectoryDataGridView.Visible == true)
+            {
+                foreach (DataGridViewRow row in computerDirectoryDataGridView.SelectedRows)
+                {
+                    string computerID = row.Cells[0].Value.ToString();
+                    string brand = row.Cells[1].Value.ToString();
+                    string size = row.Cells[2].Value.ToString();
+                    string processor = row.Cells[3].Value.ToString();
+                    string storage = row.Cells[4].Value.ToString();
+                    string ram = row.Cells[5].Value.ToString();
+                    string color = row.Cells[6].Value.ToString();
+                    string price = row.Cells[7].Value.ToString();
+
+                    MessageBox.Show(brand + " computer has been added to your cart with the price of $" + price);
+
+                    cart++;
+
+                    cartItemsTextLabel.Text = cart.ToString();
+                }
+            }
         }
 
         private void toCartButton_Click(object sender, EventArgs e)
@@ -99,6 +180,7 @@ namespace GlobalSanicElectronics
         {
             //Set this directory to be visible
             televisionDirectoryDataGridView.Visible = true;
+            addToCartButton.Enabled = true;
 
             //All other directors to be invisible
             consoleDirectoryDataGridView.Visible = false;
@@ -110,6 +192,7 @@ namespace GlobalSanicElectronics
         {
             //Set this directory to be visible
             consoleDirectoryDataGridView.Visible = true;
+            addToCartButton.Enabled = true;
 
             //All other directors to be invisible
             televisionDirectoryDataGridView.Visible = false;
@@ -121,6 +204,7 @@ namespace GlobalSanicElectronics
         {
             //Set this directory to be visible
             tabletDirectorDataGridView.Visible = true;
+            addToCartButton.Enabled = true;
 
             //All other directors to be invisible
             televisionDirectoryDataGridView.Visible = false;
@@ -132,6 +216,7 @@ namespace GlobalSanicElectronics
         {
             //Set this directory to be visible
             computerDirectoryDataGridView.Visible = true;
+            addToCartButton.Enabled = true;
 
             //All other directors to be invisible
             televisionDirectoryDataGridView.Visible = false;

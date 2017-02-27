@@ -48,5 +48,24 @@ namespace GlobalSanicElectronics
             //Close the application if the user decides to push the big red X
             System.Windows.Forms.Application.Exit();
         }
+
+        private void ordersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.ordersBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void EmployeeScreen_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
+            this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Orders' table. You can move, or remove it, as needed.
+            this.ordersTableAdapter.Fill(this.gSEDatabaseDataSet.Orders);
+
+        }
     }
 }
