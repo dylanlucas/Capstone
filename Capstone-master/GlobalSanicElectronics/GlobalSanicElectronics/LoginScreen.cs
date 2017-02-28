@@ -74,5 +74,19 @@ namespace GlobalSanicElectronics
             //Close the application if the user decides to push the big red X
             System.Windows.Forms.Application.Exit();
         }
+
+        //Method to allow the user to push enter instead of actually clicking Login.
+        private void passwordInputTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = loginButton;
+        }
+
+        //Method to allow the user to push enter instead of actually clicking Login.
+        private void usernameInputTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = loginButton;
+        }
     }
 }

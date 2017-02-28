@@ -372,6 +372,62 @@ namespace GlobalSanicElectronics
                 return true;
             }
         }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void dOBTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void addressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void cityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void stateTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
+
+        //Method to allow the user to push enter instead of actually Confirm.
+        private void zipTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
+            this.AcceptButton = confirmButton;
+        }
     }
 }
 

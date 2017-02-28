@@ -32,15 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApplication));
             this.genericLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.priceDisplayLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.orderButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.addToCartButton = new System.Windows.Forms.Button();
             this.returnsButton = new System.Windows.Forms.Button();
             this.toCartButton = new System.Windows.Forms.Button();
-            this.cartItemsDisplayLabel = new System.Windows.Forms.Label();
-            this.cartItemsTextLabel = new System.Windows.Forms.Label();
             this.logOutButton = new System.Windows.Forms.Button();
             this.repairsButton = new System.Windows.Forms.Button();
+            this.cartItemsTextLabel = new System.Windows.Forms.Label();
             this.contactButton = new System.Windows.Forms.Button();
             this.televisionButton = new System.Windows.Forms.Button();
             this.consoleButton = new System.Windows.Forms.Button();
@@ -101,6 +102,7 @@
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartItemsDisplayLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryBindingSource)).BeginInit();
@@ -119,7 +121,7 @@
             // 
             this.genericLabel.AutoSize = true;
             this.genericLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genericLabel.Location = new System.Drawing.Point(361, 9);
+            this.genericLabel.Location = new System.Drawing.Point(320, 9);
             this.genericLabel.Name = "genericLabel";
             this.genericLabel.Size = new System.Drawing.Size(332, 31);
             this.genericLabel.TabIndex = 3;
@@ -127,13 +129,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.priceDisplayLabel);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.orderButton);
             this.groupBox1.Controls.Add(this.exitButton);
             this.groupBox1.Controls.Add(this.addToCartButton);
             this.groupBox1.Controls.Add(this.returnsButton);
             this.groupBox1.Controls.Add(this.toCartButton);
-            this.groupBox1.Controls.Add(this.cartItemsDisplayLabel);
-            this.groupBox1.Controls.Add(this.cartItemsTextLabel);
             this.groupBox1.Controls.Add(this.logOutButton);
             this.groupBox1.Controls.Add(this.repairsButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 25);
@@ -142,6 +144,26 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Tools";
+            // 
+            // priceDisplayLabel
+            // 
+            this.priceDisplayLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.priceDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceDisplayLabel.Location = new System.Drawing.Point(6, 75);
+            this.priceDisplayLabel.Name = "priceDisplayLabel";
+            this.priceDisplayLabel.Size = new System.Drawing.Size(138, 36);
+            this.priceDisplayLabel.TabIndex = 14;
+            this.priceDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(34, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Price of Cart";
             // 
             // orderButton
             // 
@@ -165,6 +187,7 @@
             // 
             // addToCartButton
             // 
+            this.addToCartButton.Enabled = false;
             this.addToCartButton.Location = new System.Drawing.Point(0, 127);
             this.addToCartButton.Name = "addToCartButton";
             this.addToCartButton.Size = new System.Drawing.Size(150, 30);
@@ -193,26 +216,6 @@
             this.toCartButton.UseVisualStyleBackColor = true;
             this.toCartButton.Click += new System.EventHandler(this.toCartButton_Click);
             // 
-            // cartItemsDisplayLabel
-            // 
-            this.cartItemsDisplayLabel.AutoSize = true;
-            this.cartItemsDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartItemsDisplayLabel.Location = new System.Drawing.Point(15, 68);
-            this.cartItemsDisplayLabel.Name = "cartItemsDisplayLabel";
-            this.cartItemsDisplayLabel.Size = new System.Drawing.Size(38, 16);
-            this.cartItemsDisplayLabel.TabIndex = 8;
-            this.cartItemsDisplayLabel.Text = "Cart :";
-            // 
-            // cartItemsTextLabel
-            // 
-            this.cartItemsTextLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cartItemsTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cartItemsTextLabel.Location = new System.Drawing.Point(103, 58);
-            this.cartItemsTextLabel.Name = "cartItemsTextLabel";
-            this.cartItemsTextLabel.Size = new System.Drawing.Size(41, 36);
-            this.cartItemsTextLabel.TabIndex = 9;
-            this.cartItemsTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // logOutButton
             // 
             this.logOutButton.Location = new System.Drawing.Point(0, 416);
@@ -232,6 +235,16 @@
             this.repairsButton.Text = "Repairs";
             this.repairsButton.UseVisualStyleBackColor = true;
             this.repairsButton.Click += new System.EventHandler(this.repairsButton_Click);
+            // 
+            // cartItemsTextLabel
+            // 
+            this.cartItemsTextLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cartItemsTextLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartItemsTextLabel.Location = new System.Drawing.Point(870, 23);
+            this.cartItemsTextLabel.Name = "cartItemsTextLabel";
+            this.cartItemsTextLabel.Size = new System.Drawing.Size(41, 36);
+            this.cartItemsTextLabel.TabIndex = 9;
+            this.cartItemsTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // contactButton
             // 
@@ -309,6 +322,7 @@
             this.tableAdapterManager.ConsoleDirectoryTableAdapter = this.consoleDirectoryTableAdapter;
             this.tableAdapterManager.CustomerInformationTableAdapter = null;
             this.tableAdapterManager.OrdersTableAdapter = null;
+            this.tableAdapterManager.PurchasesTableAdapter = null;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;
             this.tableAdapterManager.TabletDirectorTableAdapter = this.tabletDirectorTableAdapter;
@@ -747,6 +761,16 @@
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
+            // cartItemsDisplayLabel
+            // 
+            this.cartItemsDisplayLabel.AutoSize = true;
+            this.cartItemsDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartItemsDisplayLabel.Location = new System.Drawing.Point(802, 33);
+            this.cartItemsDisplayLabel.Name = "cartItemsDisplayLabel";
+            this.cartItemsDisplayLabel.Size = new System.Drawing.Size(38, 16);
+            this.cartItemsDisplayLabel.TabIndex = 8;
+            this.cartItemsDisplayLabel.Text = "Cart :";
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,7 +781,9 @@
             this.Controls.Add(this.consoleDirectoryDataGridView);
             this.Controls.Add(this.televisionDirectoryDataGridView);
             this.Controls.Add(this.televisionDirectoryBindingNavigator);
+            this.Controls.Add(this.cartItemsDisplayLabel);
             this.Controls.Add(this.computerButton);
+            this.Controls.Add(this.cartItemsTextLabel);
             this.Controls.Add(this.tabletButton);
             this.Controls.Add(this.consoleButton);
             this.Controls.Add(this.televisionButton);
@@ -793,7 +819,6 @@
         private System.Windows.Forms.Button addToCartButton;
         private System.Windows.Forms.Button returnsButton;
         private System.Windows.Forms.Button toCartButton;
-        private System.Windows.Forms.Label cartItemsDisplayLabel;
         private System.Windows.Forms.Label cartItemsTextLabel;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.Button repairsButton;
@@ -859,5 +884,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.Label priceDisplayLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cartItemsDisplayLabel;
     }
 }
