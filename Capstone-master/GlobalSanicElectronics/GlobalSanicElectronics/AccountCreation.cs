@@ -25,7 +25,7 @@ namespace GlobalSanicElectronics
 
             //Declare variable for Database
             System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=I:\\Capstone\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
             bool checkPassword = validatePassword(passwordTextBox.Text.ToString());
             bool checkEmail = validateEmail(emailTextBox.Text.ToString());
@@ -125,6 +125,8 @@ namespace GlobalSanicElectronics
 
                         //Go to the MainApplication since the user has successfully logged in and created there account
                         MainApplication mainApplicationForm = new MainApplication();
+                        string username = usernameTextBox.Text;
+                        mainApplicationForm.MyProperty = username;
                         mainApplicationForm.Show();
 
                     }

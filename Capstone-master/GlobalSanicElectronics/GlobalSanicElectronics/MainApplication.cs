@@ -14,266 +14,147 @@ namespace GlobalSanicElectronics
 {
     public partial class MainApplication : Form
     {
-        struct TelevisionSale
-        {
-            //To hold the information from the selected Television row in the Directory
-            public string tvID;
-            public string tvBrand;
-            public string tvSize;
-            public string tvLED;
-            public string tvSmart;
-            public string tvResolution;
-            public string tvColor;
-            public string tvPrice;
-        }
-
-        struct ConsoleSale
-        {
-            //To hold the information from the selected Console row in the Directory
-            public string consoleID;
-            public string consoleBrand;
-            public string consoleStorage;
-            public string consolePrice;
-        }
-
-        struct TabletSale
-        {
-            //To hold the information from the selected Tablet row in the Directory
-            public string tabletID;
-            public string tabletBrand;
-            public string tabletSize;
-            public string tabletStorage;
-            public string tabletProcessor;
-            public string tabletWifi;
-            public string tabletColor;
-            public string tabletPrice;
-        }
-
-        struct ComputerSale
-        {
-            //To hold the information from the selected Computer row in the Directory
-            public string computerID;
-            public string computerBrand;
-            public string computerSize;
-            public string computerProcessor;
-            public string computerStorage;
-            public string computerRam;
-            public string computerColor;
-            public string computerPrice; 
-        }
-
-        //Create a List as a field for TelevisionSale, ConsoleSale, Tablets, and Computers
-        private List<TelevisionSale> tvList = new List<TelevisionSale>();
-        private List<ConsoleSale> consoleList = new List<ConsoleSale>();
-        private List<TabletSale> tabletList = new List<TabletSale>();
-        private List<ComputerSale> computerList = new List<ComputerSale>();
-
-        //Variables
-        int cart;           //To show the user how many items they have currently added to there cart
-        double overallPrice;       //To show the user how much there current cart is
-
         public MainApplication()
         {
             InitializeComponent();
         }
 
+        //Declare variable for Database
+        System.Data.SqlClient.SqlConnection sqlConnectionLink =
+            new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+                                                   
+
+        public string MyProperty { get; set; }
+
         private void addToCartButton_Click(object sender, EventArgs e)
-        {
+        {        
             if (televisionDirectoryDataGridView.Visible == true)
             {
-                //Create an instance of the TelevisionSale structure
-                TelevisionSale tv = new TelevisionSale();
-
                 foreach (DataGridViewRow row in televisionDirectoryDataGridView.SelectedRows)
                 {
                     //To hold the information from the selected Television row in the Directory and add it to the TelevisionSale structure                    
                     string televisionID = row.Cells[0].Value.ToString();
-                    tv.tvID = televisionID;
-
                     string brand = row.Cells[1].Value.ToString();
-                    tv.tvBrand = brand;
-
                     string size = row.Cells[2].Value.ToString();
-                    tv.tvSize = size;
-
                     string led = row.Cells[3].Value.ToString();
-                    tv.tvLED = led;
-
                     string smart = row.Cells[4].Value.ToString();
-                    tv.tvSmart = smart;
-
                     string resolution = row.Cells[5].Value.ToString();
-                    tv.tvResolution = resolution;
-
                     string color = row.Cells[6].Value.ToString();
-                    tv.tvColor = color;
-
                     string price = row.Cells[7].Value.ToString();
-                    tv.tvPrice = price;
-
-                    tvList.Add(tv);
 
                     MessageBox.Show(brand + " television has been added to your cart with the price of $" + price);
 
-                    //Increment the cart as a new item has been added to it
-                    cart++;
+                    System.Data.SqlClient.SqlCommand addTelevisionToCartCommand = new System.Data.SqlClient.SqlCommand();
+                    addTelevisionToCartCommand.CommandType = System.Data.CommandType.Text;
+                    addTelevisionToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, LED, Smart, Resolution, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution + "' , '" + color + "' , '" + price + "')";
+                    addTelevisionToCartCommand.Connection = sqlConnectionLink;
 
-                    //Display the new cart total to the user
-                    cartItemsTextLabel.Text = cart.ToString();
-
-                    //Increment the price as a new item has been added to the cart
-                    overallPrice += double.Parse(price);
-
-                    //Display the new price total to the user
-                    priceDisplayLabel.Text = overallPrice.ToString();
+                    sqlConnectionLink.Open();
+                    addTelevisionToCartCommand.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
                 }
             }
 
-            if (consoleDirectoryDataGridView.Visible == true)
+            else if (tabletDirectorDataGridView.Visible == true)
             {
-                //Create an instance of the ConsoleSale structure
-                ConsoleSale console = new ConsoleSale();
-
-                foreach (DataGridViewRow row in consoleDirectoryDataGridView.SelectedRows)
-                {
-                    //To hold the information from the selected Console row in the Directory
-                    string consoleIdentification = row.Cells[0].Value.ToString();
-                    console.consoleID = consoleIdentification;
-
-                    string brand = row.Cells[1].Value.ToString();
-                    console.consoleBrand = brand;
-
-                    string storage = row.Cells[2].Value.ToString();
-                    console.consoleStorage = storage;
-
-                    string price = row.Cells[3].Value.ToString();
-                    console.consolePrice = price;
-
-                    consoleList.Add(console);
-
-                    MessageBox.Show(brand + " console has been added to your cart with the price of $" + price);
-
-                    //Increment the cart as a new item has been added to it
-                    cart++;
-
-                    //Display the new cart total to the user
-                    cartItemsTextLabel.Text = cart.ToString();
-
-                    //Increment the price as a new item has been added to the cart
-                    overallPrice += double.Parse(price);
-
-                    //Display the new price total to the user
-                    priceDisplayLabel.Text = overallPrice.ToString();
-                }
-            }
-
-            if (tabletDirectorDataGridView.Visible == true)
-            {
-                TabletSale tablet = new TabletSale();
-
                 foreach (DataGridViewRow row in tabletDirectorDataGridView.SelectedRows)
                 {
-                    //To hold the information from the selected Tablet row in the Directory
-                    string tabletIdentification = row.Cells[0].Value.ToString();
-                    tablet.tabletID = tabletIdentification;
-                    
+                    string tabletID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
-                    tablet.tabletBrand = brand;
-
                     string size = row.Cells[2].Value.ToString();
-                    tablet.tabletSize = size;
-
                     string storage = row.Cells[3].Value.ToString();
-                    tablet.tabletStorage = storage;
-
                     string processor = row.Cells[4].Value.ToString();
-                    tablet.tabletProcessor = processor;
-
                     string wifi = row.Cells[5].Value.ToString();
-                    tablet.tabletWifi = wifi;
-
                     string color = row.Cells[6].Value.ToString();
-                    tablet.tabletColor = color;
-
                     string price = row.Cells[7].Value.ToString();
-                    tablet.tabletPrice = price;
-
-                    tabletList.Add(tablet);
 
                     MessageBox.Show(brand + " tablet has been added to your cart with the price of $" + price);
 
-                    //Increment the cart as a new item has been added to it
-                    cart++;
+                    System.Data.SqlClient.SqlCommand addTabletToCartCommand = new System.Data.SqlClient.SqlCommand();
+                    addTabletToCartCommand.CommandType = System.Data.CommandType.Text;
+                    addTabletToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, Storage, Processor, Wifi, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" + processor + "' , '" + wifi + "' , '" + color + "' , '" + price + "')";
+                    addTabletToCartCommand.Connection = sqlConnectionLink;
 
-                    //Display the new cart total to the user
-                    cartItemsTextLabel.Text = cart.ToString();
-
-                    //Increment the price as a new item has been added to the cart
-                    overallPrice += double.Parse(price);
-
-                    //Display the new price total to the user
-                    priceDisplayLabel.Text = overallPrice.ToString();
+                    sqlConnectionLink.Open();
+                    addTabletToCartCommand.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
                 }
             }
 
-            if (computerDirectoryDataGridView.Visible == true)
+            else if (consoleDirectoryDataGridView.Visible == true)
             {
-                ComputerSale computer = new ComputerSale();
+                foreach (DataGridViewRow row in consoleDirectoryDataGridView.SelectedRows)
+                {
+                    string consoleID = row.Cells[0].Value.ToString();
+                    string brand = row.Cells[1].Value.ToString();
+                    string storage = row.Cells[2].Value.ToString();
+                    string price = row.Cells[3].Value.ToString();
 
+                    MessageBox.Show(brand + " console has been added to your cart with the price of $" + price);
+
+                    System.Data.SqlClient.SqlCommand addConsoleToCartCommand = new System.Data.SqlClient.SqlCommand();
+                    addConsoleToCartCommand.CommandType = System.Data.CommandType.Text;
+                    addConsoleToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Storage, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + storage + "' , '" + price + "')";
+                    addConsoleToCartCommand.Connection = sqlConnectionLink;
+
+                    sqlConnectionLink.Open();
+                    addConsoleToCartCommand.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
+                }
+            }
+
+            else if (computerDirectoryDataGridView.Visible == true)
+            {
                 foreach (DataGridViewRow row in computerDirectoryDataGridView.SelectedRows)
                 {
-                    //To hold the information from the selected Computer row in the Directory
-                    string computerIdentification = row.Cells[0].Value.ToString();
-                    computer.computerID = computerIdentification;
-
+                    string computerID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
-                    computer.computerBrand = brand;
-
                     string size = row.Cells[2].Value.ToString();
-                    computer.computerSize = size;
-
                     string processor = row.Cells[3].Value.ToString();
-                    computer.computerProcessor = processor;
-
                     string storage = row.Cells[4].Value.ToString();
-                    computer.computerStorage = storage;
-
                     string ram = row.Cells[5].Value.ToString();
-                    computer.computerRam = ram;
-
                     string color = row.Cells[6].Value.ToString();
-                    computer.computerColor = color;
-
                     string price = row.Cells[7].Value.ToString();
-                    computer.computerPrice = price;
-
-                    computerList.Add(computer);
 
                     MessageBox.Show(brand + " computer has been added to your cart with the price of $" + price);
 
-                    //Increment the cart as a new item has been added to it
-                    cart++;
+                    System.Data.SqlClient.SqlCommand addComputerToCartCommand = new System.Data.SqlClient.SqlCommand();
+                    addComputerToCartCommand.CommandType = System.Data.CommandType.Text;
+                    addComputerToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, Processor, Storage, RAM, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + processor + "' , '" + storage + "' , '" + ram + "' , '" + color + "' , '" + price + "')";
+                    addComputerToCartCommand.Connection = sqlConnectionLink;
 
-                    //Display the new cart total to the user
-                    cartItemsTextLabel.Text = cart.ToString();
-
-                    //Increment the price as a new item has been added to the cart
-                    overallPrice += double.Parse(price);
-
-                    //Display the new price total to the user
-                    priceDisplayLabel.Text = overallPrice.ToString();
+                    sqlConnectionLink.Open();
+                    addComputerToCartCommand.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
                 }
             }
+
+            this.Refresh();
         }
 
         private void toCartButton_Click(object sender, EventArgs e)
         {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
+            string message = "WARNING: Going to the cart now means you will have to restart the entire client to update it. Are you sure you want to do this?";
+            message += "\n\n";
+            message += "If an item you added to your cart or is in your confirm puchase screen is not in your cart and you don't want to purchase the item, please restart the client to refresh your cart!";
+            string caption = "Cart will not update until restart";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
 
-            //Go to the Cart Screen as user requested
-            Cart cartForm = new Cart();
-            cartForm.Show();
+            result = MessageBox.Show(this, message, caption, buttons,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+            if(result == DialogResult.Yes)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
+
+
+                //Go to the Cart Screen as user requested
+                Cart cartForm = new Cart();
+                cartForm.cartProperty = MyProperty;
+                cartForm.Show();
+            }                      
         }
 
         private void repairsButton_Click(object sender, EventArgs e)
@@ -406,12 +287,49 @@ namespace GlobalSanicElectronics
         {
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
             this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
-            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
             this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
+            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
             this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void computerDirectoryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.computerDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void priceDisplayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
         }
     }
