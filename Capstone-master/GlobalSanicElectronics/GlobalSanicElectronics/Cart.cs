@@ -99,12 +99,15 @@ namespace GlobalSanicElectronics
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
 
-            
+            var select = "SELECT * FROM Cart WHERE Username= '" + cartProperty + "'";
+            var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+            var dataAdapter = new SqlDataAdapter(select, connection);
 
-            cartBindingSource.ResetBindings(false);
-
-            this.cartTableAdapter.SearchCart(
-                            this.gSEDatabaseDataSet.Cart, cartProperty);
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            cartDataGridView.ReadOnly = true;
+            cartDataGridView.DataSource = ds.Tables[0];
 
             cartDataGridView.Visible = true;
         }

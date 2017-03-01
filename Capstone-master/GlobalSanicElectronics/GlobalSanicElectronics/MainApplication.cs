@@ -134,27 +134,14 @@ namespace GlobalSanicElectronics
 
         private void toCartButton_Click(object sender, EventArgs e)
         {
-            string message = "WARNING: Going to the cart now means you will have to restart the entire client to update it. Are you sure you want to do this?";
-            message += "\n\n";
-            message += "If an item you added to your cart or is in your confirm puchase screen is not in your cart and you don't want to purchase the item, please restart the client to refresh your cart!";
-            string caption = "Cart will not update until restart";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(this, message, caption, buttons,
-                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-
-            if(result == DialogResult.Yes)
-            {
-                //Hide this form so the user can no longer see it as it is no longer needed
-                this.Hide();
+            //Hide this form so the user can no longer see it as it is no longer needed
+            this.Hide();
 
 
-                //Go to the Cart Screen as user requested
-                Cart cartForm = new Cart();
-                cartForm.cartProperty = MyProperty;
-                cartForm.Show();
-            }                      
+            //Go to the Cart Screen as user requested
+            Cart cartForm = new Cart();
+            cartForm.cartProperty = MyProperty;
+            cartForm.Show();
         }
 
         private void repairsButton_Click(object sender, EventArgs e)
