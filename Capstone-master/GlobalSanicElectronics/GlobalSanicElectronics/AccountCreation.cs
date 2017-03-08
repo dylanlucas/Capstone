@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Net.Mail;
 
 namespace GlobalSanicElectronics
 {
@@ -118,7 +120,42 @@ namespace GlobalSanicElectronics
                         createUserCommand.ExecuteNonQuery();
                         sqlConnectionLink.Close();
 
-                        MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics!");
+                        MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
+
+                        var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                        var toAddress = new MailAddress(emailTextBox.Text, usernameTextBox.Text);
+                        const string fromPassword = "GSEPassword";
+                        const string subject = "Thank you for joining Global Sanic Electronics!";
+                        string body = "Hello " + usernameTextBox.Text + " thank you for joining Global Sanic Electronics." + "\n\n" +
+                            "To ensure all your information is correct, this is what you entered upon account creation. If any of this information needs to be updated, please do not hesitate to email us back" + "\n\n" +
+                            "Password = " + passwordTextBox.Text + "\n" +
+                            "Email = " + emailTextBox.Text + "\n" +
+                            "Date of Birth = " + dOBTextBox.Text + "\n" +
+                            "Street Address = " + addressTextBox.Text + "\n" +
+                            "City = " + cityTextBox.Text + "\n" +
+                            "State = " + stateTextBox.Text + "\n" +
+                            "Zip = " + zipTextBox.Text + "\n\n" +
+                            "Thank you once again for joining Global Sanic Electronics! We hope you enjoy your stay!";
+                            
+
+                        var smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                        };
+
+                        using (var message = new MailMessage(fromAddress, toAddress)
+                        {
+                            Subject = subject,
+                            Body = body
+                        })
+                        {
+                            smtp.Send(message);
+                        }
 
                         //Hide this form so the user can no longer see it as it is no longer needed
                         this.Hide();
