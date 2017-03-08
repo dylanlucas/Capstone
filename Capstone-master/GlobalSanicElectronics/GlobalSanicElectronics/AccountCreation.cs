@@ -122,6 +122,7 @@ namespace GlobalSanicElectronics
 
                         MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
 
+                        //Way to send user an email with all account information and confirm that there account is created.
                         var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
                         var toAddress = new MailAddress(emailTextBox.Text, usernameTextBox.Text);
                         const string fromPassword = "GSEPassword";
@@ -137,7 +138,7 @@ namespace GlobalSanicElectronics
                             "Zip = " + zipTextBox.Text + "\n\n" +
                             "Thank you once again for joining Global Sanic Electronics! We hope you enjoy your stay!";
                             
-
+                        //Area to establish a connection with the smtpclient and put the host and port number down
                         var smtp = new SmtpClient
                         {
                             Host = "smtp.gmail.com",
@@ -148,6 +149,7 @@ namespace GlobalSanicElectronics
                             Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
                         };
 
+                        //Area to actually send the message out to the user
                         using (var message = new MailMessage(fromAddress, toAddress)
                         {
                             Subject = subject,
