@@ -32,7 +32,7 @@ namespace GlobalSanicElectronics
             {
                 foreach (DataGridViewRow row in televisionDirectoryDataGridView.SelectedRows)
                 {
-                    //To hold the information from the selected Television row in the Directory and add it to the TelevisionSale structure                    
+                    //To hold information about the Television and input it into the Cart table in the database                    
                     string televisionID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
                     string size = row.Cells[2].Value.ToString();
@@ -42,13 +42,23 @@ namespace GlobalSanicElectronics
                     string color = row.Cells[6].Value.ToString();
                     string price = row.Cells[7].Value.ToString();
 
+                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
+                    string television = "Yes";
+                    string console = "No";
+                    string tablet = "No";
+                    string computer = "No";
+
                     MessageBox.Show(brand + " television has been added to your cart with the price of $" + price);
 
+                    //Set up the Command type so the program can input into the database
                     System.Data.SqlClient.SqlCommand addTelevisionToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addTelevisionToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addTelevisionToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, LED, Smart, Resolution, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution + "' , '" + color + "' , '" + price + "')";
-                    addTelevisionToCartCommand.Connection = sqlConnectionLink;
+                    addTelevisionToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, LED, Smart, Resolution, Color, Price) VALUES ('" 
+                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution 
+                        + "' , '" + color + "' , '" + price + "')";
 
+                    //Establish a connection to the database and perform the addTelevisionToCartCommand
+                    addTelevisionToCartCommand.Connection = sqlConnectionLink;
                     sqlConnectionLink.Open();
                     addTelevisionToCartCommand.ExecuteNonQuery();
                     sqlConnectionLink.Close();
@@ -59,6 +69,7 @@ namespace GlobalSanicElectronics
             {
                 foreach (DataGridViewRow row in tabletDirectorDataGridView.SelectedRows)
                 {
+                    //To hold information about the Tablets and input it into the Cart table in the database
                     string tabletID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
                     string size = row.Cells[2].Value.ToString();
@@ -68,13 +79,23 @@ namespace GlobalSanicElectronics
                     string color = row.Cells[6].Value.ToString();
                     string price = row.Cells[7].Value.ToString();
 
+                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
+                    string television = "No";
+                    string console = "No";
+                    string tablet = "Yes";
+                    string computer = "No";
+
                     MessageBox.Show(brand + " tablet has been added to your cart with the price of $" + price);
 
+                    //Set up the Command type so the program can input into the database
                     System.Data.SqlClient.SqlCommand addTabletToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addTabletToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addTabletToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, Storage, Processor, Wifi, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" + processor + "' , '" + wifi + "' , '" + color + "' , '" + price + "')";
-                    addTabletToCartCommand.Connection = sqlConnectionLink;
+                    addTabletToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Storage, Processor, Wifi, Color, Price) VALUES ('" 
+                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" 
+                        + processor + "' , '" + wifi + "' , '" + color + "' , '" + price + "')";
 
+                    //Establish a connection to the database and perform the addTabletToCartCommand
+                    addTabletToCartCommand.Connection = sqlConnectionLink;
                     sqlConnectionLink.Open();
                     addTabletToCartCommand.ExecuteNonQuery();
                     sqlConnectionLink.Close();
@@ -85,18 +106,29 @@ namespace GlobalSanicElectronics
             {
                 foreach (DataGridViewRow row in consoleDirectoryDataGridView.SelectedRows)
                 {
+                    //To hold information about the Consoles and input it into the Cart table in the database
                     string consoleID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
                     string storage = row.Cells[2].Value.ToString();
                     string price = row.Cells[3].Value.ToString();
 
+                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
+                    string television = "No";
+                    string console = "Yes";
+                    string tablet = "No";
+                    string computer = "No";
+
                     MessageBox.Show(brand + " console has been added to your cart with the price of $" + price);
 
+                    //Set up the Command type so the program can input into the database
                     System.Data.SqlClient.SqlCommand addConsoleToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addConsoleToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addConsoleToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Storage, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + storage + "' , '" + price + "')";
-                    addConsoleToCartCommand.Connection = sqlConnectionLink;
+                    addConsoleToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Storage, Price) VALUES ('" 
+                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" 
+                        + storage + "' , '" + price + "')";
 
+                    //Establish a connection to the database and perform the addConsoleToCartCommand
+                    addConsoleToCartCommand.Connection = sqlConnectionLink;
                     sqlConnectionLink.Open();
                     addConsoleToCartCommand.ExecuteNonQuery();
                     sqlConnectionLink.Close();
@@ -107,6 +139,7 @@ namespace GlobalSanicElectronics
             {
                 foreach (DataGridViewRow row in computerDirectoryDataGridView.SelectedRows)
                 {
+                    //To hold information about the Compouters and input it into the Cart table in the database
                     string computerID = row.Cells[0].Value.ToString();
                     string brand = row.Cells[1].Value.ToString();
                     string size = row.Cells[2].Value.ToString();
@@ -116,13 +149,23 @@ namespace GlobalSanicElectronics
                     string color = row.Cells[6].Value.ToString();
                     string price = row.Cells[7].Value.ToString();
 
+                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
+                    string television = "No";
+                    string console = "No";
+                    string tablet = "No";
+                    string computer = "Yes";
+
                     MessageBox.Show(brand + " computer has been added to your cart with the price of $" + price);
 
+                    //Set up the Command type so the program can input into the database
                     System.Data.SqlClient.SqlCommand addComputerToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addComputerToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addComputerToCartCommand.CommandText = "INSERT into Cart (Username, Brand, Size, Processor, Storage, RAM, Color, Price) VALUES ('" + MyProperty + "' , '" + brand + "' , '" + size + "' , '" + processor + "' , '" + storage + "' , '" + ram + "' , '" + color + "' , '" + price + "')";
-                    addComputerToCartCommand.Connection = sqlConnectionLink;
+                    addComputerToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Processor, Storage, RAM, Color, Price) VALUES ('" 
+                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" 
+                        + brand + "' , '" + size + "' , '" + processor + "' , '" + storage + "' , '" + ram + "' , '" + color + "' , '" + price + "')";
 
+                    //Establish a connection to the database and perform the addComputerToCartCommand
+                    addComputerToCartCommand.Connection = sqlConnectionLink;
                     sqlConnectionLink.Open();
                     addComputerToCartCommand.ExecuteNonQuery();
                     sqlConnectionLink.Close();
@@ -203,6 +246,7 @@ namespace GlobalSanicElectronics
 
             //Allow the user go to the order screen, IF the cart is equal to or greater than 1
             OrderScreen orderScreenForm = new OrderScreen();
+            orderScreenForm.orderProperty = MyProperty;
             orderScreenForm.Show();
         }
 

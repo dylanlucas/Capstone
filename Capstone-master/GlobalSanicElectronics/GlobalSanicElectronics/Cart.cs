@@ -22,7 +22,7 @@ namespace GlobalSanicElectronics
         System.Data.SqlClient.SqlConnection sqlConnectionLink =
             new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
-        public string cartProperty { get; set; }
+        public string cartProperty { get; set; }        
 
         private void removeButton_Click(object sender, EventArgs e)
         {
@@ -98,6 +98,8 @@ namespace GlobalSanicElectronics
         {
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
 
             var select = "SELECT * FROM Cart WHERE Username= '" + cartProperty + "'";
             var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
@@ -108,8 +110,6 @@ namespace GlobalSanicElectronics
             dataAdapter.Fill(ds);
             cartDataGridView.ReadOnly = true;
             cartDataGridView.DataSource = ds.Tables[0];
-
-            cartDataGridView.Visible = true;
         }
 
         private void cartBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -153,6 +153,14 @@ namespace GlobalSanicElectronics
         }
 
         private void cartBindingNavigatorSaveItem_Click_6(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_7(object sender, EventArgs e)
         {
             this.Validate();
             this.cartBindingSource.EndEdit();

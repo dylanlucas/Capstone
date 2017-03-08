@@ -125,7 +125,7 @@
             // 
             // orderButton
             // 
-            this.orderButton.Location = new System.Drawing.Point(0, 237);
+            this.orderButton.Location = new System.Drawing.Point(0, 240);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(150, 30);
             this.orderButton.TabIndex = 3;
