@@ -71,8 +71,7 @@ namespace GlobalSanicElectronics
         private void goBackButton_Click(object sender, EventArgs e)
         {            
             //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
-            this.Refresh();
+            this.Hide();            
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
@@ -96,6 +95,8 @@ namespace GlobalSanicElectronics
 
         private void Cart_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
@@ -161,6 +162,14 @@ namespace GlobalSanicElectronics
         }
 
         private void cartBindingNavigatorSaveItem_Click_7(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_8(object sender, EventArgs e)
         {
             this.Validate();
             this.cartBindingSource.EndEdit();

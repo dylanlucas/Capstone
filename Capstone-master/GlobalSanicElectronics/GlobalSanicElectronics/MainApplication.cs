@@ -177,14 +177,35 @@ namespace GlobalSanicElectronics
 
         private void toCartButton_Click(object sender, EventArgs e)
         {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
+            //Declare variable for Database
+            System.Data.SqlClient.SqlConnection sqlConnectionLink =
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+
+            //Declare Variables
+            Int32 verifyCart;
+
+            //Check for username & Password
+            String validation = "SELECT * From Cart WHERE Username= '" + MyProperty + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
+            sqlConnectionLink.Open();
+            verifyCart = Convert.ToInt32(validateInputCommand.ExecuteScalar());
+            sqlConnectionLink.Close();
+
+            if (verifyCart > 0)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
 
 
-            //Go to the Cart Screen as user requested
-            Cart cartForm = new Cart();
-            cartForm.cartProperty = MyProperty;
-            cartForm.Show();
+                //Go to the Cart Screen as user requested
+                Cart cartForm = new Cart();
+                cartForm.cartProperty = MyProperty;
+                cartForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nothing is currently in your cart!");
+            }
         }
 
         private void repairsButton_Click(object sender, EventArgs e)
@@ -230,10 +251,7 @@ namespace GlobalSanicElectronics
         }
 
         private void contactButton_Click(object sender, EventArgs e)
-        {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
-
+        {           
             //Allow the user to get contact information about the company incase needed and as they clicked the button they have requested to go here
             ContactScreen contactScreenForm = new ContactScreen();
             contactScreenForm.Show();
@@ -241,13 +259,34 @@ namespace GlobalSanicElectronics
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
+            //Declare variable for Database
+            System.Data.SqlClient.SqlConnection sqlConnectionLink =
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
-            //Allow the user go to the order screen, IF the cart is equal to or greater than 1
-            OrderScreen orderScreenForm = new OrderScreen();
-            orderScreenForm.orderProperty = MyProperty;
-            orderScreenForm.Show();
+            //Declare Variables
+            Int32 verifyCart;
+
+            //Check for username & Password
+            String validation = "SELECT * From Cart WHERE Username= '" + MyProperty + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
+            sqlConnectionLink.Open();
+            verifyCart = Convert.ToInt32(validateInputCommand.ExecuteScalar());
+            sqlConnectionLink.Close();
+
+            if (verifyCart > 0)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
+
+                //Allow the user go to the order screen, IF the cart is equal to or greater than 1
+                OrderScreen orderScreenForm = new OrderScreen();
+                orderScreenForm.orderProperty = MyProperty;
+                orderScreenForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nothing in cart to purchase!");
+            }
         }
 
         private void televisionButton_Click(object sender, EventArgs e)
@@ -324,6 +363,14 @@ namespace GlobalSanicElectronics
             this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
             this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
+            this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
+            this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
+            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
+            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
 
         }
 
@@ -362,6 +409,45 @@ namespace GlobalSanicElectronics
             this.televisionDirectoryBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_5(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void trackOrderButton_Click(object sender, EventArgs e)
+        {
+            //Declare variable for Database
+            System.Data.SqlClient.SqlConnection sqlConnectionLink =
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+
+            //Declare Variables
+            Int32 verifyPurchases;
+
+            //Check for username & Password
+            String validation = "SELECT * From Purchases WHERE CustomerName= '" + MyProperty + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
+            sqlConnectionLink.Open();
+            verifyPurchases = Convert.ToInt32(validateInputCommand.ExecuteScalar());
+            sqlConnectionLink.Close();
+
+            if (verifyPurchases > 0)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
+
+                TrackOrder trackOrderForm = new TrackOrder();
+                trackOrderForm.orderUsername = MyProperty;
+                trackOrderForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("No orders currently being processed or delivered!");
+            }
         }
     }
 }

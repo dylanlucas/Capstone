@@ -52,7 +52,7 @@ namespace GlobalSanicElectronics
         private void ordersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.ordersBindingSource.EndEdit();
+            //this.ordersBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
         }
@@ -63,8 +63,22 @@ namespace GlobalSanicElectronics
             this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
             this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
+            this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Orders' table. You can move, or remove it, as needed.
-            this.ordersTableAdapter.Fill(this.gSEDatabaseDataSet.Orders);
+            //this.ordersTableAdapter.Fill(this.gSEDatabaseDataSet.Orders);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
         }
     }

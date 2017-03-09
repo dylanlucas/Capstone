@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.genericLabel = new System.Windows.Forms.Label();
-            this.myItemsTextBox = new System.Windows.Forms.TextBox();
             this.requestRepairButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
@@ -44,19 +43,6 @@
             this.genericLabel.Size = new System.Drawing.Size(332, 31);
             this.genericLabel.TabIndex = 7;
             this.genericLabel.Text = "Global Sanic Electronics";
-            // 
-            // myItemsTextBox
-            // 
-            this.myItemsTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.myItemsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myItemsTextBox.Location = new System.Drawing.Point(37, 134);
-            this.myItemsTextBox.Multiline = true;
-            this.myItemsTextBox.Name = "myItemsTextBox";
-            this.myItemsTextBox.ReadOnly = true;
-            this.myItemsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.myItemsTextBox.Size = new System.Drawing.Size(344, 197);
-            this.myItemsTextBox.TabIndex = 8;
-            this.myItemsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // requestRepairButton
             // 
@@ -98,7 +84,6 @@
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.requestRepairButton);
-            this.Controls.Add(this.myItemsTextBox);
             this.Controls.Add(this.genericLabel);
             this.Name = "RequestRepairScreen";
             this.Text = "RequestRepairScreen";
@@ -110,7 +95,6 @@
         #endregion
 
         private System.Windows.Forms.Label genericLabel;
-        private System.Windows.Forms.TextBox myItemsTextBox;
         private System.Windows.Forms.Button requestRepairButton;
         private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Label usernameLabel;

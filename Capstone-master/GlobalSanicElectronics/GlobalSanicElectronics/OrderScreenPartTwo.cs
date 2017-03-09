@@ -21,6 +21,10 @@ namespace GlobalSanicElectronics
 
         public double userPrice { get; set; }
         public string userName { get; set; }
+        public string console { get; set; }
+        public string computer { get; set; }
+        public string tablet { get; set; }
+        public string television { get; set; }   
 
         private void OrderScreenPartTwocs_Load(object sender, EventArgs e)
         {
@@ -138,7 +142,7 @@ namespace GlobalSanicElectronics
             if (!string.IsNullOrEmpty(value) && e.KeyCode != Keys.Back)
             {
                 value = value.Replace("-", "");
-                string divide = Regex.Replace(value, ".{4}", "$0-");
+                string divide = Regex.Replace(value, @"\d\d\d\d(?!$)", "$0-");
                 cardNumberTextBox.Text = divide;
                 cardNumberTextBox.SelectionStart = cardNumberTextBox.Text.Length;
             }
@@ -165,7 +169,7 @@ namespace GlobalSanicElectronics
                 shippingSpeedGroupBox.Enabled = false;
             }            
 
-            totalPaymentDisplayLabel.Text = userPrice.ToString();
+            totalPaymentDisplayLabel.Text = "$" + userPrice.ToString();
         }
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -191,6 +195,10 @@ namespace GlobalSanicElectronics
                 ReceiptScreen receiptScreenForm = new ReceiptScreen();
                 receiptScreenForm.username = userName;
                 receiptScreenForm.price = userPrice;
+                receiptScreenForm.console = console;
+                receiptScreenForm.computer = computer;
+                receiptScreenForm.tablet = tablet;
+                receiptScreenForm.television = television;
                 receiptScreenForm.Show();
             }
             else

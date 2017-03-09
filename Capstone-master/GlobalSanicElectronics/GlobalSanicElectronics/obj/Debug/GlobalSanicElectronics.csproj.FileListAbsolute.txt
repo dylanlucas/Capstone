@@ -164,3 +164,4 @@ C:\Users\dylan\Desktop\Capstone-master\Capstone-master\GlobalSanicElectronics\Gl
 C:\Users\dylan\Desktop\Capstone-master\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.OrderScreenPartTwo.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReceiptScreen.resources
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.TrackOrder.resources

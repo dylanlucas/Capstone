@@ -34,7 +34,6 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.orderNumberDisplayLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.confirmButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -53,7 +52,7 @@
             this.goBackButton.Location = new System.Drawing.Point(58, 414);
             this.goBackButton.Name = "goBackButton";
             this.goBackButton.Size = new System.Drawing.Size(108, 36);
-            this.goBackButton.TabIndex = 6;
+            this.goBackButton.TabIndex = 1;
             this.goBackButton.Text = "Home";
             this.goBackButton.UseVisualStyleBackColor = true;
             this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
@@ -64,7 +63,7 @@
             this.exitButton.Location = new System.Drawing.Point(495, 414);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(108, 36);
-            this.exitButton.TabIndex = 7;
+            this.exitButton.TabIndex = 2;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -99,23 +98,11 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Thank you for your purchase! This is your order number! ";
             // 
-            // confirmButton
-            // 
-            this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButton.Location = new System.Drawing.Point(276, 414);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(108, 36);
-            this.confirmButton.TabIndex = 11;
-            this.confirmButton.Text = "Confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
-            // 
             // ReceiptScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 462);
-            this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderNumberDisplayLabel);
             this.Controls.Add(this.usernameLabel);
@@ -138,6 +125,5 @@
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label orderNumberDisplayLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button confirmButton;
     }
 }

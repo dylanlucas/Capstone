@@ -85,6 +85,7 @@
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trackOrderButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryBindingSource)).BeginInit();
@@ -109,9 +110,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.trackOrderButton);
             this.groupBox1.Controls.Add(this.orderButton);
             this.groupBox1.Controls.Add(this.exitButton);
             this.groupBox1.Controls.Add(this.addToCartButton);
+            this.groupBox1.Controls.Add(this.televisionButton);
+            this.groupBox1.Controls.Add(this.consoleButton);
+            this.groupBox1.Controls.Add(this.tabletButton);
+            this.groupBox1.Controls.Add(this.computerButton);
             this.groupBox1.Controls.Add(this.returnsButton);
             this.groupBox1.Controls.Add(this.toCartButton);
             this.groupBox1.Controls.Add(this.logOutButton);
@@ -125,20 +131,20 @@
             // 
             // orderButton
             // 
-            this.orderButton.Location = new System.Drawing.Point(0, 240);
+            this.orderButton.Location = new System.Drawing.Point(0, 268);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(150, 30);
-            this.orderButton.TabIndex = 3;
+            this.orderButton.TabIndex = 7;
             this.orderButton.Text = "Purchase Order";
             this.orderButton.UseVisualStyleBackColor = true;
             this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(0, 475);
+            this.exitButton.Location = new System.Drawing.Point(0, 488);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(150, 30);
-            this.exitButton.TabIndex = 7;
+            this.exitButton.TabIndex = 12;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -146,50 +152,50 @@
             // addToCartButton
             // 
             this.addToCartButton.Enabled = false;
-            this.addToCartButton.Location = new System.Drawing.Point(0, 127);
+            this.addToCartButton.Location = new System.Drawing.Point(0, 196);
             this.addToCartButton.Name = "addToCartButton";
             this.addToCartButton.Size = new System.Drawing.Size(150, 30);
-            this.addToCartButton.TabIndex = 1;
+            this.addToCartButton.TabIndex = 5;
             this.addToCartButton.Text = "Add to Cart";
             this.addToCartButton.UseVisualStyleBackColor = true;
             this.addToCartButton.Click += new System.EventHandler(this.addToCartButton_Click);
             // 
             // returnsButton
             // 
-            this.returnsButton.Location = new System.Drawing.Point(0, 358);
+            this.returnsButton.Location = new System.Drawing.Point(0, 376);
             this.returnsButton.Name = "returnsButton";
             this.returnsButton.Size = new System.Drawing.Size(150, 30);
-            this.returnsButton.TabIndex = 5;
+            this.returnsButton.TabIndex = 10;
             this.returnsButton.Text = "Returns";
             this.returnsButton.UseVisualStyleBackColor = true;
             this.returnsButton.Click += new System.EventHandler(this.returnsButton_Click);
             // 
             // toCartButton
             // 
-            this.toCartButton.Location = new System.Drawing.Point(0, 183);
+            this.toCartButton.Location = new System.Drawing.Point(0, 232);
             this.toCartButton.Name = "toCartButton";
             this.toCartButton.Size = new System.Drawing.Size(150, 30);
-            this.toCartButton.TabIndex = 2;
+            this.toCartButton.TabIndex = 6;
             this.toCartButton.Text = "Go to Cart";
             this.toCartButton.UseVisualStyleBackColor = true;
             this.toCartButton.Click += new System.EventHandler(this.toCartButton_Click);
             // 
             // logOutButton
             // 
-            this.logOutButton.Location = new System.Drawing.Point(0, 416);
+            this.logOutButton.Location = new System.Drawing.Point(1, 452);
             this.logOutButton.Name = "logOutButton";
             this.logOutButton.Size = new System.Drawing.Size(150, 30);
-            this.logOutButton.TabIndex = 6;
+            this.logOutButton.TabIndex = 11;
             this.logOutButton.Text = "Log Out";
             this.logOutButton.UseVisualStyleBackColor = true;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
             // repairsButton
             // 
-            this.repairsButton.Location = new System.Drawing.Point(0, 298);
+            this.repairsButton.Location = new System.Drawing.Point(0, 340);
             this.repairsButton.Name = "repairsButton";
             this.repairsButton.Size = new System.Drawing.Size(150, 30);
-            this.repairsButton.TabIndex = 4;
+            this.repairsButton.TabIndex = 9;
             this.repairsButton.Text = "Repairs";
             this.repairsButton.UseVisualStyleBackColor = true;
             this.repairsButton.Click += new System.EventHandler(this.repairsButton_Click);
@@ -197,10 +203,10 @@
             // contactButton
             // 
             this.contactButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contactButton.Location = new System.Drawing.Point(949, 12);
+            this.contactButton.Location = new System.Drawing.Point(948, 22);
             this.contactButton.Name = "contactButton";
-            this.contactButton.Size = new System.Drawing.Size(149, 57);
-            this.contactButton.TabIndex = 12;
+            this.contactButton.Size = new System.Drawing.Size(149, 37);
+            this.contactButton.TabIndex = 13;
             this.contactButton.Text = "CONTACT";
             this.contactButton.UseVisualStyleBackColor = true;
             this.contactButton.Click += new System.EventHandler(this.contactButton_Click);
@@ -208,10 +214,10 @@
             // televisionButton
             // 
             this.televisionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.televisionButton.Location = new System.Drawing.Point(220, 486);
+            this.televisionButton.Location = new System.Drawing.Point(0, 36);
             this.televisionButton.Name = "televisionButton";
-            this.televisionButton.Size = new System.Drawing.Size(149, 57);
-            this.televisionButton.TabIndex = 8;
+            this.televisionButton.Size = new System.Drawing.Size(149, 30);
+            this.televisionButton.TabIndex = 1;
             this.televisionButton.Text = "Televisions";
             this.televisionButton.UseVisualStyleBackColor = true;
             this.televisionButton.Click += new System.EventHandler(this.televisionButton_Click);
@@ -219,10 +225,10 @@
             // consoleButton
             // 
             this.consoleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consoleButton.Location = new System.Drawing.Point(438, 486);
+            this.consoleButton.Location = new System.Drawing.Point(0, 72);
             this.consoleButton.Name = "consoleButton";
-            this.consoleButton.Size = new System.Drawing.Size(149, 57);
-            this.consoleButton.TabIndex = 9;
+            this.consoleButton.Size = new System.Drawing.Size(149, 29);
+            this.consoleButton.TabIndex = 2;
             this.consoleButton.Text = "Consoles";
             this.consoleButton.UseVisualStyleBackColor = true;
             this.consoleButton.Click += new System.EventHandler(this.consoleButton_Click);
@@ -230,10 +236,10 @@
             // tabletButton
             // 
             this.tabletButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabletButton.Location = new System.Drawing.Point(661, 486);
+            this.tabletButton.Location = new System.Drawing.Point(1, 107);
             this.tabletButton.Name = "tabletButton";
-            this.tabletButton.Size = new System.Drawing.Size(149, 57);
-            this.tabletButton.TabIndex = 10;
+            this.tabletButton.Size = new System.Drawing.Size(149, 31);
+            this.tabletButton.TabIndex = 3;
             this.tabletButton.Text = "Tablets";
             this.tabletButton.UseVisualStyleBackColor = true;
             this.tabletButton.Click += new System.EventHandler(this.tabletButton_Click);
@@ -241,10 +247,10 @@
             // computerButton
             // 
             this.computerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computerButton.Location = new System.Drawing.Point(882, 486);
+            this.computerButton.Location = new System.Drawing.Point(1, 144);
             this.computerButton.Name = "computerButton";
-            this.computerButton.Size = new System.Drawing.Size(149, 57);
-            this.computerButton.TabIndex = 11;
+            this.computerButton.Size = new System.Drawing.Size(149, 33);
+            this.computerButton.TabIndex = 4;
             this.computerButton.Text = "Computers";
             this.computerButton.UseVisualStyleBackColor = true;
             this.computerButton.Click += new System.EventHandler(this.computerButton_Click);
@@ -270,7 +276,6 @@
             this.tableAdapterManager.ComputerDirectoryTableAdapter = this.computerDirectoryTableAdapter;
             this.tableAdapterManager.ConsoleDirectoryTableAdapter = this.consoleDirectoryTableAdapter;
             this.tableAdapterManager.CustomerInformationTableAdapter = null;
-            this.tableAdapterManager.OrdersTableAdapter = null;
             this.tableAdapterManager.PurchasesTableAdapter = null;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;
@@ -304,13 +309,12 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.televisionDirectoryDataGridView.DataSource = this.televisionDirectoryBindingSource;
-            this.televisionDirectoryDataGridView.Location = new System.Drawing.Point(220, 100);
+            this.televisionDirectoryDataGridView.Location = new System.Drawing.Point(220, 75);
             this.televisionDirectoryDataGridView.Name = "televisionDirectoryDataGridView";
             this.televisionDirectoryDataGridView.ReadOnly = true;
             this.televisionDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.televisionDirectoryDataGridView.Size = new System.Drawing.Size(811, 371);
+            this.televisionDirectoryDataGridView.Size = new System.Drawing.Size(844, 475);
             this.televisionDirectoryDataGridView.TabIndex = 13;
-            this.televisionDirectoryDataGridView.UseWaitCursor = true;
             this.televisionDirectoryDataGridView.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
@@ -388,11 +392,11 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.tabletDirectorDataGridView.DataSource = this.tabletDirectorBindingSource;
-            this.tabletDirectorDataGridView.Location = new System.Drawing.Point(220, 100);
+            this.tabletDirectorDataGridView.Location = new System.Drawing.Point(220, 75);
             this.tabletDirectorDataGridView.Name = "tabletDirectorDataGridView";
             this.tabletDirectorDataGridView.ReadOnly = true;
             this.tabletDirectorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tabletDirectorDataGridView.Size = new System.Drawing.Size(811, 371);
+            this.tabletDirectorDataGridView.Size = new System.Drawing.Size(844, 475);
             this.tabletDirectorDataGridView.TabIndex = 13;
             this.tabletDirectorDataGridView.Visible = false;
             // 
@@ -467,11 +471,11 @@
             this.dataGridViewTextBoxColumn16,
             this.dataGridViewTextBoxColumn17});
             this.consoleDirectoryDataGridView.DataSource = this.consoleDirectoryBindingSource;
-            this.consoleDirectoryDataGridView.Location = new System.Drawing.Point(398, 100);
+            this.consoleDirectoryDataGridView.Location = new System.Drawing.Point(405, 75);
             this.consoleDirectoryDataGridView.Name = "consoleDirectoryDataGridView";
             this.consoleDirectoryDataGridView.ReadOnly = true;
             this.consoleDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.consoleDirectoryDataGridView.Size = new System.Drawing.Size(440, 371);
+            this.consoleDirectoryDataGridView.Size = new System.Drawing.Size(445, 475);
             this.consoleDirectoryDataGridView.TabIndex = 13;
             this.consoleDirectoryDataGridView.Visible = false;
             // 
@@ -522,11 +526,11 @@
             this.dataGridViewTextBoxColumn24,
             this.dataGridViewTextBoxColumn25});
             this.computerDirectoryDataGridView.DataSource = this.computerDirectoryBindingSource;
-            this.computerDirectoryDataGridView.Location = new System.Drawing.Point(220, 100);
+            this.computerDirectoryDataGridView.Location = new System.Drawing.Point(220, 75);
             this.computerDirectoryDataGridView.Name = "computerDirectoryDataGridView";
             this.computerDirectoryDataGridView.ReadOnly = true;
             this.computerDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.computerDirectoryDataGridView.Size = new System.Drawing.Size(811, 371);
+            this.computerDirectoryDataGridView.Size = new System.Drawing.Size(844, 475);
             this.computerDirectoryDataGridView.TabIndex = 13;
             this.computerDirectoryDataGridView.Visible = false;
             // 
@@ -586,6 +590,16 @@
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
+            // trackOrderButton
+            // 
+            this.trackOrderButton.Location = new System.Drawing.Point(0, 304);
+            this.trackOrderButton.Name = "trackOrderButton";
+            this.trackOrderButton.Size = new System.Drawing.Size(150, 30);
+            this.trackOrderButton.TabIndex = 8;
+            this.trackOrderButton.Text = "Track Order";
+            this.trackOrderButton.UseVisualStyleBackColor = true;
+            this.trackOrderButton.Click += new System.EventHandler(this.trackOrderButton_Click);
+            // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,10 +609,6 @@
             this.Controls.Add(this.consoleDirectoryDataGridView);
             this.Controls.Add(this.tabletDirectorDataGridView);
             this.Controls.Add(this.televisionDirectoryDataGridView);
-            this.Controls.Add(this.computerButton);
-            this.Controls.Add(this.tabletButton);
-            this.Controls.Add(this.consoleButton);
-            this.Controls.Add(this.televisionButton);
             this.Controls.Add(this.contactButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.genericLabel);
@@ -678,5 +688,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.Button trackOrderButton;
     }
 }

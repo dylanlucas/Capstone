@@ -21,6 +21,13 @@ namespace GlobalSanicElectronics
         //Declare variables
         double userPrice = 0;
 
+        bool consoleYesNo;
+        bool computerYesNo;
+        bool tabletYesNo;
+        bool televisionYesNo;
+        
+        string price;
+
         public string orderProperty { get; set; }        
         public double overallPrice { get; set; }
 
@@ -59,6 +66,8 @@ namespace GlobalSanicElectronics
         {
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
 
             var select = "SELECT Console, Computer, Tablet, Television, Brand, Price FROM Cart WHERE Username= '" + orderProperty + "'";
             var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
@@ -76,42 +85,45 @@ namespace GlobalSanicElectronics
             {
                 var lastRow = cartDataGridView.Rows[cartDataGridView.RowCount - 1];
                 lastRow.Selected = false;
-            }
 
-            foreach (DataGridViewRow row in cartDataGridView.SelectedRows)
-            {
-                string console = row.Cells[0].Value.ToString();
-                string computer = row.Cells[1].Value.ToString();
-                string tablet = row.Cells[2].Value.ToString();
-                string television = row.Cells[3].Value.ToString();
-                string brand = row.Cells[4].Value.ToString();
-                string price = row.Cells[5].Value.ToString();
-
-                userPrice += double.Parse(price);
-
-                if (console == "Yes")
+                foreach (DataGridViewRow row in cartDataGridView.SelectedRows)
                 {
-                    consoleTabControl.Enabled = true;
-                    consoleBundleFourRadioButton.Checked = true;
-                    consoleWarrantyFourRadioButton.Checked = true;
-                }
+                    string console = row.Cells[0].Value.ToString();
+                    string computer = row.Cells[1].Value.ToString();
+                    string tablet = row.Cells[2].Value.ToString();
+                    string television = row.Cells[3].Value.ToString();
+                    price = row.Cells[5].Value.ToString();
 
-                if (computer == "Yes")
-                {
-                    computerGroupGox.Enabled = true;
-                    computerWarrantyFourRadioButton.Checked = true;
-                }
+                    userPrice += double.Parse(price);
 
-                if (tablet == "Yes")
-                {
-                    tabletGroupBox.Enabled = true;
-                    tabletWarrantyFourRadioButton.Checked = true;
-                }
+                    if (console == "Yes")
+                    {
+                        consoleYesNo = true;
+                        consoleTabControl.Enabled = true;
+                        consoleBundleFourRadioButton.Checked = true;
+                        consoleWarrantyFourRadioButton.Checked = true;
+                    }
 
-                if (television == "Yes")
-                {
-                    televisionGroupBox.Enabled = true;
-                    televisionWarrantyFourRadioButton.Checked = true;
+                    if (computer == "Yes")
+                    {
+                        computerYesNo = true;
+                        computerGroupGox.Enabled = true;
+                        computerWarrantyFourRadioButton.Checked = true;
+                    }
+
+                    if (tablet == "Yes")
+                    {
+                        tabletYesNo = true;
+                        tabletGroupBox.Enabled = true;
+                        tabletWarrantyFourRadioButton.Checked = true;
+                    }
+
+                    if (television == "Yes")
+                    {
+                        televisionYesNo = true;
+                        televisionGroupBox.Enabled = true;
+                        televisionWarrantyFourRadioButton.Checked = true;
+                    }
                 }
             }
         }
@@ -196,7 +208,52 @@ namespace GlobalSanicElectronics
             OrderScreenPartTwo orderScreenPartTwoForm = new OrderScreenPartTwo();
             orderScreenPartTwoForm.userPrice = userPrice;
             orderScreenPartTwoForm.userName = orderProperty;
+
+            if(consoleYesNo == true)
+            {
+                orderScreenPartTwoForm.console = "Yes";
+            }
+            else
+            {
+                orderScreenPartTwoForm.console = "No";
+            }
+
+            if (computerYesNo == true)
+            {
+                orderScreenPartTwoForm.computer = "Yes";
+            }
+            else
+            {
+                orderScreenPartTwoForm.computer = "No";
+            }
+            
+            if (tabletYesNo == true)
+            {
+                orderScreenPartTwoForm.tablet = "Yes";
+            }
+            else
+            {
+                orderScreenPartTwoForm.tablet = "No";
+            }
+
+            if (televisionYesNo == true)
+            {
+                orderScreenPartTwoForm.television = "Yes";
+            }
+            else
+            {
+                orderScreenPartTwoForm.television = "No";
+            }
+            
             orderScreenPartTwoForm.Show();
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
         }
     }
 }

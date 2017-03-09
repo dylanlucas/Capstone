@@ -303,7 +303,7 @@
             this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
             this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
             this.tableAdapterManager.CustomerInformationTableAdapter = this.customerInformationTableAdapter;
-            this.tableAdapterManager.OrdersTableAdapter = null;
+            //this.tableAdapterManager.OrdersTableAdapter = null;
             this.tableAdapterManager.PurchasesTableAdapter = null;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;

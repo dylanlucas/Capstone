@@ -87,9 +87,6 @@
     <Compile Include="EmployeeScreen.Designer.cs">
       <DependentUpon>EmployeeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="GSEDatabaseDataSet.cs">
-      <DependentUpon>GSEDatabaseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="GSEDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -169,6 +166,12 @@
     <Compile Include="ReturnScreen.Designer.cs">
       <DependentUpon>ReturnScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrackOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrackOrder.Designer.cs">
+      <DependentUpon>TrackOrder.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountCreation.resx">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnScreen.resx">
       <DependentUpon>ReturnScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrackOrder.resx">
+      <DependentUpon>TrackOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GSEDatabaseDataSet.xsc">
       <DependentUpon>GSEDatabaseDataSet.xsd</DependentUpon>
