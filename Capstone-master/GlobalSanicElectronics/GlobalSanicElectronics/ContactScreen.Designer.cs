@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.goBackButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -112,23 +112,23 @@
             this.label5.Text = "GSEsupport@gse.com";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // goBackButton
+            // closeButton
             // 
-            this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goBackButton.Location = new System.Drawing.Point(161, 349);
-            this.goBackButton.Name = "goBackButton";
-            this.goBackButton.Size = new System.Drawing.Size(108, 36);
-            this.goBackButton.TabIndex = 1;
-            this.goBackButton.Text = "Go Back";
-            this.goBackButton.UseVisualStyleBackColor = true;
-            this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.Location = new System.Drawing.Point(161, 349);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(108, 36);
+            this.closeButton.TabIndex = 1;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.goBackButton_Click);
             // 
             // ContactScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 397);
-            this.Controls.Add(this.goBackButton);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -152,6 +152,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button goBackButton;
+        private System.Windows.Forms.Button closeButton;
     }
 }

@@ -21,10 +21,6 @@ namespace GlobalSanicElectronics
         {
             //Hide this form so the user can no longer see it as it is no longer needed
             this.Hide();
-
-            //Go back to the Main Application since the user has requested to
-            MainApplication mainApplicationForm = new MainApplication();
-            mainApplicationForm.Show();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
