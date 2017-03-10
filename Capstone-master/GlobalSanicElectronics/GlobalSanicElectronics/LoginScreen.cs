@@ -21,6 +21,7 @@ namespace GlobalSanicElectronics
 
         private void loginButton_Click(object sender, EventArgs e)
         {                                                        
+            
             string salt = "WquZ012C";
 
             var bytes = new UTF8Encoding().GetBytes(salt + passwordInputTextBox.Text);
@@ -67,9 +68,6 @@ namespace GlobalSanicElectronics
                     mainApplicationForm.mainApplicationUsername = usernameInputTextBox.Text;
                     mainApplicationForm.Show();
                 }
-
-                    
-
             }
             else
             {
@@ -106,6 +104,24 @@ namespace GlobalSanicElectronics
         private void LoginScreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void forgotPassButton_Click(object sender, EventArgs e)
+        {
+            //Hide this form so the user can no longer see it as it is no longer needed
+            this.Hide();
+
+            ForgotPassword forgotPasswordForm = new ForgotPassword();
+            forgotPasswordForm.Show();
+        }
+
+        private void changePasswordButton_Click(object sender, EventArgs e)
+        {
+            //Hide this form so the user can no longer see it as it is no longer needed
+            this.Hide();
+
+            ChangePassword changePasswordForm = new ChangePassword();
+            changePasswordForm.Show();
         }
     }
 }

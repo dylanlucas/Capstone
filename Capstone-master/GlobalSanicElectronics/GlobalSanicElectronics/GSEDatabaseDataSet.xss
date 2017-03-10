@@ -7,18 +7,19 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Cart" ZOrder="19" X="106" Y="152" Height="305" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:CCInformation" ZOrder="4" X="261" Y="22" Height="134" Width="230" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:ComputerDirectory" ZOrder="3" X="613" Y="323" Height="248" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
-    <Shape ID="DesignTable:ConsoleDirectory" ZOrder="2" X="953" Y="420" Height="172" Width="244" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:CCInformation" ZOrder="6" X="261" Y="22" Height="134" Width="230" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:ComputerDirectory" ZOrder="5" X="613" Y="323" Height="248" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:ConsoleDirectory" ZOrder="4" X="953" Y="420" Height="172" Width="244" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:CustomerInformation" ZOrder="18" X="1249" Y="70" Height="229" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:Purchases" ZOrder="17" X="1589" Y="70" Height="229" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:Refunds" ZOrder="16" X="1861" Y="70" Height="172" Width="192" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:Repairs" ZOrder="15" X="2123" Y="70" Height="172" Width="187" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:TabletDirector" ZOrder="14" X="2380" Y="70" Height="248" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
-    <Shape ID="DesignTable:TelevisionDirectory" ZOrder="13" X="2678" Y="70" Height="248" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:TelevisionDirectory" ZOrder="14" X="2678" Y="70" Height="248" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
+    <Shape ID="DesignTable:ResetTickets" ZOrder="2" X="3005" Y="22" Height="153" Width="217" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:TabletDirector" ZOrder="1" X="3292" Y="22" Height="248" Width="228" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:FK_CustomerInformation_Cart" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:FK_CustomerInformation_Cart" ZOrder="13" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1249</X>
@@ -30,7 +31,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_CustomerInformation_CCInformation" ZOrder="11" LineWidth="11">
+    <Connector ID="DesignRelation:FK_CustomerInformation_CCInformation" ZOrder="12" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1249</X>
@@ -42,7 +43,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Cart_ComputerDirectory" ZOrder="10" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Cart_ComputerDirectory" ZOrder="11" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>275</X>
@@ -54,7 +55,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Cart_ConsoleDirectory" ZOrder="9" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Cart_ConsoleDirectory" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>275</X>
@@ -66,7 +67,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Repairs_CustomerInformation" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Repairs_CustomerInformation" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>118</X>
@@ -86,7 +87,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_CustomerInformation_Purchases" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:FK_CustomerInformation_Purchases" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>110</X>
@@ -106,7 +107,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_CustomerInformation_Refunds" ZOrder="7" LineWidth="11">
+    <Connector ID="DesignRelation:FK_CustomerInformation_Refunds" ZOrder="8" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>102</X>
@@ -126,19 +127,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_Cart_TabletDirector" ZOrder="6" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>275</X>
-          <Y>217</Y>
-        </Point>
-        <Point>
-          <X>2380</X>
-          <Y>217</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:FK_Cart_TelevisionDirectory" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:FK_Cart_TelevisionDirectory" ZOrder="7" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>275</X>

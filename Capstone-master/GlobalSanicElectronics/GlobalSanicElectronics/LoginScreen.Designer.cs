@@ -35,6 +35,8 @@
             this.passwordInputTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.forgotPassButton = new System.Windows.Forms.Button();
+            this.changePasswordButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -87,9 +89,9 @@
             // loginButton
             // 
             this.loginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginButton.Location = new System.Drawing.Point(74, 300);
+            this.loginButton.Location = new System.Drawing.Point(88, 300);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(108, 36);
+            this.loginButton.Size = new System.Drawing.Size(108, 55);
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
@@ -98,19 +100,43 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(240, 300);
+            this.exitButton.Location = new System.Drawing.Point(268, 300);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(108, 36);
-            this.exitButton.TabIndex = 4;
+            this.exitButton.Size = new System.Drawing.Size(108, 55);
+            this.exitButton.TabIndex = 5;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // forgotPassButton
+            // 
+            this.forgotPassButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgotPassButton.Location = new System.Drawing.Point(88, 387);
+            this.forgotPassButton.Name = "forgotPassButton";
+            this.forgotPassButton.Size = new System.Drawing.Size(108, 55);
+            this.forgotPassButton.TabIndex = 4;
+            this.forgotPassButton.Text = "Forgot Password";
+            this.forgotPassButton.UseVisualStyleBackColor = true;
+            this.forgotPassButton.Click += new System.EventHandler(this.forgotPassButton_Click);
+            // 
+            // changePasswordButton
+            // 
+            this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePasswordButton.Location = new System.Drawing.Point(268, 387);
+            this.changePasswordButton.Name = "changePasswordButton";
+            this.changePasswordButton.Size = new System.Drawing.Size(108, 55);
+            this.changePasswordButton.TabIndex = 6;
+            this.changePasswordButton.Text = "Change Password";
+            this.changePasswordButton.UseVisualStyleBackColor = true;
+            this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
             // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 385);
+            this.ClientSize = new System.Drawing.Size(462, 454);
+            this.Controls.Add(this.changePasswordButton);
+            this.Controls.Add(this.forgotPassButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordInputTextBox);
@@ -135,5 +161,7 @@
         private System.Windows.Forms.TextBox passwordInputTextBox;
         private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button forgotPassButton;
+        private System.Windows.Forms.Button changePasswordButton;
     }
 }
