@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -16,7 +17,7 @@ namespace GlobalSanicElectronics
     {
         public OrderScreenPartTwo()
         {
-            InitializeComponent();
+            InitializeComponent();      
         }
 
         public double userPrice { get; set; }
@@ -40,15 +41,12 @@ namespace GlobalSanicElectronics
                 yearComboBox.Items.Add(year.ToString());
             }
 
-            string conString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True";
-            SqlConnection con = new SqlConnection(conString);
-
             string selectSql = "SELECT Address, City, State, Zip FROM CustomerInformation WHERE Username= '" + userName + "'";
-            SqlCommand com = new SqlCommand(selectSql, con);
+            SqlCommand com = new SqlCommand(selectSql, DatabaseOperations.sqlConnectionLink);
 
             try
             {
-                con.Open();
+                DatabaseOperations.sqlConnectionLink.Open();
 
                 using (SqlDataReader reader = com.ExecuteReader())
                 {
@@ -63,7 +61,7 @@ namespace GlobalSanicElectronics
             }
             finally
             {
-                con.Close();
+                DatabaseOperations.sqlConnectionLink.Close();
             }
         }
 
@@ -113,9 +111,6 @@ namespace GlobalSanicElectronics
                 }
                 else
                 {
-                    System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-
                     string salt = "WquZ012C";
 
                     var bytes = new UTF8Encoding().GetBytes(salt + cardNumberTextBox.Text);
@@ -125,16 +120,16 @@ namespace GlobalSanicElectronics
                         hashBytes = algorithm.ComputeHash(bytes);
                     }
 
-                    string creditHash = Convert.ToBase64String(bytes);
+                    string creditcardHash = Convert.ToBase64String(hashBytes);
 
-                    SqlCommand insertCCInformation = new SqlCommand();
-                    insertCCInformation.CommandType = CommandType.Text;
-                    insertCCInformation.CommandText = "INSERT into CCInformation (CCName, CCNumber, Username) VALUES ('" + nameTextBox.Text + "' , '" + cardNumberTextBox.Text + "' , '" + userName + "')";
-                    insertCCInformation.Connection = sqlConnectionLink;
+                    SqlCommand updateCCTable = new SqlCommand();
+                    updateCCTable.CommandType = CommandType.Text;
+                    updateCCTable.CommandText = "INSERT into CCInformation (CCNumber, CCName, Username) VALUES ('" + creditcardHash + "' , '" + nameTextBox.Text + "' , '" + userName + "')";
+                    updateCCTable.Connection = DatabaseOperations.sqlConnectionLink;
 
-                    sqlConnectionLink.Open();
-                    insertCCInformation.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Open();
+                    updateCCTable.ExecuteNonQuery();
+                    DatabaseOperations.sqlConnectionLink.Close();
 
                     paymentGroupBox.Enabled = false;
                 }
@@ -202,7 +197,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             OrderScreen orderScreenForm = new OrderScreen();
-            orderScreenForm.orderProperty = userName;
+            orderScreenForm.orderFormUsername = userName;
             orderScreenForm.overallPrice = userPrice;
             orderScreenForm.Show();
         }

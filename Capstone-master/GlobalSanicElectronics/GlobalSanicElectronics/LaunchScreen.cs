@@ -42,5 +42,10 @@ namespace GlobalSanicElectronics
             //Close the application out when the user clicks Exit
             this.Close();
         }
+
+        private void LaunchScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

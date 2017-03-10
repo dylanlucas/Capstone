@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
     public partial class TrackOrder : Form
-    {
+    {       
+
         public TrackOrder()
         {
             InitializeComponent();
@@ -32,10 +34,15 @@ namespace GlobalSanicElectronics
         {
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
             this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
 
             var select = "SELECT * FROM Purchases WHERE CustomerName= '" + orderUsername + "'";
-            var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-            var dataAdapter = new SqlDataAdapter(select, connection);
+            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
@@ -58,7 +65,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
-            mainApplicationForm.MyProperty = orderUsername;
+            mainApplicationForm.mainApplicationUsername = orderUsername;
             mainApplicationForm.Show();
         }
 
@@ -70,6 +77,30 @@ namespace GlobalSanicElectronics
                 "\n" + "Stage Four = Order has been delivered to local mailing facility" +
                 "\n" + "Stage Five = Order is out for delivery" +
                 "\n" + "Stage Six = Order has been delivered");
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
         }
     }
 }

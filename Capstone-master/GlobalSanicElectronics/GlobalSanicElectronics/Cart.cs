@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -15,45 +16,30 @@ namespace GlobalSanicElectronics
     {
         public Cart()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
-        //Declare variable for Database
-        System.Data.SqlClient.SqlConnection sqlConnectionLink =
-            new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
 
-        public string cartProperty { get; set; }        
+        public string cartFormUsername { get; set; }        
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             if(cartDataGridView.SelectedRows.Count > 0)
             {
                 foreach (DataGridViewRow row in this.cartDataGridView.SelectedRows)
-                {
-                    string cartID = row.Cells[0].Value.ToString();
-                    string cartUsername = row.Cells[1].Value.ToString();
-                    string cartBrand = row.Cells[2].Value.ToString();
-                    string cartSize = row.Cells[3].Value.ToString();
-                    string cartProcessor = row.Cells[4].Value.ToString();
-                    string cartStorage = row.Cells[5].Value.ToString();
-                    string cartRAM = row.Cells[6].Value.ToString();
-                    string cartWifi = row.Cells[7].Value.ToString();
-                    string cartSmart = row.Cells[8].Value.ToString();
-                    string cartLED = row.Cells[9].Value.ToString();
-                    string cartResolution = row.Cells[10].Value.ToString();
-                    string cartColor = row.Cells[11].Value.ToString();
-                    string cartPrice = row.Cells[12].Value.ToString();
+                {                    
+                    string cartID = row.Cells[16].Value.ToString();
 
                     cartDataGridView.Rows.RemoveAt(row.Index);
 
                     //Declare Variables
                     Int32 removeAndUpdateCart;
 
-                    string remove = "DELETE FROM Cart WHERE CartID=" + cartID;
-                    SqlCommand removeAndUpdateCommand = new SqlCommand(remove, sqlConnectionLink);
-                    sqlConnectionLink.Open();
+                    string remove = "DELETE FROM Cart WHERE CartID= " + cartID;
+                    SqlCommand removeAndUpdateCommand = new SqlCommand(remove, DatabaseOperations.sqlConnectionLink);
+                    DatabaseOperations.sqlConnectionLink.Open();
                     removeAndUpdateCart = Convert.ToInt32(removeAndUpdateCommand.ExecuteScalar());
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Close();
 
                     MessageBox.Show("Item has been removed from your cart!");
 
@@ -75,7 +61,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
-            mainApplicationForm.MyProperty = cartProperty;
+            mainApplicationForm.mainApplicationUsername = cartFormUsername;
             mainApplicationForm.Show();
         }
 
@@ -101,10 +87,17 @@ namespace GlobalSanicElectronics
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
 
-            var select = "SELECT * FROM Cart WHERE Username= '" + cartProperty + "'";
-            var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-            var dataAdapter = new SqlDataAdapter(select, connection);
+            var select = "SELECT * FROM Cart WHERE Username= '" + cartFormUsername + "'";            
+            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
@@ -138,38 +131,6 @@ namespace GlobalSanicElectronics
         }
 
         private void cartBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.cartBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void cartBindingNavigatorSaveItem_Click_5(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.cartBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void cartBindingNavigatorSaveItem_Click_6(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.cartBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void cartBindingNavigatorSaveItem_Click_7(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.cartBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void cartBindingNavigatorSaveItem_Click_8(object sender, EventArgs e)
         {
             this.Validate();
             this.cartBindingSource.EndEdit();

@@ -69,12 +69,54 @@ namespace GlobalSanicElectronics
             this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
             this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
+            this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
+            this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Refunds' table. You can move, or remove it, as needed.
+            this.refundsTableAdapter.Fill(this.gSEDatabaseDataSet.Refunds);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Orders' table. You can move, or remove it, as needed.
             //this.ordersTableAdapter.Fill(this.gSEDatabaseDataSet.Orders);
 
         }
 
         private void purchasesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
         {
             this.Validate();
             this.purchasesBindingSource.EndEdit();

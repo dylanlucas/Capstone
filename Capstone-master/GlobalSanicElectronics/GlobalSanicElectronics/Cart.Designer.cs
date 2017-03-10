@@ -38,6 +38,7 @@
             this.cartTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.CartTableAdapter();
             this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
             this.cartDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +55,6 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartDataGridView)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(220, 134);
+            this.usernameLabel.Location = new System.Drawing.Point(233, 91);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(81, 20);
             this.usernameLabel.TabIndex = 41;
@@ -120,6 +120,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CartTableAdapter = this.cartTableAdapter;
+            this.tableAdapterManager.CCInformationTableAdapter = null;
             this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
             this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
             this.tableAdapterManager.CustomerInformationTableAdapter = null;
@@ -135,6 +136,7 @@
             this.cartDataGridView.AutoGenerateColumns = false;
             this.cartDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cartDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -150,123 +152,121 @@
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn1});
+            this.dataGridViewTextBoxColumn17});
             this.cartDataGridView.DataSource = this.cartBindingSource;
-            this.cartDataGridView.Location = new System.Drawing.Point(48, 169);
+            this.cartDataGridView.Location = new System.Drawing.Point(14, 114);
             this.cartDataGridView.Name = "cartDataGridView";
-            this.cartDataGridView.Size = new System.Drawing.Size(430, 220);
+            this.cartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cartDataGridView.Size = new System.Drawing.Size(518, 291);
             this.cartDataGridView.TabIndex = 42;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Username";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Computer";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Computer";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Computer";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Computer";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Console";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Console";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Console";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Console";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Tablet";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tablet";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Tablet";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Tablet";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Television";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Television";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Television";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Television";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Brand";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Size";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Size";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Size";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Size";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Processor";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Processor";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Processor";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Processor";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Storage";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Storage";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Storage";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Storage";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "RAM";
+            this.dataGridViewTextBoxColumn10.HeaderText = "RAM";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "RAM";
-            this.dataGridViewTextBoxColumn11.HeaderText = "RAM";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Wifi";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Wifi";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Wifi";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Wifi";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Smart";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Smart";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
             // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Smart";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Smart";
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "LED";
+            this.dataGridViewTextBoxColumn13.HeaderText = "LED";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
             // dataGridViewTextBoxColumn14
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "LED";
-            this.dataGridViewTextBoxColumn14.HeaderText = "LED";
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Resolution";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Resolution";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Resolution";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Resolution";
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Color";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Color";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             // 
             // dataGridViewTextBoxColumn16
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Price";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
             // dataGridViewTextBoxColumn17
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "CartID";
+            this.dataGridViewTextBoxColumn17.HeaderText = "CartID";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CartID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CartID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // Cart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 499);
+            this.ClientSize = new System.Drawing.Size(553, 499);
             this.Controls.Add(this.cartDataGridView);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.removeButton);
@@ -294,6 +294,7 @@
         private GSEDatabaseDataSetTableAdapters.CartTableAdapter cartTableAdapter;
         private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView cartDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -310,6 +311,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

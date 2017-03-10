@@ -9,22 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
     public partial class MainApplication : Form
-    {
+    {        
         public MainApplication()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        //Declare variable for Database
-        System.Data.SqlClient.SqlConnection sqlConnectionLink =
-            new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-                                                   
-
-        public string MyProperty { get; set; }
+        public string mainApplicationUsername { get; set; }
 
         private void addToCartButton_Click(object sender, EventArgs e)
         {        
@@ -54,14 +50,14 @@ namespace GlobalSanicElectronics
                     System.Data.SqlClient.SqlCommand addTelevisionToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addTelevisionToCartCommand.CommandType = System.Data.CommandType.Text;
                     addTelevisionToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, LED, Smart, Resolution, Color, Price) VALUES ('" 
-                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution 
+                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution 
                         + "' , '" + color + "' , '" + price + "')";
 
                     //Establish a connection to the database and perform the addTelevisionToCartCommand
-                    addTelevisionToCartCommand.Connection = sqlConnectionLink;
-                    sqlConnectionLink.Open();
+                    addTelevisionToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                    DatabaseOperations.sqlConnectionLink.Open();
                     addTelevisionToCartCommand.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Close();
                 }
             }
 
@@ -87,18 +83,19 @@ namespace GlobalSanicElectronics
 
                     MessageBox.Show(brand + " tablet has been added to your cart with the price of $" + price);
 
+                    DatabaseOperations.sqlConnectionLink.Open();
+
                     //Set up the Command type so the program can input into the database
                     System.Data.SqlClient.SqlCommand addTabletToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addTabletToCartCommand.CommandType = System.Data.CommandType.Text;
                     addTabletToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Storage, Processor, Wifi, Color, Price) VALUES ('" 
-                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" 
+                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" 
                         + processor + "' , '" + wifi + "' , '" + color + "' , '" + price + "')";
 
                     //Establish a connection to the database and perform the addTabletToCartCommand
-                    addTabletToCartCommand.Connection = sqlConnectionLink;
-                    sqlConnectionLink.Open();
+                    addTabletToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
                     addTabletToCartCommand.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Close();
                 }
             }
 
@@ -124,14 +121,14 @@ namespace GlobalSanicElectronics
                     System.Data.SqlClient.SqlCommand addConsoleToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addConsoleToCartCommand.CommandType = System.Data.CommandType.Text;
                     addConsoleToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Storage, Price) VALUES ('" 
-                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" 
+                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" 
                         + storage + "' , '" + price + "')";
 
                     //Establish a connection to the database and perform the addConsoleToCartCommand
-                    addConsoleToCartCommand.Connection = sqlConnectionLink;
-                    sqlConnectionLink.Open();
+                    addConsoleToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                    DatabaseOperations.sqlConnectionLink.Open();
                     addConsoleToCartCommand.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Close();
                 }
             }
 
@@ -161,14 +158,14 @@ namespace GlobalSanicElectronics
                     System.Data.SqlClient.SqlCommand addComputerToCartCommand = new System.Data.SqlClient.SqlCommand();
                     addComputerToCartCommand.CommandType = System.Data.CommandType.Text;
                     addComputerToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Processor, Storage, RAM, Color, Price) VALUES ('" 
-                        + MyProperty + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" 
+                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" 
                         + brand + "' , '" + size + "' , '" + processor + "' , '" + storage + "' , '" + ram + "' , '" + color + "' , '" + price + "')";
 
                     //Establish a connection to the database and perform the addComputerToCartCommand
-                    addComputerToCartCommand.Connection = sqlConnectionLink;
-                    sqlConnectionLink.Open();
+                    addComputerToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                    DatabaseOperations.sqlConnectionLink.Open();
                     addComputerToCartCommand.ExecuteNonQuery();
-                    sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Close();
                 }
             }
 
@@ -177,21 +174,18 @@ namespace GlobalSanicElectronics
 
         private void toCartButton_Click(object sender, EventArgs e)
         {
-            //Declare variable for Database
-            System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-
             //Declare Variables
-            Int32 verifyCart;
+            bool verifyCart;
 
             //Check for username & Password
-            String validation = "SELECT * From Cart WHERE Username= '" + MyProperty + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
-            sqlConnectionLink.Open();
-            verifyCart = Convert.ToInt32(validateInputCommand.ExecuteScalar());
-            sqlConnectionLink.Close();
+            String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+            DatabaseOperations.sqlConnectionLink.Open();
+            verifyCart = validateInputCommand.ExecuteReader().HasRows;
 
-            if (verifyCart > 0)
+            DatabaseOperations.sqlConnectionLink.Close();
+
+            if (verifyCart)
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
@@ -199,7 +193,7 @@ namespace GlobalSanicElectronics
 
                 //Go to the Cart Screen as user requested
                 Cart cartForm = new Cart();
-                cartForm.cartProperty = MyProperty;
+                cartForm.cartFormUsername = mainApplicationUsername;
                 cartForm.Show();
             }
             else
@@ -259,28 +253,24 @@ namespace GlobalSanicElectronics
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            //Declare variable for Database
-            System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-
             //Declare Variables
-            Int32 verifyCart;
+            bool verifyCart;
 
             //Check for username & Password
-            String validation = "SELECT * From Cart WHERE Username= '" + MyProperty + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
-            sqlConnectionLink.Open();
-            verifyCart = Convert.ToInt32(validateInputCommand.ExecuteScalar());
-            sqlConnectionLink.Close();
+            String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+            DatabaseOperations.sqlConnectionLink.Open();
+            verifyCart = validateInputCommand.ExecuteReader().HasRows;
+            DatabaseOperations.sqlConnectionLink.Close();
 
-            if (verifyCart > 0)
+            if (verifyCart)
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
 
                 //Allow the user go to the order screen, IF the cart is equal to or greater than 1
                 OrderScreen orderScreenForm = new OrderScreen();
-                orderScreenForm.orderProperty = MyProperty;
+                orderScreenForm.orderFormUsername = mainApplicationUsername;
                 orderScreenForm.Show();
             }
             else
@@ -355,22 +345,6 @@ namespace GlobalSanicElectronics
 
         private void MainApplication_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
-            this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
-            this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
-            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
-            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
-            this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
-            this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
-            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
-            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
 
         }
 
@@ -421,19 +395,15 @@ namespace GlobalSanicElectronics
 
         private void trackOrderButton_Click(object sender, EventArgs e)
         {
-            //Declare variable for Database
-            System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-
             //Declare Variables
             Int32 verifyPurchases;
 
             //Check for username & Password
-            String validation = "SELECT * From Purchases WHERE CustomerName= '" + MyProperty + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
-            sqlConnectionLink.Open();
+            String validation = "SELECT * From Purchases WHERE CustomerName= '" + mainApplicationUsername + "'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+            DatabaseOperations.sqlConnectionLink.Open();
             verifyPurchases = Convert.ToInt32(validateInputCommand.ExecuteScalar());
-            sqlConnectionLink.Close();
+            DatabaseOperations.sqlConnectionLink.Close();
 
             if (verifyPurchases > 0)
             {
@@ -441,13 +411,45 @@ namespace GlobalSanicElectronics
                 this.Hide();
 
                 TrackOrder trackOrderForm = new TrackOrder();
-                trackOrderForm.orderUsername = MyProperty;
+                trackOrderForm.orderUsername = mainApplicationUsername;
                 trackOrderForm.Show();
             }
             else
             {
                 MessageBox.Show("No orders currently being processed or delivered!");
             }
+        }
+
+        private void computerDirectoryBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.computerDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_6(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_7(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void televisionDirectoryBindingNavigatorSaveItem_Click_8(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.televisionDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
         }
     }
 }

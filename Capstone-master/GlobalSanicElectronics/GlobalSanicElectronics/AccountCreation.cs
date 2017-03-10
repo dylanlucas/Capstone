@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -18,17 +20,13 @@ namespace GlobalSanicElectronics
     {
         public AccountCreation()
         {
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //Once the user has successfully created there account take them to the main application
-
-            //Declare variable for Database
-            System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-
+            
             bool checkPassword = validatePassword(passwordTextBox.Text.ToString());
             bool checkEmail = validateEmail(emailTextBox.Text.ToString());
 
@@ -120,16 +118,17 @@ namespace GlobalSanicElectronics
                             hashBytes = algorithm.ComputeHash(bytes);
                         }
 
-                        string passHash = Convert.ToBase64String(bytes);
+                        string passHash = Convert.ToBase64String(hashBytes);
+
 
                         System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
                         createUserCommand.CommandType = System.Data.CommandType.Text;
                         createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passHash + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
-                        createUserCommand.Connection = sqlConnectionLink;
+                        createUserCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
-                        sqlConnectionLink.Open();
+                        DatabaseOperations.sqlConnectionLink.Open();
                         createUserCommand.ExecuteNonQuery();
-                        sqlConnectionLink.Close();
+                        DatabaseOperations.sqlConnectionLink.Close();
 
                         MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
 
@@ -147,7 +146,7 @@ namespace GlobalSanicElectronics
                             "State = " + stateTextBox.Text + "\n" +
                             "Zip = " + zipTextBox.Text + "\n\n" +
                             "Thank you once again for joining Global Sanic Electronics! We hope you enjoy your stay!";
-                            
+
                         //Area to establish a connection with the smtpclient and put the host and port number down
                         var smtp = new SmtpClient
                         {
@@ -175,13 +174,13 @@ namespace GlobalSanicElectronics
                         //Go to the MainApplication since the user has successfully logged in and created there account
                         MainApplication mainApplicationForm = new MainApplication();
                         string username = usernameTextBox.Text;
-                        mainApplicationForm.MyProperty = username;
+                        mainApplicationForm.mainApplicationUsername = username;
                         mainApplicationForm.Show();
 
                     }
-                    catch (SqlException)
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show("Username already exists! Please use a different username");
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }
@@ -199,90 +198,10 @@ namespace GlobalSanicElectronics
             System.Windows.Forms.Application.Exit();
         }
 
-        private void customerInformationBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_5(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_6(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_7(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_8(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
         private void AccountCreation_Load(object sender, EventArgs e)
         {
             try
             {
-                // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
-            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
-            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
-            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.CustomerInformation' table. You can move, or remove it, as needed.
-            this.customerInformationTableAdapter.Fill(this.gSEDatabaseDataSet.CustomerInformation);
 
             //Clear text fields of all information so user doesn't get information in first fields in CustomerInformation table in the GSEDatabase
             usernameTextBox.Text = "";
@@ -299,30 +218,6 @@ namespace GlobalSanicElectronics
                 MessageBox.Show(ex.ToString());
             }
             
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_9(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_10(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
-        }
-
-        private void customerInformationBindingNavigatorSaveItem_Click_11(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.customerInformationBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
-
         }
 
         /**

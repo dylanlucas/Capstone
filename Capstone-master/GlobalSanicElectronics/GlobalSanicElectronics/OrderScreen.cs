@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -15,7 +16,7 @@ namespace GlobalSanicElectronics
     {
         public OrderScreen()
         {
-            InitializeComponent();
+            InitializeComponent();       
         }
 
         //Declare variables
@@ -28,7 +29,7 @@ namespace GlobalSanicElectronics
         
         string price;
 
-        public string orderProperty { get; set; }        
+        public string orderFormUsername { get; set; }        
         public double overallPrice { get; set; }
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
-            mainApplicationForm.MyProperty = orderProperty;
+            mainApplicationForm.mainApplicationUsername = orderFormUsername;
             mainApplicationForm.Show();
         }
 
@@ -68,10 +69,15 @@ namespace GlobalSanicElectronics
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
             this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
+            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
 
-            var select = "SELECT Console, Computer, Tablet, Television, Brand, Price FROM Cart WHERE Username= '" + orderProperty + "'";
-            var connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-            var dataAdapter = new SqlDataAdapter(select, connection);
+            var select = "SELECT Console, Computer, Tablet, Television, Brand, Price FROM Cart WHERE Username= '" + orderFormUsername + "'";            
+            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
             var ds = new DataSet();
@@ -207,7 +213,7 @@ namespace GlobalSanicElectronics
             //Go back to the Main Application since the user has requested to
             OrderScreenPartTwo orderScreenPartTwoForm = new OrderScreenPartTwo();
             orderScreenPartTwoForm.userPrice = userPrice;
-            orderScreenPartTwoForm.userName = orderProperty;
+            orderScreenPartTwoForm.userName = orderFormUsername;
 
             if(consoleYesNo == true)
             {
@@ -249,6 +255,30 @@ namespace GlobalSanicElectronics
         }
 
         private void cartBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cartBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void cartBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
         {
             this.Validate();
             this.cartBindingSource.EndEdit();

@@ -46,7 +46,6 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
@@ -112,6 +111,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CartTableAdapter = null;
+            this.tableAdapterManager.CCInformationTableAdapter = null;
             this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
             this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
             this.tableAdapterManager.CustomerInformationTableAdapter = null;
@@ -134,74 +134,66 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewTextBoxColumn8});
             this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
-            this.purchasesDataGridView.Location = new System.Drawing.Point(37, 119);
+            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 119);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
-            this.purchasesDataGridView.Size = new System.Drawing.Size(344, 220);
+            this.purchasesDataGridView.Size = new System.Drawing.Size(392, 220);
             this.purchasesDataGridView.TabIndex = 43;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "PurchaseNumber";
-            this.dataGridViewTextBoxColumn1.HeaderText = "PurchaseNumber";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Username";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerName";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderNumber";
+            this.dataGridViewTextBoxColumn2.HeaderText = "OrderNumber";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "OrderNumber";
-            this.dataGridViewTextBoxColumn3.HeaderText = "OrderNumber";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Computer";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Computer";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Computer";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Computer";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Console";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Console";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Console";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Console";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Television";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Television";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Television";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Television";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Tablet";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tablet";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Tablet";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Tablet";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Price";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Stages";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Stages";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Stages";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Stages";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // RequestRepairScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 463);
+            this.ClientSize = new System.Drawing.Size(416, 453);
             this.Controls.Add(this.purchasesDataGridView);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.goBackButton);
@@ -237,6 +229,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

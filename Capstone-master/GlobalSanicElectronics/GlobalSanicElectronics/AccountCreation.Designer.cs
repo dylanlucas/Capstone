@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountCreation));
             this.genericLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -50,23 +48,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.confirmButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.gSEDatabaseDataSet = new GlobalSanicElectronics.GSEDatabaseDataSet();
-            this.customerInformationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customerInformationTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.CustomerInformationTableAdapter();
-            this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
-            this.customerInformationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.customerInformationBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.emailTextBox = new System.Windows.Forms.TextBox();
@@ -75,10 +56,6 @@
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.stateTextBox = new System.Windows.Forms.TextBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerInformationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerInformationBindingNavigator)).BeginInit();
-            this.customerInformationBindingNavigator.SuspendLayout();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -283,162 +260,8 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
-            // gSEDatabaseDataSet
-            // 
-            this.gSEDatabaseDataSet.DataSetName = "GSEDatabaseDataSet";
-            this.gSEDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customerInformationBindingSource
-            // 
-            this.customerInformationBindingSource.DataMember = "CustomerInformation";
-            this.customerInformationBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // customerInformationTableAdapter
-            // 
-            this.customerInformationTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
-            this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
-            this.tableAdapterManager.CustomerInformationTableAdapter = this.customerInformationTableAdapter;
-            //this.tableAdapterManager.OrdersTableAdapter = null;
-            this.tableAdapterManager.PurchasesTableAdapter = null;
-            this.tableAdapterManager.RefundsTableAdapter = null;
-            this.tableAdapterManager.RepairsTableAdapter = null;
-            this.tableAdapterManager.TabletDirectorTableAdapter = null;
-            this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // customerInformationBindingNavigator
-            // 
-            this.customerInformationBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.customerInformationBindingNavigator.BindingSource = this.customerInformationBindingSource;
-            this.customerInformationBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.customerInformationBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.customerInformationBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.customerInformationBindingNavigatorSaveItem});
-            this.customerInformationBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.customerInformationBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.customerInformationBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.customerInformationBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.customerInformationBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.customerInformationBindingNavigator.Name = "customerInformationBindingNavigator";
-            this.customerInformationBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customerInformationBindingNavigator.Size = new System.Drawing.Size(508, 25);
-            this.customerInformationBindingNavigator.TabIndex = 27;
-            this.customerInformationBindingNavigator.Text = "bindingNavigator1";
-            this.customerInformationBindingNavigator.Visible = false;
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // customerInformationBindingNavigatorSaveItem
-            // 
-            this.customerInformationBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.customerInformationBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("customerInformationBindingNavigatorSaveItem.Image")));
-            this.customerInformationBindingNavigatorSaveItem.Name = "customerInformationBindingNavigatorSaveItem";
-            this.customerInformationBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.customerInformationBindingNavigatorSaveItem.Text = "Save Data";
-            this.customerInformationBindingNavigatorSaveItem.Click += new System.EventHandler(this.customerInformationBindingNavigatorSaveItem_Click_11);
-            // 
             // usernameTextBox
             // 
-            this.usernameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "Username", true));
             this.usernameTextBox.Location = new System.Drawing.Point(312, 99);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(170, 20);
@@ -447,7 +270,6 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "Password", true));
             this.passwordTextBox.Location = new System.Drawing.Point(312, 144);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
@@ -457,7 +279,6 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "Email", true));
             this.emailTextBox.Location = new System.Drawing.Point(312, 186);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(170, 20);
@@ -466,7 +287,6 @@
             // 
             // dOBTextBox
             // 
-            this.dOBTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "DOB", true));
             this.dOBTextBox.Location = new System.Drawing.Point(312, 230);
             this.dOBTextBox.MaxLength = 10;
             this.dOBTextBox.Name = "dOBTextBox";
@@ -476,7 +296,6 @@
             // 
             // addressTextBox
             // 
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "Address", true));
             this.addressTextBox.Location = new System.Drawing.Point(312, 276);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(170, 20);
@@ -485,7 +304,6 @@
             // 
             // cityTextBox
             // 
-            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "City", true));
             this.cityTextBox.Location = new System.Drawing.Point(312, 317);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(170, 20);
@@ -494,7 +312,6 @@
             // 
             // stateTextBox
             // 
-            this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "State", true));
             this.stateTextBox.Location = new System.Drawing.Point(312, 364);
             this.stateTextBox.MaxLength = 2;
             this.stateTextBox.Name = "stateTextBox";
@@ -504,7 +321,6 @@
             // 
             // zipTextBox
             // 
-            this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customerInformationBindingSource, "Zip", true));
             this.zipTextBox.Location = new System.Drawing.Point(312, 412);
             this.zipTextBox.MaxLength = 5;
             this.zipTextBox.Name = "zipTextBox";
@@ -525,7 +341,6 @@
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
-            this.Controls.Add(this.customerInformationBindingNavigator);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.label18);
@@ -549,11 +364,6 @@
             this.Name = "AccountCreation";
             this.Text = "AccountCreation";
             this.Load += new System.EventHandler(this.AccountCreation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerInformationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerInformationBindingNavigator)).EndInit();
-            this.customerInformationBindingNavigator.ResumeLayout(false);
-            this.customerInformationBindingNavigator.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,23 +391,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button confirmButton;
         private System.Windows.Forms.Button exitButton;
-        private GSEDatabaseDataSet gSEDatabaseDataSet;
-        private System.Windows.Forms.BindingSource customerInformationBindingSource;
-        private GSEDatabaseDataSetTableAdapters.CustomerInformationTableAdapter customerInformationTableAdapter;
-        private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator customerInformationBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton customerInformationBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.TextBox emailTextBox;

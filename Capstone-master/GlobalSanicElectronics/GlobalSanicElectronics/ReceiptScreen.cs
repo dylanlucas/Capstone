@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -18,12 +19,8 @@ namespace GlobalSanicElectronics
         public ReceiptScreen()
         {
             InitializeComponent();
-        }
-
-        //Declare variable for Database
-        System.Data.SqlClient.SqlConnection sqlConnectionLink =
-            new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-                                                    
+        }        
+                                                            
         public string username { get; set; }
         public double price { get; set; }
         public string console { get; set; }
@@ -39,11 +36,11 @@ namespace GlobalSanicElectronics
         private void ReceiptScreen_Load(object sender, EventArgs e)
         {
             string selectSql = "SELECT Email FROM CustomerInformation WHERE Username= '" + username + "'";
-            SqlCommand com = new SqlCommand(selectSql, sqlConnectionLink);
+            SqlCommand com = new SqlCommand(selectSql, DatabaseOperations.sqlConnectionLink);
 
             try
             {
-                sqlConnectionLink.Open();
+                DatabaseOperations.sqlConnectionLink.Open();
 
                 using (SqlDataReader reader = com.ExecuteReader())
                 {
@@ -55,7 +52,7 @@ namespace GlobalSanicElectronics
             }
             finally
             {
-                sqlConnectionLink.Close();
+                DatabaseOperations.sqlConnectionLink.Close();
             }
 
             //Update Cart and remove user cart as it has been purchased
@@ -63,10 +60,10 @@ namespace GlobalSanicElectronics
             updateCart.CommandType = System.Data.CommandType.Text;
             updateCart.CommandText = "DELETE FROM Cart WHERE Username= '" + username + "'";
 
-            updateCart.Connection = sqlConnectionLink;
-            sqlConnectionLink.Open();
+            updateCart.Connection = DatabaseOperations.sqlConnectionLink;
+            DatabaseOperations.sqlConnectionLink.Open();
             updateCart.ExecuteNonQuery();
-            sqlConnectionLink.Close();
+            DatabaseOperations.sqlConnectionLink.Close();
 
 
             //Get Order Number with the Random Class
@@ -78,12 +75,12 @@ namespace GlobalSanicElectronics
             //Update the Purchase table and add the user's Order number to the table
             System.Data.SqlClient.SqlCommand updatePurchases = new System.Data.SqlClient.SqlCommand();
             updatePurchases.CommandType = System.Data.CommandType.Text;
-            updatePurchases.CommandText = "INSERT into Purchases (CustomerName, OrderNumber, Computer, Console, Television, Tablet, Price) VALUES ('" + username + "' , '" + number.ToString() + "' , '" + computer + "' , '" + console + "' , '" + television + "' , '" + tablet + "' , '" + price + "')";
+            updatePurchases.CommandText = "INSERT into Purchases (Username, OrderNumber, Computer, Console, Television, Tablet, Price, Stages) VALUES ('" + username + "' , '" + number.ToString() + "' , '" + computer + "' , '" + console + "' , '" + television + "' , '" + tablet + "' , '" + price + "' , '" + "1" + "')";
 
-            updatePurchases.Connection = sqlConnectionLink;
-            sqlConnectionLink.Open();
+            updatePurchases.Connection = DatabaseOperations.sqlConnectionLink;
+            DatabaseOperations.sqlConnectionLink.Open();
             updatePurchases.ExecuteNonQuery();
-            sqlConnectionLink.Close();
+            DatabaseOperations.sqlConnectionLink.Close();
 
             //Way to send user an email with all the purchase information and give them there order number
             var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
@@ -135,7 +132,7 @@ namespace GlobalSanicElectronics
 
             //Go to the MainApplication since the user has successfully logged in and created there account
             MainApplication mainApplicationForm = new MainApplication();
-            mainApplicationForm.MyProperty = username;
+            mainApplicationForm.mainApplicationUsername = username;
             mainApplicationForm.Show();
         }
 

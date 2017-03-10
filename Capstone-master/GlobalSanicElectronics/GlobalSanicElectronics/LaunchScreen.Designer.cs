@@ -125,6 +125,7 @@
             this.Controls.Add(this.genericLabel);
             this.Name = "LaunchScreen";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LaunchScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -15,18 +16,11 @@ namespace GlobalSanicElectronics
     {
         public LoginScreen()
         {
-            InitializeComponent();
+            InitializeComponent();         
         }
 
         private void loginButton_Click(object sender, EventArgs e)
-        {
-            //Declare variable for Database
-            System.Data.SqlClient.SqlConnection sqlConnectionLink =
-                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
-                                                        
-            //Declare Variables
-            Int32 verifyUsernameAndPassword;
-
+        {                                                        
             string salt = "WquZ012C";
 
             var bytes = new UTF8Encoding().GetBytes(salt + passwordInputTextBox.Text);
@@ -36,25 +30,30 @@ namespace GlobalSanicElectronics
                 hashBytes = algorithm.ComputeHash(bytes);
             }
 
-            string passHash = Convert.ToBase64String(bytes);
+            string passHash = Convert.ToBase64String(hashBytes);
 
-                //Check for username & Password
-                String validation = "SELECT * From CustomerInformation WHERE Username LIKE '" + usernameInputTextBox.Text + "' AND Password LIKE '" + passHash + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
-            sqlConnectionLink.Open();
-            verifyUsernameAndPassword = Convert.ToInt32(validateInputCommand.ExecuteScalar());
-            sqlConnectionLink.Close();
+            //Check for username & Password            
+            SqlCommand cmd = new SqlCommand("SELECT * From CustomerInformation WHERE Username LIKE @Username AND Password = @Password;");
+            cmd.Parameters.AddWithValue("@Username", usernameInputTextBox.Text);
+            cmd.Parameters.AddWithValue("@Password", passHash);
+            cmd.Connection = DatabaseOperations.sqlConnectionLink;
+            DatabaseOperations.sqlConnectionLink.Open();
 
-            if (verifyUsernameAndPassword > 0 )
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            DatabaseOperations.sqlConnectionLink.Close();
+
+            bool loginSuccessful = ((ds.Tables.Count > 0) && (ds.Tables[0].Rows.Count > 0));
+
+            if (loginSuccessful)
             {
-                MessageBox.Show("Thank you for logging into Global Sanic Electronics! You will now be redirected to the main application");
-
                 if (usernameInputTextBox.Text == "Admin")
                 {
                     //Hide this form so the user can no longer see it as it is no longer needed
                     this.Hide();
 
-                    //Go to the EmployeeScreen since its an Employee logging in and not a user
+                    //Go to the employee screen as the user has requested and verified to go there
                     EmployeeScreen employeeScreenForm = new EmployeeScreen();
                     employeeScreenForm.Show();
                 }
@@ -63,17 +62,19 @@ namespace GlobalSanicElectronics
                     //Hide this form so the user can no longer see it as it is no longer needed
                     this.Hide();
 
-                    //Go to the MainApplication since the user has successfully logged in
+                    //Go to the main form as the user has requested and verified to go there
                     MainApplication mainApplicationForm = new MainApplication();
-                    string username = usernameInputTextBox.Text;
-                    mainApplicationForm.MyProperty = username;
+                    mainApplicationForm.mainApplicationUsername = usernameInputTextBox.Text;
                     mainApplicationForm.Show();
                 }
+
+                    
+
             }
             else
             {
-                MessageBox.Show("The username or password you have entered is not correct! Please make sure what you're typing is correct");
-            }
+                MessageBox.Show("Username or Password incorrect!");
+            }                       
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -100,6 +101,11 @@ namespace GlobalSanicElectronics
         {
             //Takes "Enter" key and allows it to be a substitute for the submit button or pushes the submit button for you instead of having to click it.
             this.AcceptButton = loginButton;
+        }
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
