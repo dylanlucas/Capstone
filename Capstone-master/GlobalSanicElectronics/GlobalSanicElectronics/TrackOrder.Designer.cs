@@ -126,9 +126,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn1});
             this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
-            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 102);
+            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 85);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
-            this.purchasesDataGridView.Size = new System.Drawing.Size(545, 355);
+            this.purchasesDataGridView.Size = new System.Drawing.Size(545, 400);
             this.purchasesDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn9

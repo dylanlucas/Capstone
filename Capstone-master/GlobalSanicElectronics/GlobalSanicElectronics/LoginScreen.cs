@@ -27,8 +27,19 @@ namespace GlobalSanicElectronics
             //Declare Variables
             Int32 verifyUsernameAndPassword;
 
-            //Check for username & Password
-            String validation = "SELECT * From CustomerInformation WHERE Username LIKE '" + usernameInputTextBox.Text + "' AND Password LIKE '" + passwordInputTextBox.Text + "'";
+            string salt = "WquZ012C";
+
+            var bytes = new UTF8Encoding().GetBytes(salt + passwordInputTextBox.Text);
+            byte[] hashBytes;
+            using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+            {
+                hashBytes = algorithm.ComputeHash(bytes);
+            }
+
+            string passHash = Convert.ToBase64String(bytes);
+
+                //Check for username & Password
+                String validation = "SELECT * From CustomerInformation WHERE Username LIKE '" + usernameInputTextBox.Text + "' AND Password LIKE '" + passHash + "'";
             SqlCommand validateInputCommand = new SqlCommand(validation, sqlConnectionLink);
             sqlConnectionLink.Open();
             verifyUsernameAndPassword = Convert.ToInt32(validateInputCommand.ExecuteScalar());

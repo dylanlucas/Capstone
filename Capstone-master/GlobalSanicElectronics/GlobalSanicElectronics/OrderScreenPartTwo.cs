@@ -113,6 +113,29 @@ namespace GlobalSanicElectronics
                 }
                 else
                 {
+                    System.Data.SqlClient.SqlConnection sqlConnectionLink =
+                new System.Data.SqlClient.SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\dylan\\Source\\Repos\\Capstone\\Capstone-master\\GlobalSanicElectronics\\GlobalSanicElectronics\\GSEDatabase.mdf;Integrated Security=True");
+
+                    string salt = "WquZ012C";
+
+                    var bytes = new UTF8Encoding().GetBytes(salt + cardNumberTextBox.Text);
+                    byte[] hashBytes;
+                    using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+                    {
+                        hashBytes = algorithm.ComputeHash(bytes);
+                    }
+
+                    string creditHash = Convert.ToBase64String(bytes);
+
+                    SqlCommand insertCCInformation = new SqlCommand();
+                    insertCCInformation.CommandType = CommandType.Text;
+                    insertCCInformation.CommandText = "INSERT into CCInformation (CCName, CCNumber, Username) VALUES ('" + nameTextBox.Text + "' , '" + cardNumberTextBox.Text + "' , '" + userName + "')";
+                    insertCCInformation.Connection = sqlConnectionLink;
+
+                    sqlConnectionLink.Open();
+                    insertCCInformation.ExecuteNonQuery();
+                    sqlConnectionLink.Close();
+
                     paymentGroupBox.Enabled = false;
                 }
             }

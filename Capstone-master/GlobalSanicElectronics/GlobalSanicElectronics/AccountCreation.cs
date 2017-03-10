@@ -111,9 +111,20 @@ namespace GlobalSanicElectronics
                 {
                     try
                     {
+                        string salt = "WquZ012C";
+
+                        var bytes = new UTF8Encoding().GetBytes(salt + passwordTextBox.Text);
+                        byte[] hashBytes;
+                        using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+                        {
+                            hashBytes = algorithm.ComputeHash(bytes);
+                        }
+
+                        string passHash = Convert.ToBase64String(bytes);
+
                         System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand();
                         createUserCommand.CommandType = System.Data.CommandType.Text;
-                        createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passwordTextBox.Text + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
+                        createUserCommand.CommandText = "INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES ('" + usernameTextBox.Text + "' , '" + passHash + "' , '" + emailTextBox.Text + "' , '" + dOBTextBox.Text + "' , '" + addressTextBox.Text + "' , '" + cityTextBox.Text + "' , '" + stateTextBox.Text + "' , '" + zipTextBox.Text + "')";
                         createUserCommand.Connection = sqlConnectionLink;
 
                         sqlConnectionLink.Open();
@@ -129,7 +140,6 @@ namespace GlobalSanicElectronics
                         const string subject = "Thank you for joining Global Sanic Electronics!";
                         string body = "Hello " + usernameTextBox.Text + " thank you for joining Global Sanic Electronics." + "\n\n" +
                             "To ensure all your information is correct, this is what you entered upon account creation. If any of this information needs to be updated, please do not hesitate to email us back" + "\n\n" +
-                            "Password = " + passwordTextBox.Text + "\n" +
                             "Email = " + emailTextBox.Text + "\n" +
                             "Date of Birth = " + dOBTextBox.Text + "\n" +
                             "Street Address = " + addressTextBox.Text + "\n" +

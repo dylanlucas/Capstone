@@ -31,18 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.trackOrderButton = new System.Windows.Forms.Button();
             this.orderButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.addToCartButton = new System.Windows.Forms.Button();
+            this.televisionButton = new System.Windows.Forms.Button();
+            this.consoleButton = new System.Windows.Forms.Button();
+            this.tabletButton = new System.Windows.Forms.Button();
+            this.computerButton = new System.Windows.Forms.Button();
             this.returnsButton = new System.Windows.Forms.Button();
             this.toCartButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.repairsButton = new System.Windows.Forms.Button();
             this.contactButton = new System.Windows.Forms.Button();
-            this.televisionButton = new System.Windows.Forms.Button();
-            this.consoleButton = new System.Windows.Forms.Button();
-            this.tabletButton = new System.Windows.Forms.Button();
-            this.computerButton = new System.Windows.Forms.Button();
             this.gSEDatabaseDataSet = new GlobalSanicElectronics.GSEDatabaseDataSet();
             this.televisionDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.televisionDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TelevisionDirectoryTableAdapter();
@@ -50,52 +51,55 @@
             this.computerDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ComputerDirectoryTableAdapter();
             this.consoleDirectoryTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.ConsoleDirectoryTableAdapter();
             this.tabletDirectorTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TabletDirectorTableAdapter();
-            this.televisionDirectoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.tabletDirectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.consoleDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.computerDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.computerDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabletDirectorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabletDirectorDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.consoleDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.consoleDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.consoleDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabletDirectorDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.computerDirectoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.computerDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.televisionDirectoryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trackOrderButton = new System.Windows.Forms.Button();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerDirectoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerDirectoryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -129,6 +133,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Tools";
             // 
+            // trackOrderButton
+            // 
+            this.trackOrderButton.Location = new System.Drawing.Point(0, 304);
+            this.trackOrderButton.Name = "trackOrderButton";
+            this.trackOrderButton.Size = new System.Drawing.Size(150, 30);
+            this.trackOrderButton.TabIndex = 8;
+            this.trackOrderButton.Text = "Track Order";
+            this.trackOrderButton.UseVisualStyleBackColor = true;
+            this.trackOrderButton.Click += new System.EventHandler(this.trackOrderButton_Click);
+            // 
             // orderButton
             // 
             this.orderButton.Location = new System.Drawing.Point(0, 268);
@@ -159,6 +173,50 @@
             this.addToCartButton.Text = "Add to Cart";
             this.addToCartButton.UseVisualStyleBackColor = true;
             this.addToCartButton.Click += new System.EventHandler(this.addToCartButton_Click);
+            // 
+            // televisionButton
+            // 
+            this.televisionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.televisionButton.Location = new System.Drawing.Point(0, 36);
+            this.televisionButton.Name = "televisionButton";
+            this.televisionButton.Size = new System.Drawing.Size(149, 30);
+            this.televisionButton.TabIndex = 1;
+            this.televisionButton.Text = "Televisions";
+            this.televisionButton.UseVisualStyleBackColor = true;
+            this.televisionButton.Click += new System.EventHandler(this.televisionButton_Click);
+            // 
+            // consoleButton
+            // 
+            this.consoleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consoleButton.Location = new System.Drawing.Point(0, 72);
+            this.consoleButton.Name = "consoleButton";
+            this.consoleButton.Size = new System.Drawing.Size(149, 29);
+            this.consoleButton.TabIndex = 2;
+            this.consoleButton.Text = "Consoles";
+            this.consoleButton.UseVisualStyleBackColor = true;
+            this.consoleButton.Click += new System.EventHandler(this.consoleButton_Click);
+            // 
+            // tabletButton
+            // 
+            this.tabletButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabletButton.Location = new System.Drawing.Point(1, 107);
+            this.tabletButton.Name = "tabletButton";
+            this.tabletButton.Size = new System.Drawing.Size(149, 31);
+            this.tabletButton.TabIndex = 3;
+            this.tabletButton.Text = "Tablets";
+            this.tabletButton.UseVisualStyleBackColor = true;
+            this.tabletButton.Click += new System.EventHandler(this.tabletButton_Click);
+            // 
+            // computerButton
+            // 
+            this.computerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computerButton.Location = new System.Drawing.Point(1, 144);
+            this.computerButton.Name = "computerButton";
+            this.computerButton.Size = new System.Drawing.Size(149, 33);
+            this.computerButton.TabIndex = 4;
+            this.computerButton.Text = "Computers";
+            this.computerButton.UseVisualStyleBackColor = true;
+            this.computerButton.Click += new System.EventHandler(this.computerButton_Click);
             // 
             // returnsButton
             // 
@@ -211,50 +269,6 @@
             this.contactButton.UseVisualStyleBackColor = true;
             this.contactButton.Click += new System.EventHandler(this.contactButton_Click);
             // 
-            // televisionButton
-            // 
-            this.televisionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.televisionButton.Location = new System.Drawing.Point(0, 36);
-            this.televisionButton.Name = "televisionButton";
-            this.televisionButton.Size = new System.Drawing.Size(149, 30);
-            this.televisionButton.TabIndex = 1;
-            this.televisionButton.Text = "Televisions";
-            this.televisionButton.UseVisualStyleBackColor = true;
-            this.televisionButton.Click += new System.EventHandler(this.televisionButton_Click);
-            // 
-            // consoleButton
-            // 
-            this.consoleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.consoleButton.Location = new System.Drawing.Point(0, 72);
-            this.consoleButton.Name = "consoleButton";
-            this.consoleButton.Size = new System.Drawing.Size(149, 29);
-            this.consoleButton.TabIndex = 2;
-            this.consoleButton.Text = "Consoles";
-            this.consoleButton.UseVisualStyleBackColor = true;
-            this.consoleButton.Click += new System.EventHandler(this.consoleButton_Click);
-            // 
-            // tabletButton
-            // 
-            this.tabletButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabletButton.Location = new System.Drawing.Point(1, 107);
-            this.tabletButton.Name = "tabletButton";
-            this.tabletButton.Size = new System.Drawing.Size(149, 31);
-            this.tabletButton.TabIndex = 3;
-            this.tabletButton.Text = "Tablets";
-            this.tabletButton.UseVisualStyleBackColor = true;
-            this.tabletButton.Click += new System.EventHandler(this.tabletButton_Click);
-            // 
-            // computerButton
-            // 
-            this.computerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computerButton.Location = new System.Drawing.Point(1, 144);
-            this.computerButton.Name = "computerButton";
-            this.computerButton.Size = new System.Drawing.Size(149, 33);
-            this.computerButton.TabIndex = 4;
-            this.computerButton.Text = "Computers";
-            this.computerButton.UseVisualStyleBackColor = true;
-            this.computerButton.Click += new System.EventHandler(this.computerButton_Click);
-            // 
             // gSEDatabaseDataSet
             // 
             this.gSEDatabaseDataSet.DataSetName = "GSEDatabaseDataSet";
@@ -295,32 +309,48 @@
             // 
             this.tabletDirectorTableAdapter.ClearBeforeFill = true;
             // 
-            // televisionDirectoryDataGridView
+            // tabletDirectorBindingSource
             // 
-            this.televisionDirectoryDataGridView.AutoGenerateColumns = false;
-            this.televisionDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.televisionDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabletDirectorBindingSource.DataMember = "TabletDirector";
+            this.tabletDirectorBindingSource.DataSource = this.gSEDatabaseDataSet;
+            // 
+            // consoleDirectoryBindingSource
+            // 
+            this.consoleDirectoryBindingSource.DataMember = "ConsoleDirectory";
+            this.consoleDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
+            // 
+            // computerDirectoryBindingSource
+            // 
+            this.computerDirectoryBindingSource.DataMember = "ComputerDirectory";
+            this.computerDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
+            // 
+            // computerDirectoryDataGridView
+            // 
+            this.computerDirectoryDataGridView.AutoGenerateColumns = false;
+            this.computerDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.computerDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewCheckBoxColumn2,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.televisionDirectoryDataGridView.DataSource = this.televisionDirectoryBindingSource;
-            this.televisionDirectoryDataGridView.Location = new System.Drawing.Point(220, 75);
-            this.televisionDirectoryDataGridView.Name = "televisionDirectoryDataGridView";
-            this.televisionDirectoryDataGridView.ReadOnly = true;
-            this.televisionDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.televisionDirectoryDataGridView.Size = new System.Drawing.Size(844, 475);
-            this.televisionDirectoryDataGridView.TabIndex = 13;
-            this.televisionDirectoryDataGridView.Visible = false;
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.computerDirectoryDataGridView.DataSource = this.computerDirectoryBindingSource;
+            this.computerDirectoryDataGridView.Location = new System.Drawing.Point(178, 84);
+            this.computerDirectoryDataGridView.Name = "computerDirectoryDataGridView";
+            this.computerDirectoryDataGridView.ReadOnly = true;
+            this.computerDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.computerDirectoryDataGridView.Size = new System.Drawing.Size(908, 466);
+            this.computerDirectoryDataGridView.TabIndex = 13;
+            this.computerDirectoryDataGridView.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TVID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "TVID";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ComputerID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ComputerID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
@@ -338,114 +368,85 @@
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "LED";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "LED";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "Smart";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "Smart";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Resolution";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Resolution";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Processor";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Processor";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Storage";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Storage";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "RAM";
+            this.dataGridViewTextBoxColumn6.HeaderText = "RAM";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // tabletDirectorBindingSource
-            // 
-            this.tabletDirectorBindingSource.DataMember = "TabletDirector";
-            this.tabletDirectorBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // tabletDirectorDataGridView
-            // 
-            this.tabletDirectorDataGridView.AutoGenerateColumns = false;
-            this.tabletDirectorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabletDirectorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewCheckBoxColumn3,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
-            this.tabletDirectorDataGridView.DataSource = this.tabletDirectorBindingSource;
-            this.tabletDirectorDataGridView.Location = new System.Drawing.Point(220, 75);
-            this.tabletDirectorDataGridView.Name = "tabletDirectorDataGridView";
-            this.tabletDirectorDataGridView.ReadOnly = true;
-            this.tabletDirectorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tabletDirectorDataGridView.Size = new System.Drawing.Size(844, 475);
-            this.tabletDirectorDataGridView.TabIndex = 13;
-            this.tabletDirectorDataGridView.Visible = false;
-            // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TabletID";
-            this.dataGridViewTextBoxColumn7.HeaderText = "TabletID";
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Color";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Color";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Price";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Size";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Size";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Computer";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Computer";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
+            // consoleDirectoryDataGridView
+            // 
+            this.consoleDirectoryDataGridView.AutoGenerateColumns = false;
+            this.consoleDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.consoleDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14});
+            this.consoleDirectoryDataGridView.DataSource = this.consoleDirectoryBindingSource;
+            this.consoleDirectoryDataGridView.Location = new System.Drawing.Point(381, 84);
+            this.consoleDirectoryDataGridView.Name = "consoleDirectoryDataGridView";
+            this.consoleDirectoryDataGridView.ReadOnly = true;
+            this.consoleDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.consoleDirectoryDataGridView.Size = new System.Drawing.Size(547, 466);
+            this.consoleDirectoryDataGridView.TabIndex = 13;
+            this.consoleDirectoryDataGridView.Visible = false;
+            // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Storage";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Storage";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "ConsoleID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "ConsoleID";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Processor";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Processor";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Brand";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
-            // dataGridViewCheckBoxColumn3
-            // 
-            this.dataGridViewCheckBoxColumn3.DataPropertyName = "Wifi";
-            this.dataGridViewCheckBoxColumn3.HeaderText = "Wifi";
-            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
-            this.dataGridViewCheckBoxColumn3.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Storage";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Storage";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
@@ -456,159 +457,194 @@
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
-            // consoleDirectoryBindingSource
-            // 
-            this.consoleDirectoryBindingSource.DataMember = "ConsoleDirectory";
-            this.consoleDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // consoleDirectoryDataGridView
-            // 
-            this.consoleDirectoryDataGridView.AutoGenerateColumns = false;
-            this.consoleDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.consoleDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
-            this.consoleDirectoryDataGridView.DataSource = this.consoleDirectoryBindingSource;
-            this.consoleDirectoryDataGridView.Location = new System.Drawing.Point(405, 75);
-            this.consoleDirectoryDataGridView.Name = "consoleDirectoryDataGridView";
-            this.consoleDirectoryDataGridView.ReadOnly = true;
-            this.consoleDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.consoleDirectoryDataGridView.Size = new System.Drawing.Size(445, 475);
-            this.consoleDirectoryDataGridView.TabIndex = 13;
-            this.consoleDirectoryDataGridView.Visible = false;
-            // 
             // dataGridViewTextBoxColumn14
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "ConsoleID";
-            this.dataGridViewTextBoxColumn14.HeaderText = "ConsoleID";
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Console";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Console";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
             // 
+            // tabletDirectorDataGridView
+            // 
+            this.tabletDirectorDataGridView.AutoGenerateColumns = false;
+            this.tabletDirectorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabletDirectorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewCheckBoxColumn1,
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22});
+            this.tabletDirectorDataGridView.DataSource = this.tabletDirectorBindingSource;
+            this.tabletDirectorDataGridView.Location = new System.Drawing.Point(178, 84);
+            this.tabletDirectorDataGridView.Name = "tabletDirectorDataGridView";
+            this.tabletDirectorDataGridView.ReadOnly = true;
+            this.tabletDirectorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tabletDirectorDataGridView.Size = new System.Drawing.Size(908, 466);
+            this.tabletDirectorDataGridView.TabIndex = 13;
+            this.tabletDirectorDataGridView.Visible = false;
+            // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn15.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "TabletID";
+            this.dataGridViewTextBoxColumn15.HeaderText = "TabletID";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Storage";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Storage";
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Brand";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn17
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Size";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Size";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
-            // computerDirectoryBindingSource
-            // 
-            this.computerDirectoryBindingSource.DataMember = "ComputerDirectory";
-            this.computerDirectoryBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // computerDirectoryDataGridView
-            // 
-            this.computerDirectoryDataGridView.AutoGenerateColumns = false;
-            this.computerDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.computerDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn25});
-            this.computerDirectoryDataGridView.DataSource = this.computerDirectoryBindingSource;
-            this.computerDirectoryDataGridView.Location = new System.Drawing.Point(220, 75);
-            this.computerDirectoryDataGridView.Name = "computerDirectoryDataGridView";
-            this.computerDirectoryDataGridView.ReadOnly = true;
-            this.computerDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.computerDirectoryDataGridView.Size = new System.Drawing.Size(844, 475);
-            this.computerDirectoryDataGridView.TabIndex = 13;
-            this.computerDirectoryDataGridView.Visible = false;
-            // 
             // dataGridViewTextBoxColumn18
             // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "ComputerID";
-            this.dataGridViewTextBoxColumn18.HeaderText = "ComputerID";
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Storage";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Storage";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Brand";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Brand";
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Processor";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Processor";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "Wifi";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Wifi";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn20
             // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Size";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Size";
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Color";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Color";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn21
             // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Processor";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Processor";
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Price";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn22
             // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "Storage";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Storage";
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Tablet";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Tablet";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.ReadOnly = true;
             // 
+            // televisionDirectoryDataGridView
+            // 
+            this.televisionDirectoryDataGridView.AutoGenerateColumns = false;
+            this.televisionDirectoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.televisionDirectoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewCheckBoxColumn2,
+            this.dataGridViewCheckBoxColumn3,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29});
+            this.televisionDirectoryDataGridView.DataSource = this.televisionDirectoryBindingSource;
+            this.televisionDirectoryDataGridView.Location = new System.Drawing.Point(178, 84);
+            this.televisionDirectoryDataGridView.Name = "televisionDirectoryDataGridView";
+            this.televisionDirectoryDataGridView.ReadOnly = true;
+            this.televisionDirectoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.televisionDirectoryDataGridView.Size = new System.Drawing.Size(908, 466);
+            this.televisionDirectoryDataGridView.TabIndex = 13;
+            this.televisionDirectoryDataGridView.Visible = false;
+            // 
             // dataGridViewTextBoxColumn23
             // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "RAM";
-            this.dataGridViewTextBoxColumn23.HeaderText = "RAM";
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "TVID";
+            this.dataGridViewTextBoxColumn23.HeaderText = "TVID";
             this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
             this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn24
             // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "Color";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Brand";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Brand";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn25
             // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn25.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "Size";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Size";
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.ReadOnly = true;
             // 
-            // trackOrderButton
+            // dataGridViewCheckBoxColumn2
             // 
-            this.trackOrderButton.Location = new System.Drawing.Point(0, 304);
-            this.trackOrderButton.Name = "trackOrderButton";
-            this.trackOrderButton.Size = new System.Drawing.Size(150, 30);
-            this.trackOrderButton.TabIndex = 8;
-            this.trackOrderButton.Text = "Track Order";
-            this.trackOrderButton.UseVisualStyleBackColor = true;
-            this.trackOrderButton.Click += new System.EventHandler(this.trackOrderButton_Click);
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "LED";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "LED";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewCheckBoxColumn3
+            // 
+            this.dataGridViewCheckBoxColumn3.DataPropertyName = "Smart";
+            this.dataGridViewCheckBoxColumn3.HeaderText = "Smart";
+            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
+            this.dataGridViewCheckBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "Resolution";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Resolution";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "Color";
+            this.dataGridViewTextBoxColumn27.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "Television";
+            this.dataGridViewTextBoxColumn29.HeaderText = "Television";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
             // 
             // MainApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 570);
-            this.Controls.Add(this.computerDirectoryDataGridView);
-            this.Controls.Add(this.consoleDirectoryDataGridView);
-            this.Controls.Add(this.tabletDirectorDataGridView);
             this.Controls.Add(this.televisionDirectoryDataGridView);
+            this.Controls.Add(this.tabletDirectorDataGridView);
+            this.Controls.Add(this.consoleDirectoryDataGridView);
+            this.Controls.Add(this.computerDirectoryDataGridView);
             this.Controls.Add(this.contactButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.genericLabel);
@@ -618,13 +654,13 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerDirectoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.computerDirectoryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.consoleDirectoryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabletDirectorDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.televisionDirectoryDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -651,43 +687,47 @@
         private GSEDatabaseDataSetTableAdapters.TelevisionDirectoryTableAdapter televisionDirectoryTableAdapter;
         private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private GSEDatabaseDataSetTableAdapters.TabletDirectorTableAdapter tabletDirectorTableAdapter;
-        private System.Windows.Forms.DataGridView televisionDirectoryDataGridView;
+        private System.Windows.Forms.BindingSource tabletDirectorBindingSource;
+        private GSEDatabaseDataSetTableAdapters.ConsoleDirectoryTableAdapter consoleDirectoryTableAdapter;
+        private System.Windows.Forms.BindingSource consoleDirectoryBindingSource;
+        private GSEDatabaseDataSetTableAdapters.ComputerDirectoryTableAdapter computerDirectoryTableAdapter;
+        private System.Windows.Forms.BindingSource computerDirectoryBindingSource;
+        private System.Windows.Forms.Button trackOrderButton;
+        private System.Windows.Forms.DataGridView computerDirectoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.BindingSource tabletDirectorBindingSource;
-        private GSEDatabaseDataSetTableAdapters.ConsoleDirectoryTableAdapter consoleDirectoryTableAdapter;
-        private System.Windows.Forms.DataGridView tabletDirectorDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridView consoleDirectoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.BindingSource consoleDirectoryBindingSource;
-        private GSEDatabaseDataSetTableAdapters.ComputerDirectoryTableAdapter computerDirectoryTableAdapter;
-        private System.Windows.Forms.DataGridView consoleDirectoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridView tabletDirectorDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.BindingSource computerDirectoryBindingSource;
-        private System.Windows.Forms.DataGridView computerDirectoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridView televisionDirectoryDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.Button trackOrderButton;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
     }
 }

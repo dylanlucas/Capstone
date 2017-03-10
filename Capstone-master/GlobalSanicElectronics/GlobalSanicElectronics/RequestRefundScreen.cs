@@ -37,5 +37,20 @@ namespace GlobalSanicElectronics
             //Close the application if the user decides to push the big red X
             System.Windows.Forms.Application.Exit();
         }
+
+        private void purchasesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void RequestRefundScreen_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
+            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
+
+        }
     }
 }
