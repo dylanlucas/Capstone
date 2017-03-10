@@ -84,6 +84,7 @@
             this.newPasswordTextBox.Name = "newPasswordTextBox";
             this.newPasswordTextBox.Size = new System.Drawing.Size(185, 20);
             this.newPasswordTextBox.TabIndex = 3;
+            this.newPasswordTextBox.UseSystemPasswordChar = true;
             this.newPasswordTextBox.Visible = false;
             // 
             // confirmButton
