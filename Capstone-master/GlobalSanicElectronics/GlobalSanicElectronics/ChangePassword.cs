@@ -56,7 +56,7 @@ namespace GlobalSanicElectronics
             }
             else
             {
-                MessageBox.Show("No");
+                MessageBox.Show("Token is incorrect.");
             }
         }
 
