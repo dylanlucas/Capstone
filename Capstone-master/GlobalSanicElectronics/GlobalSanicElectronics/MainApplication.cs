@@ -169,7 +169,23 @@ namespace GlobalSanicElectronics
                 }
             }
 
-            this.Refresh();
+            //Make a command to search the cart
+            SqlCommand cartDisplayCommand = new SqlCommand();
+            cartDisplayCommand.CommandType = CommandType.Text;
+            cartDisplayCommand.CommandText = "SELECT COUNT(*) FROM Cart WHERE Username= '" + mainApplicationUsername + "'";
+            cartDisplayCommand.Connection = DatabaseOperations.sqlConnectionLink;
+
+            //Update cartdisplaylabel with cart total
+            cartDisplayCommand.Connection.Open();
+            cartDisplayLabel.Text = cartDisplayCommand.ExecuteScalar().ToString();
+            cartDisplayCommand.Connection.Close();
+
+            //Make a command to get the sum of the price and display it for the user
+            SqlCommand priceCommand = new SqlCommand("SELECT SUM(Price) FROM Cart WHERE Username= '" + mainApplicationUsername + "'");
+            priceCommand.Connection = DatabaseOperations.sqlConnectionLink;
+            priceCommand.Connection.Open();
+            cartPriceDisplayLabel.Text = "$" + priceCommand.ExecuteScalar().ToString();
+            priceCommand.Connection.Close();
         }
 
         private void toCartButton_Click(object sender, EventArgs e)
@@ -464,15 +480,36 @@ namespace GlobalSanicElectronics
 
         private void MainApplication_Load_1(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
-            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
             this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
+            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
+            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
+            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
             this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
             this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
+            
+            //Make a command to search the cart
+            SqlCommand cartDisplayCommand = new SqlCommand();
+            cartDisplayCommand.CommandType = CommandType.Text;
+            cartDisplayCommand.CommandText = "SELECT COUNT(*) FROM Cart WHERE Username= '" + mainApplicationUsername + "'";
+            cartDisplayCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
+            //Update cartdisplaylabel with cart total
+            cartDisplayCommand.Connection.Open();
+            cartDisplayLabel.Text = cartDisplayCommand.ExecuteScalar().ToString();
+            cartDisplayCommand.Connection.Close();
+
+            //Make a command to get the sum of the price and display it for the user
+            SqlCommand priceCommand = new SqlCommand("SELECT SUM(Price) FROM Cart WHERE Username= '" + mainApplicationUsername + "'");
+            priceCommand.Connection = DatabaseOperations.sqlConnectionLink;
+            priceCommand.Connection.Open();
+            cartPriceDisplayLabel.Text = "$" + priceCommand.ExecuteScalar().ToString();
+            priceCommand.Connection.Close();
         }
     }
 }

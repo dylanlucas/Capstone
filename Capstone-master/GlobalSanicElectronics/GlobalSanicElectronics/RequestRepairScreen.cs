@@ -91,7 +91,7 @@ namespace GlobalSanicElectronics
             const string subject = "Update on your Repair";
             string body = "Hello " + requestRepaireFormUsername + "\n\n" +
                 "In order to process or repair your item, we are going to need you to ship your item back to the facility. If you could please send your item back to this address \n\n" +
-                "Global Sanic Electronics" +
+                "Global Sanic Electronics" + "\n" +
                 "8785 Windfall St \n" +
                 "Whitehall, PA 18052" + "\n\n" +
                 "We appreciate your assistance with this and we will repair and send back your item as quickly as possible.";

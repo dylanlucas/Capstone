@@ -103,7 +103,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Repair";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, The problem is currently being investigated" +
+                    "This means, The problem is currently being investigated" + "\n" +
                     "We will continue to update you on the status of your repair!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -138,7 +138,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Repair";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Problem has been found and is being repaired" +
+                    "This means, Problem has been found and is being repaired" + "\n" +
                     "We will continue to update you on the status of your repair!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -173,7 +173,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Repair";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Order has been successfully repaired and is being shipped back" +
+                    "This means, Order has been successfully repaired and is being shipped back" + "\n" +
                     "We will continue to update you on the status of your repair!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -208,7 +208,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Repair";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Order has been shipped back to you" +
+                    "This means, Order has been shipped back to you" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
 
@@ -289,7 +289,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Your order has been received by Global Sanic Electronics" +
+                    "This means, Your order has been received by Global Sanic Electronics" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -324,7 +324,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Your refund is currently being processed by Global Sanic Electronics" +
+                    "This means, Your refund is currently being processed by Global Sanic Electronics" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -359,7 +359,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
-                    "This means, Your refund has been transacted from Global Sanic Electronics to your bank provider" +
+                    "This means, Your refund has been transacted from Global Sanic Electronics to your bank provider" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";

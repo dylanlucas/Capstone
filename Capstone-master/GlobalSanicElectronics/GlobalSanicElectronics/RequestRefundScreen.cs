@@ -38,7 +38,7 @@ namespace GlobalSanicElectronics
                 string price = row.Cells[6].Value.ToString();
                 string stages = row.Cells[7].Value.ToString();
 
-                MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Repair!");
+                MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Refund!");
 
                 //Set up Command type so the program can input into the table in the database
                 SqlCommand addToRepairCommand = new SqlCommand();
@@ -91,7 +91,7 @@ namespace GlobalSanicElectronics
             const string subject = "Update on your Refund";
             string body = "Hello " + refundRequestScreenUsername + "\n\n" +
                 "In order to process or refund your item, we are going to need you to ship your item back to the facility. If you could please send your item back to this address \n\n" +
-                "Global Sanic Electronics" +
+                "Global Sanic Electronics" + "\n" +
                 "8785 Windfall St \n" +
                 "Whitehall, PA 18052" + "\n\n" +
                 "We appreciate your assistance with this and we will refudn your money as soon as we get the item back.";

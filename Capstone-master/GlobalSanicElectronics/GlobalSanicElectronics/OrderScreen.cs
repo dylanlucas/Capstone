@@ -83,8 +83,8 @@ namespace GlobalSanicElectronics
 
                 foreach (DataGridViewRow row in cartDataGridView.SelectedRows)
                 {
-                    string console = row.Cells[0].Value.ToString();
-                    string computer = row.Cells[1].Value.ToString();
+                    string computer = row.Cells[0].Value.ToString();
+                    string console = row.Cells[1].Value.ToString();
                     string tablet = row.Cells[2].Value.ToString();
                     string television = row.Cells[3].Value.ToString();
                     price = row.Cells[5].Value.ToString();
