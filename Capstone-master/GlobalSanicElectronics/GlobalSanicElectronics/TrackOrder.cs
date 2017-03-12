@@ -32,16 +32,7 @@ namespace GlobalSanicElectronics
 
         private void TrackOrder_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
-            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
-            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
-            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Purchases' table. You can move, or remove it, as needed.
-            this.purchasesTableAdapter.Fill(this.gSEDatabaseDataSet.Purchases);
-
-            var select = "SELECT * FROM Purchases WHERE CustomerName= '" + orderUsername + "'";
+            var select = "SELECT * FROM Purchases WHERE Username= '" + orderUsername + "'";
             var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 
             var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -76,7 +67,8 @@ namespace GlobalSanicElectronics
                 "\n" + "Stage Three = Order has been Shipped" +
                 "\n" + "Stage Four = Order has been delivered to local mailing facility" +
                 "\n" + "Stage Five = Order is out for delivery" +
-                "\n" + "Stage Six = Order has been delivered");
+                "\n" + "Stage Six = Order has been delivered" + "\n\n" +
+                "If your status is in Repair or Refund, please check the Repair or Refund status screen");
         }
 
         private void purchasesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)

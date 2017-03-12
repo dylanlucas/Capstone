@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,34 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
+        public string repairScreenFormUsername { get; set; }
+
         private void requestRepairButton_Click(object sender, EventArgs e)
         {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
+            //Declare variables
+            bool verifyRepairTable;
 
-            //Go to the RequestRepairScreen so the user can request repair on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
-            RequestRepairScreen requestRepairScreenForm = new RequestRepairScreen();
-            requestRepairScreenForm.Show();
+            //Check for username in refund table 
+            String validation = "SELECT * FROM Purchases WHERE Username= '" + repairScreenFormUsername + "' AND Stages= 'Six'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+            DatabaseOperations.sqlConnectionLink.Open();
+            verifyRepairTable = validateInputCommand.ExecuteReader().HasRows;
+            DatabaseOperations.sqlConnectionLink.Close();
+
+            if (verifyRepairTable)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
+
+                //Go to the RequestRepairScreen so the user can request repair on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
+                RequestRepairScreen requestRepairScreenForm = new RequestRepairScreen();
+                requestRepairScreenForm.requestRepaireFormUsername = repairScreenFormUsername;
+                requestRepairScreenForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("No items currently elgible for repair!");
+            }
         }
 
         private void repairStatusButton_Click(object sender, EventArgs e)
@@ -34,6 +55,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RepairStatusScreen so the user can check the status of their repair IF they have a repair currently in progress
             RepairStatusScreen repairStatusScreenForm = new RepairStatusScreen();
+            repairStatusScreenForm.repairStatusScreenUsername = repairScreenFormUsername;
             repairStatusScreenForm.Show();
         }
 
@@ -44,6 +66,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
+            mainApplicationForm.mainApplicationUsername = repairScreenFormUsername;
             mainApplicationForm.Show();
         }
 

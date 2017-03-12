@@ -107,6 +107,7 @@
             this.tableAdapterManager.PurchasesTableAdapter = this.purchasesTableAdapter;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;
+            this.tableAdapterManager.ResetTicketsTableAdapter = null;
             this.tableAdapterManager.TabletDirectorTableAdapter = null;
             this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -135,6 +136,7 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
             this.dataGridViewTextBoxColumn1.HeaderText = "Username";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 

@@ -33,7 +33,7 @@ namespace GlobalSanicElectronics
 
             string passHash = Convert.ToBase64String(hashBytes);
 
-            //Check for username & Password            
+            //Check for username & Password          
             SqlCommand cmd = new SqlCommand("SELECT * From CustomerInformation WHERE Username LIKE @Username AND Password = @Password;");
             cmd.Parameters.AddWithValue("@Username", usernameInputTextBox.Text);
             cmd.Parameters.AddWithValue("@Password", passHash);

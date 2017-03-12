@@ -65,17 +65,6 @@ namespace GlobalSanicElectronics
 
         private void OrderScreen_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
-            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
-            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
-            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
-            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Cart' table. You can move, or remove it, as needed.
-            this.cartTableAdapter.Fill(this.gSEDatabaseDataSet.Cart);
-
             var select = "SELECT Console, Computer, Tablet, Television, Brand, Price FROM Cart WHERE Username= '" + orderFormUsername + "'";            
             var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 

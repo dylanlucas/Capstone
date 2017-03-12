@@ -209,6 +209,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RepairScreenForm as the user has requested it to allow the user with some options available in that category
             RepairScreen repairScreenForm = new RepairScreen();
+            repairScreenForm.repairScreenFormUsername = mainApplicationUsername;
             repairScreenForm.Show();
         }
 
@@ -219,6 +220,7 @@ namespace GlobalSanicElectronics
 
             //Go to the ReturnScreen as the user has requested it to allow the user with some options available in that category
             ReturnScreen returnScreenForm = new ReturnScreen();
+            returnScreenForm.refundScreenFormUsername = mainApplicationUsername;
             returnScreenForm.Show();
         }
 
@@ -396,16 +398,16 @@ namespace GlobalSanicElectronics
         private void trackOrderButton_Click(object sender, EventArgs e)
         {
             //Declare Variables
-            Int32 verifyPurchases;
+            bool verifyPurchases;
 
             //Check for username & Password
-            String validation = "SELECT * From Purchases WHERE CustomerName= '" + mainApplicationUsername + "'";
+            String validation = "SELECT * From Purchases WHERE Username= '" + mainApplicationUsername + "'";
             SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
             DatabaseOperations.sqlConnectionLink.Open();
-            verifyPurchases = Convert.ToInt32(validateInputCommand.ExecuteScalar());
+            verifyPurchases = validateInputCommand.ExecuteReader().HasRows;
             DatabaseOperations.sqlConnectionLink.Close();
 
-            if (verifyPurchases > 0)
+            if (verifyPurchases)
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
@@ -449,6 +451,27 @@ namespace GlobalSanicElectronics
             this.Validate();
             this.televisionDirectoryBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void computerDirectoryBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.computerDirectoryBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void MainApplication_Load_1(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TabletDirector' table. You can move, or remove it, as needed.
+            this.tabletDirectorTableAdapter.Fill(this.gSEDatabaseDataSet.TabletDirector);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.TelevisionDirectory' table. You can move, or remove it, as needed.
+            this.televisionDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.TelevisionDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ConsoleDirectory' table. You can move, or remove it, as needed.
+            this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
+            this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
 
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,14 +18,34 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
+        public string refundScreenFormUsername { get; set; }
+
         private void requestRefundButton_Click(object sender, EventArgs e)
         {
-            //Hide this form so the user can no longer see it as it is no longer needed
-            this.Hide();
+            //Declare variables
+            bool verifyRefundTable;
 
-            //Go to the RequestRefundScreen so the user can request refund on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
-            RequestRefundScreen requestRefundScreenForm = new RequestRefundScreen();
-            requestRefundScreenForm.Show();
+            //Check for username in refund table 
+            String validation = "SELECT * FROM Purchases WHERE Username= '" + refundScreenFormUsername + "' AND Stages= 'Six'";
+            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+            DatabaseOperations.sqlConnectionLink.Open();
+            verifyRefundTable = validateInputCommand.ExecuteReader().HasRows;
+            DatabaseOperations.sqlConnectionLink.Close();
+
+            if (verifyRefundTable)
+            {
+                //Hide this form so the user can no longer see it as it is no longer needed
+                this.Hide();
+
+                //Go to the RequestRefundScreen so the user can request refund on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
+                RequestRefundScreen requestRefundScreenForm = new RequestRefundScreen();
+                requestRefundScreenForm.refundRequestScreenUsername = refundScreenFormUsername;
+                requestRefundScreenForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("No items currently elgible for refund!");
+            }
         }
 
         private void refundStatusButton_Click(object sender, EventArgs e)
@@ -34,6 +55,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RefundStatusScreen so the user can check the status of their refund IF they have a refund currently in progress
             RefundStatusScreen refundStatusScreenForm = new RefundStatusScreen();
+            refundStatusScreenForm.refundStatusScreenUsername = refundScreenFormUsername;
             refundStatusScreenForm.Show();
         }
 
@@ -44,6 +66,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplication mainApplicationForm = new MainApplication();
+            mainApplicationForm.mainApplicationUsername = refundScreenFormUsername;
             mainApplicationForm.Show();
         }
 

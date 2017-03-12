@@ -101,6 +101,9 @@
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="GSEDatabaseDataSet.cs">
+      <DependentUpon>GSEDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GSEDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

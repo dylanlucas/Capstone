@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
-            this.usernameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.moreInfoButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
+            this.gSEDatabaseDataSet = new GlobalSanicElectronics.GSEDatabaseDataSet();
+            this.repairsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repairsTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.RepairsTableAdapter();
+            this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.repairsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -50,77 +59,10 @@
             this.genericLabel.TabIndex = 5;
             this.genericLabel.Text = "Global Sanic Electronics";
             // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(162, 122);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(120, 20);
-            this.usernameLabel.TabIndex = 42;
-            this.usernameLabel.Text = "Repair Status";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 196);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Item Name :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(47, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
-            this.label2.TabIndex = 44;
-            this.label2.Text = "Item Type :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 20);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Repair Status :";
-            // 
-            // label4
-            // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(234, 195);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 27);
-            this.label4.TabIndex = 46;
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(234, 243);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 27);
-            this.label5.TabIndex = 47;
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(234, 294);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 27);
-            this.label6.TabIndex = 48;
-            // 
             // moreInfoButton
             // 
             this.moreInfoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.moreInfoButton.Location = new System.Drawing.Point(41, 362);
+            this.moreInfoButton.Location = new System.Drawing.Point(54, 362);
             this.moreInfoButton.Name = "moreInfoButton";
             this.moreInfoButton.Size = new System.Drawing.Size(126, 53);
             this.moreInfoButton.TabIndex = 1;
@@ -131,7 +73,7 @@
             // goBackButton
             // 
             this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.goBackButton.Location = new System.Drawing.Point(281, 362);
+            this.goBackButton.Location = new System.Drawing.Point(307, 362);
             this.goBackButton.Name = "goBackButton";
             this.goBackButton.Size = new System.Drawing.Size(108, 53);
             this.goBackButton.TabIndex = 2;
@@ -139,23 +81,112 @@
             this.goBackButton.UseVisualStyleBackColor = true;
             this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
             // 
+            // gSEDatabaseDataSet
+            // 
+            this.gSEDatabaseDataSet.DataSetName = "GSEDatabaseDataSet";
+            this.gSEDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // repairsBindingSource
+            // 
+            this.repairsBindingSource.DataMember = "Repairs";
+            this.repairsBindingSource.DataSource = this.gSEDatabaseDataSet;
+            // 
+            // repairsTableAdapter
+            // 
+            this.repairsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CartTableAdapter = null;
+            this.tableAdapterManager.CCInformationTableAdapter = null;
+            this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
+            this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
+            this.tableAdapterManager.CustomerInformationTableAdapter = null;
+            this.tableAdapterManager.PurchasesTableAdapter = null;
+            this.tableAdapterManager.RefundsTableAdapter = null;
+            this.tableAdapterManager.RepairsTableAdapter = this.repairsTableAdapter;
+            this.tableAdapterManager.ResetTicketsTableAdapter = null;
+            this.tableAdapterManager.TabletDirectorTableAdapter = null;
+            this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // repairsDataGridView
+            // 
+            this.repairsDataGridView.AutoGenerateColumns = false;
+            this.repairsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.repairsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.repairsDataGridView.DataSource = this.repairsBindingSource;
+            this.repairsDataGridView.Location = new System.Drawing.Point(12, 88);
+            this.repairsDataGridView.Name = "repairsDataGridView";
+            this.repairsDataGridView.Size = new System.Drawing.Size(447, 252);
+            this.repairsDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RepairStatus";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RepairStatus";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "OrderNumber";
+            this.dataGridViewTextBoxColumn3.HeaderText = "OrderNumber";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Computer";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Computer";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Console";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Console";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Tablet";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tablet";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Television";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Television";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
             // RepairStatusScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 437);
+            this.Controls.Add(this.repairsDataGridView);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.moreInfoButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.genericLabel);
             this.Name = "RepairStatusScreen";
             this.Text = "RepairScreen";
+            this.Load += new System.EventHandler(this.RepairStatusScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repairsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,14 +195,19 @@
         #endregion
 
         private System.Windows.Forms.Label genericLabel;
-        private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button moreInfoButton;
         private System.Windows.Forms.Button goBackButton;
+        private GSEDatabaseDataSet gSEDatabaseDataSet;
+        private System.Windows.Forms.BindingSource repairsBindingSource;
+        private GSEDatabaseDataSetTableAdapters.RepairsTableAdapter repairsTableAdapter;
+        private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView repairsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

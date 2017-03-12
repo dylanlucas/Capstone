@@ -118,6 +118,7 @@
             this.tableAdapterManager.PurchasesTableAdapter = this.purchasesTableAdapter;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;
+            this.tableAdapterManager.ResetTicketsTableAdapter = null;
             this.tableAdapterManager.TabletDirectorTableAdapter = null;
             this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -138,6 +139,8 @@
             this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
             this.purchasesDataGridView.Location = new System.Drawing.Point(12, 134);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
+            this.purchasesDataGridView.ReadOnly = true;
+            this.purchasesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.purchasesDataGridView.Size = new System.Drawing.Size(425, 220);
             this.purchasesDataGridView.TabIndex = 44;
             // 
@@ -146,48 +149,56 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
             this.dataGridViewTextBoxColumn1.HeaderText = "Username";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderNumber";
             this.dataGridViewTextBoxColumn2.HeaderText = "OrderNumber";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Computer";
             this.dataGridViewTextBoxColumn3.HeaderText = "Computer";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Console";
             this.dataGridViewTextBoxColumn4.HeaderText = "Console";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Television";
             this.dataGridViewTextBoxColumn5.HeaderText = "Television";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Tablet";
             this.dataGridViewTextBoxColumn6.HeaderText = "Tablet";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Price";
             this.dataGridViewTextBoxColumn7.HeaderText = "Price";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Stages";
             this.dataGridViewTextBoxColumn8.HeaderText = "Stages";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // RequestRefundScreen
             // 

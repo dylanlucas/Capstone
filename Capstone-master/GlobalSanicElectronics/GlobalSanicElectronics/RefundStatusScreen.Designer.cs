@@ -28,16 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
-            this.usernameLabel = new System.Windows.Forms.Label();
             this.goBackButton = new System.Windows.Forms.Button();
             this.moreInfoButton = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gSEDatabaseDataSet = new GlobalSanicElectronics.GSEDatabaseDataSet();
+            this.refundsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.refundsTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.RefundsTableAdapter();
+            this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.refundsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refundsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refundsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -49,16 +58,6 @@
             this.genericLabel.Size = new System.Drawing.Size(332, 31);
             this.genericLabel.TabIndex = 6;
             this.genericLabel.Text = "Global Sanic Electronics";
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(197, 129);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(126, 20);
-            this.usernameLabel.TabIndex = 43;
-            this.usernameLabel.Text = "Refund Status";
             // 
             // goBackButton
             // 
@@ -82,80 +81,120 @@
             this.moreInfoButton.UseVisualStyleBackColor = true;
             this.moreInfoButton.Click += new System.EventHandler(this.moreInfoButton_Click);
             // 
-            // label6
+            // gSEDatabaseDataSet
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(249, 288);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(206, 27);
-            this.label6.TabIndex = 56;
+            this.gSEDatabaseDataSet.DataSetName = "GSEDatabaseDataSet";
+            this.gSEDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label5
+            // refundsBindingSource
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(249, 237);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(206, 27);
-            this.label5.TabIndex = 55;
+            this.refundsBindingSource.DataMember = "Refunds";
+            this.refundsBindingSource.DataSource = this.gSEDatabaseDataSet;
             // 
-            // label4
+            // refundsTableAdapter
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(249, 189);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(206, 27);
-            this.label4.TabIndex = 54;
+            this.refundsTableAdapter.ClearBeforeFill = true;
             // 
-            // label3
+            // tableAdapterManager
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(62, 289);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 20);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Refund Status :";
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CartTableAdapter = null;
+            this.tableAdapterManager.CCInformationTableAdapter = null;
+            this.tableAdapterManager.ComputerDirectoryTableAdapter = null;
+            this.tableAdapterManager.ConsoleDirectoryTableAdapter = null;
+            this.tableAdapterManager.CustomerInformationTableAdapter = null;
+            this.tableAdapterManager.PurchasesTableAdapter = null;
+            this.tableAdapterManager.RefundsTableAdapter = this.refundsTableAdapter;
+            this.tableAdapterManager.RepairsTableAdapter = null;
+            this.tableAdapterManager.ResetTicketsTableAdapter = null;
+            this.tableAdapterManager.TabletDirectorTableAdapter = null;
+            this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // label2
+            // refundsDataGridView
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 238);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
-            this.label2.TabIndex = 52;
-            this.label2.Text = "Item Type :";
+            this.refundsDataGridView.AutoGenerateColumns = false;
+            this.refundsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.refundsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.refundsDataGridView.DataSource = this.refundsBindingSource;
+            this.refundsDataGridView.Location = new System.Drawing.Point(25, 98);
+            this.refundsDataGridView.Name = "refundsDataGridView";
+            this.refundsDataGridView.ReadOnly = true;
+            this.refundsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.refundsDataGridView.Size = new System.Drawing.Size(465, 220);
+            this.refundsDataGridView.TabIndex = 7;
             // 
-            // label1
+            // dataGridViewTextBoxColumn1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(62, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Item Name :";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RefundNumber";
+            this.dataGridViewTextBoxColumn1.HeaderText = "RefundNumber";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "RefundStatus";
+            this.dataGridViewTextBoxColumn2.HeaderText = "RefundStatus";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Computer";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Computer";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Console";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Console";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Tablet";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Tablet";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Television";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Television";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // RefundStatusScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(519, 445);
+            this.Controls.Add(this.refundsDataGridView);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.moreInfoButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.genericLabel);
             this.Name = "RefundStatusScreen";
             this.Text = "RefundStatusScreen";
+            this.Load += new System.EventHandler(this.RefundStatusScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refundsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.refundsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,14 +203,19 @@
         #endregion
 
         private System.Windows.Forms.Label genericLabel;
-        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Button moreInfoButton;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private GSEDatabaseDataSet gSEDatabaseDataSet;
+        private System.Windows.Forms.BindingSource refundsBindingSource;
+        private GSEDatabaseDataSetTableAdapters.RefundsTableAdapter refundsTableAdapter;
+        private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridView refundsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

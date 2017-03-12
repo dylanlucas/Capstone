@@ -54,13 +54,17 @@ namespace GlobalSanicElectronics {
         
         private global::System.Data.DataRelation relationFK_Cart_ConsoleDirectory;
         
-        private global::System.Data.DataRelation relationFK_Repairs_CustomerInformation;
-        
         private global::System.Data.DataRelation relationFK_CustomerInformation_Purchases;
         
         private global::System.Data.DataRelation relationFK_CustomerInformation_Refunds;
         
+        private global::System.Data.DataRelation relationFK_CustomerInformation_Repairs;
+        
         private global::System.Data.DataRelation relationFK_Cart_TelevisionDirectory;
+        
+        private global::System.Data.DataRelation relationFK_CustomerInformation_ResetTickets;
+        
+        private global::System.Data.DataRelation relationFK_Cart_TabletDirector;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -454,10 +458,12 @@ namespace GlobalSanicElectronics {
             this.relationFK_CustomerInformation_CCInformation = this.Relations["FK_CustomerInformation_CCInformation"];
             this.relationFK_Cart_ComputerDirectory = this.Relations["FK_Cart_ComputerDirectory"];
             this.relationFK_Cart_ConsoleDirectory = this.Relations["FK_Cart_ConsoleDirectory"];
-            this.relationFK_Repairs_CustomerInformation = this.Relations["FK_Repairs_CustomerInformation"];
             this.relationFK_CustomerInformation_Purchases = this.Relations["FK_CustomerInformation_Purchases"];
             this.relationFK_CustomerInformation_Refunds = this.Relations["FK_CustomerInformation_Refunds"];
+            this.relationFK_CustomerInformation_Repairs = this.Relations["FK_CustomerInformation_Repairs"];
             this.relationFK_Cart_TelevisionDirectory = this.Relations["FK_Cart_TelevisionDirectory"];
+            this.relationFK_CustomerInformation_ResetTickets = this.Relations["FK_CustomerInformation_ResetTickets"];
+            this.relationFK_Cart_TabletDirector = this.Relations["FK_Cart_TabletDirector"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -519,13 +525,6 @@ namespace GlobalSanicElectronics {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_Repairs_CustomerInformation", new global::System.Data.DataColumn[] {
-                        this.tableRepairs.UsernameColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCustomerInformation.UsernameColumn});
-            this.tableCustomerInformation.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Purchases", new global::System.Data.DataColumn[] {
                         this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tablePurchases.UsernameColumn});
@@ -540,10 +539,31 @@ namespace GlobalSanicElectronics {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Repairs", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRepairs.UsernameColumn});
+            this.tableRepairs.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_Cart_TelevisionDirectory", new global::System.Data.DataColumn[] {
                         this.tableCart.TelevisionColumn}, new global::System.Data.DataColumn[] {
                         this.tableTelevisionDirectory.TelevisionColumn});
             this.tableTelevisionDirectory.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_ResetTickets", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableResetTickets.UsernameColumn});
+            this.tableResetTickets.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Cart_TabletDirector", new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletColumn});
+            this.tableTabletDirector.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -563,10 +583,6 @@ namespace GlobalSanicElectronics {
                         this.tableCart.ConsoleColumn}, new global::System.Data.DataColumn[] {
                         this.tableConsoleDirectory.ConsoleColumn}, false);
             this.Relations.Add(this.relationFK_Cart_ConsoleDirectory);
-            this.relationFK_Repairs_CustomerInformation = new global::System.Data.DataRelation("FK_Repairs_CustomerInformation", new global::System.Data.DataColumn[] {
-                        this.tableRepairs.UsernameColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCustomerInformation.UsernameColumn}, false);
-            this.Relations.Add(this.relationFK_Repairs_CustomerInformation);
             this.relationFK_CustomerInformation_Purchases = new global::System.Data.DataRelation("FK_CustomerInformation_Purchases", new global::System.Data.DataColumn[] {
                         this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tablePurchases.UsernameColumn}, false);
@@ -575,10 +591,22 @@ namespace GlobalSanicElectronics {
                         this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tableRefunds.UsernameColumn}, false);
             this.Relations.Add(this.relationFK_CustomerInformation_Refunds);
+            this.relationFK_CustomerInformation_Repairs = new global::System.Data.DataRelation("FK_CustomerInformation_Repairs", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRepairs.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_Repairs);
             this.relationFK_Cart_TelevisionDirectory = new global::System.Data.DataRelation("FK_Cart_TelevisionDirectory", new global::System.Data.DataColumn[] {
                         this.tableCart.TelevisionColumn}, new global::System.Data.DataColumn[] {
                         this.tableTelevisionDirectory.TelevisionColumn}, false);
             this.Relations.Add(this.relationFK_Cart_TelevisionDirectory);
+            this.relationFK_CustomerInformation_ResetTickets = new global::System.Data.DataRelation("FK_CustomerInformation_ResetTickets", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableResetTickets.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_ResetTickets);
+            this.relationFK_Cart_TabletDirector = new global::System.Data.DataRelation("FK_Cart_TabletDirector", new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletColumn}, false);
+            this.Relations.Add(this.relationFK_Cart_TabletDirector);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2456,10 +2484,10 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CustomerInformationRow AddCustomerInformationRow(RepairsRow parentRepairsRowByFK_Repairs_CustomerInformation, string Password, string Email, string DOB, string Address, string City, string State, string Zip) {
+            public CustomerInformationRow AddCustomerInformationRow(string Username, string Password, string Email, string DOB, string Address, string City, string State, string Zip) {
                 CustomerInformationRow rowCustomerInformationRow = ((CustomerInformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Username,
                         Password,
                         Email,
                         DOB,
@@ -2467,9 +2495,6 @@ namespace GlobalSanicElectronics {
                         City,
                         State,
                         Zip};
-                if ((parentRepairsRowByFK_Repairs_CustomerInformation != null)) {
-                    columnValuesArray[0] = parentRepairsRowByFK_Repairs_CustomerInformation[4];
-                }
                 rowCustomerInformationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCustomerInformationRow);
                 return rowCustomerInformationRow;
@@ -3054,13 +3079,17 @@ namespace GlobalSanicElectronics {
             
             private global::System.Data.DataColumn columnRefundNumber;
             
-            private global::System.Data.DataColumn columnItemName;
-            
-            private global::System.Data.DataColumn columnItemDescription;
-            
             private global::System.Data.DataColumn columnRefundStatus;
             
             private global::System.Data.DataColumn columnUsername;
+            
+            private global::System.Data.DataColumn columnComputer;
+            
+            private global::System.Data.DataColumn columnConsole;
+            
+            private global::System.Data.DataColumn columnTablet;
+            
+            private global::System.Data.DataColumn columnTelevision;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3105,22 +3134,6 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ItemNameColumn {
-                get {
-                    return this.columnItemName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ItemDescriptionColumn {
-                get {
-                    return this.columnItemDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn RefundStatusColumn {
                 get {
                     return this.columnRefundStatus;
@@ -3132,6 +3145,38 @@ namespace GlobalSanicElectronics {
             public global::System.Data.DataColumn UsernameColumn {
                 get {
                     return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ComputerColumn {
+                get {
+                    return this.columnComputer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ConsoleColumn {
+                get {
+                    return this.columnConsole;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TabletColumn {
+                get {
+                    return this.columnTablet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TelevisionColumn {
+                get {
+                    return this.columnTelevision;
                 }
             }
             
@@ -3172,16 +3217,18 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RefundsRow AddRefundsRow(string ItemName, string ItemDescription, string RefundStatus, CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_Refunds) {
+            public RefundsRow AddRefundsRow(string RefundStatus, CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_Refunds, string Computer, string Console, string Tablet, string Television) {
                 RefundsRow rowRefundsRow = ((RefundsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        ItemName,
-                        ItemDescription,
                         RefundStatus,
-                        null};
+                        null,
+                        Computer,
+                        Console,
+                        Tablet,
+                        Television};
                 if ((parentCustomerInformationRowByFK_CustomerInformation_Refunds != null)) {
-                    columnValuesArray[4] = parentCustomerInformationRowByFK_CustomerInformation_Refunds[0];
+                    columnValuesArray[2] = parentCustomerInformationRowByFK_CustomerInformation_Refunds[0];
                 }
                 rowRefundsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRefundsRow);
@@ -3213,10 +3260,12 @@ namespace GlobalSanicElectronics {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnRefundNumber = base.Columns["RefundNumber"];
-                this.columnItemName = base.Columns["ItemName"];
-                this.columnItemDescription = base.Columns["ItemDescription"];
                 this.columnRefundStatus = base.Columns["RefundStatus"];
                 this.columnUsername = base.Columns["Username"];
+                this.columnComputer = base.Columns["Computer"];
+                this.columnConsole = base.Columns["Console"];
+                this.columnTablet = base.Columns["Tablet"];
+                this.columnTelevision = base.Columns["Television"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3224,14 +3273,18 @@ namespace GlobalSanicElectronics {
             private void InitClass() {
                 this.columnRefundNumber = new global::System.Data.DataColumn("RefundNumber", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRefundNumber);
-                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemName);
-                this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemDescription);
                 this.columnRefundStatus = new global::System.Data.DataColumn("RefundStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRefundStatus);
                 this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsername);
+                this.columnComputer = new global::System.Data.DataColumn("Computer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComputer);
+                this.columnConsole = new global::System.Data.DataColumn("Console", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsole);
+                this.columnTablet = new global::System.Data.DataColumn("Tablet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTablet);
+                this.columnTelevision = new global::System.Data.DataColumn("Television", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelevision);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRefundNumber}, true));
                 this.columnRefundNumber.AutoIncrement = true;
@@ -3240,14 +3293,18 @@ namespace GlobalSanicElectronics {
                 this.columnRefundNumber.AllowDBNull = false;
                 this.columnRefundNumber.ReadOnly = true;
                 this.columnRefundNumber.Unique = true;
-                this.columnItemName.AllowDBNull = false;
-                this.columnItemName.MaxLength = 50;
-                this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
                 this.columnRefundStatus.AllowDBNull = false;
                 this.columnRefundStatus.MaxLength = 50;
                 this.columnUsername.AllowDBNull = false;
                 this.columnUsername.MaxLength = 50;
+                this.columnComputer.AllowDBNull = false;
+                this.columnComputer.MaxLength = 50;
+                this.columnConsole.AllowDBNull = false;
+                this.columnConsole.MaxLength = 50;
+                this.columnTablet.AllowDBNull = false;
+                this.columnTablet.MaxLength = 50;
+                this.columnTelevision.AllowDBNull = false;
+                this.columnTelevision.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3381,15 +3438,19 @@ namespace GlobalSanicElectronics {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class RepairsDataTable : global::System.Data.TypedTableBase<RepairsRow> {
             
-            private global::System.Data.DataColumn columnRepairNumber;
-            
-            private global::System.Data.DataColumn columnItemName;
-            
-            private global::System.Data.DataColumn columnItemDescription;
-            
             private global::System.Data.DataColumn columnRepairStatus;
             
             private global::System.Data.DataColumn columnUsername;
+            
+            private global::System.Data.DataColumn columnOrderNumber;
+            
+            private global::System.Data.DataColumn columnComputer;
+            
+            private global::System.Data.DataColumn columnConsole;
+            
+            private global::System.Data.DataColumn columnTablet;
+            
+            private global::System.Data.DataColumn columnTelevision;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3426,30 +3487,6 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RepairNumberColumn {
-                get {
-                    return this.columnRepairNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ItemNameColumn {
-                get {
-                    return this.columnItemName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ItemDescriptionColumn {
-                get {
-                    return this.columnItemDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn RepairStatusColumn {
                 get {
                     return this.columnRepairStatus;
@@ -3461,6 +3498,46 @@ namespace GlobalSanicElectronics {
             public global::System.Data.DataColumn UsernameColumn {
                 get {
                     return this.columnUsername;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrderNumberColumn {
+                get {
+                    return this.columnOrderNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ComputerColumn {
+                get {
+                    return this.columnComputer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ConsoleColumn {
+                get {
+                    return this.columnConsole;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TabletColumn {
+                get {
+                    return this.columnTablet;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TelevisionColumn {
+                get {
+                    return this.columnTelevision;
                 }
             }
             
@@ -3501,14 +3578,19 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RepairsRow AddRepairsRow(string ItemName, string ItemDescription, string RepairStatus, string Username) {
+            public RepairsRow AddRepairsRow(string RepairStatus, CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_Repairs, string Computer, string Console, string Tablet, string Television) {
                 RepairsRow rowRepairsRow = ((RepairsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        ItemName,
-                        ItemDescription,
                         RepairStatus,
-                        Username};
+                        null,
+                        null,
+                        Computer,
+                        Console,
+                        Tablet,
+                        Television};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_Repairs != null)) {
+                    columnValuesArray[1] = parentCustomerInformationRowByFK_CustomerInformation_Repairs[0];
+                }
                 rowRepairsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRepairsRow);
                 return rowRepairsRow;
@@ -3516,9 +3598,9 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RepairsRow FindByRepairNumber(int RepairNumber) {
+            public RepairsRow FindByOrderNumber(int OrderNumber) {
                 return ((RepairsRow)(this.Rows.Find(new object[] {
-                            RepairNumber})));
+                            OrderNumber})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3538,45 +3620,52 @@ namespace GlobalSanicElectronics {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnRepairNumber = base.Columns["RepairNumber"];
-                this.columnItemName = base.Columns["ItemName"];
-                this.columnItemDescription = base.Columns["ItemDescription"];
                 this.columnRepairStatus = base.Columns["RepairStatus"];
                 this.columnUsername = base.Columns["Username"];
+                this.columnOrderNumber = base.Columns["OrderNumber"];
+                this.columnComputer = base.Columns["Computer"];
+                this.columnConsole = base.Columns["Console"];
+                this.columnTablet = base.Columns["Tablet"];
+                this.columnTelevision = base.Columns["Television"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnRepairNumber = new global::System.Data.DataColumn("RepairNumber", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRepairNumber);
-                this.columnItemName = new global::System.Data.DataColumn("ItemName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemName);
-                this.columnItemDescription = new global::System.Data.DataColumn("ItemDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnItemDescription);
                 this.columnRepairStatus = new global::System.Data.DataColumn("RepairStatus", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRepairStatus);
                 this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsername);
+                this.columnOrderNumber = new global::System.Data.DataColumn("OrderNumber", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrderNumber);
+                this.columnComputer = new global::System.Data.DataColumn("Computer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComputer);
+                this.columnConsole = new global::System.Data.DataColumn("Console", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsole);
+                this.columnTablet = new global::System.Data.DataColumn("Tablet", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTablet);
+                this.columnTelevision = new global::System.Data.DataColumn("Television", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelevision);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnRepairNumber}, true));
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
-                                this.columnUsername}, false));
-                this.columnRepairNumber.AutoIncrement = true;
-                this.columnRepairNumber.AutoIncrementSeed = -1;
-                this.columnRepairNumber.AutoIncrementStep = -1;
-                this.columnRepairNumber.AllowDBNull = false;
-                this.columnRepairNumber.ReadOnly = true;
-                this.columnRepairNumber.Unique = true;
-                this.columnItemName.AllowDBNull = false;
-                this.columnItemName.MaxLength = 50;
-                this.columnItemDescription.AllowDBNull = false;
-                this.columnItemDescription.MaxLength = 50;
+                                this.columnOrderNumber}, true));
                 this.columnRepairStatus.AllowDBNull = false;
                 this.columnRepairStatus.MaxLength = 50;
                 this.columnUsername.AllowDBNull = false;
-                this.columnUsername.Unique = true;
                 this.columnUsername.MaxLength = 50;
+                this.columnOrderNumber.AutoIncrement = true;
+                this.columnOrderNumber.AutoIncrementSeed = -1;
+                this.columnOrderNumber.AutoIncrementStep = -1;
+                this.columnOrderNumber.AllowDBNull = false;
+                this.columnOrderNumber.ReadOnly = true;
+                this.columnOrderNumber.Unique = true;
+                this.columnComputer.AllowDBNull = false;
+                this.columnComputer.MaxLength = 50;
+                this.columnConsole.AllowDBNull = false;
+                this.columnConsole.MaxLength = 50;
+                this.columnTablet.AllowDBNull = false;
+                this.columnTablet.MaxLength = 50;
+                this.columnTelevision.AllowDBNull = false;
+                this.columnTelevision.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4209,13 +4298,16 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ResetTicketsRow AddResetTicketsRow(string Username, string tokenHash, System.DateTime expirationDate) {
+            public ResetTicketsRow AddResetTicketsRow(CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_ResetTickets, string tokenHash, System.DateTime expirationDate) {
                 ResetTicketsRow rowResetTicketsRow = ((ResetTicketsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Username,
+                        null,
                         tokenHash,
                         expirationDate};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_ResetTickets != null)) {
+                    columnValuesArray[1] = parentCustomerInformationRowByFK_CustomerInformation_ResetTickets[0];
+                }
                 rowResetTicketsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowResetTicketsRow);
                 return rowResetTicketsRow;
@@ -4568,7 +4660,7 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TabletDirectorRow AddTabletDirectorRow(string Brand, string Size, string Storage, string Processor, bool Wifi, string Color, double Price, string Tablet) {
+            public TabletDirectorRow AddTabletDirectorRow(string Brand, string Size, string Storage, string Processor, bool Wifi, string Color, double Price, CartRow parentCartRowByFK_Cart_TabletDirector) {
                 TabletDirectorRow rowTabletDirectorRow = ((TabletDirectorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4579,7 +4671,10 @@ namespace GlobalSanicElectronics {
                         Wifi,
                         Color,
                         Price,
-                        Tablet};
+                        null};
+                if ((parentCartRowByFK_Cart_TabletDirector != null)) {
+                    columnValuesArray[8] = parentCartRowByFK_Cart_TabletDirector[3];
+                }
                 rowTabletDirectorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTabletDirectorRow);
                 return rowTabletDirectorRow;
@@ -5240,6 +5335,17 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabletDirectorRow[] GetTabletDirectorRows() {
+                if ((this.Table.ChildRelations["FK_Cart_TabletDirector"] == null)) {
+                    return new TabletDirectorRow[0];
+                }
+                else {
+                    return ((TabletDirectorRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Cart_TabletDirector"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TelevisionDirectoryRow[] GetTelevisionDirectoryRows() {
                 if ((this.Table.ChildRelations["FK_Cart_TelevisionDirectory"] == null)) {
                     return new TelevisionDirectoryRow[0];
@@ -5686,12 +5792,23 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RepairsRow RepairsRow {
-                get {
-                    return ((RepairsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Repairs_CustomerInformation"])));
+            public ResetTicketsRow[] GetResetTicketsRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_ResetTickets"] == null)) {
+                    return new ResetTicketsRow[0];
                 }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Repairs_CustomerInformation"]);
+                else {
+                    return ((ResetTicketsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_ResetTickets"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RepairsRow[] GetRepairsRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_Repairs"] == null)) {
+                    return new RepairsRow[0];
+                }
+                else {
+                    return ((RepairsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_Repairs"])));
                 }
             }
             
@@ -5881,28 +5998,6 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ItemName {
-                get {
-                    return ((string)(this[this.tableRefunds.ItemNameColumn]));
-                }
-                set {
-                    this[this.tableRefunds.ItemNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ItemDescription {
-                get {
-                    return ((string)(this[this.tableRefunds.ItemDescriptionColumn]));
-                }
-                set {
-                    this[this.tableRefunds.ItemDescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string RefundStatus {
                 get {
                     return ((string)(this[this.tableRefunds.RefundStatusColumn]));
@@ -5920,6 +6015,50 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableRefunds.UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Computer {
+                get {
+                    return ((string)(this[this.tableRefunds.ComputerColumn]));
+                }
+                set {
+                    this[this.tableRefunds.ComputerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Console {
+                get {
+                    return ((string)(this[this.tableRefunds.ConsoleColumn]));
+                }
+                set {
+                    this[this.tableRefunds.ConsoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tablet {
+                get {
+                    return ((string)(this[this.tableRefunds.TabletColumn]));
+                }
+                set {
+                    this[this.tableRefunds.TabletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Television {
+                get {
+                    return ((string)(this[this.tableRefunds.TelevisionColumn]));
+                }
+                set {
+                    this[this.tableRefunds.TelevisionColumn] = value;
                 }
             }
             
@@ -5951,39 +6090,6 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int RepairNumber {
-                get {
-                    return ((int)(this[this.tableRepairs.RepairNumberColumn]));
-                }
-                set {
-                    this[this.tableRepairs.RepairNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ItemName {
-                get {
-                    return ((string)(this[this.tableRepairs.ItemNameColumn]));
-                }
-                set {
-                    this[this.tableRepairs.ItemNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ItemDescription {
-                get {
-                    return ((string)(this[this.tableRepairs.ItemDescriptionColumn]));
-                }
-                set {
-                    this[this.tableRepairs.ItemDescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string RepairStatus {
                 get {
                     return ((string)(this[this.tableRepairs.RepairStatusColumn]));
@@ -6006,12 +6112,67 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CustomerInformationRow[] GetCustomerInformationRows() {
-                if ((this.Table.ChildRelations["FK_Repairs_CustomerInformation"] == null)) {
-                    return new CustomerInformationRow[0];
+            public int OrderNumber {
+                get {
+                    return ((int)(this[this.tableRepairs.OrderNumberColumn]));
                 }
-                else {
-                    return ((CustomerInformationRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Repairs_CustomerInformation"])));
+                set {
+                    this[this.tableRepairs.OrderNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Computer {
+                get {
+                    return ((string)(this[this.tableRepairs.ComputerColumn]));
+                }
+                set {
+                    this[this.tableRepairs.ComputerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Console {
+                get {
+                    return ((string)(this[this.tableRepairs.ConsoleColumn]));
+                }
+                set {
+                    this[this.tableRepairs.ConsoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Tablet {
+                get {
+                    return ((string)(this[this.tableRepairs.TabletColumn]));
+                }
+                set {
+                    this[this.tableRepairs.TabletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Television {
+                get {
+                    return ((string)(this[this.tableRepairs.TelevisionColumn]));
+                }
+                set {
+                    this[this.tableRepairs.TelevisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_Repairs"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_Repairs"]);
                 }
             }
         }
@@ -6215,6 +6376,17 @@ namespace GlobalSanicElectronics {
                     this[this.tableResetTickets.expirationDateColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_ResetTickets"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_ResetTickets"]);
+                }
+            }
         }
         
         /// <summary>
@@ -6332,6 +6504,17 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableTabletDirector.TabletColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow CartRow {
+                get {
+                    return ((CartRow)(this.GetParentRow(this.Table.ParentRelations["FK_Cart_TabletDirector"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Cart_TabletDirector"]);
                 }
             }
             
@@ -10114,46 +10297,55 @@ SELECT Username, OrderNumber, Computer, Console, Television, Tablet, Price, Stag
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Refunds";
             tableMapping.ColumnMappings.Add("RefundNumber", "RefundNumber");
-            tableMapping.ColumnMappings.Add("ItemName", "ItemName");
-            tableMapping.ColumnMappings.Add("ItemDescription", "ItemDescription");
             tableMapping.ColumnMappings.Add("RefundStatus", "RefundStatus");
             tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.ColumnMappings.Add("Computer", "Computer");
+            tableMapping.ColumnMappings.Add("Console", "Console");
+            tableMapping.ColumnMappings.Add("Tablet", "Tablet");
+            tableMapping.ColumnMappings.Add("Television", "Television");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Refunds] WHERE (([RefundNumber] = @Original_RefundNumber) AND " +
-                "([ItemName] = @Original_ItemName) AND ([ItemDescription] = @Original_ItemDescrip" +
-                "tion) AND ([RefundStatus] = @Original_RefundStatus) AND ([Username] = @Original_" +
-                "Username))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Refunds] WHERE (([RefundNumber] = @Original_RefundNumber) AND ([RefundStatus] = @Original_RefundStatus) AND ([Username] = @Original_Username) AND ([Computer] = @Original_Computer) AND ([Console] = @Original_Console) AND ([Tablet] = @Original_Tablet) AND ([Television] = @Original_Television))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Refunds] ([ItemName], [ItemDescription], [RefundStatus], [Username]) VALUES (@ItemName, @ItemDescription, @RefundStatus, @Username);
-SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refunds WHERE (Username = @Username)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Refunds] ([RefundNumber], [RefundStatus], [Username], [Computer], [Console], [Tablet], [Television]) VALUES (@RefundNumber, @RefundStatus, @Username, @Computer, @Console, @Tablet, @Television);
+SELECT RefundNumber, RefundStatus, Username, Computer, Console, Tablet, Television FROM Refunds WHERE (RefundNumber = @RefundNumber)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Refunds] SET [ItemName] = @ItemName, [ItemDescription] = @ItemDescription, [RefundStatus] = @RefundStatus, [Username] = @Username WHERE (([RefundNumber] = @Original_RefundNumber) AND ([ItemName] = @Original_ItemName) AND ([ItemDescription] = @Original_ItemDescription) AND ([RefundStatus] = @Original_RefundStatus) AND ([Username] = @Original_Username));
-SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refunds WHERE (Username = @Username)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Refunds] SET [RefundNumber] = @RefundNumber, [RefundStatus] = @RefundStatus, [Username] = @Username, [Computer] = @Computer, [Console] = @Console, [Tablet] = @Tablet, [Television] = @Television WHERE (([RefundNumber] = @Original_RefundNumber) AND ([RefundStatus] = @Original_RefundStatus) AND ([Username] = @Original_Username) AND ([Computer] = @Original_Computer) AND ([Console] = @Original_Console) AND ([Tablet] = @Original_Tablet) AND ([Television] = @Original_Television));
+SELECT RefundNumber, RefundStatus, Username, Computer, Console, Tablet, Television FROM Refunds WHERE (RefundNumber = @RefundNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RefundStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RefundStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RefundStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10169,8 +10361,8 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM dbo.R" +
-                "efunds";
+            this._commandCollection[0].CommandText = "SELECT RefundNumber, RefundStatus, Username, Computer, Console, Tablet, Televisio" +
+                "n FROM Refunds";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10231,31 +10423,43 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RefundNumber, string Original_ItemName, string Original_ItemDescription, string Original_RefundStatus, string Original_Username) {
+        public virtual int Delete(int Original_RefundNumber, string Original_RefundStatus, string Original_Username, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RefundNumber));
-            if ((Original_ItemName == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_ItemName));
-            }
-            if ((Original_ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemDescription");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ItemDescription));
-            }
             if ((Original_RefundStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_RefundStatus");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_RefundStatus));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_RefundStatus));
             }
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Username));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Username));
+            }
+            if ((Original_Computer == null)) {
+                throw new global::System.ArgumentNullException("Original_Computer");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Computer));
+            }
+            if ((Original_Console == null)) {
+                throw new global::System.ArgumentNullException("Original_Console");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Console));
+            }
+            if ((Original_Tablet == null)) {
+                throw new global::System.ArgumentNullException("Original_Tablet");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Tablet));
+            }
+            if ((Original_Television == null)) {
+                throw new global::System.ArgumentNullException("Original_Television");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Television));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10277,30 +10481,43 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemName, string ItemDescription, string RefundStatus, string Username) {
-            if ((ItemName == null)) {
-                throw new global::System.ArgumentNullException("ItemName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ItemName));
-            }
-            if ((ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("ItemDescription");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ItemDescription));
-            }
+        public virtual int Insert(int RefundNumber, string RefundStatus, string Username, string Computer, string Console, string Tablet, string Television) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(RefundNumber));
             if ((RefundStatus == null)) {
                 throw new global::System.ArgumentNullException("RefundStatus");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(RefundStatus));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(RefundStatus));
             }
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Username));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Username));
+            }
+            if ((Computer == null)) {
+                throw new global::System.ArgumentNullException("Computer");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Computer));
+            }
+            if ((Console == null)) {
+                throw new global::System.ArgumentNullException("Console");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Console));
+            }
+            if ((Tablet == null)) {
+                throw new global::System.ArgumentNullException("Tablet");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Tablet));
+            }
+            if ((Television == null)) {
+                throw new global::System.ArgumentNullException("Television");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Television));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10322,55 +10539,80 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemName, string ItemDescription, string RefundStatus, string Username, int Original_RefundNumber, string Original_ItemName, string Original_ItemDescription, string Original_RefundStatus, string Original_Username) {
-            if ((ItemName == null)) {
-                throw new global::System.ArgumentNullException("ItemName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ItemName));
-            }
-            if ((ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("ItemDescription");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ItemDescription));
-            }
+        public virtual int Update(int RefundNumber, string RefundStatus, string Username, string Computer, string Console, string Tablet, string Television, int Original_RefundNumber, string Original_RefundStatus, string Original_Username, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(RefundNumber));
             if ((RefundStatus == null)) {
                 throw new global::System.ArgumentNullException("RefundStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(RefundStatus));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(RefundStatus));
             }
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Username));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Username));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_RefundNumber));
-            if ((Original_ItemName == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ItemName));
-            }
-            if ((Original_ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemDescription");
+            if ((Computer == null)) {
+                throw new global::System.ArgumentNullException("Computer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ItemDescription));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Computer));
             }
+            if ((Console == null)) {
+                throw new global::System.ArgumentNullException("Console");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Console));
+            }
+            if ((Tablet == null)) {
+                throw new global::System.ArgumentNullException("Tablet");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Tablet));
+            }
+            if ((Television == null)) {
+                throw new global::System.ArgumentNullException("Television");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Television));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_RefundNumber));
             if ((Original_RefundStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_RefundStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_RefundStatus));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_RefundStatus));
             }
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Username));
+            }
+            if ((Original_Computer == null)) {
+                throw new global::System.ArgumentNullException("Original_Computer");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Computer));
+            }
+            if ((Original_Console == null)) {
+                throw new global::System.ArgumentNullException("Original_Console");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Console));
+            }
+            if ((Original_Tablet == null)) {
+                throw new global::System.ArgumentNullException("Original_Tablet");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Tablet));
+            }
+            if ((Original_Television == null)) {
+                throw new global::System.ArgumentNullException("Original_Television");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Television));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10386,6 +10628,14 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string RefundStatus, string Username, string Computer, string Console, string Tablet, string Television, int Original_RefundNumber, string Original_RefundStatus, string Original_Username, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television) {
+            return this.Update(Original_RefundNumber, RefundStatus, Username, Computer, Console, Tablet, Television, Original_RefundNumber, Original_RefundStatus, Original_Username, Original_Computer, Original_Console, Original_Tablet, Original_Television);
         }
     }
     
@@ -10510,47 +10760,55 @@ SELECT RefundNumber, ItemName, ItemDescription, RefundStatus, Username FROM Refu
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Repairs";
-            tableMapping.ColumnMappings.Add("RepairNumber", "RepairNumber");
-            tableMapping.ColumnMappings.Add("ItemName", "ItemName");
-            tableMapping.ColumnMappings.Add("ItemDescription", "ItemDescription");
             tableMapping.ColumnMappings.Add("RepairStatus", "RepairStatus");
             tableMapping.ColumnMappings.Add("Username", "Username");
+            tableMapping.ColumnMappings.Add("OrderNumber", "OrderNumber");
+            tableMapping.ColumnMappings.Add("Computer", "Computer");
+            tableMapping.ColumnMappings.Add("Console", "Console");
+            tableMapping.ColumnMappings.Add("Tablet", "Tablet");
+            tableMapping.ColumnMappings.Add("Television", "Television");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Repairs] WHERE (([RepairNumber] = @Original_RepairNumber) AND " +
-                "([ItemName] = @Original_ItemName) AND ([ItemDescription] = @Original_ItemDescrip" +
-                "tion) AND ([RepairStatus] = @Original_RepairStatus) AND ([Username] = @Original_" +
-                "Username))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Repairs] WHERE (([RepairStatus] = @Original_RepairStatus) AND ([Username] = @Original_Username) AND ([OrderNumber] = @Original_OrderNumber) AND ([Computer] = @Original_Computer) AND ([Console] = @Original_Console) AND ([Tablet] = @Original_Tablet) AND ([Television] = @Original_Television))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Repairs] ([ItemName], [ItemDescription], [RepairStatus], [Username]) VALUES (@ItemName, @ItemDescription, @RepairStatus, @Username);
-SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repairs WHERE (Username = @Username)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Repairs] ([RepairStatus], [Username], [Computer], [Console], [Tablet], [Television]) VALUES (@RepairStatus, @Username, @Computer, @Console, @Tablet, @Television);
+SELECT RepairStatus, Username, OrderNumber, Computer, Console, Tablet, Television FROM Repairs WHERE (OrderNumber = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Repairs] SET [ItemName] = @ItemName, [ItemDescription] = @ItemDescription, [RepairStatus] = @RepairStatus, [Username] = @Username WHERE (([RepairNumber] = @Original_RepairNumber) AND ([ItemName] = @Original_ItemName) AND ([ItemDescription] = @Original_ItemDescription) AND ([RepairStatus] = @Original_RepairStatus) AND ([Username] = @Original_Username));
-SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repairs WHERE (Username = @Username)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Repairs] SET [RepairStatus] = @RepairStatus, [Username] = @Username, [Computer] = @Computer, [Console] = @Console, [Tablet] = @Tablet, [Television] = @Television WHERE (([RepairStatus] = @Original_RepairStatus) AND ([Username] = @Original_Username) AND ([OrderNumber] = @Original_OrderNumber) AND ([Computer] = @Original_Computer) AND ([Console] = @Original_Console) AND ([Tablet] = @Original_Tablet) AND ([Television] = @Original_Television));
+SELECT RepairStatus, Username, OrderNumber, Computer, Console, Tablet, Television FROM Repairs WHERE (OrderNumber = @OrderNumber)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ItemDescription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ItemDescription", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RepairStatus", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RepairStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Username", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Computer", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Computer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Console", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Console", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tablet", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tablet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Television", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Television", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderNumber", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "OrderNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10566,8 +10824,8 @@ SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repa
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM dbo.R" +
-                "epairs";
+            this._commandCollection[0].CommandText = "SELECT RepairStatus, Username, OrderNumber, Computer, Console, Tablet, Television" +
+                " FROM Repairs";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10628,31 +10886,43 @@ SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_RepairNumber, string Original_ItemName, string Original_ItemDescription, string Original_RepairStatus, string Original_Username) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_RepairNumber));
-            if ((Original_ItemName == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_ItemName));
-            }
-            if ((Original_ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemDescription");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_ItemDescription));
-            }
+        public virtual int Delete(string Original_RepairStatus, string Original_Username, int Original_OrderNumber, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television) {
             if ((Original_RepairStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_RepairStatus");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_RepairStatus));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_RepairStatus));
             }
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Username));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Username));
+            }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_OrderNumber));
+            if ((Original_Computer == null)) {
+                throw new global::System.ArgumentNullException("Original_Computer");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Computer));
+            }
+            if ((Original_Console == null)) {
+                throw new global::System.ArgumentNullException("Original_Console");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Console));
+            }
+            if ((Original_Tablet == null)) {
+                throw new global::System.ArgumentNullException("Original_Tablet");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Tablet));
+            }
+            if ((Original_Television == null)) {
+                throw new global::System.ArgumentNullException("Original_Television");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Television));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10674,30 +10944,42 @@ SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ItemName, string ItemDescription, string RepairStatus, string Username) {
-            if ((ItemName == null)) {
-                throw new global::System.ArgumentNullException("ItemName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ItemName));
-            }
-            if ((ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("ItemDescription");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ItemDescription));
-            }
+        public virtual int Insert(string RepairStatus, string Username, string Computer, string Console, string Tablet, string Television) {
             if ((RepairStatus == null)) {
                 throw new global::System.ArgumentNullException("RepairStatus");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(RepairStatus));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(RepairStatus));
             }
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Username));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Username));
+            }
+            if ((Computer == null)) {
+                throw new global::System.ArgumentNullException("Computer");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Computer));
+            }
+            if ((Console == null)) {
+                throw new global::System.ArgumentNullException("Console");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Console));
+            }
+            if ((Tablet == null)) {
+                throw new global::System.ArgumentNullException("Tablet");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Tablet));
+            }
+            if ((Television == null)) {
+                throw new global::System.ArgumentNullException("Television");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Television));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10719,56 +11001,81 @@ SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ItemName, string ItemDescription, string RepairStatus, string Username, int Original_RepairNumber, string Original_ItemName, string Original_ItemDescription, string Original_RepairStatus, string Original_Username) {
-            if ((ItemName == null)) {
-                throw new global::System.ArgumentNullException("ItemName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ItemName));
-            }
-            if ((ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("ItemDescription");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ItemDescription));
-            }
+        public virtual int Update(string RepairStatus, string Username, string Computer, string Console, string Tablet, string Television, string Original_RepairStatus, string Original_Username, int Original_OrderNumber, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television, int OrderNumber) {
             if ((RepairStatus == null)) {
                 throw new global::System.ArgumentNullException("RepairStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(RepairStatus));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(RepairStatus));
             }
             if ((Username == null)) {
                 throw new global::System.ArgumentNullException("Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Username));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Username));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_RepairNumber));
-            if ((Original_ItemName == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ItemName));
-            }
-            if ((Original_ItemDescription == null)) {
-                throw new global::System.ArgumentNullException("Original_ItemDescription");
+            if ((Computer == null)) {
+                throw new global::System.ArgumentNullException("Computer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ItemDescription));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Computer));
+            }
+            if ((Console == null)) {
+                throw new global::System.ArgumentNullException("Console");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Console));
+            }
+            if ((Tablet == null)) {
+                throw new global::System.ArgumentNullException("Tablet");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Tablet));
+            }
+            if ((Television == null)) {
+                throw new global::System.ArgumentNullException("Television");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Television));
             }
             if ((Original_RepairStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_RepairStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_RepairStatus));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_RepairStatus));
             }
             if ((Original_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Username));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Username));
             }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_OrderNumber));
+            if ((Original_Computer == null)) {
+                throw new global::System.ArgumentNullException("Original_Computer");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Computer));
+            }
+            if ((Original_Console == null)) {
+                throw new global::System.ArgumentNullException("Original_Console");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Console));
+            }
+            if ((Original_Tablet == null)) {
+                throw new global::System.ArgumentNullException("Original_Tablet");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Tablet));
+            }
+            if ((Original_Television == null)) {
+                throw new global::System.ArgumentNullException("Original_Television");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Television));
+            }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(OrderNumber));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10783,6 +11090,14 @@ SELECT RepairNumber, ItemName, ItemDescription, RepairStatus, Username FROM Repa
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string RepairStatus, string Username, string Computer, string Console, string Tablet, string Television, string Original_RepairStatus, string Original_Username, int Original_OrderNumber, string Original_Computer, string Original_Console, string Original_Tablet, string Original_Television) {
+            return this.Update(RepairStatus, Username, Computer, Console, Tablet, Television, Original_RepairStatus, Original_Username, Original_OrderNumber, Original_Computer, Original_Console, Original_Tablet, Original_Television, Original_OrderNumber);
         }
     }
     
@@ -12488,15 +12803,6 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(GSEDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._repairsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._repairsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._customerInformationTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12560,6 +12866,15 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._repairsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._repairsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._televisionDirectoryTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -12597,14 +12912,6 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(GSEDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._repairsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._repairsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._customerInformationTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -12658,6 +12965,14 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._refundsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._repairsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._repairsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -12719,6 +13034,14 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._repairsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._repairsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._refundsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Refunds.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -12772,14 +13095,6 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price, Tablet FRO
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._customerInformationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._repairsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Repairs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._repairsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

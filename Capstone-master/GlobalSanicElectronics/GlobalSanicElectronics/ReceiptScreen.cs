@@ -75,7 +75,7 @@ namespace GlobalSanicElectronics
             //Update the Purchase table and add the user's Order number to the table
             System.Data.SqlClient.SqlCommand updatePurchases = new System.Data.SqlClient.SqlCommand();
             updatePurchases.CommandType = System.Data.CommandType.Text;
-            updatePurchases.CommandText = "INSERT into Purchases (Username, OrderNumber, Computer, Console, Television, Tablet, Price, Stages) VALUES ('" + username + "' , '" + number.ToString() + "' , '" + computer + "' , '" + console + "' , '" + television + "' , '" + tablet + "' , '" + price + "' , '" + "1" + "')";
+            updatePurchases.CommandText = "INSERT into Purchases (Username, OrderNumber, Computer, Console, Television, Tablet, Price, Stages) VALUES ('" + username + "' , '" + number.ToString() + "' , '" + computer + "' , '" + console + "' , '" + television + "' , '" + tablet + "' , '" + price + "' , '" + "One" + "')";
 
             updatePurchases.Connection = DatabaseOperations.sqlConnectionLink;
             DatabaseOperations.sqlConnectionLink.Open();
