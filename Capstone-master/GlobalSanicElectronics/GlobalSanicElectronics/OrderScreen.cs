@@ -274,5 +274,10 @@ namespace GlobalSanicElectronics
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
         }
+
+        private void cartDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+                      
+        }
     }
 }

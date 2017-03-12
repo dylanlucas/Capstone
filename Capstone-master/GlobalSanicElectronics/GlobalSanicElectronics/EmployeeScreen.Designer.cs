@@ -80,6 +80,8 @@
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deliveryComboBox = new System.Windows.Forms.ComboBox();
+            this.updateDeliveryStatusButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -162,7 +164,6 @@
             // 
             this.repairStatusComboBox.FormattingEnabled = true;
             this.repairStatusComboBox.Items.AddRange(new object[] {
-            "One",
             "Two",
             "Three",
             "Four",
@@ -200,7 +201,6 @@
             // 
             this.refundStatusComboBox.FormattingEnabled = true;
             this.refundStatusComboBox.Items.AddRange(new object[] {
-            "One",
             "Two",
             "Three",
             "Four",
@@ -222,6 +222,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.updateDeliveryStatusButton);
+            this.groupBox3.Controls.Add(this.deliveryComboBox);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.usernameTextBox);
             this.groupBox3.Controls.Add(this.loadCustomerInformationButton);
@@ -236,7 +238,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(79, 52);
+            this.label5.Location = new System.Drawing.Point(89, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(279, 20);
             this.label5.TabIndex = 8;
@@ -244,7 +246,7 @@
             // 
             // usernameTextBox
             // 
-            this.usernameTextBox.Location = new System.Drawing.Point(106, 140);
+            this.usernameTextBox.Location = new System.Drawing.Point(106, 72);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(223, 20);
             this.usernameTextBox.TabIndex = 1;
@@ -252,7 +254,7 @@
             // loadCustomerInformationButton
             // 
             this.loadCustomerInformationButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadCustomerInformationButton.Location = new System.Drawing.Point(106, 208);
+            this.loadCustomerInformationButton.Location = new System.Drawing.Point(106, 120);
             this.loadCustomerInformationButton.Name = "loadCustomerInformationButton";
             this.loadCustomerInformationButton.Size = new System.Drawing.Size(223, 57);
             this.loadCustomerInformationButton.TabIndex = 2;
@@ -530,6 +532,31 @@
             this.dataGridViewTextBoxColumn38.HeaderText = "Television";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             // 
+            // deliveryComboBox
+            // 
+            this.deliveryComboBox.FormattingEnabled = true;
+            this.deliveryComboBox.Items.AddRange(new object[] {
+            "Two",
+            "Three",
+            "Four",
+            "Five",
+            "Six"});
+            this.deliveryComboBox.Location = new System.Drawing.Point(106, 208);
+            this.deliveryComboBox.Name = "deliveryComboBox";
+            this.deliveryComboBox.Size = new System.Drawing.Size(223, 21);
+            this.deliveryComboBox.TabIndex = 9;
+            // 
+            // updateDeliveryStatusButton
+            // 
+            this.updateDeliveryStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateDeliveryStatusButton.Location = new System.Drawing.Point(106, 248);
+            this.updateDeliveryStatusButton.Name = "updateDeliveryStatusButton";
+            this.updateDeliveryStatusButton.Size = new System.Drawing.Size(223, 57);
+            this.updateDeliveryStatusButton.TabIndex = 16;
+            this.updateDeliveryStatusButton.Text = "Update Delivery Status";
+            this.updateDeliveryStatusButton.UseVisualStyleBackColor = true;
+            this.updateDeliveryStatusButton.Click += new System.EventHandler(this.updateDeliveryStatusButton_Click);
+            // 
             // EmployeeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,5 +669,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox repairStatusComboBox;
         private System.Windows.Forms.ComboBox refundStatusComboBox;
+        private System.Windows.Forms.Button updateDeliveryStatusButton;
+        private System.Windows.Forms.ComboBox deliveryComboBox;
     }
 }

@@ -122,7 +122,7 @@
             // exitButton
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.Location = new System.Drawing.Point(637, 629);
+            this.exitButton.Location = new System.Drawing.Point(619, 629);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(108, 36);
             this.exitButton.TabIndex = 2;
@@ -487,6 +487,7 @@
             this.tableAdapterManager.PurchasesTableAdapter = null;
             this.tableAdapterManager.RefundsTableAdapter = null;
             this.tableAdapterManager.RepairsTableAdapter = null;
+            this.tableAdapterManager.ResetTicketsTableAdapter = null;
             this.tableAdapterManager.TabletDirectorTableAdapter = null;
             this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -516,8 +517,11 @@
             this.cartDataGridView.DataSource = this.cartBindingSource;
             this.cartDataGridView.Location = new System.Drawing.Point(35, 160);
             this.cartDataGridView.Name = "cartDataGridView";
+            this.cartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cartDataGridView.Size = new System.Drawing.Size(644, 447);
             this.cartDataGridView.TabIndex = 54;
+            //this.cartDataGridView.MultiSelectChanged += new System.EventHandler(this.cartDataGridView_MultiSelectChanged);
+            this.cartDataGridView.SelectionChanged += new System.EventHandler(this.cartDataGridView_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn2
             // 

@@ -271,30 +271,42 @@ namespace GlobalSanicElectronics
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            //Declare Variables
-            bool verifyCart;
+            string message = "Does your cart contain all the items you would like to purchase? If so continue, if not please go back and remove items or add items";
+            string caption = "Confirm Cart";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
 
-            //Check for username & Password
-            String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
-            DatabaseOperations.sqlConnectionLink.Open();
-            verifyCart = validateInputCommand.ExecuteReader().HasRows;
-            DatabaseOperations.sqlConnectionLink.Close();
+            result = MessageBox.Show(this, message, caption, buttons,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button1);
 
-            if (verifyCart)
+            if (result == DialogResult.Yes)
             {
-                //Hide this form so the user can no longer see it as it is no longer needed
-                this.Hide();
+                //Declare Variables
+                bool verifyCart;
 
-                //Allow the user go to the order screen, IF the cart is equal to or greater than 1
-                OrderScreen orderScreenForm = new OrderScreen();
-                orderScreenForm.orderFormUsername = mainApplicationUsername;
-                orderScreenForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Nothing in cart to purchase!");
-            }
+                //Check for username & Password
+                String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
+                SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
+                DatabaseOperations.sqlConnectionLink.Open();
+                verifyCart = validateInputCommand.ExecuteReader().HasRows;
+                DatabaseOperations.sqlConnectionLink.Close();
+
+                if (verifyCart)
+                {
+                    //Hide this form so the user can no longer see it as it is no longer needed
+                    this.Hide();
+
+                    //Allow the user go to the order screen, IF the cart is equal to or greater than 1
+                    OrderScreen orderScreenForm = new OrderScreen();
+                    orderScreenForm.orderFormUsername = mainApplicationUsername;
+                    orderScreenForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Nothing in cart to purchase!");
+                }
+            }                        
         }
 
         private void televisionButton_Click(object sender, EventArgs e)

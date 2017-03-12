@@ -288,7 +288,7 @@ namespace GlobalSanicElectronics
                 const string fromPassword = "GSEPassword";
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
-                    "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
+                    "Your repair status has updated to : " + refundStatusComboBox.SelectedItem + "\n" +
                     "This means, Your order has been received by Global Sanic Electronics" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
@@ -323,7 +323,7 @@ namespace GlobalSanicElectronics
                 const string fromPassword = "GSEPassword";
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
-                    "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
+                    "Your repair status has updated to : " + refundStatusComboBox.SelectedItem + "\n" +
                     "This means, Your refund is currently being processed by Global Sanic Electronics" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
@@ -358,7 +358,7 @@ namespace GlobalSanicElectronics
                 const string fromPassword = "GSEPassword";
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
-                    "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
+                    "Your repair status has updated to : " + refundStatusComboBox.SelectedItem + "\n" +
                     "This means, Your refund has been transacted from Global Sanic Electronics to your bank provider" + "\n" +
                     "We will continue to update you on the status of your refund!" + "\n" +
                     "Sincerly, \n\n\n\n" +
@@ -393,7 +393,7 @@ namespace GlobalSanicElectronics
                 const string fromPassword = "GSEPassword";
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
-                    "Your repair status has updated to : " + repairStatusComboBox.SelectedItem + "\n" +
+                    "Your repair status has updated to : " + refundStatusComboBox.SelectedItem + "\n" +
                     "This means, Your refund should be complete now" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
@@ -535,6 +535,227 @@ namespace GlobalSanicElectronics
                     repairsDataGridView.DataSource = ds.Tables[1];
                 }
             }
+        }
+
+        private void updateDeliveryStatusButton_Click(object sender, EventArgs e)
+        {
+            //Variable to hold what is in the combo box
+            string deliveryStatus = deliveryComboBox.Text;
+
+            SqlCommand updateRepairCommand = new SqlCommand();
+            updateRepairCommand.CommandType = CommandType.Text;
+            updateRepairCommand.CommandText = "UPDATE Purchases SET Stages= '" + deliveryComboBox.SelectedItem + "' WHERE Username= '" + usernameTextBox.Text + "'";
+            updateRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
+            DatabaseOperations.sqlConnectionLink.Open();
+            updateRepairCommand.ExecuteNonQuery();
+            DatabaseOperations.sqlConnectionLink.Close();
+
+            MessageBox.Show("Delivery Status has been updated");
+
+            //Get the customers email
+            string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
+            SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
+
+            try
+            {
+                DatabaseOperations.sqlConnectionLink.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        email = (reader["Email"].ToString());
+                    }
+                }
+            }
+            finally
+            {
+                DatabaseOperations.sqlConnectionLink.Close();
+            }
+
+            if (deliveryStatus == "Two")
+            {
+                //Send user an email to let them know there Repair Status has been updated
+                var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                var toAddress = new MailAddress(email, usernameTextBox.Text);
+                const string fromPassword = "GSEPassword";
+                const string subject = "Update on your Delivery";
+                string body = "Hello " + usernameTextBox.Text + "\n\n" +
+                    "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
+                    "This means, Your order is being packed up to ship" + "\n\n" +
+                    "We will continue to update you on the status of your delivery!" + "\n" +
+                    "Sincerly, \n\n\n\n" +
+                    "Global Sanic Electronics";
+
+                //Establis a connection with the smtpclient and put the host and port number down
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                //Area to actually send the message out to the user
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            else if (deliveryStatus == "Three")
+            {
+                //Send user an email to let them know there Repair Status has been updated
+                var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                var toAddress = new MailAddress(email, usernameTextBox.Text);
+                const string fromPassword = "GSEPassword";
+                const string subject = "Update on your Repair";
+                string body = "Hello " + usernameTextBox.Text + "\n\n" +
+                    "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
+                    "This means, your order has been shipped" + "\n" +
+                    "We will continue to update you on the status of your delivery!" + "\n" +
+                    "Sincerly, \n\n\n\n" +
+                    "Global Sanic Electronics";
+
+                //Establis a connection with the smtpclient and put the host and port number down
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                //Area to actually send the message out to the user
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            else if (deliveryStatus == "Four")
+            {
+                //Send user an email to let them know there Repair Status has been updated
+                var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                var toAddress = new MailAddress(email, usernameTextBox.Text);
+                const string fromPassword = "GSEPassword";
+                const string subject = "Update on your Repair";
+                string body = "Hello " + usernameTextBox.Text + "\n\n" +
+                    "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
+                    "This means, your order has been delivered to local mailing facility" + "\n" +
+                    "We will continue to update you on the status of your delivery!" + "\n" +
+                    "Sincerly, \n\n\n\n" +
+                    "Global Sanic Electronics";
+
+                //Establis a connection with the smtpclient and put the host and port number down
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                //Area to actually send the message out to the user
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            else if (deliveryStatus == "Five")
+            {
+                //Send user an email to let them know there Repair Status has been updated
+                var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                var toAddress = new MailAddress(email, usernameTextBox.Text);
+                const string fromPassword = "GSEPassword";
+                const string subject = "Update on your Repair";
+                string body = "Hello " + usernameTextBox.Text + "\n\n" +
+                    "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
+                    "This means, Your order is out for delivery" + "\n" +
+                    "We will continue to update you on the status of your delivery!" + "\n" +
+                    "Sincerly, \n\n\n\n" +
+                    "Global Sanic Electronics";
+
+                //Establis a connection with the smtpclient and put the host and port number down
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                //Area to actually send the message out to the user
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            else if (deliveryStatus == "Six")
+            {
+                //Send user an email to let them know there Repair Status has been updated
+                var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+                var toAddress = new MailAddress(email, usernameTextBox.Text);
+                const string fromPassword = "GSEPassword";
+                const string subject = "Update on your Repair";
+                string body = "Hello " + usernameTextBox.Text + "\n\n" +
+                    "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
+                    "This means, Order has been shipped to you" + "\n" +
+                    "Sincerly, \n\n\n\n" +
+                    "Global Sanic Electronics";
+
+                //Establis a connection with the smtpclient and put the host and port number down
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                //Area to actually send the message out to the user
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+
+            //Update Repair status screen datagridview
+            var select = "SELECT * FROM Repairs WHERE Username= '" + usernameTextBox.Text + "'";
+            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            repairsDataGridView.DataSource = ds.Tables[0];
         }
     }
 }
