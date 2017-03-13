@@ -70,7 +70,7 @@ namespace GlobalSanicElectronics
             number = orderNumber.Next();
 
             //Display the Order Number in the label
-            orderNumberDisplayLabel.Text = "$" + number.ToString();
+            orderNumberDisplayLabel.Text = number.ToString();
 
             //Update the Purchase table and add the user's Order number to the table
             System.Data.SqlClient.SqlCommand updatePurchases = new System.Data.SqlClient.SqlCommand();

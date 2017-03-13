@@ -33,7 +33,7 @@ namespace GlobalSanicElectronics
             shippingTwoRadioButton.Checked = true;
 
             //Show the user's current total before shipping
-            totalPaymentDisplayLabel.Text = userPrice.ToString();
+            totalPaymentDisplayLabel.Text = "$" + userPrice.ToString();
 
             //Fill the yearComboBox with the appropriate years
             for (int year = DateTime.Today.Year; year < DateTime.Today.Year + 10; year++)
