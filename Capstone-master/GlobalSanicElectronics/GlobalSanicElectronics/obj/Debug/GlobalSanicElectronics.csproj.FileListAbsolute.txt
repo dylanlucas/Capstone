@@ -123,7 +123,6 @@ C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\Glob
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.AccountCreation.resources
-C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Cart.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ContactScreen.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.EmployeeScreen.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.LaunchScreen.resources
@@ -223,3 +222,4 @@ C:\Users\lucasd5495\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics
 C:\Users\lucasd5495\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreen.resources
 C:\Users\lucasd5495\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.TrackOrder.resources
 C:\Users\lucasd5495\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.UserCart.resources

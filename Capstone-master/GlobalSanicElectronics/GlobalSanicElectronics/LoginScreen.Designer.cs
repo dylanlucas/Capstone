@@ -65,7 +65,7 @@
             this.usernameInputTextBox.Name = "usernameInputTextBox";
             this.usernameInputTextBox.Size = new System.Drawing.Size(146, 20);
             this.usernameInputTextBox.TabIndex = 1;
-            this.usernameInputTextBox.TextChanged += new System.EventHandler(this.usernameInputTextBox_TextChanged);
+            //this.usernameInputTextBox.TextChanged += new System.EventHandler(this.usernameInputTextBox_TextChanged);
             // 
             // passwordLabel
             // 
@@ -84,7 +84,7 @@
             this.passwordInputTextBox.Size = new System.Drawing.Size(146, 20);
             this.passwordInputTextBox.TabIndex = 2;
             this.passwordInputTextBox.UseSystemPasswordChar = true;
-            this.passwordInputTextBox.TextChanged += new System.EventHandler(this.passwordInputTextBox_TextChanged);
+            //this.passwordInputTextBox.TextChanged += new System.EventHandler(this.passwordInputTextBox_TextChanged);
             // 
             // loginButton
             // 
@@ -132,6 +132,7 @@
             // 
             // LoginScreen
             // 
+            this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 454);
@@ -146,7 +147,7 @@
             this.Controls.Add(this.genericLabel);
             this.Name = "LoginScreen";
             this.Text = "LoginScreen";
-            this.Load += new System.EventHandler(this.LoginScreen_Load);
+            //this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

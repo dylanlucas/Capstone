@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.IO;
-using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -22,193 +12,52 @@ namespace GlobalSanicElectronics
 
         public string mainApplicationUsername { get; set; }
 
+        TelevisionDirectory TV = new TelevisionDirectory();
+        TabletDirectory Tablet = new TabletDirectory();
+        ConsoleDirectory Console = new ConsoleDirectory();
+        ComputerDirectory Computer = new ComputerDirectory();
+        Cart userCart = new Cart();
+        Purchases userPurchases = new Purchases();
+
         private void addToCartButton_Click(object sender, EventArgs e)
         {        
             if (televisionDirectoryDataGridView.Visible == true)
             {
-                foreach (DataGridViewRow row in televisionDirectoryDataGridView.SelectedRows)
-                {
-                    //To hold information about the Television and input it into the Cart table in the database                    
-                    string televisionID = row.Cells[0].Value.ToString();
-                    string brand = row.Cells[1].Value.ToString();
-                    string size = row.Cells[2].Value.ToString();
-                    string led = row.Cells[3].Value.ToString();
-                    string smart = row.Cells[4].Value.ToString();
-                    string resolution = row.Cells[5].Value.ToString();
-                    string color = row.Cells[6].Value.ToString();
-                    string price = row.Cells[7].Value.ToString();
-
-                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
-                    string television = "Yes";
-                    string console = "No";
-                    string tablet = "No";
-                    string computer = "No";
-
-                    MessageBox.Show(brand + " television has been added to your cart with the price of $" + price);
-
-                    //Set up the Command type so the program can input into the database
-                    System.Data.SqlClient.SqlCommand addTelevisionToCartCommand = new System.Data.SqlClient.SqlCommand();
-                    addTelevisionToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addTelevisionToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, LED, Smart, Resolution, Color, Price) VALUES ('" 
-                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + led + "' , '" + smart + "' , '" + resolution 
-                        + "' , '" + color + "' , '" + price + "')";
-
-                    //Establish a connection to the database and perform the addTelevisionToCartCommand
-                    addTelevisionToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
-                    DatabaseOperations.sqlConnectionLink.Open();
-                    addTelevisionToCartCommand.ExecuteNonQuery();
-                    DatabaseOperations.sqlConnectionLink.Close();
-                }
+                DatabaseOperations.TelevisionCart(TV, televisionDirectoryDataGridView, mainApplicationUsername);
             }
 
             else if (tabletDirectorDataGridView.Visible == true)
             {
-                foreach (DataGridViewRow row in tabletDirectorDataGridView.SelectedRows)
-                {
-                    //To hold information about the Tablets and input it into the Cart table in the database
-                    string tabletID = row.Cells[0].Value.ToString();
-                    string brand = row.Cells[1].Value.ToString();
-                    string size = row.Cells[2].Value.ToString();
-                    string storage = row.Cells[3].Value.ToString();
-                    string processor = row.Cells[4].Value.ToString();
-                    string wifi = row.Cells[5].Value.ToString();
-                    string color = row.Cells[6].Value.ToString();
-                    string price = row.Cells[7].Value.ToString();
-
-                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
-                    string television = "No";
-                    string console = "No";
-                    string tablet = "Yes";
-                    string computer = "No";
-
-                    MessageBox.Show(brand + " tablet has been added to your cart with the price of $" + price);
-
-                    DatabaseOperations.sqlConnectionLink.Open();
-
-                    //Set up the Command type so the program can input into the database
-                    System.Data.SqlClient.SqlCommand addTabletToCartCommand = new System.Data.SqlClient.SqlCommand();
-                    addTabletToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addTabletToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Storage, Processor, Wifi, Color, Price) VALUES ('" 
-                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" + size + "' , '" + storage + "' , '" 
-                        + processor + "' , '" + wifi + "' , '" + color + "' , '" + price + "')";
-
-                    //Establish a connection to the database and perform the addTabletToCartCommand
-                    addTabletToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
-                    addTabletToCartCommand.ExecuteNonQuery();
-                    DatabaseOperations.sqlConnectionLink.Close();
-                }
+                DatabaseOperations.TabletCart(Tablet, tabletDirectorDataGridView, mainApplicationUsername);
             }
 
             else if (consoleDirectoryDataGridView.Visible == true)
             {
-                foreach (DataGridViewRow row in consoleDirectoryDataGridView.SelectedRows)
-                {
-                    //To hold information about the Consoles and input it into the Cart table in the database
-                    string consoleID = row.Cells[0].Value.ToString();
-                    string brand = row.Cells[1].Value.ToString();
-                    string storage = row.Cells[2].Value.ToString();
-                    string price = row.Cells[3].Value.ToString();
-
-                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
-                    string television = "No";
-                    string console = "Yes";
-                    string tablet = "No";
-                    string computer = "No";
-
-                    MessageBox.Show(brand + " console has been added to your cart with the price of $" + price);
-
-                    //Set up the Command type so the program can input into the database
-                    System.Data.SqlClient.SqlCommand addConsoleToCartCommand = new System.Data.SqlClient.SqlCommand();
-                    addConsoleToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addConsoleToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Storage, Price) VALUES ('" 
-                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" + brand + "' , '" 
-                        + storage + "' , '" + price + "')";
-
-                    //Establish a connection to the database and perform the addConsoleToCartCommand
-                    addConsoleToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
-                    DatabaseOperations.sqlConnectionLink.Open();
-                    addConsoleToCartCommand.ExecuteNonQuery();
-                    DatabaseOperations.sqlConnectionLink.Close();
-                }
+                DatabaseOperations.ConsoleCart(Console, consoleDirectoryDataGridView, mainApplicationUsername);
             }
 
             else if (computerDirectoryDataGridView.Visible == true)
             {
-                foreach (DataGridViewRow row in computerDirectoryDataGridView.SelectedRows)
-                {
-                    //To hold information about the Compouters and input it into the Cart table in the database
-                    string computerID = row.Cells[0].Value.ToString();
-                    string brand = row.Cells[1].Value.ToString();
-                    string size = row.Cells[2].Value.ToString();
-                    string processor = row.Cells[3].Value.ToString();
-                    string storage = row.Cells[4].Value.ToString();
-                    string ram = row.Cells[5].Value.ToString();
-                    string color = row.Cells[6].Value.ToString();
-                    string price = row.Cells[7].Value.ToString();
-
-                    //Strings to tell the cart table in the database whether the item is a Computer, Console, Tablet, or Television
-                    string television = "No";
-                    string console = "No";
-                    string tablet = "No";
-                    string computer = "Yes";
-
-                    MessageBox.Show(brand + " computer has been added to your cart with the price of $" + price);
-
-                    //Set up the Command type so the program can input into the database
-                    System.Data.SqlClient.SqlCommand addComputerToCartCommand = new System.Data.SqlClient.SqlCommand();
-                    addComputerToCartCommand.CommandType = System.Data.CommandType.Text;
-                    addComputerToCartCommand.CommandText = "INSERT into Cart (Username, Computer, Console, Tablet, Television, Brand, Size, Processor, Storage, RAM, Color, Price) VALUES ('" 
-                        + mainApplicationUsername + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "' , '" 
-                        + brand + "' , '" + size + "' , '" + processor + "' , '" + storage + "' , '" + ram + "' , '" + color + "' , '" + price + "')";
-
-                    //Establish a connection to the database and perform the addComputerToCartCommand
-                    addComputerToCartCommand.Connection = DatabaseOperations.sqlConnectionLink;
-                    DatabaseOperations.sqlConnectionLink.Open();
-                    addComputerToCartCommand.ExecuteNonQuery();
-                    DatabaseOperations.sqlConnectionLink.Close();
-                }
+                DatabaseOperations.ComputerCart(Computer, computerDirectoryDataGridView, mainApplicationUsername);
             }
 
-            //Make a command to search the cart
-            SqlCommand cartDisplayCommand = new SqlCommand();
-            cartDisplayCommand.CommandType = CommandType.Text;
-            cartDisplayCommand.CommandText = "SELECT COUNT(*) FROM Cart WHERE Username= '" + mainApplicationUsername + "'";
-            cartDisplayCommand.Connection = DatabaseOperations.sqlConnectionLink;
+            //Display the Cart Item Total for the User
+            DatabaseOperations.CartDisplay(userCart, mainApplicationUsername, cartDisplayLabel);
 
-            //Update cartdisplaylabel with cart total
-            cartDisplayCommand.Connection.Open();
-            cartDisplayLabel.Text = cartDisplayCommand.ExecuteScalar().ToString();
-            cartDisplayCommand.Connection.Close();
-
-            //Make a command to get the sum of the price and display it for the user
-            SqlCommand priceCommand = new SqlCommand("SELECT SUM(Price) FROM Cart WHERE Username= '" + mainApplicationUsername + "'");
-            priceCommand.Connection = DatabaseOperations.sqlConnectionLink;
-            priceCommand.Connection.Open();
-            cartPriceDisplayLabel.Text = "$" + priceCommand.ExecuteScalar().ToString();
-            priceCommand.Connection.Close();
+            //Display the Cart Price Total for the User
+            DatabaseOperations.CartPrice(userCart, mainApplicationUsername, cartPriceDisplayLabel);
         }
 
         private void toCartButton_Click(object sender, EventArgs e)
         {
-            //Declare Variables
-            bool verifyCart;
-
-            //Check for username & Password
-            String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
-            DatabaseOperations.sqlConnectionLink.Open();
-            verifyCart = validateInputCommand.ExecuteReader().HasRows;
-
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            if (verifyCart)
+            if (DatabaseOperations.CartValidation(userCart, mainApplicationUsername))
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
 
 
                 //Go to the Cart Screen as user requested
-                Cart cartForm = new Cart();
+                UserCart cartForm = new UserCart();
                 cartForm.cartFormUsername = mainApplicationUsername;
                 cartForm.Show();
             }
@@ -281,18 +130,8 @@ namespace GlobalSanicElectronics
                 MessageBoxDefaultButton.Button1);
 
             if (result == DialogResult.Yes)
-            {
-                //Declare Variables
-                bool verifyCart;
-
-                //Check for username & Password
-                String validation = "SELECT * From Cart WHERE Username= '" + mainApplicationUsername + "'";
-                SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
-                DatabaseOperations.sqlConnectionLink.Open();
-                verifyCart = validateInputCommand.ExecuteReader().HasRows;
-                DatabaseOperations.sqlConnectionLink.Close();
-
-                if (verifyCart)
+            {               
+                if (DatabaseOperations.CartValidation(userCart, mainApplicationUsername))
                 {
                     //Hide this form so the user can no longer see it as it is no longer needed
                     this.Hide();
@@ -373,11 +212,6 @@ namespace GlobalSanicElectronics
 
         }
 
-        private void MainApplication_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void televisionDirectoryBindingNavigatorSaveItem_Click_2(object sender, EventArgs e)
         {
             this.Validate();
@@ -402,11 +236,6 @@ namespace GlobalSanicElectronics
 
         }
 
-        private void priceDisplayLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void televisionDirectoryBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
         {
             this.Validate();
@@ -425,17 +254,7 @@ namespace GlobalSanicElectronics
 
         private void trackOrderButton_Click(object sender, EventArgs e)
         {
-            //Declare Variables
-            bool verifyPurchases;
-
-            //Check for username & Password
-            String validation = "SELECT * From Purchases WHERE Username= '" + mainApplicationUsername + "'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
-            DatabaseOperations.sqlConnectionLink.Open();
-            verifyPurchases = validateInputCommand.ExecuteReader().HasRows;
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            if (verifyPurchases)
+            if (DatabaseOperations.TrackOrder(userPurchases, mainApplicationUsername))
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
@@ -504,24 +323,12 @@ namespace GlobalSanicElectronics
             this.consoleDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ConsoleDirectory);
             // TODO: This line of code loads data into the 'gSEDatabaseDataSet.ComputerDirectory' table. You can move, or remove it, as needed.
             this.computerDirectoryTableAdapter.Fill(this.gSEDatabaseDataSet.ComputerDirectory);
-            
-            //Make a command to search the cart
-            SqlCommand cartDisplayCommand = new SqlCommand();
-            cartDisplayCommand.CommandType = CommandType.Text;
-            cartDisplayCommand.CommandText = "SELECT COUNT(*) FROM Cart WHERE Username= '" + mainApplicationUsername + "'";
-            cartDisplayCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
-            //Update cartdisplaylabel with cart total
-            cartDisplayCommand.Connection.Open();
-            cartDisplayLabel.Text = cartDisplayCommand.ExecuteScalar().ToString();
-            cartDisplayCommand.Connection.Close();
+            //Display the Cart Item Total for the User
+            DatabaseOperations.CartDisplay(userCart, mainApplicationUsername, cartDisplayLabel);
 
-            //Make a command to get the sum of the price and display it for the user
-            SqlCommand priceCommand = new SqlCommand("SELECT SUM(Price) FROM Cart WHERE Username= '" + mainApplicationUsername + "'");
-            priceCommand.Connection = DatabaseOperations.sqlConnectionLink;
-            priceCommand.Connection.Open();
-            cartPriceDisplayLabel.Text = "$" + priceCommand.ExecuteScalar().ToString();
-            priceCommand.Connection.Close();
+            //Display the Cart Price Total for the User
+            DatabaseOperations.CartPrice(userCart, mainApplicationUsername, cartPriceDisplayLabel);
         }
     }
 }

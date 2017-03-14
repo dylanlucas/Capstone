@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -56,6 +57,8 @@
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.stateTextBox = new System.Windows.Forms.TextBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -266,7 +269,7 @@
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(170, 20);
             this.usernameTextBox.TabIndex = 1;
-            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
+            this.usernameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.usernameTextBox_Validating);
             // 
             // passwordTextBox
             // 
@@ -275,7 +278,7 @@
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(170, 20);
             this.passwordTextBox.TabIndex = 2;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            this.passwordTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.passwordTextBox_Validating);
             // 
             // emailTextBox
             // 
@@ -283,7 +286,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(170, 20);
             this.emailTextBox.TabIndex = 3;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
+            this.emailTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.emailTextBox_Validating);
             // 
             // dOBTextBox
             // 
@@ -292,7 +295,7 @@
             this.dOBTextBox.Name = "dOBTextBox";
             this.dOBTextBox.Size = new System.Drawing.Size(170, 20);
             this.dOBTextBox.TabIndex = 4;
-            this.dOBTextBox.TextChanged += new System.EventHandler(this.dOBTextBox_TextChanged);
+            this.dOBTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.dOBTextBox_Validating);
             // 
             // addressTextBox
             // 
@@ -300,7 +303,7 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(170, 20);
             this.addressTextBox.TabIndex = 5;
-            this.addressTextBox.TextChanged += new System.EventHandler(this.addressTextBox_TextChanged);
+            this.addressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.addressTextBox_Validating);
             // 
             // cityTextBox
             // 
@@ -308,7 +311,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(170, 20);
             this.cityTextBox.TabIndex = 6;
-            this.cityTextBox.TextChanged += new System.EventHandler(this.cityTextBox_TextChanged);
+            this.cityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cityTextBox_Validating);
             // 
             // stateTextBox
             // 
@@ -317,7 +320,7 @@
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(170, 20);
             this.stateTextBox.TabIndex = 7;
-            this.stateTextBox.TextChanged += new System.EventHandler(this.stateTextBox_TextChanged);
+            this.stateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.stateTextBox_Validating);
             // 
             // zipTextBox
             // 
@@ -326,10 +329,15 @@
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(170, 20);
             this.zipTextBox.TabIndex = 8;
-            this.zipTextBox.TextChanged += new System.EventHandler(this.zipTextBox_TextChanged);
+            this.zipTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.zipTextBox_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AccountCreation
             // 
+            this.AcceptButton = this.confirmButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 517);
@@ -364,6 +372,7 @@
             this.Name = "AccountCreation";
             this.Text = "AccountCreation";
             this.Load += new System.EventHandler(this.AccountCreation_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,5 +408,6 @@
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.TextBox stateTextBox;
         private System.Windows.Forms.TextBox zipTextBox;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

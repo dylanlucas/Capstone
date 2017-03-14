@@ -19,7 +19,6 @@ namespace GlobalSanicElectronics
             InitializeComponent();       
         }
 
-        //Declare variables
         double userPrice = 0;
 
         bool consoleYesNo;
@@ -31,6 +30,8 @@ namespace GlobalSanicElectronics
 
         public string orderFormUsername { get; set; }        
         public double overallPrice { get; set; }
+
+        Cart userCart = new Cart();
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
@@ -65,136 +66,20 @@ namespace GlobalSanicElectronics
 
         private void OrderScreen_Load(object sender, EventArgs e)
         {
-            var select = "SELECT Console, Computer, Tablet, Television, Brand, Price FROM Cart WHERE Username= '" + orderFormUsername + "'";            
-            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            cartDataGridView.ReadOnly = true;
-            cartDataGridView.DataSource = ds.Tables[0];
-
-            cartDataGridView.SelectAll();
-
-            if (cartDataGridView.RowCount > 0)
-            {
-                var lastRow = cartDataGridView.Rows[cartDataGridView.RowCount - 1];
-                lastRow.Selected = false;
-
-                foreach (DataGridViewRow row in cartDataGridView.SelectedRows)
-                {
-                    string computer = row.Cells[0].Value.ToString();
-                    string console = row.Cells[1].Value.ToString();
-                    string tablet = row.Cells[2].Value.ToString();
-                    string television = row.Cells[3].Value.ToString();
-                    price = row.Cells[5].Value.ToString();
-
-                    userPrice += double.Parse(price);
-
-                    if (console == "Yes")
-                    {
-                        consoleYesNo = true;
-                        consoleTabControl.Enabled = true;
-                        consoleBundleFourRadioButton.Checked = true;
-                        consoleWarrantyFourRadioButton.Checked = true;
-                    }
-
-                    if (computer == "Yes")
-                    {
-                        computerYesNo = true;
-                        computerGroupGox.Enabled = true;
-                        computerWarrantyFourRadioButton.Checked = true;
-                    }
-
-                    if (tablet == "Yes")
-                    {
-                        tabletYesNo = true;
-                        tabletGroupBox.Enabled = true;
-                        tabletWarrantyFourRadioButton.Checked = true;
-                    }
-
-                    if (television == "Yes")
-                    {
-                        televisionYesNo = true;
-                        televisionGroupBox.Enabled = true;
-                        televisionWarrantyFourRadioButton.Checked = true;
-                    }
-                }
-            }
+            userPrice = DatabaseOperations.DisplayCart(userCart, cartDataGridView, orderFormUsername, consoleTabControl,
+                consoleBundleFourRadioButton, consoleWarrantyFourRadioButton, computerGroupBox,
+                computerWarrantyFourRadioButton, tabletGroupBox, tabletWarrantyFourRadioButton, televisionGroupBox,
+                televisionWarrantyFourRadioButton, consoleYesNo, computerYesNo, tabletYesNo, televisionYesNo, userPrice);
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            //Adding Console Bundle price information to the userPrice variable so it has an accumulated overall price
-            if (consoleBundleOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }            
-            else if (consoleBundleTwoRadioButton.Checked)
-            {
-                userPrice += 45.00;
-            }
-            else if (consoleBundleThreeRadioButton.Checked)
-            {
-                userPrice += 60.00;
-            }
-            
-            //Adding Console Warranty price information to the userPrice variable so it has an accumulated overall price
-            if (consoleWarrantyOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }
-            else if (consoleWarrantyTwoRadioButton.Checked)
-            {
-                userPrice += 45.00;
-            }
-            else if (consoleWarrantyThreeRadioButton.Checked)
-            {
-                userPrice += 60.00;
-            }
-
-            //Adding Computer Warranty price information to the userPrice variable so it has an accumulated overall price
-            if (computerWarrantyOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }
-            else if (computerWarrantyTwoRadioButton.Checked)
-            {
-                userPrice += 45.00;
-            }
-            else if (computerWarrantyThreeRadioButton.Checked)
-            {
-                userPrice += 60.00;
-            }
-            
-            //Adding Tablet Warranty price information to the userPrice variable so it has an accumulated overall price
-            if (tabletWarrantyOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }
-            else if (tabletWarrantyTwoRadioButton.Checked)
-            {
-                userPrice += 45.00;
-            }
-            else if (tabletWarrantyThreeRadioButton.Checked)
-            {
-                userPrice += 60.00;
-            }
-
-            //Adding Television Warranty price information to the userPrice variable so it has an accumulated overall price
-            if (televisionWarrantyOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }
-            else if (televisionWarrantyTwoRadioButton.Checked)
-            {
-                userPrice += 45.00;
-            }
-            else if (televisionWarrantyThreeRadioButton.Checked)
-            {
-                userPrice += 60.00;
-            }
-
+            userPrice = Price.UserPrice(consoleBundleOneRadioButton, consoleBundleTwoRadioButton, consoleBundleThreeRadioButton,
+                consoleWarrantyOneRadioButton, consoleWarrantyTwoRadioButton, consoleWarrantyThreeRadioButton,
+                computerWarrantyOneRadioButton, computerWarrantyTwoRadioButton, computerWarrantyThreeRadioButton,
+                tabletWarrantyOneRadioButton, tabletWarrantyTwoRadioButton, tabletWarrantyThreeRadioButton,
+                televisionWarrantyOneRadioButton, televisionWarrantyTwoRadioButton, televisionWarrantyThreeRadioButton,
+                userPrice);
 
             //Hide this form so the user can no longer see it as it is no longer needed
             this.Hide();
@@ -273,11 +158,6 @@ namespace GlobalSanicElectronics
             this.cartBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
 
-        }
-
-        private void cartDataGridView_SelectionChanged(object sender, EventArgs e)
-        {
-                      
         }
     }
 }

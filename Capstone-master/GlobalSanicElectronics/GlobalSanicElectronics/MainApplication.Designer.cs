@@ -305,7 +305,7 @@
             this.cartPriceDisplayLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cartPriceDisplayLabel.Location = new System.Drawing.Point(813, 34);
             this.cartPriceDisplayLabel.Name = "cartPriceDisplayLabel";
-            this.cartPriceDisplayLabel.Size = new System.Drawing.Size(65, 37);
+            this.cartPriceDisplayLabel.Size = new System.Drawing.Size(105, 37);
             this.cartPriceDisplayLabel.TabIndex = 18;
             this.cartPriceDisplayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

@@ -52,7 +52,9 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,11 +72,25 @@
     <Compile Include="AccountCreation.Designer.cs">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cart.cs">
+    <Compile Include="AccountCreationValidation.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="CCInformation.cs" />
+    <Compile Include="ComputerDirectory.cs" />
+    <Compile Include="ConsoleDirectory.cs" />
+    <Compile Include="EmailOperations.cs" />
+    <Compile Include="PasswordOperations.cs" />
+    <Compile Include="Price.cs" />
+    <Compile Include="Purchases.cs" />
+    <Compile Include="Refunds.cs" />
+    <Compile Include="Repairs.cs" />
+    <Compile Include="ResetTickets.cs" />
+    <Compile Include="TabletDirectory.cs" />
+    <Compile Include="TelevisionDirectory.cs" />
+    <Compile Include="UserCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cart.Designer.cs">
-      <DependentUpon>Cart.cs</DependentUpon>
+    <Compile Include="UserCart.Designer.cs">
+      <DependentUpon>UserCart.cs</DependentUpon>
     </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
@@ -88,6 +104,7 @@
     <Compile Include="ContactScreen.Designer.cs">
       <DependentUpon>ContactScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerInformation.cs" />
     <Compile Include="DatabaseOperations.cs" />
     <Compile Include="EmployeeScreen.cs">
       <SubType>Form</SubType>
@@ -183,17 +200,19 @@
     <Compile Include="ReturnScreen.Designer.cs">
       <DependentUpon>ReturnScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableAttribute.cs" />
     <Compile Include="TrackOrder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TrackOrder.Designer.cs">
       <DependentUpon>TrackOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validation.cs" />
     <EmbeddedResource Include="AccountCreation.resx">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cart.resx">
-      <DependentUpon>Cart.cs</DependentUpon>
+    <EmbeddedResource Include="UserCart.resx">
+      <DependentUpon>UserCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -300,6 +319,9 @@
       <DependentUpon>GSEDatabase.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

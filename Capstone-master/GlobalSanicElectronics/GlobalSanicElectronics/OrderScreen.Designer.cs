@@ -47,7 +47,7 @@
             this.consoleWarrantyThreeRadioButton = new System.Windows.Forms.RadioButton();
             this.consoleWarrantyTwoRadioButton = new System.Windows.Forms.RadioButton();
             this.consoleWarrantyOneRadioButton = new System.Windows.Forms.RadioButton();
-            this.computerGroupGox = new System.Windows.Forms.GroupBox();
+            this.computerGroupBox = new System.Windows.Forms.GroupBox();
             this.computerWarrantyFourRadioButton = new System.Windows.Forms.RadioButton();
             this.computerWarrantyThreeRadioButton = new System.Windows.Forms.RadioButton();
             this.computerWarrantyTwoRadioButton = new System.Windows.Forms.RadioButton();
@@ -90,7 +90,7 @@
             this.consolesTabPage.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.computerGroupGox.SuspendLayout();
+            this.computerGroupBox.SuspendLayout();
             this.tabletGroupBox.SuspendLayout();
             this.televisionGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
@@ -289,19 +289,19 @@
             this.consoleWarrantyOneRadioButton.Text = "6 Months : We will fix anything for $30";
             this.consoleWarrantyOneRadioButton.UseVisualStyleBackColor = true;
             // 
-            // computerGroupGox
+            // computerGroupBox
             // 
-            this.computerGroupGox.Controls.Add(this.computerWarrantyFourRadioButton);
-            this.computerGroupGox.Controls.Add(this.computerWarrantyThreeRadioButton);
-            this.computerGroupGox.Controls.Add(this.computerWarrantyTwoRadioButton);
-            this.computerGroupGox.Controls.Add(this.computerWarrantyOneRadioButton);
-            this.computerGroupGox.Enabled = false;
-            this.computerGroupGox.Location = new System.Drawing.Point(1110, 159);
-            this.computerGroupGox.Name = "computerGroupGox";
-            this.computerGroupGox.Size = new System.Drawing.Size(229, 208);
-            this.computerGroupGox.TabIndex = 51;
-            this.computerGroupGox.TabStop = false;
-            this.computerGroupGox.Text = "Computer Warranties";
+            this.computerGroupBox.Controls.Add(this.computerWarrantyFourRadioButton);
+            this.computerGroupBox.Controls.Add(this.computerWarrantyThreeRadioButton);
+            this.computerGroupBox.Controls.Add(this.computerWarrantyTwoRadioButton);
+            this.computerGroupBox.Controls.Add(this.computerWarrantyOneRadioButton);
+            this.computerGroupBox.Enabled = false;
+            this.computerGroupBox.Location = new System.Drawing.Point(1110, 159);
+            this.computerGroupBox.Name = "computerGroupBox";
+            this.computerGroupBox.Size = new System.Drawing.Size(229, 208);
+            this.computerGroupBox.TabIndex = 51;
+            this.computerGroupBox.TabStop = false;
+            this.computerGroupBox.Text = "Computer Warranties";
             // 
             // computerWarrantyFourRadioButton
             // 
@@ -520,8 +520,7 @@
             this.cartDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cartDataGridView.Size = new System.Drawing.Size(644, 447);
             this.cartDataGridView.TabIndex = 54;
-            //this.cartDataGridView.MultiSelectChanged += new System.EventHandler(this.cartDataGridView_MultiSelectChanged);
-            this.cartDataGridView.SelectionChanged += new System.EventHandler(this.cartDataGridView_SelectionChanged);
+            //this.cartDataGridView.SelectionChanged += new System.EventHandler(this.cartDataGridView_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -645,7 +644,7 @@
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.televisionGroupBox);
             this.Controls.Add(this.tabletGroupBox);
-            this.Controls.Add(this.computerGroupGox);
+            this.Controls.Add(this.computerGroupBox);
             this.Controls.Add(this.consoleTabControl);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameLabel);
@@ -662,8 +661,8 @@
             this.tabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.computerGroupGox.ResumeLayout(false);
-            this.computerGroupGox.PerformLayout();
+            this.computerGroupBox.ResumeLayout(false);
+            this.computerGroupBox.PerformLayout();
             this.tabletGroupBox.ResumeLayout(false);
             this.tabletGroupBox.PerformLayout();
             this.televisionGroupBox.ResumeLayout(false);
@@ -694,7 +693,7 @@
         private System.Windows.Forms.RadioButton consoleWarrantyThreeRadioButton;
         private System.Windows.Forms.RadioButton consoleWarrantyTwoRadioButton;
         private System.Windows.Forms.RadioButton consoleWarrantyOneRadioButton;
-        private System.Windows.Forms.GroupBox computerGroupGox;
+        private System.Windows.Forms.GroupBox computerGroupBox;
         private System.Windows.Forms.RadioButton computerWarrantyThreeRadioButton;
         private System.Windows.Forms.RadioButton computerWarrantyTwoRadioButton;
         private System.Windows.Forms.RadioButton computerWarrantyOneRadioButton;
