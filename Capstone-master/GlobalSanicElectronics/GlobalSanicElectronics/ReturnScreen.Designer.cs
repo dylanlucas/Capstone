@@ -88,6 +88,7 @@
             this.Controls.Add(this.genericLabel);
             this.Name = "ReturnScreen";
             this.Text = "ReturnScreen";
+            this.Load += new System.EventHandler(this.ReturnScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

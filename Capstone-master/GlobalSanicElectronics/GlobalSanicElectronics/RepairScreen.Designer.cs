@@ -88,6 +88,7 @@
             this.Controls.Add(this.genericLabel);
             this.Name = "RepairScreen";
             this.Text = "RepairScreen";
+            this.Load += new System.EventHandler(this.RepairScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

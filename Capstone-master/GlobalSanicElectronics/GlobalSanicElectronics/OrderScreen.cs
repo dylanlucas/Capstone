@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace GlobalSanicElectronics
 {
@@ -26,12 +17,12 @@ namespace GlobalSanicElectronics
         bool tabletYesNo;
         bool televisionYesNo;
         
-        string price;
 
         public string orderFormUsername { get; set; }        
         public double overallPrice { get; set; }
 
         Cart userCart = new Cart();
+        OrderScreenPartTwo orderScreenPartTwoForm = new OrderScreenPartTwo();
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
@@ -69,12 +60,13 @@ namespace GlobalSanicElectronics
             userPrice = DatabaseOperations.DisplayCart(userCart, cartDataGridView, orderFormUsername, consoleTabControl,
                 consoleBundleFourRadioButton, consoleWarrantyFourRadioButton, computerGroupBox,
                 computerWarrantyFourRadioButton, tabletGroupBox, tabletWarrantyFourRadioButton, televisionGroupBox,
-                televisionWarrantyFourRadioButton, consoleYesNo, computerYesNo, tabletYesNo, televisionYesNo, userPrice);
+                televisionWarrantyFourRadioButton, consoleYesNo, computerYesNo, tabletYesNo, televisionYesNo, userPrice,
+                orderScreenPartTwoForm);
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            userPrice = Price.UserPrice(consoleBundleOneRadioButton, consoleBundleTwoRadioButton, consoleBundleThreeRadioButton,
+            userPrice = GeneralOperations.UserPrice(consoleBundleOneRadioButton, consoleBundleTwoRadioButton, consoleBundleThreeRadioButton,
                 consoleWarrantyOneRadioButton, consoleWarrantyTwoRadioButton, consoleWarrantyThreeRadioButton,
                 computerWarrantyOneRadioButton, computerWarrantyTwoRadioButton, computerWarrantyThreeRadioButton,
                 tabletWarrantyOneRadioButton, tabletWarrantyTwoRadioButton, tabletWarrantyThreeRadioButton,
@@ -85,46 +77,8 @@ namespace GlobalSanicElectronics
             this.Hide();
 
             //Go back to the Main Application since the user has requested to
-            OrderScreenPartTwo orderScreenPartTwoForm = new OrderScreenPartTwo();
             orderScreenPartTwoForm.userPrice = userPrice;
-            orderScreenPartTwoForm.userName = orderFormUsername;
-
-            if(consoleYesNo == true)
-            {
-                orderScreenPartTwoForm.console = "Yes";
-            }
-            else
-            {
-                orderScreenPartTwoForm.console = "No";
-            }
-
-            if (computerYesNo == true)
-            {
-                orderScreenPartTwoForm.computer = "Yes";
-            }
-            else
-            {
-                orderScreenPartTwoForm.computer = "No";
-            }
-            
-            if (tabletYesNo == true)
-            {
-                orderScreenPartTwoForm.tablet = "Yes";
-            }
-            else
-            {
-                orderScreenPartTwoForm.tablet = "No";
-            }
-
-            if (televisionYesNo == true)
-            {
-                orderScreenPartTwoForm.television = "Yes";
-            }
-            else
-            {
-                orderScreenPartTwoForm.television = "No";
-            }
-            
+            orderScreenPartTwoForm.userName = orderFormUsername;            
             orderScreenPartTwoForm.Show();
         }
 

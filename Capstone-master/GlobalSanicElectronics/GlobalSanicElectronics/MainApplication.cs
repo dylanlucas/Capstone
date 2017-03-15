@@ -24,21 +24,25 @@ namespace GlobalSanicElectronics
             if (televisionDirectoryDataGridView.Visible == true)
             {
                 DatabaseOperations.TelevisionCart(TV, televisionDirectoryDataGridView, mainApplicationUsername);
+                userCart.Televisions.Add(TV);
             }
 
             else if (tabletDirectorDataGridView.Visible == true)
             {
                 DatabaseOperations.TabletCart(Tablet, tabletDirectorDataGridView, mainApplicationUsername);
+                userCart.Tablets.Add(Tablet);
             }
 
             else if (consoleDirectoryDataGridView.Visible == true)
             {
                 DatabaseOperations.ConsoleCart(Console, consoleDirectoryDataGridView, mainApplicationUsername);
+                userCart.Consoles.Add(Console);
             }
 
             else if (computerDirectoryDataGridView.Visible == true)
             {
                 DatabaseOperations.ComputerCart(Computer, computerDirectoryDataGridView, mainApplicationUsername);
+                userCart.Computers.Add(Computer);
             }
 
             //Display the Cart Item Total for the User

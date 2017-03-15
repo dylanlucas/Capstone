@@ -41,6 +41,8 @@
             this.refundStatusComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.updateDeliveryStatusButton = new System.Windows.Forms.Button();
+            this.deliveryComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.loadCustomerInformationButton = new System.Windows.Forms.Button();
@@ -53,15 +55,6 @@
             this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
             this.refundsTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.RefundsTableAdapter();
             this.repairsTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.RepairsTableAdapter();
-            this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repairsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refundsDataGridView = new System.Windows.Forms.DataGridView();
@@ -80,18 +73,21 @@
             this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.deliveryComboBox = new System.Windows.Forms.ComboBox();
-            this.updateDeliveryStatusButton = new System.Windows.Forms.Button();
+            this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refundsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.refundsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -234,6 +230,31 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Load Information";
             // 
+            // updateDeliveryStatusButton
+            // 
+            this.updateDeliveryStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateDeliveryStatusButton.Location = new System.Drawing.Point(106, 248);
+            this.updateDeliveryStatusButton.Name = "updateDeliveryStatusButton";
+            this.updateDeliveryStatusButton.Size = new System.Drawing.Size(223, 57);
+            this.updateDeliveryStatusButton.TabIndex = 16;
+            this.updateDeliveryStatusButton.Text = "Update Delivery Status";
+            this.updateDeliveryStatusButton.UseVisualStyleBackColor = true;
+            this.updateDeliveryStatusButton.Click += new System.EventHandler(this.updateDeliveryStatusButton_Click);
+            // 
+            // deliveryComboBox
+            // 
+            this.deliveryComboBox.FormattingEnabled = true;
+            this.deliveryComboBox.Items.AddRange(new object[] {
+            "Two",
+            "Three",
+            "Four",
+            "Five",
+            "Six"});
+            this.deliveryComboBox.Location = new System.Drawing.Point(106, 208);
+            this.deliveryComboBox.Name = "deliveryComboBox";
+            this.deliveryComboBox.Size = new System.Drawing.Size(223, 21);
+            this.deliveryComboBox.TabIndex = 9;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -329,74 +350,6 @@
             // repairsTableAdapter
             // 
             this.repairsTableAdapter.ClearBeforeFill = true;
-            // 
-            // purchasesDataGridView
-            // 
-            this.purchasesDataGridView.AutoGenerateColumns = false;
-            this.purchasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchasesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19});
-            this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
-            this.purchasesDataGridView.Location = new System.Drawing.Point(524, 125);
-            this.purchasesDataGridView.Name = "purchasesDataGridView";
-            this.purchasesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchasesDataGridView.Size = new System.Drawing.Size(439, 220);
-            this.purchasesDataGridView.TabIndex = 27;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderNumber";
-            this.dataGridViewTextBoxColumn2.HeaderText = "OrderNumber";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Computer";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Computer";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Console";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Console";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Television";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Television";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Tablet";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Tablet";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Price";
-            this.dataGridViewTextBoxColumn18.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Stages";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Stages";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
             // refundsBindingSource
             // 
@@ -532,39 +485,55 @@
             this.dataGridViewTextBoxColumn38.HeaderText = "Television";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             // 
-            // deliveryComboBox
+            // purchasesDataGridView
             // 
-            this.deliveryComboBox.FormattingEnabled = true;
-            this.deliveryComboBox.Items.AddRange(new object[] {
-            "Two",
-            "Three",
-            "Four",
-            "Five",
-            "Six"});
-            this.deliveryComboBox.Location = new System.Drawing.Point(106, 208);
-            this.deliveryComboBox.Name = "deliveryComboBox";
-            this.deliveryComboBox.Size = new System.Drawing.Size(223, 21);
-            this.deliveryComboBox.TabIndex = 9;
+            this.purchasesDataGridView.AutoGenerateColumns = false;
+            this.purchasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchasesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
+            this.purchasesDataGridView.Location = new System.Drawing.Point(518, 125);
+            this.purchasesDataGridView.Name = "purchasesDataGridView";
+            this.purchasesDataGridView.ReadOnly = true;
+            this.purchasesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.purchasesDataGridView.Size = new System.Drawing.Size(445, 220);
+            this.purchasesDataGridView.TabIndex = 27;
             // 
-            // updateDeliveryStatusButton
+            // dataGridViewTextBoxColumn1
             // 
-            this.updateDeliveryStatusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateDeliveryStatusButton.Location = new System.Drawing.Point(106, 248);
-            this.updateDeliveryStatusButton.Name = "updateDeliveryStatusButton";
-            this.updateDeliveryStatusButton.Size = new System.Drawing.Size(223, 57);
-            this.updateDeliveryStatusButton.TabIndex = 16;
-            this.updateDeliveryStatusButton.Text = "Update Delivery Status";
-            this.updateDeliveryStatusButton.UseVisualStyleBackColor = true;
-            this.updateDeliveryStatusButton.Click += new System.EventHandler(this.updateDeliveryStatusButton_Click);
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderNumber";
+            this.dataGridViewTextBoxColumn2.HeaderText = "OrderNumber";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Price";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Price";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Stages";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Stages";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // EmployeeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1506, 711);
+            this.ClientSize = new System.Drawing.Size(1506, 719);
+            this.Controls.Add(this.purchasesDataGridView);
             this.Controls.Add(this.repairsDataGridView);
             this.Controls.Add(this.refundsDataGridView);
-            this.Controls.Add(this.purchasesDataGridView);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
@@ -585,11 +554,11 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refundsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.refundsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,42 +583,37 @@
         //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn5;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn6;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        //private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn5;
+        //private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn6;
+        //private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn7;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private GSEDatabaseDataSet gSEDatabaseDataSet;
         private System.Windows.Forms.BindingSource purchasesBindingSource;
         private GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter purchasesTableAdapter;
         private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView purchasesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private GSEDatabaseDataSetTableAdapters.RefundsTableAdapter refundsTableAdapter;
         private System.Windows.Forms.BindingSource refundsBindingSource;
         private GSEDatabaseDataSetTableAdapters.RepairsTableAdapter repairsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.BindingSource repairsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridView repairsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
@@ -671,5 +635,10 @@
         private System.Windows.Forms.ComboBox refundStatusComboBox;
         private System.Windows.Forms.Button updateDeliveryStatusButton;
         private System.Windows.Forms.ComboBox deliveryComboBox;
+        private System.Windows.Forms.DataGridView purchasesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

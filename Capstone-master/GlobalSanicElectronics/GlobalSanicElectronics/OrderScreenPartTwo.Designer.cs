@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
             this.goBackButton = new System.Windows.Forms.Button();
             this.confirmPurchaseButton = new System.Windows.Forms.Button();
@@ -59,10 +60,12 @@
             this.confirmShippingSpeedButton = new System.Windows.Forms.Button();
             this.shippingTwoRadioButton = new System.Windows.Forms.RadioButton();
             this.shippingOneRadioButton = new System.Windows.Forms.RadioButton();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.shippingGroupBox.SuspendLayout();
             this.paymentGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.shippingSpeedGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -133,6 +136,7 @@
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(170, 20);
             this.zipTextBox.TabIndex = 4;
+            this.zipTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.zipTextBox_Validating);
             // 
             // zipLabel
             // 
@@ -151,6 +155,7 @@
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(170, 20);
             this.stateTextBox.TabIndex = 3;
+            this.stateTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.stateTextBox_Validating);
             // 
             // stateLabel
             // 
@@ -168,6 +173,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(170, 20);
             this.cityTextBox.TabIndex = 2;
+            this.cityTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cityTextBox_Validating);
             // 
             // cityLabel
             // 
@@ -185,6 +191,7 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(170, 20);
             this.addressTextBox.TabIndex = 1;
+            this.addressTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.addressTextBox_Validating);
             // 
             // streetAddLabel
             // 
@@ -232,6 +239,7 @@
             this.yearComboBox.Name = "yearComboBox";
             this.yearComboBox.Size = new System.Drawing.Size(170, 21);
             this.yearComboBox.TabIndex = 9;
+            this.yearComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.yearComboBox_Validating);
             // 
             // label1
             // 
@@ -263,6 +271,7 @@
             this.monthCombBox.Name = "monthCombBox";
             this.monthCombBox.Size = new System.Drawing.Size(170, 21);
             this.monthCombBox.TabIndex = 8;
+            this.monthCombBox.Validating += new System.ComponentModel.CancelEventHandler(this.monthCombBox_Validating);
             // 
             // confirmPaymentButton
             // 
@@ -294,6 +303,7 @@
             this.cardNumberTextBox.TabIndex = 7;
             this.cardNumberTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cardNumberTextBox_KeyDown);
             this.cardNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cardNumberTextBox_KeyPress);
+            this.cardNumberTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cardNumberTextBox_Validating);
             // 
             // label3
             // 
@@ -311,6 +321,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(170, 20);
             this.nameTextBox.TabIndex = 6;
+            this.nameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.nameTextBox_Validating);
             // 
             // label4
             // 
@@ -391,10 +402,14 @@
             this.shippingOneRadioButton.AutoSize = true;
             this.shippingOneRadioButton.Location = new System.Drawing.Point(23, 50);
             this.shippingOneRadioButton.Name = "shippingOneRadioButton";
-            this.shippingOneRadioButton.Size = new System.Drawing.Size(148, 17);
+            this.shippingOneRadioButton.Size = new System.Drawing.Size(167, 17);
             this.shippingOneRadioButton.TabIndex = 49;
-            this.shippingOneRadioButton.Text = "2 Day Shipping for $30.00";
+            this.shippingOneRadioButton.Text = "Expedited Shipping for $30.00";
             this.shippingOneRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // OrderScreenPartTwo
             // 
@@ -419,6 +434,7 @@
             this.groupBox1.PerformLayout();
             this.shippingSpeedGroupBox.ResumeLayout(false);
             this.shippingSpeedGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,5 +473,6 @@
         private System.Windows.Forms.Button confirmShippingSpeedButton;
         private System.Windows.Forms.RadioButton shippingTwoRadioButton;
         private System.Windows.Forms.RadioButton shippingOneRadioButton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

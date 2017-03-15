@@ -72,14 +72,13 @@
     <Compile Include="AccountCreation.Designer.cs">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccountCreationValidation.cs" />
     <Compile Include="Cart.cs" />
     <Compile Include="CCInformation.cs" />
     <Compile Include="ComputerDirectory.cs" />
     <Compile Include="ConsoleDirectory.cs" />
     <Compile Include="EmailOperations.cs" />
+    <Compile Include="GeneralOperations.cs" />
     <Compile Include="PasswordOperations.cs" />
-    <Compile Include="Price.cs" />
     <Compile Include="Purchases.cs" />
     <Compile Include="Refunds.cs" />
     <Compile Include="Repairs.cs" />

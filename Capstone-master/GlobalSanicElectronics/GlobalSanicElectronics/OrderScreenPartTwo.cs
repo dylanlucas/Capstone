@@ -29,111 +29,40 @@ namespace GlobalSanicElectronics
 
         private void OrderScreenPartTwocs_Load(object sender, EventArgs e)
         {
-            //Default the shipping option
-            shippingTwoRadioButton.Checked = true;
+            GeneralOperations.DefaultInformation(shippingTwoRadioButton, totalPaymentDisplayLabel, yearComboBox, userPrice);
 
-            //Show the user's current total before shipping
-            totalPaymentDisplayLabel.Text = "$" + userPrice.ToString();
-
-            //Fill the yearComboBox with the appropriate years
-            for (int year = DateTime.Today.Year; year < DateTime.Today.Year + 10; year++)
-            {
-                yearComboBox.Items.Add(year.ToString());
-            }
-
-            string selectSql = "SELECT Address, City, State, Zip FROM CustomerInformation WHERE Username= '" + userName + "'";
-            SqlCommand com = new SqlCommand(selectSql, DatabaseOperations.sqlConnectionLink);
-
-            try
-            {
-                DatabaseOperations.sqlConnectionLink.Open();
-
-                using (SqlDataReader reader = com.ExecuteReader())
-                {
-                    while(reader.Read())
-                    {
-                        addressTextBox.Text = (reader["Address"].ToString());
-                        cityTextBox.Text = (reader["City"].ToString());
-                        stateTextBox.Text = (reader["State"].ToString());
-                        zipTextBox.Text = (reader["Zip"].ToString());
-                    }
-                }
-            }
-            finally
-            {
-                DatabaseOperations.sqlConnectionLink.Close();
-            }
+            DatabaseOperations.ShippingInformation(userName, addressTextBox, cityTextBox, stateTextBox, zipTextBox);            
         }
 
         private void confirmShippingInformationButton_Click(object sender, EventArgs e)
         {
-            string message = "Is the shipping information currently displayed correct?";
-            string caption = "Confirm Shipping Address";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(this, message, caption, buttons,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button1);
-
-            if(result == DialogResult.Yes)
+            if (Validation.AddressValidation(addressTextBox, errorProvider))
             {
-                shippingGroupBox.Enabled = false;
+                if (Validation.CityValidation(cityTextBox, errorProvider))
+                {
+                    if (Validation.StateValidation(stateTextBox, errorProvider))
+                    {
+                        if (Validation.ZipValidation(zipTextBox, errorProvider))
+                        {
+                            GeneralOperations.ConfirmShipping(shippingGroupBox);
+                        }
+                    }
+                }
             }
         }
 
         private void confirmPaymentButton_Click(object sender, EventArgs e)
         {
-            if ( nameTextBox.Text == "")
+            if (GeneralOperations.ConfirmName(nameTextBox, errorProvider))
             {
-                MessageBox.Show("Please enter the name on the card");
-            }
-            else if (cardNumberTextBox.Text == "")
-            {
-                MessageBox.Show("Please enter a card number");
-            }
-            else if (monthCombBox.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a month");
-            }
-            else if (yearComboBox.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a year");
-            }
-            else
-            {
-                int year = int.Parse(yearComboBox.GetItemText(yearComboBox.SelectedItem));
-                int month = int.Parse(monthCombBox.GetItemText(monthCombBox.SelectedItem));
-
-                if (year == DateTime.Now.Year && month <= DateTime.Now.Month)
+                if (GeneralOperations.ConfirmName(nameTextBox, errorProvider))
                 {
-                    MessageBox.Show("Invalid Expiration Date");
-                }
-                else
-                {
-                    string salt = "WquZ012C";
-
-                    var bytes = new UTF8Encoding().GetBytes(salt + cardNumberTextBox.Text);
-                    byte[] hashBytes;
-                    using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+                    if (GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider))
                     {
-                        hashBytes = algorithm.ComputeHash(bytes);
+                        DatabaseOperations.HashCreditCard(cardNumberTextBox, nameTextBox, userName, paymentGroupBox);
                     }
-
-                    string creditcardHash = Convert.ToBase64String(hashBytes);
-
-                    SqlCommand updateCCTable = new SqlCommand();
-                    updateCCTable.CommandType = CommandType.Text;
-                    updateCCTable.CommandText = "INSERT into CCInformation (CCNumber, CCName, Username) VALUES ('" + creditcardHash + "' , '" + nameTextBox.Text + "' , '" + userName + "')";
-                    updateCCTable.Connection = DatabaseOperations.sqlConnectionLink;
-
-                    DatabaseOperations.sqlConnectionLink.Open();
-                    updateCCTable.ExecuteNonQuery();
-                    DatabaseOperations.sqlConnectionLink.Close();
-
-                    paymentGroupBox.Enabled = false;
                 }
-            }
+            }           
         }
 
         private void cardNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -168,26 +97,7 @@ namespace GlobalSanicElectronics
 
         private void confirmShippingSpeedButton_Click(object sender, EventArgs e)
         {
-            if (shippingOneRadioButton.Checked)
-            {
-                userPrice += 30.00;
-            }
-
-            string message = "Are you sure this is the shipping speed you would like?";
-            string caption = "Confirm Shipping Speed";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-
-            result = MessageBox.Show(this, message, caption, buttons,
-                MessageBoxIcon.Question,
-                MessageBoxDefaultButton.Button1);
-
-            if (result == DialogResult.Yes)
-            {
-                shippingSpeedGroupBox.Enabled = false;
-            }            
-
-            totalPaymentDisplayLabel.Text = "$" + userPrice.ToString();
+            GeneralOperations.ConfirmShippingSpeed(shippingOneRadioButton, userPrice, shippingSpeedGroupBox, totalPaymentDisplayLabel);
         }
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -223,6 +133,46 @@ namespace GlobalSanicElectronics
             {
                 MessageBox.Show("Please ensure all fields have been confirmed");
             }
+        }
+
+        private void addressTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Validation.AddressValidation(addressTextBox, errorProvider);
+        }
+
+        private void cityTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Validation.CityValidation(cityTextBox, errorProvider);
+        }
+
+        private void stateTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Validation.StateValidation(stateTextBox, errorProvider);
+        }
+
+        private void zipTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            Validation.ZipValidation(zipTextBox, errorProvider);
+        }
+
+        private void nameTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            GeneralOperations.ConfirmName(nameTextBox, errorProvider);
+        }
+
+        private void cardNumberTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            GeneralOperations.ConfirmNumber(cardNumberTextBox, errorProvider);
+        }
+
+        private void monthCombBox_Validating(object sender, CancelEventArgs e)
+        {
+            GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider);
+        }
+
+        private void yearComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider);
         }
     }
 }

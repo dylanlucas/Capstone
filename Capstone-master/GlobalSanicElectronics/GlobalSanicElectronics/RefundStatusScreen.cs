@@ -56,13 +56,7 @@ namespace GlobalSanicElectronics
 
         private void RefundStatusScreen_Load(object sender, EventArgs e)
         {
-            var select = "SELECT * From Refunds WHERE Username= '" + refundStatusScreenUsername + "'";
-            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            refundsDataGridView.DataSource = ds.Tables[0];
+            DatabaseOperations.RequestRefundScreen(refundStatusScreenUsername, refundsDataGridView);
         }
 
         private void refundsBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)

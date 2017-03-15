@@ -32,14 +32,7 @@ namespace GlobalSanicElectronics
 
         private void TrackOrder_Load(object sender, EventArgs e)
         {
-            var select = "SELECT * FROM Purchases WHERE Username= '" + orderUsername + "'";
-            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            purchasesDataGridView.ReadOnly = true;
-            purchasesDataGridView.DataSource = ds.Tables[0];
+            DatabaseOperations.TrackUserOrder(orderUsername, purchasesDataGridView);
 
         }
 

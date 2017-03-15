@@ -13,53 +13,63 @@ namespace GlobalSanicElectronics
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            //Validating Account Creation fields
-            Validation.UsernameValidation(usernameTextBox, errorProvider);
-            Validation.BirthValidation(dOBTextBox, errorProvider);
-            Validation.AddressValidation(addressTextBox, errorProvider);
-            Validation.CityValidation(cityTextBox, errorProvider);
-            Validation.StateValidation(stateTextBox, errorProvider);
-            Validation.ZipValidation(zipTextBox, errorProvider);
-
-            if (Validation.PasswordValidation(passwordTextBox, errorProvider))
+            if (Validation.UsernameValidation(usernameTextBox, errorProvider))
             {
-                if (Validation.EmailValidation(emailTextBox, errorProvider))
+                if (Validation.BirthValidation(dOBTextBox, errorProvider))
                 {
-                    try
-                    {                        
-                        CustomerInformation newCustomer = new CustomerInformation();
-
-                        newCustomer.Username = usernameTextBox.Text;
-                        newCustomer.Password = PasswordOperations.AccountPasswordHashing(passwordTextBox.Text);
-                        newCustomer.Email = emailTextBox.Text;
-                        newCustomer.DOB = dOBTextBox.Text;
-                        newCustomer.Address = addressTextBox.Text;
-                        newCustomer.City = cityTextBox.Text;
-                        newCustomer.State = stateTextBox.Text;
-                        newCustomer.Zip = zipTextBox.Text;
-
-                        DatabaseOperations.CreateUser(newCustomer);
-
-                        MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
-
-                        EmailOperations.UserCreatedEmail(emailTextBox.Text, usernameTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);
-
-                        //Hide this form so the user can no longer see it as it is no longer needed
-                        this.Hide();
-
-                        //Go to the MainApplication since the user has successfully logged in and created there account
-                        MainApplication mainApplicationForm = new MainApplication();
-                        string username = usernameTextBox.Text;
-                        mainApplicationForm.mainApplicationUsername = username;
-                        mainApplicationForm.Show();
-
-                    }
-                    catch (SqlException ex)
+                    if (Validation.AddressValidation(addressTextBox, errorProvider))
                     {
-                        MessageBox.Show(ex.Message);
+                        if (Validation.CityValidation(cityTextBox, errorProvider))
+                        {
+                            if (Validation.StateValidation(stateTextBox, errorProvider))
+                            {
+                                if (Validation.ZipValidation(zipTextBox, errorProvider))
+                                {
+                                    if (Validation.PasswordValidation(passwordTextBox, errorProvider))
+                                    {
+                                        if (Validation.EmailValidation(emailTextBox, errorProvider))
+                                        {
+                                            try
+                                            {
+                                                CustomerInformation newCustomer = new CustomerInformation();
+
+                                                newCustomer.Username = usernameTextBox.Text;
+                                                newCustomer.Password = PasswordOperations.AccountPasswordHashing(passwordTextBox.Text);
+                                                newCustomer.Email = emailTextBox.Text;
+                                                newCustomer.DOB = dOBTextBox.Text;
+                                                newCustomer.Address = addressTextBox.Text;
+                                                newCustomer.City = cityTextBox.Text;
+                                                newCustomer.State = stateTextBox.Text;
+                                                newCustomer.Zip = zipTextBox.Text;
+
+                                                DatabaseOperations.CreateUser(newCustomer);
+
+                                                MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
+
+                                                EmailOperations.UserCreatedEmail(emailTextBox.Text, usernameTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);
+
+                                                //Hide this form so the user can no longer see it as it is no longer needed
+                                                this.Hide();
+
+                                                //Go to the MainApplication since the user has successfully logged in and created there account
+                                                MainApplication mainApplicationForm = new MainApplication();
+                                                string username = usernameTextBox.Text;
+                                                mainApplicationForm.mainApplicationUsername = username;
+                                                mainApplicationForm.Show();
+
+                                            }
+                                            catch (SqlException ex)
+                                            {
+                                                MessageBox.Show(ex.Message);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                }
-            }
+                }                
+            }            
         }
 
         private void exitButton_Click(object sender, EventArgs e)

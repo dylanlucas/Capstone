@@ -26,124 +26,13 @@ namespace GlobalSanicElectronics
 
         private void requestRepairButton_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in purchasesDataGridView.SelectedRows)
-            {
-                //To hold information about the purchase table and input it into the Repair table in the database
-                string username = row.Cells[0].Value.ToString();
-                string orderNumber = row.Cells[1].Value.ToString();
-                string computer = row.Cells[2].Value.ToString();
-                string console = row.Cells[3].Value.ToString();
-                string television = row.Cells[4].Value.ToString();
-                string tablet = row.Cells[5].Value.ToString();
-                string price = row.Cells[6].Value.ToString();
-                string stages = row.Cells[7].Value.ToString();
+            DatabaseOperations.UserRequestRepairs(purchasesDataGridView, requestRepaireFormUsername);
 
-                MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Repair!");
+            DatabaseOperations.RequestRepairScreen(requestRepaireFormUsername, purchasesDataGridView);
 
-                //Set up Command type so the program can input into the table in the database
-                SqlCommand addToRepairCommand = new SqlCommand();
-                addToRepairCommand.CommandType = CommandType.Text;
-                addToRepairCommand.CommandText = "INSERT into Repairs (RepairStatus, Username, OrderNumber, Computer, Console, Tablet, Television) VALUES ('One' , '" + requestRepaireFormUsername + "' , '"
-                    + orderNumber + "' , '" + computer + "' , '" + console + "' , '" + tablet + "' , '" + television + "')" +
-                    "UPDATE Purchases SET Stages= 'Repair' WHERE Stages= 'Six' AND OrderNumber= '" + orderNumber + "'";
+            DatabaseOperations.FillRepair(requestRepaireFormUsername, purchasesDataGridView);
 
-                //Establish a connection to the database and perform the addToRepairCommand
-                addToRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
-                DatabaseOperations.sqlConnectionLink.Open();
-                addToRepairCommand.ExecuteNonQuery();
-                DatabaseOperations.sqlConnectionLink.Close();
-
-                //Update & Refresh datagridview for purchase table
-                var select = "SELECT * FROM Purchases WHERE Username= '" + requestRepaireFormUsername + "' AND Stages= 'Six'";
-                var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
-
-                var commandBuilder = new SqlCommandBuilder(dataAdapter);
-                var ds = new DataSet();
-                dataAdapter.Fill(ds);
-                purchasesDataGridView.DataSource = ds.Tables[0];
-            }
-
-            //Get the customers email
-            string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + requestRepaireFormUsername + "'";
-            SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
-
-            try
-            {
-                DatabaseOperations.sqlConnectionLink.Open();
-
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        email = (reader["Email"].ToString());
-                    }
-                }
-            }
-            finally
-            {
-                DatabaseOperations.sqlConnectionLink.Close();
-            }
-
-            //Send user an email to let them know there Repair Status has been updated
-            var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
-            var toUserAddress = new MailAddress(email, requestRepaireFormUsername);
-            const string fromPassword = "GSEPassword";
-            const string subject = "Update on your Repair";
-            string body = "Hello " + requestRepaireFormUsername + "\n\n" +
-                "In order to process or repair your item, we are going to need you to ship your item back to the facility. If you could please send your item back to this address \n\n" +
-                "Global Sanic Electronics" + "\n" +
-                "8785 Windfall St \n" +
-                "Whitehall, PA 18052" + "\n\n" +
-                "We appreciate your assistance with this and we will repair and send back your item as quickly as possible.";
-
-            //Establis a connection with the smtpclient and put the host and port number down
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-
-            //Area to actually send the message out to the user
-            using (var message = new MailMessage(fromAddress, toUserAddress)
-            {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
-            }
-
-            //Send user an email to let them know there Repair Status has been updated
-            var fromUSAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
-            var toAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
-            const string fromUSPassword = "GSEPassword";
-            const string updateSubject = "User Requested Refund";
-            string updateBody = "User : " + requestRepaireFormUsername + " has requested a repair";
-
-            //Establis a connection with the smtpclient and put the host and port number down
-            var _smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromUSPassword)
-            };
-
-            //Area to actually send the message out to the user
-            using (var message = new MailMessage(fromUSAddress, toAddress)
-            {
-                Subject = updateSubject,
-                Body = updateBody
-            })
-            {
-                smtp.Send(message);
-            }
+            EmailOperations.RepairRequested(email, requestRepaireFormUsername);
         }
 
         private void goBackButton_Click(object sender, EventArgs e)
@@ -173,13 +62,12 @@ namespace GlobalSanicElectronics
 
         private void RequestRepairScreen_Load(object sender, EventArgs e)
         {
-            var select = "SELECT * FROM Purchases WHERE Username= '" + requestRepaireFormUsername + "' AND Stages= 'Six'";
-            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
+            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
+            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
 
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            purchasesDataGridView.DataSource = ds.Tables[0];
+            DatabaseOperations.FillRepair(requestRepaireFormUsername, purchasesDataGridView);
 
         }
 

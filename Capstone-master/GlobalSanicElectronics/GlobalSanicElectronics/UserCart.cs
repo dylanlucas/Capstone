@@ -53,6 +53,8 @@ namespace GlobalSanicElectronics
 
         private void Cart_Load(object sender, EventArgs e)
         {
+            userCart.Username = cartFormUsername;
+
             DatabaseOperations.ShowCart(userCart, cartFormUsername, cartDataGridView);
         }
 

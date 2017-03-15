@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GlobalSanicElectronics
@@ -57,13 +49,7 @@ namespace GlobalSanicElectronics
 
         private void RepairStatusScreen_Load(object sender, EventArgs e)
         {
-            var select = "SELECT * From Repairs WHERE Username= '" + repairStatusScreenUsername + "'";
-            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
-
-            var commandBuilder = new SqlCommandBuilder(dataAdapter);
-            var ds = new DataSet();
-            dataAdapter.Fill(ds);
-            repairsDataGridView.DataSource = ds.Tables[0];
+            DatabaseOperations.RequestRepairScreen(repairStatusScreenUsername, repairsDataGridView);
         }
     }
 }

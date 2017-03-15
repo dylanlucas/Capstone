@@ -1,4 +1,5 @@
-﻿using System.Data.Linq.Mapping;
+﻿using System.Collections.Generic;
+using System.Data.Linq.Mapping;
 
 namespace GlobalSanicElectronics
 {
@@ -8,13 +9,13 @@ namespace GlobalSanicElectronics
         [Column]
         public string Username;
         [Column]
-        public string Computer;
+        public string ComputerID;
         [Column]
-        public string Console;
+        public string ConsoleID;
         [Column]
-        public string Tablet;
+        public string TabletID;
         [Column]
-        public string Television;
+        public string TelevisionID;
         [Column]
         public string Brand;
         [Column]
@@ -39,5 +40,10 @@ namespace GlobalSanicElectronics
         public string Price;
         [Column(IsPrimaryKey = true)]
         public int CartID;
+
+        public List<ConsoleDirectory> Consoles = new List<ConsoleDirectory>();
+        public List<ComputerDirectory> Computers = new List<ComputerDirectory>();
+        public List<TabletDirectory> Tablets = new List<TabletDirectory>();
+        public List<TelevisionDirectory> Televisions = new List<TelevisionDirectory>();
     }
 }

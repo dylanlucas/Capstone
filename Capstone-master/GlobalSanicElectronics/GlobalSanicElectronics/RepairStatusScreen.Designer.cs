@@ -44,6 +44,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repairsDataGridView)).BeginInit();
@@ -122,24 +123,29 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
             this.repairsDataGridView.DataSource = this.repairsBindingSource;
-            this.repairsDataGridView.Location = new System.Drawing.Point(12, 88);
+            this.repairsDataGridView.Location = new System.Drawing.Point(12, 93);
             this.repairsDataGridView.Name = "repairsDataGridView";
-            this.repairsDataGridView.Size = new System.Drawing.Size(447, 252);
-            this.repairsDataGridView.TabIndex = 6;
+            this.repairsDataGridView.ReadOnly = true;
+            this.repairsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.repairsDataGridView.Size = new System.Drawing.Size(470, 263);
+            this.repairsDataGridView.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "RepairStatus";
             this.dataGridViewTextBoxColumn1.HeaderText = "RepairStatus";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Username";
             this.dataGridViewTextBoxColumn2.HeaderText = "Username";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -153,30 +159,41 @@
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Computer";
             this.dataGridViewTextBoxColumn4.HeaderText = "Computer";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "Console";
             this.dataGridViewTextBoxColumn5.HeaderText = "Console";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Tablet";
             this.dataGridViewTextBoxColumn6.HeaderText = "Tablet";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Television";
             this.dataGridViewTextBoxColumn7.HeaderText = "Television";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "RepairID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "RepairID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // RepairStatusScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 437);
+            this.ClientSize = new System.Drawing.Size(494, 437);
             this.Controls.Add(this.repairsDataGridView);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.moreInfoButton);
@@ -209,5 +226,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

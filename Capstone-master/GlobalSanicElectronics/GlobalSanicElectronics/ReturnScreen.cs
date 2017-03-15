@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GlobalSanicElectronics
@@ -24,15 +16,8 @@ namespace GlobalSanicElectronics
         {
             //Declare variables
             bool verifyRefundTable;
-
-            //Check for username in refund table 
-            String validation = "SELECT * FROM Purchases WHERE Username= '" + refundScreenFormUsername + "' AND Stages= 'Six'";
-            SqlCommand validateInputCommand = new SqlCommand(validation, DatabaseOperations.sqlConnectionLink);
-            DatabaseOperations.sqlConnectionLink.Open();
-            verifyRefundTable = validateInputCommand.ExecuteReader().HasRows;
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            if (verifyRefundTable)
+                    
+            if (verifyRefundTable = DatabaseOperations.RequestRepairs(refundScreenFormUsername))
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
                 this.Hide();
@@ -74,6 +59,11 @@ namespace GlobalSanicElectronics
         {
             //Close the application if the user decides to push the big red X
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void ReturnScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
