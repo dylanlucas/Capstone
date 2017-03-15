@@ -46,6 +46,26 @@ namespace GlobalSanicElectronics {
         
         private TabletDirectorDataTable tableTabletDirector;
         
+        private global::System.Data.DataRelation relationFK_CustomerInformation_Cart;
+        
+        private global::System.Data.DataRelation relationFK_TelevisionDirectory_Cart;
+        
+        private global::System.Data.DataRelation relationFK_ConsoleDirectory_Cart;
+        
+        private global::System.Data.DataRelation relationFK_TabletDirector_Cart;
+        
+        private global::System.Data.DataRelation relationFK_ComputerDirectory_Cart;
+        
+        private global::System.Data.DataRelation relationFK_CustomerInformation_CCInformation;
+        
+        private global::System.Data.DataRelation relationFK_CustomerInformation_Purchases;
+        
+        private global::System.Data.DataRelation relationFK_Purchases_Refunds;
+        
+        private global::System.Data.DataRelation relationFK_Purchases_Repairs;
+        
+        private global::System.Data.DataRelation relationFK_CustomerInformation_ResetTickets;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -434,6 +454,16 @@ namespace GlobalSanicElectronics {
                     this.tableTabletDirector.InitVars();
                 }
             }
+            this.relationFK_CustomerInformation_Cart = this.Relations["FK_CustomerInformation_Cart"];
+            this.relationFK_TelevisionDirectory_Cart = this.Relations["FK_TelevisionDirectory_Cart"];
+            this.relationFK_ConsoleDirectory_Cart = this.Relations["FK_ConsoleDirectory_Cart"];
+            this.relationFK_TabletDirector_Cart = this.Relations["FK_TabletDirector_Cart"];
+            this.relationFK_ComputerDirectory_Cart = this.Relations["FK_ComputerDirectory_Cart"];
+            this.relationFK_CustomerInformation_CCInformation = this.Relations["FK_CustomerInformation_CCInformation"];
+            this.relationFK_CustomerInformation_Purchases = this.Relations["FK_CustomerInformation_Purchases"];
+            this.relationFK_Purchases_Refunds = this.Relations["FK_Purchases_Refunds"];
+            this.relationFK_Purchases_Repairs = this.Relations["FK_Purchases_Repairs"];
+            this.relationFK_CustomerInformation_ResetTickets = this.Relations["FK_CustomerInformation_ResetTickets"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -466,6 +496,117 @@ namespace GlobalSanicElectronics {
             base.Tables.Add(this.tableResetTickets);
             this.tableTabletDirector = new TabletDirectorDataTable();
             base.Tables.Add(this.tableTabletDirector);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Cart", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.UsernameColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_TelevisionDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTelevisionDirectory.TVIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TelevisionIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ConsoleIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ComputerIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_CCInformation", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCCInformation.UsernameColumn});
+            this.tableCCInformation.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Purchases", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePurchases.UsernameColumn});
+            this.tablePurchases.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Purchases_Refunds", new global::System.Data.DataColumn[] {
+                        this.tablePurchases.OrderNumberColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRefunds.OrderNumberColumn});
+            this.tableRefunds.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_Purchases_Repairs", new global::System.Data.DataColumn[] {
+                        this.tablePurchases.OrderNumberColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRepairs.OrderNumberColumn});
+            this.tableRepairs.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_ResetTickets", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableResetTickets.UsernameColumn});
+            this.tableResetTickets.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            this.relationFK_CustomerInformation_Cart = new global::System.Data.DataRelation("FK_CustomerInformation_Cart", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_Cart);
+            this.relationFK_TelevisionDirectory_Cart = new global::System.Data.DataRelation("FK_TelevisionDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTelevisionDirectory.TVIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TelevisionIDColumn}, false);
+            this.Relations.Add(this.relationFK_TelevisionDirectory_Cart);
+            this.relationFK_ConsoleDirectory_Cart = new global::System.Data.DataRelation("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ConsoleIDColumn}, false);
+            this.Relations.Add(this.relationFK_ConsoleDirectory_Cart);
+            this.relationFK_TabletDirector_Cart = new global::System.Data.DataRelation("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletIDColumn}, false);
+            this.Relations.Add(this.relationFK_TabletDirector_Cart);
+            this.relationFK_ComputerDirectory_Cart = new global::System.Data.DataRelation("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ComputerIDColumn}, false);
+            this.Relations.Add(this.relationFK_ComputerDirectory_Cart);
+            this.relationFK_CustomerInformation_CCInformation = new global::System.Data.DataRelation("FK_CustomerInformation_CCInformation", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCCInformation.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_CCInformation);
+            this.relationFK_CustomerInformation_Purchases = new global::System.Data.DataRelation("FK_CustomerInformation_Purchases", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tablePurchases.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_Purchases);
+            this.relationFK_Purchases_Refunds = new global::System.Data.DataRelation("FK_Purchases_Refunds", new global::System.Data.DataColumn[] {
+                        this.tablePurchases.OrderNumberColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRefunds.OrderNumberColumn}, false);
+            this.Relations.Add(this.relationFK_Purchases_Refunds);
+            this.relationFK_Purchases_Repairs = new global::System.Data.DataRelation("FK_Purchases_Repairs", new global::System.Data.DataColumn[] {
+                        this.tablePurchases.OrderNumberColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRepairs.OrderNumberColumn}, false);
+            this.Relations.Add(this.relationFK_Purchases_Repairs);
+            this.relationFK_CustomerInformation_ResetTickets = new global::System.Data.DataRelation("FK_CustomerInformation_ResetTickets", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableResetTickets.UsernameColumn}, false);
+            this.Relations.Add(this.relationFK_CustomerInformation_ResetTickets);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -860,7 +1001,7 @@ namespace GlobalSanicElectronics {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CartRow AddCartRow(
-                        string Username, 
+                        CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_Cart, 
                         string Brand, 
                         string Size, 
                         string Processor, 
@@ -872,13 +1013,13 @@ namespace GlobalSanicElectronics {
                         string Resolution, 
                         string Color, 
                         double Price, 
-                        string ComputerID, 
-                        string ConsoleID, 
-                        string TabletID, 
-                        string TelevisionID) {
+                        ComputerDirectoryRow parentComputerDirectoryRowByFK_ComputerDirectory_Cart, 
+                        ConsoleDirectoryRow parentConsoleDirectoryRowByFK_ConsoleDirectory_Cart, 
+                        TabletDirectorRow parentTabletDirectorRowByFK_TabletDirector_Cart, 
+                        TelevisionDirectoryRow parentTelevisionDirectoryRowByFK_TelevisionDirectory_Cart) {
                 CartRow rowCartRow = ((CartRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Username,
+                        null,
                         Brand,
                         Size,
                         Processor,
@@ -890,10 +1031,25 @@ namespace GlobalSanicElectronics {
                         Resolution,
                         Color,
                         Price,
-                        ComputerID,
-                        ConsoleID,
-                        TabletID,
-                        TelevisionID};
+                        null,
+                        null,
+                        null,
+                        null};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_Cart != null)) {
+                    columnValuesArray[0] = parentCustomerInformationRowByFK_CustomerInformation_Cart[0];
+                }
+                if ((parentComputerDirectoryRowByFK_ComputerDirectory_Cart != null)) {
+                    columnValuesArray[12] = parentComputerDirectoryRowByFK_ComputerDirectory_Cart[0];
+                }
+                if ((parentConsoleDirectoryRowByFK_ConsoleDirectory_Cart != null)) {
+                    columnValuesArray[13] = parentConsoleDirectoryRowByFK_ConsoleDirectory_Cart[0];
+                }
+                if ((parentTabletDirectorRowByFK_TabletDirector_Cart != null)) {
+                    columnValuesArray[14] = parentTabletDirectorRowByFK_TabletDirector_Cart[0];
+                }
+                if ((parentTelevisionDirectoryRowByFK_TelevisionDirectory_Cart != null)) {
+                    columnValuesArray[15] = parentTelevisionDirectoryRowByFK_TelevisionDirectory_Cart[0];
+                }
                 rowCartRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCartRow);
                 return rowCartRow;
@@ -961,13 +1117,13 @@ namespace GlobalSanicElectronics {
                 base.Columns.Add(this.columnColor);
                 this.columnPrice = new global::System.Data.DataColumn("Price", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice);
-                this.columnComputerID = new global::System.Data.DataColumn("ComputerID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnComputerID = new global::System.Data.DataColumn("ComputerID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnComputerID);
-                this.columnConsoleID = new global::System.Data.DataColumn("ConsoleID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnConsoleID = new global::System.Data.DataColumn("ConsoleID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConsoleID);
-                this.columnTabletID = new global::System.Data.DataColumn("TabletID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTabletID = new global::System.Data.DataColumn("TabletID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTabletID);
-                this.columnTelevisionID = new global::System.Data.DataColumn("TelevisionID", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTelevisionID = new global::System.Data.DataColumn("TelevisionID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTelevisionID);
                 this.columnUsername.AllowDBNull = false;
                 this.columnUsername.MaxLength = 50;
@@ -1229,13 +1385,16 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CCInformationRow AddCCInformationRow(string CCNumber, string CCName, string Username) {
+            public CCInformationRow AddCCInformationRow(string CCNumber, string CCName, CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_CCInformation) {
                 CCInformationRow rowCCInformationRow = ((CCInformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CCNumber,
                         CCName,
-                        Username,
+                        null,
                         null};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_CCInformation != null)) {
+                    columnValuesArray[2] = parentCustomerInformationRowByFK_CustomerInformation_CCInformation[0];
+                }
                 rowCCInformationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCCInformationRow);
                 return rowCCInformationRow;
@@ -2602,14 +2761,17 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PurchasesRow AddPurchasesRow(string Username, int OrderNumber, double Price, string Stages) {
+            public PurchasesRow AddPurchasesRow(CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_Purchases, int OrderNumber, double Price, string Stages) {
                 PurchasesRow rowPurchasesRow = ((PurchasesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Username,
+                        null,
                         OrderNumber,
                         Price,
                         Stages,
                         null};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_Purchases != null)) {
+                    columnValuesArray[0] = parentCustomerInformationRowByFK_CustomerInformation_Purchases[0];
+                }
                 rowPurchasesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPurchasesRow);
                 return rowPurchasesRow;
@@ -2661,9 +2823,12 @@ namespace GlobalSanicElectronics {
                 base.Columns.Add(this.columnPurchaseNumber);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnPurchaseNumber}, true));
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnOrderNumber}, false));
                 this.columnUsername.AllowDBNull = false;
                 this.columnUsername.MaxLength = 50;
                 this.columnOrderNumber.AllowDBNull = false;
+                this.columnOrderNumber.Unique = true;
                 this.columnPrice.AllowDBNull = false;
                 this.columnStages.AllowDBNull = false;
                 this.columnStages.MaxLength = 50;
@@ -3905,13 +4070,16 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ResetTicketsRow AddResetTicketsRow(string Username, string tokenHash, System.DateTime expirationDate) {
+            public ResetTicketsRow AddResetTicketsRow(CustomerInformationRow parentCustomerInformationRowByFK_CustomerInformation_ResetTickets, string tokenHash, System.DateTime expirationDate) {
                 ResetTicketsRow rowResetTicketsRow = ((ResetTicketsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Username,
+                        null,
                         tokenHash,
                         expirationDate};
+                if ((parentCustomerInformationRowByFK_CustomerInformation_ResetTickets != null)) {
+                    columnValuesArray[1] = parentCustomerInformationRowByFK_CustomerInformation_ResetTickets[0];
+                }
                 rowResetTicketsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowResetTicketsRow);
                 return rowResetTicketsRow;
@@ -4667,9 +4835,9 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ComputerID {
+            public int ComputerID {
                 get {
-                    return ((string)(this[this.tableCart.ComputerIDColumn]));
+                    return ((int)(this[this.tableCart.ComputerIDColumn]));
                 }
                 set {
                     this[this.tableCart.ComputerIDColumn] = value;
@@ -4678,9 +4846,9 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ConsoleID {
+            public int ConsoleID {
                 get {
-                    return ((string)(this[this.tableCart.ConsoleIDColumn]));
+                    return ((int)(this[this.tableCart.ConsoleIDColumn]));
                 }
                 set {
                     this[this.tableCart.ConsoleIDColumn] = value;
@@ -4689,9 +4857,9 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TabletID {
+            public int TabletID {
                 get {
-                    return ((string)(this[this.tableCart.TabletIDColumn]));
+                    return ((int)(this[this.tableCart.TabletIDColumn]));
                 }
                 set {
                     this[this.tableCart.TabletIDColumn] = value;
@@ -4700,12 +4868,67 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TelevisionID {
+            public int TelevisionID {
                 get {
-                    return ((string)(this[this.tableCart.TelevisionIDColumn]));
+                    return ((int)(this[this.tableCart.TelevisionIDColumn]));
                 }
                 set {
                     this[this.tableCart.TelevisionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TelevisionDirectoryRow TelevisionDirectoryRow {
+                get {
+                    return ((TelevisionDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_TelevisionDirectory_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TelevisionDirectory_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ConsoleDirectoryRow ConsoleDirectoryRow {
+                get {
+                    return ((ConsoleDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ConsoleDirectory_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ConsoleDirectory_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabletDirectorRow TabletDirectorRow {
+                get {
+                    return ((TabletDirectorRow)(this.GetParentRow(this.Table.ParentRelations["FK_TabletDirector_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TabletDirector_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ComputerDirectoryRow ComputerDirectoryRow {
+                get {
+                    return ((ComputerDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ComputerDirectory_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ComputerDirectory_Cart"]);
                 }
             }
             
@@ -4887,6 +5110,17 @@ namespace GlobalSanicElectronics {
                     this[this.tableCCInformation.CCIDColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_CCInformation"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_CCInformation"]);
+                }
+            }
         }
         
         /// <summary>
@@ -4990,6 +5224,17 @@ namespace GlobalSanicElectronics {
                     this[this.tableComputerDirectory.PriceColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow[] GetCartRows() {
+                if ((this.Table.ChildRelations["FK_ComputerDirectory_Cart"] == null)) {
+                    return new CartRow[0];
+                }
+                else {
+                    return ((CartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ComputerDirectory_Cart"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5047,6 +5292,17 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableConsoleDirectory.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow[] GetCartRows() {
+                if ((this.Table.ChildRelations["FK_ConsoleDirectory_Cart"] == null)) {
+                    return new CartRow[0];
+                }
+                else {
+                    return ((CartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_ConsoleDirectory_Cart"])));
                 }
             }
         }
@@ -5152,6 +5408,50 @@ namespace GlobalSanicElectronics {
                     this[this.tableCustomerInformation.ZipColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ResetTicketsRow[] GetResetTicketsRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_ResetTickets"] == null)) {
+                    return new ResetTicketsRow[0];
+                }
+                else {
+                    return ((ResetTicketsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_ResetTickets"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PurchasesRow[] GetPurchasesRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_Purchases"] == null)) {
+                    return new PurchasesRow[0];
+                }
+                else {
+                    return ((PurchasesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_Purchases"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CCInformationRow[] GetCCInformationRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_CCInformation"] == null)) {
+                    return new CCInformationRow[0];
+                }
+                else {
+                    return ((CCInformationRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_CCInformation"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow[] GetCartRows() {
+                if ((this.Table.ChildRelations["FK_CustomerInformation_Cart"] == null)) {
+                    return new CartRow[0];
+                }
+                else {
+                    return ((CartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_CustomerInformation_Cart"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5222,6 +5522,39 @@ namespace GlobalSanicElectronics {
                     this[this.tablePurchases.PurchaseNumberColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_Purchases"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_Purchases"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RepairsRow[] GetRepairsRows() {
+                if ((this.Table.ChildRelations["FK_Purchases_Repairs"] == null)) {
+                    return new RepairsRow[0];
+                }
+                else {
+                    return ((RepairsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Purchases_Repairs"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public RefundsRow[] GetRefundsRows() {
+                if ((this.Table.ChildRelations["FK_Purchases_Refunds"] == null)) {
+                    return new RefundsRow[0];
+                }
+                else {
+                    return ((RefundsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Purchases_Refunds"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5281,6 +5614,17 @@ namespace GlobalSanicElectronics {
                     this[this.tableRefunds.RefundIDColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PurchasesRow PurchasesRow {
+                get {
+                    return ((PurchasesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Purchases_Refunds"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Purchases_Refunds"]);
+                }
+            }
         }
         
         /// <summary>
@@ -5338,6 +5682,17 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableRepairs.RepairIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public PurchasesRow PurchasesRow {
+                get {
+                    return ((PurchasesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Purchases_Repairs"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Purchases_Repairs"]);
                 }
             }
         }
@@ -5443,6 +5798,17 @@ namespace GlobalSanicElectronics {
                     this[this.tableTelevisionDirectory.PriceColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow[] GetCartRows() {
+                if ((this.Table.ChildRelations["FK_TelevisionDirectory_Cart"] == null)) {
+                    return new CartRow[0];
+                }
+                else {
+                    return ((CartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_TelevisionDirectory_Cart"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5500,6 +5866,17 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableResetTickets.expirationDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CustomerInformationRow CustomerInformationRow {
+                get {
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_ResetTickets"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_ResetTickets"]);
                 }
             }
         }
@@ -5603,6 +5980,17 @@ namespace GlobalSanicElectronics {
                 }
                 set {
                     this[this.tableTabletDirector.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow[] GetCartRows() {
+                if ((this.Table.ChildRelations["FK_TabletDirector_Cart"] == null)) {
+                    return new CartRow[0];
+                }
+                else {
+                    return ((CartRow[])(base.GetChildRows(this.Table.ChildRelations["FK_TabletDirector_Cart"])));
                 }
             }
         }
@@ -11283,21 +11671,12 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(GSEDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cartTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._customerInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._cartTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._cCInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._cCInformationTableAdapter.Update(updatedRows));
+                    result = (result + this._customerInformationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11319,21 +11698,48 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._customerInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._customerInformationTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._purchasesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Purchases.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._purchasesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._televisionDirectoryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._televisionDirectoryTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tabletDirectorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tabletDirectorTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._cCInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cCInformationTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11355,30 +11761,12 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._televisionDirectoryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._televisionDirectoryTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._resetTicketsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ResetTickets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._resetTicketsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tabletDirectorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tabletDirectorTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11392,19 +11780,11 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(GSEDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._cartTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._customerInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._cartTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._cCInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._cCInformationTableAdapter.Update(addedRows));
+                    result = (result + this._customerInformationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11424,19 +11804,43 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._customerInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._customerInformationTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._purchasesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Purchases.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._purchasesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._televisionDirectoryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._televisionDirectoryTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tabletDirectorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tabletDirectorTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._cCInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cCInformationTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11456,27 +11860,11 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._televisionDirectoryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._televisionDirectoryTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._resetTicketsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ResetTickets.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._resetTicketsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tabletDirectorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tabletDirectorTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11490,27 +11878,11 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(GSEDatabaseDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tabletDirectorTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tabletDirectorTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._resetTicketsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.ResetTickets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._resetTicketsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._televisionDirectoryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._televisionDirectoryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11530,19 +11902,43 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._cCInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cCInformationTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._cartTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cartTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tabletDirectorTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TabletDirector.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tabletDirectorTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._televisionDirectoryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TelevisionDirectory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._televisionDirectoryTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._purchasesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Purchases.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._purchasesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._customerInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._customerInformationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11562,19 +11958,11 @@ SELECT TabletID, Brand, Size, Storage, Processor, Wifi, Color, Price FROM Tablet
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._cCInformationTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CCInformation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._customerInformationTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CustomerInformation.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._cCInformationTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._cartTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Cart.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._cartTableAdapter.Update(deletedRows));
+                    result = (result + this._customerInformationTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

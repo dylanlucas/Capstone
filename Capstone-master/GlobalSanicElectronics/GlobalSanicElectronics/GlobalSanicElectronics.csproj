@@ -66,55 +66,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountCreation.cs">
+    <Compile Include="Operations\DatabaseOperationsCart.cs" />
+    <Compile Include="Operations\DatabaseOperationsPurchases.cs" />
+    <Compile Include="Operations\DatabaseOperationsRefunds.cs" />
+    <Compile Include="Operations\DatabaseOperationsRepairs.cs" />
+    <Compile Include="Operations\DatabaseOperationsUser.cs" />
+    <Compile Include="Forms\AccountCreation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AccountCreation.Designer.cs">
+    <Compile Include="Forms\AccountCreation.Designer.cs">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cart.cs" />
-    <Compile Include="CCInformation.cs" />
-    <Compile Include="ComputerDirectory.cs" />
-    <Compile Include="ConsoleDirectory.cs" />
-    <Compile Include="EmailOperations.cs" />
-    <Compile Include="GeneralOperations.cs" />
-    <Compile Include="PasswordOperations.cs" />
-    <Compile Include="Purchases.cs" />
-    <Compile Include="Refunds.cs" />
-    <Compile Include="Repairs.cs" />
-    <Compile Include="ResetTickets.cs" />
-    <Compile Include="TabletDirectory.cs" />
-    <Compile Include="TelevisionDirectory.cs" />
-    <Compile Include="UserCart.cs">
+    <Compile Include="Classes\Cart.cs" />
+    <Compile Include="Classes\CCInformation.cs" />
+    <Compile Include="Classes\ComputerDirectory.cs" />
+    <Compile Include="Classes\ConsoleDirectory.cs" />
+    <Compile Include="Operations\EmailOperations.cs" />
+    <Compile Include="Operations\GeneralOperations.cs" />
+    <Compile Include="Operations\PasswordOperations.cs" />
+    <Compile Include="Classes\Purchases.cs" />
+    <Compile Include="Classes\Refunds.cs" />
+    <Compile Include="Classes\Repairs.cs" />
+    <Compile Include="Classes\ResetTickets.cs" />
+    <Compile Include="Classes\TabletDirectory.cs" />
+    <Compile Include="Classes\TelevisionDirectory.cs" />
+    <Compile Include="Forms\UserCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserCart.Designer.cs">
+    <Compile Include="Forms\UserCart.Designer.cs">
       <DependentUpon>UserCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChangePassword.cs">
+    <Compile Include="Forms\ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChangePassword.Designer.cs">
+    <Compile Include="Forms\ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContactScreen.cs">
+    <Compile Include="Forms\ContactScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContactScreen.Designer.cs">
+    <Compile Include="Forms\ContactScreen.Designer.cs">
       <DependentUpon>ContactScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomerInformation.cs" />
-    <Compile Include="DatabaseOperations.cs" />
-    <Compile Include="EmployeeScreen.cs">
+    <Compile Include="Classes\CustomerInformation.cs" />
+    <Compile Include="Operations\DatabaseOperations.cs" />
+    <Compile Include="Forms\EmployeeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeScreen.Designer.cs">
+    <Compile Include="Forms\EmployeeScreen.Designer.cs">
       <DependentUpon>EmployeeScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="ForgotPassword.cs">
+    <Compile Include="Forms\ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForgotPassword.Designer.cs">
+    <Compile Include="Forms\ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="GSEDatabaseDataSet.cs">
@@ -125,119 +130,118 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GSEDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="LaunchScreen.cs">
+    <Compile Include="Forms\LaunchScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LaunchScreen.Designer.cs">
+    <Compile Include="Forms\LaunchScreen.Designer.cs">
       <DependentUpon>LaunchScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginScreen.cs">
+    <Compile Include="Forms\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginScreen.Designer.cs">
+    <Compile Include="Forms\LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainApplication.cs">
+    <Compile Include="Forms\MainApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainApplication.Designer.cs">
+    <Compile Include="Forms\MainApplication.Designer.cs">
       <DependentUpon>MainApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderScreen.cs">
+    <Compile Include="Forms\OrderScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderScreen.Designer.cs">
+    <Compile Include="Forms\OrderScreen.Designer.cs">
       <DependentUpon>OrderScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderScreenPartTwo.cs">
+    <Compile Include="Forms\OrderScreenPartTwo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderScreenPartTwo.Designer.cs">
+    <Compile Include="Forms\OrderScreenPartTwo.Designer.cs">
       <DependentUpon>OrderScreenPartTwo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiptScreen.cs">
+    <Compile Include="Forms\ReceiptScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReceiptScreen.Designer.cs">
+    <Compile Include="Forms\ReceiptScreen.Designer.cs">
       <DependentUpon>ReceiptScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="RefundStatusScreen.cs">
+    <Compile Include="Forms\RefundStatusScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RefundStatusScreen.Designer.cs">
+    <Compile Include="Forms\RefundStatusScreen.Designer.cs">
       <DependentUpon>RefundStatusScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepairScreen.cs">
+    <Compile Include="Forms\RepairScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RepairScreen.Designer.cs">
+    <Compile Include="Forms\RepairScreen.Designer.cs">
       <DependentUpon>RepairScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="RepairStatusScreen.cs">
+    <Compile Include="Forms\RepairStatusScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RepairStatusScreen.Designer.cs">
+    <Compile Include="Forms\RepairStatusScreen.Designer.cs">
       <DependentUpon>RepairStatusScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestRefundScreen.cs">
+    <Compile Include="Forms\RequestRefundScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestRefundScreen.Designer.cs">
+    <Compile Include="Forms\RequestRefundScreen.Designer.cs">
       <DependentUpon>RequestRefundScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="RequestRepairScreen.cs">
+    <Compile Include="Forms\RequestRepairScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestRepairScreen.Designer.cs">
+    <Compile Include="Forms\RequestRepairScreen.Designer.cs">
       <DependentUpon>RequestRepairScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReturnScreen.cs">
+    <Compile Include="Forms\ReturnScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReturnScreen.Designer.cs">
+    <Compile Include="Forms\ReturnScreen.Designer.cs">
       <DependentUpon>ReturnScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableAttribute.cs" />
-    <Compile Include="TrackOrder.cs">
+    <Compile Include="Forms\TrackOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TrackOrder.Designer.cs">
+    <Compile Include="Forms\TrackOrder.Designer.cs">
       <DependentUpon>TrackOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Validation.cs" />
-    <EmbeddedResource Include="AccountCreation.resx">
+    <Compile Include="Classes\Validation.cs" />
+    <EmbeddedResource Include="Forms\AccountCreation.resx">
       <DependentUpon>AccountCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserCart.resx">
+    <EmbeddedResource Include="Forms\UserCart.resx">
       <DependentUpon>UserCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChangePassword.resx">
+    <EmbeddedResource Include="Forms\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContactScreen.resx">
+    <EmbeddedResource Include="Forms\ContactScreen.resx">
       <DependentUpon>ContactScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeScreen.resx">
+    <EmbeddedResource Include="Forms\EmployeeScreen.resx">
       <DependentUpon>EmployeeScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgotPassword.resx">
+    <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LaunchScreen.resx">
+    <EmbeddedResource Include="Forms\LaunchScreen.resx">
       <DependentUpon>LaunchScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginScreen.resx">
+    <EmbeddedResource Include="Forms\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainApplication.resx">
+    <EmbeddedResource Include="Forms\MainApplication.resx">
       <DependentUpon>MainApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderScreen.resx">
+    <EmbeddedResource Include="Forms\OrderScreen.resx">
       <DependentUpon>OrderScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderScreenPartTwo.resx">
+    <EmbeddedResource Include="Forms\OrderScreenPartTwo.resx">
       <DependentUpon>OrderScreenPartTwo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -250,28 +254,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReceiptScreen.resx">
+    <EmbeddedResource Include="Forms\ReceiptScreen.resx">
       <DependentUpon>ReceiptScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RefundStatusScreen.resx">
+    <EmbeddedResource Include="Forms\RefundStatusScreen.resx">
       <DependentUpon>RefundStatusScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RepairScreen.resx">
+    <EmbeddedResource Include="Forms\RepairScreen.resx">
       <DependentUpon>RepairScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RepairStatusScreen.resx">
+    <EmbeddedResource Include="Forms\RepairStatusScreen.resx">
       <DependentUpon>RepairStatusScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestRefundScreen.resx">
+    <EmbeddedResource Include="Forms\RequestRefundScreen.resx">
       <DependentUpon>RequestRefundScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestRepairScreen.resx">
+    <EmbeddedResource Include="Forms\RequestRepairScreen.resx">
       <DependentUpon>RequestRepairScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReturnScreen.resx">
+    <EmbeddedResource Include="Forms\ReturnScreen.resx">
       <DependentUpon>ReturnScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TrackOrder.resx">
+    <EmbeddedResource Include="Forms\TrackOrder.resx">
       <DependentUpon>TrackOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="GSEDatabaseDataSet.xsc">
