@@ -484,7 +484,7 @@ namespace GlobalSanicElectronics
         public static double DisplayCart(Cart userCart, DataGridView cartDirectory, string username, TabControl consoleTabControl, RadioButton consoleBundleRadioButton,
             RadioButton consoleWarrantyRadioButton, GroupBox computerGroupBox, RadioButton computerWarrantyRadioButton, GroupBox tabletGroupBox, RadioButton tabletWarrantyRadioButton,
             GroupBox televisionGroupBox, RadioButton televisionWarrantyRadioButton, bool consoleYesNo, bool computerYesNo, bool tabletYesNo, bool televisionYesNo, double userPrice,
-            OrderScreenPartTwo orderScreenPartTwoForm)
+            OrderScreenPartTwoForm orderScreenPartTwoForm)
         {
             using (System.Data.SqlClient.SqlCommand displayCartCommand = new System.Data.SqlClient.SqlCommand())
             {

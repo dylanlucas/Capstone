@@ -22,7 +22,5 @@ namespace GlobalSanicElectronics
         public string State;
         [Column]
         public string Zip;
-
-        public List<CustomerInformation> Customers = new List<CustomerInformation>();
     }   
 }

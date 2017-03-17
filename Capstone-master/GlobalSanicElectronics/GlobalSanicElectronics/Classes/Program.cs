@@ -16,7 +16,7 @@ namespace GlobalSanicElectronics
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LaunchScreen());
+            Application.Run(new LaunchScreenForm());
         }
     }
 }
