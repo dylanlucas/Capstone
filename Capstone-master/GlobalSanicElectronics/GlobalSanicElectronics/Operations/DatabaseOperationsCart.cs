@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -320,7 +321,7 @@ namespace GlobalSanicElectronics
         {
             using (SqlCommand getCommand = new SqlCommand())
             {
-                getCommand.CommandText = "SELECT * FROM TabletDirectory WHERE TabletID LIKE @TabletID";
+                getCommand.CommandText = "SELECT * FROM TabletDirector WHERE TabletID LIKE @TabletID";
                 getCommand.Parameters.AddWithValue("@TabletID", id);
                 getCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
@@ -348,8 +349,8 @@ namespace GlobalSanicElectronics
         {
             using (SqlCommand getCommand = new SqlCommand())
             {
-                getCommand.CommandText = "SELECT * FROM TelevisionDirectory WHERE TelevisionID LIKE @TelevisionID";
-                getCommand.Parameters.AddWithValue("@TelevisionID", id);
+                getCommand.CommandText = "SELECT * FROM TelevisionDirectory WHERE TVID LIKE @TVID";
+                getCommand.Parameters.AddWithValue("@TVID", id);
                 getCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
                 TelevisionDirectory requestedTelevision = new TelevisionDirectory();
@@ -454,19 +455,35 @@ namespace GlobalSanicElectronics
 
         public static void RemoveItem(Cart userCart, DataGridView cartDirectory, GSEDatabaseDataSetTableAdapters.CartTableAdapter cartDataAdapter, GSEDatabaseDataSet gSEDatabaseDataSet)
         {
-            foreach (DataGridViewRow row in cartDirectory.SelectedRows)
+            if(cartDirectory.SelectedRows.Count > 0)
             {
-                cartDirectory.Rows.RemoveAt(row.Index);
-
-                using (System.Data.SqlClient.SqlCommand removeOrder = new System.Data.SqlClient.SqlCommand())
+                foreach (DataGridViewRow row in cartDirectory.SelectedRows)
                 {
-                    removeOrder.CommandText = "DELETE FROM Cart WHERE Username Like @Username";
-                    removeOrder.Parameters.AddWithValue("@Username", userCart.Username);
-                    removeOrder.Connection = DatabaseOperations.sqlConnectionLink;
+                    string cartBrand = row.Cells[0].Value.ToString();
+                    string cartSize = row.Cells[1].Value.ToString();
+                    string cartProcessor = row.Cells[2].Value.ToString();
+                    string cartStorage = row.Cells[3].Value.ToString();
+                    string cartRAM = row.Cells[4].Value.ToString();
+                    string cartWifi = row.Cells[5].Value.ToString();
+                    string cartSmart = row.Cells[6].Value.ToString();
+                    string cartLED = row.Cells[7].Value.ToString();
+                    string cartResolution = row.Cells[8].Value.ToString();
+                    string cartColor = row.Cells[9].Value.ToString();
+                    string cartPrice = row.Cells[10].Value.ToString();
+                    string cartID = row.Cells[11].Value.ToString();
 
-                    removeOrder.Connection.Open();
-                    removeOrder.ExecuteNonQuery();
-                    removeOrder.Connection.Close();
+                    cartDirectory.Rows.RemoveAt(row.Index);
+
+                    //Declare Variables
+                    Int32 removeAndUpdateCart;
+
+                    System.Data.SqlClient.SqlConnection sqlConnectionLink = DatabaseOperations.sqlConnectionLink;
+
+                    string remove = "DELETE FROM Cart WHERE CartID=" + cartID;
+                    SqlCommand removeAndUpdateCommand = new SqlCommand(remove, DatabaseOperations.sqlConnectionLink);
+                    sqlConnectionLink.Open();
+                    removeAndUpdateCart = Convert.ToInt32(removeAndUpdateCommand.ExecuteScalar());
+                    sqlConnectionLink.Close();
 
                     MessageBox.Show("Item has been removed from your cart!");
 
@@ -474,6 +491,10 @@ namespace GlobalSanicElectronics
                     cartDataAdapter.Update(gSEDatabaseDataSet.Cart);
                     cartDirectory.Refresh();
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to delete from your cart!");
             }
         }
 
@@ -535,7 +556,7 @@ namespace GlobalSanicElectronics
                             tabletWarrantyRadioButton.Checked = true;
                         }
 
-                        if (string.IsNullOrEmpty(userCart.ConsoleID) == false)
+                        if (string.IsNullOrEmpty(userCart.TelevisionID) == false)
                         {
                             televisionYesNo = true;
                             televisionGroupBox.Enabled = true;

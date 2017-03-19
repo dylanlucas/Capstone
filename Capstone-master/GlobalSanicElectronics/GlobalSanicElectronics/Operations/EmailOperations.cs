@@ -62,22 +62,22 @@ namespace GlobalSanicElectronics
 
             foreach (ConsoleDirectory item in userCart.Consoles)
             {
-                body += "Console : " + item.Brand + "\n" + item.Price;
+                body += "Console : " + item.Brand + " with a price of " + item.Price + "\n";
             }
 
             foreach (ComputerDirectory item in userCart.Computers)
             {
-                body += "Computer : " + item.Brand + "\n" + item.Price;
+                body += "Computer : " + item.Brand + " with a price of " + item.Price + "\n";
             }
 
             foreach (TabletDirectory item in userCart.Tablets)
             {
-                body += "Tablet : " + item.Brand + "\n" + item.Price;
+                body += "Tablet : " + item.Brand + " with a price of " + item.Price + "\n";
             }
 
             foreach  (TelevisionDirectory item in userCart.Televisions)
             {
-                body += "Television : " + item.Brand + "\n" + item.Price;
+                body += "Television : " + item.Brand + " with a price of " + item.Price + "\n";
             }
 
             //Area to establish a connection with the smtpclient and put the host and port number down
