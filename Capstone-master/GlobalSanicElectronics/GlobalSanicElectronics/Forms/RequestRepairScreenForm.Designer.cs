@@ -37,17 +37,13 @@
             this.purchasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.purchasesTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter();
             this.tableAdapterManager = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager();
-            this.repairsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.repairsTableAdapter = new GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.RepairsTableAdapter();
             this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,15 +119,6 @@
             this.tableAdapterManager.TelevisionDirectoryTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // repairsBindingSource
-            // 
-            this.repairsBindingSource.DataMember = "Repairs";
-            this.repairsBindingSource.DataSource = this.gSEDatabaseDataSet;
-            // 
-            // repairsTableAdapter
-            // 
-            this.repairsTableAdapter.ClearBeforeFill = true;
-            // 
             // purchasesDataGridView
             // 
             this.purchasesDataGridView.AutoGenerateColumns = false;
@@ -140,14 +127,13 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewTextBoxColumn8});
             this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
-            this.purchasesDataGridView.Location = new System.Drawing.Point(12, 116);
+            this.purchasesDataGridView.Location = new System.Drawing.Point(25, 115);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
             this.purchasesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchasesDataGridView.Size = new System.Drawing.Size(421, 220);
-            this.purchasesDataGridView.TabIndex = 42;
+            this.purchasesDataGridView.Size = new System.Drawing.Size(379, 220);
+            this.purchasesDataGridView.TabIndex = 43;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -173,14 +159,7 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "Stages";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "PurchaseNumber";
-            this.dataGridViewTextBoxColumn9.HeaderText = "PurchaseNumber";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // RequestRepairScreen
+            // RequestRepairScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,12 +169,11 @@
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.requestRepairButton);
             this.Controls.Add(this.genericLabel);
-            this.Name = "RequestRepairScreen";
+            this.Name = "RequestRepairScreenForm";
             this.Text = "RequestRepairScreen";
             this.Load += new System.EventHandler(this.RequestRepairScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repairsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.purchasesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,21 +186,18 @@
         private System.Windows.Forms.Button requestRepairButton;
         private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Label usernameLabel;
-        private GSEDatabaseDataSet gSEDatabaseDataSet;
-        private System.Windows.Forms.BindingSource purchasesBindingSource;
-        private GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter purchasesTableAdapter;
-        private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.BindingSource repairsBindingSource;
-        private GSEDatabaseDataSetTableAdapters.RepairsTableAdapter repairsTableAdapter;
+        private GSEDatabaseDataSet gSEDatabaseDataSet;
+        private System.Windows.Forms.BindingSource purchasesBindingSource;
+        private GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter purchasesTableAdapter;
+        private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView purchasesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

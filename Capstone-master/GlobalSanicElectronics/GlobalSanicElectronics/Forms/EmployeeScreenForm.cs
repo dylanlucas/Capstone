@@ -15,25 +15,39 @@ namespace GlobalSanicElectronics
 
         private void updateRepairStatus_Click(object sender, EventArgs e)
         {
-            string repairStatus = repairStatusComboBox.Text;
+            if (string.IsNullOrEmpty(usernameTextBox.Text) == false)
+            {
+                string repairStatus = repairStatusComboBox.Text;
 
-            DatabaseOperationsRepairs.UpdateRepairStatus(repairStatusComboBox, usernameTextBox, email);
+                DatabaseOperationsRepairs.UpdateRepairStatus(repairStatusComboBox, usernameTextBox, email, repairsDataGridView);
 
-            EmailOperations.RepairStatus(repairStatus, email, usernameTextBox, repairStatusComboBox);
+                EmailOperations.RepairStatus(repairStatus, email, usernameTextBox, repairStatusComboBox);
 
-            DatabaseOperationsRepairs.UpdateRepairView(usernameTextBox, repairsDataGridView);
+                DatabaseOperationsRepairs.UpdateRepairView(usernameTextBox, repairsDataGridView);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a username in to update the status");
+            }
         }
 
         private void updateRefundButton_Click(object sender, EventArgs e)
         {
-            //Variable to hold what is in the combobox
-            string refundStatus = refundStatusComboBox.Text;
+            if (string.IsNullOrEmpty(usernameTextBox.Text) == false)
+            {
+                //Variable to hold what is in the combobox
+                string refundStatus = refundStatusComboBox.Text;
 
-            DatabaseOperationsRefunds.UpdateRefundStatus(refundStatusComboBox, usernameTextBox, email);
+                DatabaseOperationsRefunds.UpdateRefundStatus(refundStatusComboBox, usernameTextBox, email, refundsDataGridView);
 
-            EmailOperations.RefundStatus(refundStatus, email, usernameTextBox, refundStatusComboBox);
+                EmailOperations.RefundStatus(refundStatus, email, usernameTextBox, refundStatusComboBox);
 
-            DatabaseOperationsRefunds.UpdateRefundView(usernameTextBox, refundsDataGridView);
+                DatabaseOperationsRefunds.UpdateRefundView(usernameTextBox, refundsDataGridView);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a username in to update the status");
+            }
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
@@ -110,13 +124,20 @@ namespace GlobalSanicElectronics
 
         private void updateDeliveryStatusButton_Click(object sender, EventArgs e)
         {
-            string deliveryStatus = deliveryComboBox.Text;
+            if (string.IsNullOrEmpty(usernameTextBox.Text) == false)
+            {
+                string deliveryStatus = deliveryComboBox.Text;
 
-            DatabaseOperations.UpdateDeliveryStatus(deliveryComboBox, usernameTextBox, email);
+                DatabaseOperations.UpdateDeliveryStatus(deliveryComboBox, usernameTextBox, email, purchasesDataGridView);
 
-            EmailOperations.DeliveryStatus(deliveryStatus, email, usernameTextBox, deliveryComboBox);
+                EmailOperations.DeliveryStatus(deliveryStatus, email, usernameTextBox, deliveryComboBox);
 
-            DatabaseOperationsRepairs.LoadRepairs(repairsDataGridView, usernameTextBox);
+                DatabaseOperations.UpdateDeliveryView(usernameTextBox.Text, purchasesDataGridView);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a username in to update the status");
+            }
         }
     }
 }

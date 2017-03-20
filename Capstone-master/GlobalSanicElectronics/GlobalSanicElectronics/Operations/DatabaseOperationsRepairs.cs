@@ -38,7 +38,7 @@ namespace GlobalSanicElectronics
                     string price = row.Cells[2].Value.ToString();
                     string stages = row.Cells[3].Value.ToString();
 
-                    MessageBox.Show("Order Number : " + orderNumber + "has been queued up for Repair!");
+                    MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Repair!");
 
                     userRequestRepairsCommand.CommandText = "INSERT into Repairs (RepairStatus, Username, OrderNumber) VALUES " +
                         "(@RepairStatus, @Username, @OrderNumber)" +
@@ -91,40 +91,45 @@ namespace GlobalSanicElectronics
             }
         }
 
-        public static void UpdateRepairStatus(ComboBox repairStatusComboBox, TextBox usernameTextBox, string email)
+        public static void UpdateRepairStatus(ComboBox repairStatusComboBox, TextBox usernameTextBox, string email, DataGridView repairDirectory)
         {
-            //Variable to hold what is in the combo box
-            string repairStatus = repairStatusComboBox.Text;
-
-            SqlCommand updateRepairCommand = new SqlCommand();
-            updateRepairCommand.CommandType = CommandType.Text;
-            updateRepairCommand.CommandText = "UPDATE Repairs SET RepairStatus= '" + repairStatusComboBox.SelectedItem + "' WHERE Username= '" + usernameTextBox.Text + "'";
-            updateRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
-            DatabaseOperations.sqlConnectionLink.Open();
-            updateRepairCommand.ExecuteNonQuery();
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            MessageBox.Show("Repair Status has been updated");
-
-            //Get the customers email
-            string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
-            SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
-
-            try
+            foreach (DataGridViewRow row in repairDirectory.SelectedRows)
             {
-                DatabaseOperations.sqlConnectionLink.Open();
+                string repairID = row.Cells[3].Value.ToString();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                //Variable to hold what is in the combo box
+                string repairStatus = repairStatusComboBox.Text;
+
+                SqlCommand updateRepairCommand = new SqlCommand();
+                updateRepairCommand.CommandType = CommandType.Text;
+                updateRepairCommand.CommandText = "UPDATE Repairs SET RepairStatus= '" + repairStatusComboBox.SelectedItem + "' WHERE RepairID= '" + repairID + "'";
+                updateRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                DatabaseOperations.sqlConnectionLink.Open();
+                updateRepairCommand.ExecuteNonQuery();
+                DatabaseOperations.sqlConnectionLink.Close();
+
+                MessageBox.Show("Repair Status has been updated");
+
+                //Get the customers email
+                string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
+                SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
+
+                try
                 {
-                    while (reader.Read())
+                    DatabaseOperations.sqlConnectionLink.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        email = (reader["Email"].ToString());
+                        while (reader.Read())
+                        {
+                            email = (reader["Email"].ToString());
+                        }
                     }
                 }
-            }
-            finally
-            {
-                DatabaseOperations.sqlConnectionLink.Close();
+                finally
+                {
+                    DatabaseOperations.sqlConnectionLink.Close();
+                }
             }
         }
 

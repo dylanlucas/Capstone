@@ -62,13 +62,7 @@ namespace GlobalSanicElectronics
 
         private void RequestRepairScreen_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
-            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
-            // TODO: This line of code loads data into the 'gSEDatabaseDataSet.Repairs' table. You can move, or remove it, as needed.
-            this.repairsTableAdapter.Fill(this.gSEDatabaseDataSet.Repairs);
-
             DatabaseOperationsRepairs.FillRepair(requestRepaireFormUsername, purchasesDataGridView);
-
         }
 
         private void purchasesBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -88,6 +82,14 @@ namespace GlobalSanicElectronics
         }
 
         private void purchasesBindingNavigatorSaveItem_Click_3(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.purchasesBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gSEDatabaseDataSet);
+
+        }
+
+        private void purchasesBindingNavigatorSaveItem_Click_4(object sender, EventArgs e)
         {
             this.Validate();
             this.purchasesBindingSource.EndEdit();

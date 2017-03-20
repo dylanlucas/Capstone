@@ -18,7 +18,7 @@ namespace GlobalSanicElectronics
                     string price = row.Cells[2].Value.ToString();
                     string stages = row.Cells[3].Value.ToString();
 
-                    MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Repair!");
+                    MessageBox.Show("Order Number : " + orderNumber + " has been queued up for Refund!");
 
                     userRequestsRefundCommand.CommandText = "INSERT into Refunds (OrderNumber, RefundStatus, Username) VALUES " +
                         "(@OrderNumber, @RefundStatus, @Username)" +
@@ -53,40 +53,45 @@ namespace GlobalSanicElectronics
             }
         }
 
-        public static void UpdateRefundStatus(ComboBox refundStatusComboBox, TextBox usernameTextBox, string email)
+        public static void UpdateRefundStatus(ComboBox refundStatusComboBox, TextBox usernameTextBox, string email, DataGridView refundDirectory)
         {
-            //Variable to hold what is in the combobox
-            string refundStatus = refundStatusComboBox.Text;
-
-            SqlCommand updateRefundCommand = new SqlCommand();
-            updateRefundCommand.CommandType = CommandType.Text;
-            updateRefundCommand.CommandText = "UPDATE Refunds SET RefundStatus= '" + refundStatusComboBox.SelectedItem + "' WHERE Username= '" + usernameTextBox.Text + "'";
-            updateRefundCommand.Connection = DatabaseOperations.sqlConnectionLink;
-            DatabaseOperations.sqlConnectionLink.Open();
-            updateRefundCommand.ExecuteNonQuery();
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            MessageBox.Show("Refund Status has been updated");
-
-            //Get the customers email
-            string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
-            SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
-
-            try
+            foreach (DataGridViewRow row in refundDirectory.SelectedRows)
             {
-                DatabaseOperations.sqlConnectionLink.Open();
+                string refundID = row.Cells[3].Value.ToString();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                //Variable to hold what is in the combobox
+                string refundStatus = refundStatusComboBox.Text;
+
+                SqlCommand updateRefundCommand = new SqlCommand();
+                updateRefundCommand.CommandType = CommandType.Text;
+                updateRefundCommand.CommandText = "UPDATE Refunds SET RefundStatus= '" + refundStatusComboBox.SelectedItem + "' WHERE RefundID= '" + refundID + "'";
+                updateRefundCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                DatabaseOperations.sqlConnectionLink.Open();
+                updateRefundCommand.ExecuteNonQuery();
+                DatabaseOperations.sqlConnectionLink.Close();
+
+                MessageBox.Show("Refund Status has been updated");
+
+                //Get the customers email
+                string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
+                SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
+
+                try
                 {
-                    while (reader.Read())
+                    DatabaseOperations.sqlConnectionLink.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        email = (reader["Email"].ToString());
+                        while (reader.Read())
+                        {
+                            email = (reader["Email"].ToString());
+                        }
                     }
                 }
-            }
-            finally
-            {
-                DatabaseOperations.sqlConnectionLink.Close();
+                finally
+                {
+                    DatabaseOperations.sqlConnectionLink.Close();
+                }
             }
         }
 

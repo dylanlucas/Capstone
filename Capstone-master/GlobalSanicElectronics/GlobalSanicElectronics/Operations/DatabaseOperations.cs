@@ -160,41 +160,57 @@ namespace GlobalSanicElectronics
             MessageBox.Show("Password has been updated!");
         }
 
-        public static void UpdateDeliveryStatus(ComboBox deliveryComboBox, TextBox usernameTextBox, string email)
+        public static void UpdateDeliveryStatus(ComboBox deliveryComboBox, TextBox usernameTextBox, string email, DataGridView purchaseDirectory)
         {
-            //Variable to hold what is in the combo box
-            string deliveryStatus = deliveryComboBox.Text;
-
-            SqlCommand updateRepairCommand = new SqlCommand();
-            updateRepairCommand.CommandType = CommandType.Text;
-            updateRepairCommand.CommandText = "UPDATE Purchases SET Stages= '" + deliveryComboBox.SelectedItem + "' WHERE Username= '" + usernameTextBox.Text + "'";
-            updateRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
-            DatabaseOperations.sqlConnectionLink.Open();
-            updateRepairCommand.ExecuteNonQuery();
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            MessageBox.Show("Delivery Status has been updated");
-
-            //Get the customers email
-            string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
-            SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
-
-            try
+            foreach (DataGridViewRow row in purchaseDirectory.SelectedRows)
             {
-                DatabaseOperations.sqlConnectionLink.Open();
+                string purchaseNumber = row.Cells[4].Value.ToString();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                //Variable to hold what is in the combo box
+                string deliveryStatus = deliveryComboBox.Text;
+
+                SqlCommand updateRepairCommand = new SqlCommand();
+                updateRepairCommand.CommandType = CommandType.Text;
+                updateRepairCommand.CommandText = "UPDATE Purchases SET Stages= '" + deliveryComboBox.SelectedItem + "' WHERE PurchaseNumber= '" + purchaseNumber + "'";
+                updateRepairCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                DatabaseOperations.sqlConnectionLink.Open();
+                updateRepairCommand.ExecuteNonQuery();
+                DatabaseOperations.sqlConnectionLink.Close();
+
+                MessageBox.Show("Delivery Status has been updated");
+
+                //Get the customers email
+                string selectEmailSQL = "SELECT Email FROM CustomerInformation Where Username= '" + usernameTextBox.Text + "'";
+                SqlCommand command = new SqlCommand(selectEmailSQL, DatabaseOperations.sqlConnectionLink);
+
+                try
                 {
-                    while (reader.Read())
+                    DatabaseOperations.sqlConnectionLink.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        email = (reader["Email"].ToString());
+                        while (reader.Read())
+                        {
+                            email = (reader["Email"].ToString());
+                        }
                     }
                 }
+                finally
+                {
+                    DatabaseOperations.sqlConnectionLink.Close();
+                }
             }
-            finally
-            {
-                DatabaseOperations.sqlConnectionLink.Close();
-            }
+        }
+
+        public static void UpdateDeliveryView(string usernameTextBox, DataGridView purchasesDataGridView)
+        {
+            var select = "SELECT * FROM Purchases WHERE Username= '" + usernameTextBox + "'";
+            var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            purchasesDataGridView.DataSource = ds.Tables[0];
         }
 
         public static void LoadCustomerInformation(TextBox usernameTextBox, DataGridView purchasesDataGridView, DataGridView refundsDataGridView, DataGridView repairsDataGridView)

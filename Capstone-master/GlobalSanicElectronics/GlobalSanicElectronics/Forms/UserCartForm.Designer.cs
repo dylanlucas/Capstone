@@ -49,6 +49,7 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CartID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartDataGridView)).BeginInit();
@@ -141,7 +142,8 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
+            this.dataGridViewTextBoxColumn16,
+            this.CartID});
             this.cartDataGridView.DataSource = this.cartBindingSource;
             this.cartDataGridView.Location = new System.Drawing.Point(14, 114);
             this.cartDataGridView.Name = "cartDataGridView";
@@ -215,7 +217,14 @@
             this.dataGridViewTextBoxColumn16.HeaderText = "Price";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             // 
-            // UserCart
+            // CartID
+            // 
+            this.CartID.DataPropertyName = "CartID";
+            this.CartID.HeaderText = "CartID";
+            this.CartID.Name = "CartID";
+            this.CartID.ReadOnly = true;
+            // 
+            // UserCartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -225,7 +234,7 @@
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.genericLabel);
-            this.Name = "UserCart";
+            this.Name = "UserCartForm";
             this.Text = "Cart";
             this.Load += new System.EventHandler(this.Cart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();
@@ -262,5 +271,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CartID;
     }
 }
