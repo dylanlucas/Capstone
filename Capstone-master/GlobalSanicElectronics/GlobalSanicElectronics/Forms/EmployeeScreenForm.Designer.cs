@@ -59,17 +59,20 @@
             this.repairsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refundsDataGridView = new System.Windows.Forms.DataGridView();
             this.repairsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.purchasesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefundID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RepairID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -360,7 +363,8 @@
             this.refundsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24,
-            this.OrderNumber});
+            this.OrderNumber,
+            this.RefundID});
             this.refundsDataGridView.DataSource = this.refundsBindingSource;
             this.refundsDataGridView.Location = new System.Drawing.Point(21, 125);
             this.refundsDataGridView.Name = "refundsDataGridView";
@@ -375,32 +379,14 @@
             this.repairsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn32,
             this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn34});
+            this.dataGridViewTextBoxColumn34,
+            this.RepairID});
             this.repairsDataGridView.DataSource = this.repairsBindingSource;
             this.repairsDataGridView.Location = new System.Drawing.Point(1006, 125);
             this.repairsDataGridView.Name = "repairsDataGridView";
             this.repairsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.repairsDataGridView.Size = new System.Drawing.Size(470, 220);
             this.repairsDataGridView.TabIndex = 27;
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.DataPropertyName = "RepairStatus";
-            this.dataGridViewTextBoxColumn32.HeaderText = "RepairStatus";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.DataPropertyName = "Username";
-            this.dataGridViewTextBoxColumn33.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.DataPropertyName = "OrderNumber";
-            this.dataGridViewTextBoxColumn34.HeaderText = "OrderNumber";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.ReadOnly = true;
             // 
             // purchasesDataGridView
             // 
@@ -410,7 +396,8 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.PurchaseNumber});
             this.purchasesDataGridView.DataSource = this.purchasesBindingSource;
             this.purchasesDataGridView.Location = new System.Drawing.Point(518, 125);
             this.purchasesDataGridView.Name = "purchasesDataGridView";
@@ -447,6 +434,13 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
+            // PurchaseNumber
+            // 
+            this.PurchaseNumber.DataPropertyName = "PurchaseNumber";
+            this.PurchaseNumber.HeaderText = "PurchaseNumber";
+            this.PurchaseNumber.Name = "PurchaseNumber";
+            this.PurchaseNumber.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn23
             // 
             this.dataGridViewTextBoxColumn23.DataPropertyName = "RefundStatus";
@@ -466,7 +460,38 @@
             this.OrderNumber.Name = "OrderNumber";
             this.OrderNumber.ReadOnly = true;
             // 
-            // EmployeeScreen
+            // RefundID
+            // 
+            this.RefundID.DataPropertyName = "RefundID";
+            this.RefundID.HeaderText = "RefundID";
+            this.RefundID.Name = "RefundID";
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "RepairStatus";
+            this.dataGridViewTextBoxColumn32.HeaderText = "RepairStatus";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "Username";
+            this.dataGridViewTextBoxColumn33.HeaderText = "Username";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "OrderNumber";
+            this.dataGridViewTextBoxColumn34.HeaderText = "OrderNumber";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.ReadOnly = true;
+            // 
+            // RepairID
+            // 
+            this.RepairID.DataPropertyName = "RepairID";
+            this.RepairID.HeaderText = "RepairID";
+            this.RepairID.Name = "RepairID";
+            // 
+            // EmployeeScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -483,7 +508,7 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.genericLabel);
-            this.Name = "EmployeeScreen";
+            this.Name = "EmployeeScreenForm";
             this.Text = "EmployeeScreen";
             this.Load += new System.EventHandler(this.EmployeeScreen_Load);
             this.groupBox1.ResumeLayout(false);
@@ -541,10 +566,10 @@
         private System.Windows.Forms.BindingSource purchasesBindingSource;
         private GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter purchasesTableAdapter;
         private GSEDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private GSEDatabaseDataSetTableAdapters.RefundsTableAdapter refundsTableAdapter;
         private System.Windows.Forms.BindingSource refundsBindingSource;
         private GSEDatabaseDataSetTableAdapters.RepairsTableAdapter repairsTableAdapter;
@@ -555,19 +580,16 @@
         //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.DataGridView repairsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridView refundsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox repairStatusComboBox;
         private System.Windows.Forms.ComboBox refundStatusComboBox;
@@ -578,8 +600,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefundID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RepairID;
     }
 }

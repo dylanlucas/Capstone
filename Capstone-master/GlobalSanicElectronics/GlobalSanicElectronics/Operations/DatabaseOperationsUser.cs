@@ -4,27 +4,34 @@ using System.Windows.Forms;
 
 namespace GlobalSanicElectronics
 {
-    class DatabaseOperationsUser
+    static public class DatabaseOperationsUser
     {
         public static void CreateUser(CustomerInformation customer)
         {
             using (System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand())
             {
-                createUserCommand.CommandText = ("INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES " +
+                try
+                {
+                    createUserCommand.CommandText = ("INSERT into CustomerInformation (Username, Password, Email, DOB, Address, City, State, Zip) VALUES " +
                     "(@Username, @Password, @Email, @DOB, @Address, @City, @State, @Zip)");
-                createUserCommand.Parameters.AddWithValue("@Username", customer.Username);
-                createUserCommand.Parameters.AddWithValue("@Password", customer.Password);
-                createUserCommand.Parameters.AddWithValue("@Email", customer.Email);
-                createUserCommand.Parameters.AddWithValue("DOB", customer.DOB);
-                createUserCommand.Parameters.AddWithValue("@Address", customer.Address);
-                createUserCommand.Parameters.AddWithValue("@City", customer.City);
-                createUserCommand.Parameters.AddWithValue("@State", customer.State);
-                createUserCommand.Parameters.AddWithValue("@Zip", customer.Zip);
-                createUserCommand.Connection = DatabaseOperations.sqlConnectionLink;
+                    createUserCommand.Parameters.AddWithValue("@Username", customer.Username);
+                    createUserCommand.Parameters.AddWithValue("@Password", customer.Password);
+                    createUserCommand.Parameters.AddWithValue("@Email", customer.Email);
+                    createUserCommand.Parameters.AddWithValue("@DOB", customer.DOB);
+                    createUserCommand.Parameters.AddWithValue("@Address", customer.Address);
+                    createUserCommand.Parameters.AddWithValue("@City", customer.City);
+                    createUserCommand.Parameters.AddWithValue("@State", customer.State);
+                    createUserCommand.Parameters.AddWithValue("@Zip", customer.Zip);
+                    createUserCommand.Connection = DatabaseOperations.sqlConnectionLink;
 
-                DatabaseOperations.sqlConnectionLink.Open();
-                createUserCommand.ExecuteNonQuery();
-                DatabaseOperations.sqlConnectionLink.Close();
+                    DatabaseOperations.sqlConnectionLink.Open();
+                    createUserCommand.ExecuteNonQuery();
+                    DatabaseOperations.sqlConnectionLink.Close();
+                }                
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 

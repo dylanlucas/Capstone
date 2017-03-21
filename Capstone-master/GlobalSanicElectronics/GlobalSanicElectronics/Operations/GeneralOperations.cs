@@ -207,7 +207,7 @@ namespace GlobalSanicElectronics
         public static class Regex
         {
             public static readonly string lettersOnly = @"^[a-zA-Z ]+$";
-            public static readonly string numbersOnly = @"^[\d]{5}$";
+            public static readonly string numbersOnly = "^[0-9]+$";
         }
     }
 }

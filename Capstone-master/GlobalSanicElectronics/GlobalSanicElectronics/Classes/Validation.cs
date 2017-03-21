@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace GlobalSanicElectronics
 {
-    class Validation
+    public static class Validation
     {
         private static readonly string containsLowerMessage = "Password needs to have at least one lowercase letter";
         private static readonly string containsUpperMessage = "Password needs to have at least one uppercase letter";
@@ -96,6 +96,11 @@ namespace GlobalSanicElectronics
                 error.SetError(state, "This field can not be empty.");
                 return false;
             }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(state.Text, AccountRegex.lettersOnly))
+            {
+                error.SetError(state, "This field can only contain letters");
+                return false;
+            }
 
             error.SetError(state, string.Empty);
             return true;
@@ -162,6 +167,7 @@ namespace GlobalSanicElectronics
             public static readonly string containsUppercase = @"[A-Z]+";
             public static readonly string properLength = @".{8,15}";
             public static readonly string containsLowerCase = @"[a-z]+";
+            public static readonly string lettersOnly = @"^[a-zA-Z ]+$";
             public static readonly string containsSpecialChar = @"[!@#$%^&*()_+=\[{\]};:<>|./?,-]";
         }
     }

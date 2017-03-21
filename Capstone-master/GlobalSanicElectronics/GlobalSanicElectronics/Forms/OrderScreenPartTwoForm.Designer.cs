@@ -411,7 +411,7 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // OrderScreenPartTwo
+            // OrderScreenPartTwoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -423,7 +423,7 @@
             this.Controls.Add(this.confirmPurchaseButton);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.genericLabel);
-            this.Name = "OrderScreenPartTwo";
+            this.Name = "OrderScreenPartTwoForm";
             this.Text = "OrderScreenPartTwocs";
             this.Load += new System.EventHandler(this.OrderScreenPartTwocs_Load);
             this.shippingGroupBox.ResumeLayout(false);

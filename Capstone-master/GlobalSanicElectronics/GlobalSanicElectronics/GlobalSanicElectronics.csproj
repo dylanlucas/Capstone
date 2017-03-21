@@ -49,6 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -78,16 +79,12 @@
       <DependentUpon>AccountCreationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Cart.cs" />
-    <Compile Include="Classes\CCInformation.cs" />
     <Compile Include="Classes\ComputerDirectory.cs" />
     <Compile Include="Classes\ConsoleDirectory.cs" />
     <Compile Include="Operations\EmailOperations.cs" />
     <Compile Include="Operations\GeneralOperations.cs" />
     <Compile Include="Operations\PasswordOperations.cs" />
     <Compile Include="Classes\Purchases.cs" />
-    <Compile Include="Classes\Refunds.cs" />
-    <Compile Include="Classes\Repairs.cs" />
-    <Compile Include="Classes\ResetTickets.cs" />
     <Compile Include="Classes\TabletDirectory.cs" />
     <Compile Include="Classes\TelevisionDirectory.cs" />
     <Compile Include="Forms\UserCartForm.cs">
@@ -325,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

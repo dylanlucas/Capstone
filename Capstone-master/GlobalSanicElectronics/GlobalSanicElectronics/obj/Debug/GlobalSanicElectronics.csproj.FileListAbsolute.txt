@@ -223,3 +223,4 @@ C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\Glob
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.RequestRepairScreenForm.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.ReturnScreenForm.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.TrackOrderForm.resources
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll

@@ -186,10 +186,10 @@
         private System.Windows.Forms.Button requestRepairButton;
         private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.Label usernameLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private GSEDatabaseDataSet gSEDatabaseDataSet;
         private System.Windows.Forms.BindingSource purchasesBindingSource;
         private GSEDatabaseDataSetTableAdapters.PurchasesTableAdapter purchasesTableAdapter;

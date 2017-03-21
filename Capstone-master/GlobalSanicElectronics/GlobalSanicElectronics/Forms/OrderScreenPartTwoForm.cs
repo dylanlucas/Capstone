@@ -59,10 +59,17 @@ namespace GlobalSanicElectronics
                 {
                     if (GeneralOperations.ConfirmNumber(cardNumberTextBox, errorProvider))
                     {
-                        if (GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider))
+                        if (cardNumberTextBox.Text.Length == 19)
                         {
-                            DatabaseOperationsPurchases.HashCreditCard(cardNumberTextBox, nameTextBox, userName, paymentGroupBox);
-                        }
+                            if (GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider))
+                            {
+                                DatabaseOperationsPurchases.HashCreditCard(cardNumberTextBox, nameTextBox, userName, paymentGroupBox);
+                            }
+                        }  
+                        else
+                        {
+                            errorProvider.SetError(cardNumberTextBox, "Invalid card number.");
+                        }                      
                     }
                 }
             }           
