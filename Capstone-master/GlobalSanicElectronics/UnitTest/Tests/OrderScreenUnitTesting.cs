@@ -33,7 +33,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.AddressValidation(existingCustomer.Address);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -63,7 +63,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.CityValidation(existingCustomer.City);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -93,7 +93,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.StateValidation(existingCustomer.State);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -108,7 +108,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.StateValidation(existingCustomer.State);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -123,7 +123,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.StateValidation(existingCustomer.State);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.StateValidation(existingCustomer.State);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -168,7 +168,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(existingCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -183,7 +183,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(existingCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -198,7 +198,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(existingCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -213,7 +213,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(existingCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -241,7 +241,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmName(name);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -255,7 +255,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmName(name);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -283,7 +283,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmNumber(number);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -297,7 +297,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmNumber(number);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -311,7 +311,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmNumber(number);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -325,7 +325,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmNumber(number);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -355,7 +355,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmExpirationDate(month, year);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -370,7 +370,7 @@ namespace UnitTest
             bool result = GeneralVerification.ConfirmExpirationDate(month, year);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
     }
 }

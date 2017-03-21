@@ -33,7 +33,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.UsernameValidation(newCustomer.Username);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -65,7 +65,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -145,7 +145,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -177,7 +177,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -209,7 +209,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -225,7 +225,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -240,7 +240,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.StateValidation(existingCustomer.State);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -256,7 +256,7 @@ namespace UnitTest
 
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -286,7 +286,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(newCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -301,7 +301,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(newCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -316,7 +316,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(newCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -331,7 +331,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.ZipValidation(newCustomer.Zip);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -361,7 +361,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -376,7 +376,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -391,7 +391,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -406,7 +406,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -421,7 +421,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
 
         [TestMethod]
@@ -436,7 +436,7 @@ namespace UnitTest
             bool result = AccountCreationVerification.PasswordValidation(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
     }
 }

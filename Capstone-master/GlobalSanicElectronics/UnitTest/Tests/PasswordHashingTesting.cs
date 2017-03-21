@@ -33,7 +33,7 @@ namespace UnitTest.Tests
             bool result = PasswordOperations.AccountPasswordHashing(newCustomer.Password);
 
             //Assert
-            Assert.AreEqual(notExpected, result);
+            Assert.AreNotEqual(notExpected, result);
         }
     }
 }
