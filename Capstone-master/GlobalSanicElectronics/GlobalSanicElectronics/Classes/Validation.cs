@@ -96,6 +96,16 @@ namespace GlobalSanicElectronics
                 error.SetError(state, "This field can not be empty.");
                 return false;
             }
+            else if (state.Text.Length < 2)
+            {
+                error.SetError(state, "Invalid state.");
+                return false;
+            }
+            else if (state.Text.Length > 2)
+            {
+                error.SetError(state, "Invalid state.");
+                return false;
+            }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(state.Text, AccountRegex.lettersOnly))
             {
                 error.SetError(state, "This field can only contain letters");
@@ -112,6 +122,15 @@ namespace GlobalSanicElectronics
             {
                 error.SetError(zip, "This field can not be empty.");
                 return false;
+            }
+            else if (zip.Text.Length < 5)
+            {
+                error.SetError(zip, "Invalid zip.");
+                return false;
+            }
+            else if (zip.Text.Length > 5)
+            {
+                error.SetError(zip, "Invalid zip.");
             }
             else if (!System.Text.RegularExpressions.Regex.IsMatch(zip.Text, AccountRegex.numbersOnly))
             {
