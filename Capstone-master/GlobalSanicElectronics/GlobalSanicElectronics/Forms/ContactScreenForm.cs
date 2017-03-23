@@ -17,6 +17,10 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
+        public string contactScreenUsernameHolder { get; set; }
+
+        string email;
+
         private void goBackButton_Click(object sender, EventArgs e)
         {
             //Hide this form so the user can no longer see it as it is no longer needed
@@ -27,6 +31,16 @@ namespace GlobalSanicElectronics
         {
             //Close the application if the user decides to push the big red X
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(feedbackTextBox.Text))
+            {
+                EmailOperations.FeedBackEmail(email, contactScreenUsernameHolder, feedbackTextBox);
+
+                MessageBox.Show("Feedback has been sent, thank you!");
+            }
         }
     }
 }

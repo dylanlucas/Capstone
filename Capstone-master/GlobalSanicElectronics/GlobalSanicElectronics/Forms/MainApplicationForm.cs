@@ -119,6 +119,7 @@ namespace GlobalSanicElectronics
         {           
             //Allow the user to get contact information about the company incase needed and as they clicked the button they have requested to go here
             ContactScreenForm contactScreenForm = new ContactScreenForm();
+            contactScreenForm.contactScreenUsernameHolder = mainApplicationUsername;
             contactScreenForm.Show();
         }
 

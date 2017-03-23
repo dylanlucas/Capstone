@@ -46,15 +46,15 @@ namespace GlobalSanicElectronics {
         
         private TabletDirectorDataTable tableTabletDirector;
         
-        private global::System.Data.DataRelation relationFK_ComputerDirectory_Cart;
-        
-        private global::System.Data.DataRelation relationFK_TabletDirector_Cart;
-        
-        private global::System.Data.DataRelation relationFK_ConsoleDirectory_Cart;
+        private global::System.Data.DataRelation relationFK_CustomerInformation_Cart;
         
         private global::System.Data.DataRelation relationFK_TelevisionDirectory_Cart;
         
-        private global::System.Data.DataRelation relationFK_CustomerInformation_Cart;
+        private global::System.Data.DataRelation relationFK_ConsoleDirectory_Cart;
+        
+        private global::System.Data.DataRelation relationFK_TabletDirector_Cart;
+        
+        private global::System.Data.DataRelation relationFK_ComputerDirectory_Cart;
         
         private global::System.Data.DataRelation relationFK_CustomerInformation_CCInformation;
         
@@ -452,11 +452,11 @@ namespace GlobalSanicElectronics {
                     this.tableTabletDirector.InitVars();
                 }
             }
-            this.relationFK_ComputerDirectory_Cart = this.Relations["FK_ComputerDirectory_Cart"];
-            this.relationFK_TabletDirector_Cart = this.Relations["FK_TabletDirector_Cart"];
-            this.relationFK_ConsoleDirectory_Cart = this.Relations["FK_ConsoleDirectory_Cart"];
-            this.relationFK_TelevisionDirectory_Cart = this.Relations["FK_TelevisionDirectory_Cart"];
             this.relationFK_CustomerInformation_Cart = this.Relations["FK_CustomerInformation_Cart"];
+            this.relationFK_TelevisionDirectory_Cart = this.Relations["FK_TelevisionDirectory_Cart"];
+            this.relationFK_ConsoleDirectory_Cart = this.Relations["FK_ConsoleDirectory_Cart"];
+            this.relationFK_TabletDirector_Cart = this.Relations["FK_TabletDirector_Cart"];
+            this.relationFK_ComputerDirectory_Cart = this.Relations["FK_ComputerDirectory_Cart"];
             this.relationFK_CustomerInformation_CCInformation = this.Relations["FK_CustomerInformation_CCInformation"];
             this.relationFK_CustomerInformation_Purchases = this.Relations["FK_CustomerInformation_Purchases"];
             this.relationFK_Purchases_Repairs = this.Relations["FK_Purchases_Repairs"];
@@ -494,23 +494,9 @@ namespace GlobalSanicElectronics {
             this.tableTabletDirector = new TabletDirectorDataTable();
             base.Tables.Add(this.tableTabletDirector);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
-                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.ComputerIDColumn});
-            this.tableCart.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
-                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.TabletIDColumn});
-            this.tableCart.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
-                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.ConsoleIDColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Cart", new global::System.Data.DataColumn[] {
+                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.UsernameColumn});
             this.tableCart.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -522,9 +508,23 @@ namespace GlobalSanicElectronics {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_CustomerInformation_Cart", new global::System.Data.DataColumn[] {
-                        this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.UsernameColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ConsoleIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletIDColumn});
+            this.tableCart.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ComputerIDColumn});
             this.tableCart.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
@@ -557,26 +557,26 @@ namespace GlobalSanicElectronics {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_ComputerDirectory_Cart = new global::System.Data.DataRelation("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
-                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.ComputerIDColumn}, false);
-            this.Relations.Add(this.relationFK_ComputerDirectory_Cart);
-            this.relationFK_TabletDirector_Cart = new global::System.Data.DataRelation("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
-                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.TabletIDColumn}, false);
-            this.Relations.Add(this.relationFK_TabletDirector_Cart);
-            this.relationFK_ConsoleDirectory_Cart = new global::System.Data.DataRelation("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
-                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.ConsoleIDColumn}, false);
-            this.Relations.Add(this.relationFK_ConsoleDirectory_Cart);
-            this.relationFK_TelevisionDirectory_Cart = new global::System.Data.DataRelation("FK_TelevisionDirectory_Cart", new global::System.Data.DataColumn[] {
-                        this.tableTelevisionDirectory.TVIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCart.TelevisionIDColumn}, false);
-            this.Relations.Add(this.relationFK_TelevisionDirectory_Cart);
             this.relationFK_CustomerInformation_Cart = new global::System.Data.DataRelation("FK_CustomerInformation_Cart", new global::System.Data.DataColumn[] {
                         this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tableCart.UsernameColumn}, false);
             this.Relations.Add(this.relationFK_CustomerInformation_Cart);
+            this.relationFK_TelevisionDirectory_Cart = new global::System.Data.DataRelation("FK_TelevisionDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTelevisionDirectory.TVIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TelevisionIDColumn}, false);
+            this.Relations.Add(this.relationFK_TelevisionDirectory_Cart);
+            this.relationFK_ConsoleDirectory_Cart = new global::System.Data.DataRelation("FK_ConsoleDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableConsoleDirectory.ConsoleIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ConsoleIDColumn}, false);
+            this.Relations.Add(this.relationFK_ConsoleDirectory_Cart);
+            this.relationFK_TabletDirector_Cart = new global::System.Data.DataRelation("FK_TabletDirector_Cart", new global::System.Data.DataColumn[] {
+                        this.tableTabletDirector.TabletIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.TabletIDColumn}, false);
+            this.Relations.Add(this.relationFK_TabletDirector_Cart);
+            this.relationFK_ComputerDirectory_Cart = new global::System.Data.DataRelation("FK_ComputerDirectory_Cart", new global::System.Data.DataColumn[] {
+                        this.tableComputerDirectory.ComputerIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCart.ComputerIDColumn}, false);
+            this.Relations.Add(this.relationFK_ComputerDirectory_Cart);
             this.relationFK_CustomerInformation_CCInformation = new global::System.Data.DataRelation("FK_CustomerInformation_CCInformation", new global::System.Data.DataColumn[] {
                         this.tableCustomerInformation.UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tableCCInformation.UsernameColumn}, false);
@@ -1054,6 +1054,13 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CartRow FindByCartID(int CartID) {
+                return ((CartRow)(this.Rows.Find(new object[] {
+                            CartID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 CartDataTable cln = ((CartDataTable)(base.Clone()));
                 cln.InitVars();
@@ -1125,6 +1132,8 @@ namespace GlobalSanicElectronics {
                 base.Columns.Add(this.columnTelevisionID);
                 this.columnCartID = new global::System.Data.DataColumn("CartID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCartID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCartID}, true));
                 this.columnUsername.AllowDBNull = false;
                 this.columnUsername.MaxLength = 50;
                 this.columnBrand.MaxLength = 50;
@@ -1147,6 +1156,7 @@ namespace GlobalSanicElectronics {
                 this.columnCartID.AutoIncrementStep = -1;
                 this.columnCartID.AllowDBNull = false;
                 this.columnCartID.ReadOnly = true;
+                this.columnCartID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4891,34 +4901,12 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ComputerDirectoryRow ComputerDirectoryRow {
+            public CustomerInformationRow CustomerInformationRow {
                 get {
-                    return ((ComputerDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ComputerDirectory_Cart"])));
+                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_Cart"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_ComputerDirectory_Cart"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TabletDirectorRow TabletDirectorRow {
-                get {
-                    return ((TabletDirectorRow)(this.GetParentRow(this.Table.ParentRelations["FK_TabletDirector_Cart"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_TabletDirector_Cart"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ConsoleDirectoryRow ConsoleDirectoryRow {
-                get {
-                    return ((ConsoleDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ConsoleDirectory_Cart"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_ConsoleDirectory_Cart"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_Cart"]);
                 }
             }
             
@@ -4935,12 +4923,34 @@ namespace GlobalSanicElectronics {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CustomerInformationRow CustomerInformationRow {
+            public ConsoleDirectoryRow ConsoleDirectoryRow {
                 get {
-                    return ((CustomerInformationRow)(this.GetParentRow(this.Table.ParentRelations["FK_CustomerInformation_Cart"])));
+                    return ((ConsoleDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ConsoleDirectory_Cart"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_CustomerInformation_Cart"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ConsoleDirectory_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TabletDirectorRow TabletDirectorRow {
+                get {
+                    return ((TabletDirectorRow)(this.GetParentRow(this.Table.ParentRelations["FK_TabletDirector_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_TabletDirector_Cart"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ComputerDirectoryRow ComputerDirectoryRow {
+                get {
+                    return ((ComputerDirectoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_ComputerDirectory_Cart"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_ComputerDirectory_Cart"]);
                 }
             }
             
@@ -7256,6 +7266,47 @@ namespace GlobalSanicElectronics.GSEDatabaseDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string Username, 
+                    string Computer, 
+                    string Console, 
+                    string Tablet, 
+                    string Television, 
+                    string Brand, 
+                    string Size, 
+                    string Processor, 
+                    string Storage, 
+                    string RAM, 
+                    string Wifi, 
+                    string Smart, 
+                    string LED, 
+                    string Resolution, 
+                    string Color, 
+                    double Price, 
+                    string Original_Username, 
+                    string Original_Computer, 
+                    string Original_Console, 
+                    string Original_Tablet, 
+                    string Original_Television, 
+                    string Original_Brand, 
+                    string Original_Size, 
+                    string Original_Processor, 
+                    string Original_Storage, 
+                    string Original_RAM, 
+                    string Original_Wifi, 
+                    string Original_Smart, 
+                    string Original_LED, 
+                    string Original_Resolution, 
+                    string Original_Color, 
+                    double Original_Price, 
+                    int Original_CartID) {
+            return this.Update(Username, Computer, Console, Tablet, Television, Brand, Size, Processor, Storage, RAM, Wifi, Smart, LED, Resolution, Color, Price, Original_CartID, Original_Username, Original_Computer, Original_Console, Original_Tablet, Original_Television, Original_Brand, Original_Size, Original_Processor, Original_Storage, Original_RAM, Original_Wifi, Original_Smart, Original_LED, Original_Resolution, Original_Color, Original_Price, Original_CartID);
         }
     }
     

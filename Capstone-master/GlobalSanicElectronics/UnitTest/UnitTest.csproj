@@ -52,7 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GeneralVerification.cs" />
+    <Compile Include="Verification\GeneralVerification.cs" />
     <Compile Include="Tests\OrderScreenUnitTesting.cs" />
     <Compile Include="Verification\PasswordOperations.cs" />
     <Compile Include="Tests\AccountCreationUnitTesting.cs" />

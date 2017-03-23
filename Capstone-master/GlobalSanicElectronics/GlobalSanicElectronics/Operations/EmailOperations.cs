@@ -102,6 +102,37 @@ namespace GlobalSanicElectronics
             }
         }
 
+        public static void FeedBackEmail(string email, string contactScreenUsernameHolder, TextBox feedbackTextBox)
+        {
+            var fromUSAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+            var toAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
+            const string fromUSPassword = "GSEPassword";
+            const string updateSubject = "User Feedback";
+            string updateBody = "User : " + contactScreenUsernameHolder + " has sent the following feedback, \n\n" +
+                feedbackTextBox.Text;
+
+            //Establis a connection with the smtpclient and put the host and port number down
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromUSAddress.Address, fromUSPassword)
+            };
+
+            //Area to actually send the message out to the user
+            using (var message = new MailMessage(fromUSAddress, toAddress)
+            {
+                Subject = updateSubject,
+                Body = updateBody
+            })
+            {
+                smtp.Send(message);
+            }
+        }
+
         public static void RepairRequested(string email, string requestRepaireFormUsername)
         {
             //Get the customers email

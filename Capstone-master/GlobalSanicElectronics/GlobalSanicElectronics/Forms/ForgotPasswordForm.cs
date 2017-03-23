@@ -19,8 +19,6 @@ namespace GlobalSanicElectronics
 
             if (emailVerified = DatabaseOperations.ForgotPasswordEmail(usernameTextBox, emailTextBox))
             {
-                DatabaseOperations.ForgotPassword(usernameTextBox);
-
                 double temporaryPassword = DatabaseOperations.ForgotPassword(usernameTextBox);
 
                 EmailOperations.ForgotPassword(emailTextBox, usernameTextBox, temporaryPassword);
