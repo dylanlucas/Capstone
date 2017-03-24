@@ -17,32 +17,35 @@ namespace GlobalSanicElectronics
             newCustomer.Username = usernameInputTextBox.Text;
             newCustomer.Password = PasswordOperations.AccountPasswordHashing(passwordInputTextBox.Text);         
 
-            if (DatabaseOperationsUser.SelectUser(newCustomer, passwordInputTextBox))
+            if (Validation.UsernameValidation(usernameInputTextBox, errorProvider))
             {
-                if (usernameInputTextBox.Text == "Admin")
+                if (DatabaseOperationsUser.SelectUser(newCustomer, passwordInputTextBox))
                 {
-                    //Hide this form so the user can no longer see it as it is no longer needed
-                    this.Hide();
+                    if (usernameInputTextBox.Text == "Admin")
+                    {
+                        //Hide this form so the user can no longer see it as it is no longer needed
+                        this.Hide();
 
-                    //Go to the employee screen as the user has requested and verified to go there
-                    EmployeeScreenForm employeeScreenForm = new EmployeeScreenForm();
-                    employeeScreenForm.Show();
+                        //Go to the employee screen as the user has requested and verified to go there
+                        EmployeeScreenForm employeeScreenForm = new EmployeeScreenForm();
+                        employeeScreenForm.Show();
+                    }
+                    else
+                    {
+                        //Hide this form so the user can no longer see it as it is no longer needed
+                        this.Hide();
+
+                        //Go to the main form as the user has requested and verified to go there
+                        MainApplicationForm mainApplicationForm = new MainApplicationForm();
+                        mainApplicationForm.mainApplicationUsername = usernameInputTextBox.Text;
+                        mainApplicationForm.Show();
+                    }
                 }
                 else
                 {
-                    //Hide this form so the user can no longer see it as it is no longer needed
-                    this.Hide();
-
-                    //Go to the main form as the user has requested and verified to go there
-                    MainApplicationForm mainApplicationForm = new MainApplicationForm();
-                    mainApplicationForm.mainApplicationUsername = usernameInputTextBox.Text;
-                    mainApplicationForm.Show();
+                    MessageBox.Show("Username or Password incorrect!");
                 }
             }
-            else
-            {
-                MessageBox.Show("Username or Password incorrect!");
-            }                       
         }
 
         private void exitButton_Click(object sender, EventArgs e)

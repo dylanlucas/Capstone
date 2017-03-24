@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameInputTextBox = new System.Windows.Forms.TextBox();
@@ -37,6 +38,8 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.forgotPassButton = new System.Windows.Forms.Button();
             this.changePasswordButton = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -65,7 +68,6 @@
             this.usernameInputTextBox.Name = "usernameInputTextBox";
             this.usernameInputTextBox.Size = new System.Drawing.Size(146, 20);
             this.usernameInputTextBox.TabIndex = 1;
-            //this.usernameInputTextBox.TextChanged += new System.EventHandler(this.usernameInputTextBox_TextChanged);
             // 
             // passwordLabel
             // 
@@ -84,7 +86,6 @@
             this.passwordInputTextBox.Size = new System.Drawing.Size(146, 20);
             this.passwordInputTextBox.TabIndex = 2;
             this.passwordInputTextBox.UseSystemPasswordChar = true;
-            //this.passwordInputTextBox.TextChanged += new System.EventHandler(this.passwordInputTextBox_TextChanged);
             // 
             // loginButton
             // 
@@ -130,7 +131,11 @@
             this.changePasswordButton.UseVisualStyleBackColor = true;
             this.changePasswordButton.Click += new System.EventHandler(this.changePasswordButton_Click);
             // 
-            // LoginScreen
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // LoginScreenForm
             // 
             this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,9 +150,9 @@
             this.Controls.Add(this.usernameInputTextBox);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.genericLabel);
-            this.Name = "LoginScreen";
+            this.Name = "LoginScreenForm";
             this.Text = "LoginScreen";
-            //this.Load += new System.EventHandler(this.LoginScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +169,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button forgotPassButton;
         private System.Windows.Forms.Button changePasswordButton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
