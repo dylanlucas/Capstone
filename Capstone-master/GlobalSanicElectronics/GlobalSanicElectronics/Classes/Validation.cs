@@ -24,8 +24,13 @@ namespace GlobalSanicElectronics
                 error.SetError(username, "This field can not be empty.");
                 return false;
             }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(username.Text, AccountRegex.noSpecialCharacters))
+            {
+                error.SetError(username, "This field can only have letters from A-Z, numbers ranging from 0-9, or an _");
+                return false;
+            }
 
-            error.SetError(username, string.Empty);
+                error.SetError(username, string.Empty);
             return true;
         }
 
@@ -181,6 +186,7 @@ namespace GlobalSanicElectronics
 
         public static class AccountRegex
         {
+            public static readonly string noSpecialCharacters = @"^[\w+]$";
             public static readonly string numbersOnly = @"^[\d]{5}$";
             public static readonly string containsNumber = @"[0-9]+";
             public static readonly string containsUppercase = @"[A-Z]+";
