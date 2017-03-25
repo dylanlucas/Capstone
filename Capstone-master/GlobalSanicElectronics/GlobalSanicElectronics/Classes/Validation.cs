@@ -186,7 +186,7 @@ namespace GlobalSanicElectronics
 
         public static class AccountRegex
         {
-            public static readonly string noSpecialCharacters = @"^[\w+]$";
+            public static readonly string noSpecialCharacters = @"^[A-Za-z0-9.\s_-]+$";
             public static readonly string numbersOnly = @"^[\d]{5}$";
             public static readonly string containsNumber = @"[0-9]+";
             public static readonly string containsUppercase = @"[A-Z]+";
