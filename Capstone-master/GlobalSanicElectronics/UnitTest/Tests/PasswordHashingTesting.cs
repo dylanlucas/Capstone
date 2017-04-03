@@ -6,6 +6,7 @@ namespace UnitTest.Tests
     [TestClass]
     public class PasswordHashingTesting
     {
+        //Test to make sure that the password is being hashed and salted correctly
         [TestMethod]
         public void TestingPasswordHashingAndSalting_Correctly()
         {
@@ -21,6 +22,7 @@ namespace UnitTest.Tests
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic behind a null password is incorrect, is correct
         [TestMethod]
         public void TestingPasswordHashingAndSalting_Incorrectly()
         {

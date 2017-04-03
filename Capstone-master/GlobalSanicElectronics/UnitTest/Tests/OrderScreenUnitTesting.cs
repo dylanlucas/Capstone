@@ -6,6 +6,7 @@ namespace UnitTest
     [TestClass]
     public class OrderScreenUnitTesting
     {
+        //Test to make sure that the Address entered is in correct format
         [TestMethod]
         public void TestingShippingAddressCorrectly()
         {
@@ -21,6 +22,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure the logic behind an address being null is incorrect, is correct
         [TestMethod]
         public void TestingShippingAddressIncorrectly()
         {
@@ -36,6 +38,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the city entered is in correct format
         [TestMethod]
         public void TestingShippingCityCorrectly()
         {
@@ -51,6 +54,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic behind a city being null is incorrect, is correct
         [TestMethod]
         public void TestingShippingCityIncorrectly()
         {
@@ -66,6 +70,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the state entered is in correct format
         [TestMethod]
         public void TestingShippingStateCorrectly()
         {
@@ -81,6 +86,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic behind a state being more than 2 characters is incorrect, is correct
         [TestMethod]
         public void TestingShippingStateIncorrectly_MoreThan2Characters()
         {
@@ -96,6 +102,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a state being less than 2 characters is incorrect, is correct
         [TestMethod]
         public void TestingShippingStateIncorrectly_LessThan2Characters()
         {
@@ -111,6 +118,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a state containing numbers is incorrect, is correct
         [TestMethod]
         public void TestingShippingStateIncorrectly_ContainsNumbers()
         {
@@ -126,6 +134,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a state being null is incorrect, is correct
         [TestMethod]
         public void TestingShippingStateIncorrectly_Null()
         {
@@ -141,6 +150,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the zip entered is in correct format
         [TestMethod]
         public void ZipValidationCorrectly()
         {
@@ -156,6 +166,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic of a zip not being just numbers is incorrect, is correct
         [TestMethod]
         public void ZipValidationIncorrectly_NotJustNumbers()
         {
@@ -171,6 +182,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic of a zip not being more than 5 numbers is incorrect, is correct
         [TestMethod]
         public void ZipValidationIncorrectly_MoreThan5Numbers()
         {
@@ -186,6 +198,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic of a zip not being less than 5 numbers is incorrect, is correct
         [TestMethod]
         public void ZipValidationIncorrectly_LessThan5Numbers()
         {
@@ -201,6 +214,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic of a zip being null is incorrect, is correct
         [TestMethod]
         public void ZipValidationIncorrectly_Null()
         {
@@ -216,6 +230,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the card name is in correct format
         [TestMethod]
         public void CardNameValidationCorrectly()
         {
@@ -230,6 +245,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic behind a card name being null is incorrect, is correct
         [TestMethod]
         public void CardNameValidationIncorrectly_Null()
         {
@@ -244,6 +260,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a card name containing numbers is incorrect, is correct
         [TestMethod]
         public void CardNameValidationIncorrectly_ContainsNumbers()
         {
@@ -258,6 +275,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a card number is in correct format
         [TestMethod]
         public void CardNumberValidationCorrectly()
         {
@@ -272,6 +290,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure that the logic behind a card number containing letters is incorrect, is correct
         [TestMethod]
         public void CardNumberValidationIncorrectly_ContainsLetters()
         {
@@ -286,6 +305,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the card number that is more than 16 digits is incorrect, is correct
         [TestMethod]
         public void CardNumberValidationIncorrectly_LongerThan16Digits()
         {
@@ -300,6 +320,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the card number that is less than 16 digits is incorrect, is correct
         [TestMethod]
         public void CardNumberValidationIncorrectly_ShorterThan16Digits()
         {
@@ -314,6 +335,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the card number is null is incorrect, is correct
         [TestMethod]
         public void CardNumberValidationIncorrectly_Null()
         {
@@ -328,6 +350,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the Card expiration date is in correct format
         [TestMethod]
         public void CardExpirationDateCorrectly()
         {
@@ -343,6 +366,7 @@ namespace UnitTest
             Assert.AreEqual(expected, result);
         }
 
+        //Test to make sure the logic that the card expiration date being null is incorrect, is correct
         [TestMethod]
         public void CardExpirationDateIncorrectly_Null()
         {
@@ -358,6 +382,7 @@ namespace UnitTest
             Assert.AreNotEqual(notExpected, result);
         }
 
+        //Test to make sure that the logic behind a card expiration date being less than now is incorrect, is correct
         [TestMethod]
         public void CardExpirationDateIncorrectly_LessThanNowWithDate()
         {

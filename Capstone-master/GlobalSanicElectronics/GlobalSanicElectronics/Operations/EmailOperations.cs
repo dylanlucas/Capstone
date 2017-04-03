@@ -7,6 +7,7 @@ namespace GlobalSanicElectronics
 {
     class EmailOperations
     {
+        //Method to email user with information regarding there newly created user
         public static void UserCreatedEmail(string email, string username, string DOB, string address, string city, string state, string zip)
         {
             //Way to send user an email with all account information and confirm that there account is created.
@@ -46,6 +47,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email user with there newly created order with information regarding the order
         public static void UserOrderCreated(string email, string username, double price, double number, Cart userCart)
         {
             //Way to send user an email with all the purchase information and give them there order number
@@ -102,6 +104,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the company to allow the user to email feedback or problems about the application
         public static void FeedBackEmail(string email, string contactScreenUsernameHolder, TextBox feedbackTextBox)
         {
             var fromUSAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
@@ -133,6 +136,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user and company when the user has requested a repair and to email the company to let them know
         public static void RepairRequested(string email, string requestRepaireFormUsername)
         {
             //Get the customers email
@@ -218,6 +222,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user and company when the user has requested a refund and to email the company to let them know
         public static void RefundRequested(string email, string refundRequestScreenUsername)
         {
             //Get the customers email
@@ -303,6 +308,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user with information regarding a token that they can use to change there password
         public static void ForgotPassword(TextBox emailTextBox, TextBox usernameTextBox, double temporaryPassword)
         {
             //Way to send user an email with all account information and confirm that there account is created.
@@ -336,6 +342,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user with information regarding there new repair status
         public static void RepairStatus(string repairStatus, string email, TextBox usernameTextBox, ComboBox repairStatusComboBox)
         {
             //Get the customers email
@@ -536,6 +543,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user with information regarding there new refund status
         public static void RefundStatus(string refundStatus, string email, TextBox usernameTextBox, ComboBox refundStatusComboBox)
         {
             //Get the customers email
@@ -701,6 +709,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to email the user with information regarding there new delivery status
         public static void DeliveryStatus(string deliveryStatus, string email, TextBox usernameTextBox, ComboBox deliveryComboBox)
         {
             //Get the customers email

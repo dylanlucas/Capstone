@@ -5,6 +5,7 @@ namespace UnitTest
 {
     class PasswordOperations
     {
+        //Method to hash and salt the password
         public static bool AccountPasswordHashing(string password)
         {
             if (!string.IsNullOrWhiteSpace(password) == true)

@@ -2,26 +2,27 @@
 
 namespace GlobalSanicElectronics
 {
+    //Variable to hold the information of the Television Directory table
     [Table(Name = "TelevisionDirectory")]
     public class TelevisionDirectory
     {
         [Column(IsPrimaryKey = true)]
-        public string TVID;
+        public string TVID;                         //(Primary Key) Hold the Television ID of the Television
         [Column]
-        public string Brand;
+        public string Brand;                        //Hold the brand name of the Television
         [Column]
-        public string Size;
+        public string Size;                         //Hold the size information of the Television
         [Column]
-        public bool LED;
+        public bool LED;                            //Tell whether the television has LED or not and hold that information
         [Column]
-        public bool Smart;
+        public bool Smart;                          //Tell whether the television is a SMART tv or not and hold that information
         [Column]
-        public string Resolution;
+        public string Resolution;                   //Hold the resolution information of the Television
         [Column]
-        public string Color;
+        public string Color;                        //Hold the color information of the Television
         [Column]
-        public string Price;
+        public string Price;                        //Hold the price information of the Television
         [Column]
-        public string Television;
+        public string Television;                   //Tell whether the item is a Television or not and hold the information
     }
 }

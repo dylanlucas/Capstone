@@ -10,23 +10,28 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
-        double temporaryPassword;
+        double temporaryPassword;       //Hold a temporary password information for the user
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //Check for Email
             bool emailVerified;
 
+            //Method if the email is verified and true
             if (emailVerified = DatabaseOperations.ForgotPasswordEmail(usernameTextBox, emailTextBox))
             {
+                //Send the temporaryPassword information to the ForgotPassword databaseoperation
                 double temporaryPassword = DatabaseOperations.ForgotPassword(usernameTextBox);
 
+                //Call the email operation for forgot password so the user can get a corresponding email with information on how to update there passwword
                 EmailOperations.ForgotPassword(emailTextBox, usernameTextBox, temporaryPassword);
 
+                //Show a messagebox to let the user know (regardless if true or not) that information on what to do has been sent to them
                 MessageBox.Show("Information on what to do to recover your password has been sent to the address");
             }
             else
             {
+                //Show a messagebox to let the user know (regardless if true or not) that information on what to do has been sent to them
                 MessageBox.Show("Information on what to do to recover your password has been sent to the address");
             }
         }

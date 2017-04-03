@@ -24,11 +24,12 @@ namespace GlobalSanicElectronics
 
                 //Go to the RequestRepairScreen so the user can request repair on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
                 RequestRepairScreenForm requestRepairScreenForm = new RequestRepairScreenForm();
-                requestRepairScreenForm.requestRepaireFormUsername = repairScreenFormUsername;
+                requestRepairScreenForm.requestRepaireFormUsername = repairScreenFormUsername;          //Send the username of the user to the repairScreen
                 requestRepairScreenForm.Show();
             }
             else
             {
+                //Send a message box to say that there are no items elgible for repair
                 MessageBox.Show("No items currently elgible for repair!");
             }
         }
@@ -40,7 +41,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RepairStatusScreen so the user can check the status of their repair IF they have a repair currently in progress
             RepairStatusScreenForm repairStatusScreenForm = new RepairStatusScreenForm();
-            repairStatusScreenForm.repairStatusScreenUsername = repairScreenFormUsername;
+            repairStatusScreenForm.repairStatusScreenUsername = repairScreenFormUsername;           //Send the username of the user to the RepairScreen
             repairStatusScreenForm.Show();
         }
 
@@ -51,7 +52,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = repairScreenFormUsername;
+            mainApplicationForm.mainApplicationUsername = repairScreenFormUsername;             //Send the username of the user to the RepairScreen
             mainApplicationForm.Show();
         }
 

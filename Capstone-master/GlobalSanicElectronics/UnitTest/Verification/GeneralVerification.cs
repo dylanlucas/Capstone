@@ -4,6 +4,7 @@ namespace UnitTest
 {
     class GeneralVerification
     {
+        //Verification to make sure that the username is not null and is only letters
         public static bool ConfirmName(string nameTextBox)
         {
             if (string.IsNullOrWhiteSpace(nameTextBox))
@@ -18,6 +19,9 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the card number is not null
+        //is not longer than 16 digits, not less than 16 digits,
+        //and is noly numbers
         public static bool ConfirmNumber(string cardNumberTextBox)
         {
             if (string.IsNullOrWhiteSpace(cardNumberTextBox))
@@ -40,6 +44,8 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the expiration date is not null
+        //and is not less than today's month and year
         public static bool ConfirmExpirationDate(string monthCombBox, string yearComboBox)
         {
             if (string.IsNullOrEmpty(monthCombBox) || string.IsNullOrEmpty(yearComboBox))
@@ -59,6 +65,7 @@ namespace UnitTest
             }
         }
 
+        //Method to make sure that string is only digits
         public static bool IsDigitsOnly(string str)
         {
             foreach (char c in str)
@@ -70,6 +77,7 @@ namespace UnitTest
             return true;
         }
 
+        //Regex to make sure number is only numbers and name is only letters
         public static class Regex
         {
             public static readonly string lettersOnly = @"^[a-zA-Z ]+$";

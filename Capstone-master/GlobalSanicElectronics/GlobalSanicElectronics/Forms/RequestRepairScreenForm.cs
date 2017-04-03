@@ -20,18 +20,22 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
-        public string requestRepaireFormUsername { get; set; }
+        public string requestRepaireFormUsername { get; set; }          //Get the username of the user
 
-        string email;
+        string email;                                                   //Get the email of the user
 
         private void requestRepairButton_Click(object sender, EventArgs e)
         {
+            //Call the user requested repair operation
             DatabaseOperationsRepairs.UserRequestRepairs(purchasesDataGridView, requestRepaireFormUsername);
 
+            //Get the repair screen information
             DatabaseOperationsRepairs.RequestRepairScreen(requestRepaireFormUsername, purchasesDataGridView);
 
+            //Fill the repair screen information
             DatabaseOperationsRepairs.FillRepair(requestRepaireFormUsername, purchasesDataGridView);
 
+            //Send an email to the user that they have requested a repair
             EmailOperations.RepairRequested(email, requestRepaireFormUsername);
         }
 
@@ -42,7 +46,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = requestRepaireFormUsername;
+            mainApplicationForm.mainApplicationUsername = requestRepaireFormUsername;       //Send the username of the user to the main application
             mainApplicationForm.Show();
         }
 

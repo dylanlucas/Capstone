@@ -6,6 +6,7 @@ namespace GlobalSanicElectronics
 {
     static public class DatabaseOperationsUser
     {
+        //Method to create a user and store it into the database
         public static void CreateUser(CustomerInformation customer)
         {
             using (System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand())
@@ -35,6 +36,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to select user and make sure that it is correlating with the username and password in the same area
         public static bool SelectUser(CustomerInformation customer, TextBox password)
         {
             using (System.Data.SqlClient.SqlCommand searchUserCommand = new System.Data.SqlClient.SqlCommand())

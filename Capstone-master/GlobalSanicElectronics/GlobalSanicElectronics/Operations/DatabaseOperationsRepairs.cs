@@ -6,6 +6,7 @@ namespace GlobalSanicElectronics
 {
     class DatabaseOperationsRepairs
     {
+        //Method to get repair information of the user that is logged in
         public static bool RequestRepairs(string repairScreenFormUsername)
         {
             //Declare variables
@@ -26,6 +27,7 @@ namespace GlobalSanicElectronics
             return verifyRepairTable;
         }
 
+        //Method to for the user to request repairs on certain order / items
         public static void UserRequestRepairs(DataGridView purchaseDataGridView, string requestRepaireFormUsername)
         {
             using (SqlCommand userRequestRepairsCommand = new SqlCommand())
@@ -55,6 +57,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method for user to get there repairs
         public static void RequestRepairScreen(string repairStatusScreenUsername, DataGridView purchasesDataGridView)
         {
             using (SqlCommand requestRepairScreenCommand = new SqlCommand())
@@ -73,6 +76,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to fill the repair table with the information regarding the selected user
         public static void FillRepair(string requestRepaireFormUsername, DataGridView purchaseDataGridView)
         {
             using (SqlCommand fillRepairCommand = new SqlCommand())
@@ -91,6 +95,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Update the repair status of the user's repair with what the employee has selected
         public static void UpdateRepairStatus(ComboBox repairStatusComboBox, TextBox usernameTextBox, string email, DataGridView repairDirectory)
         {
             foreach (DataGridViewRow row in repairDirectory.SelectedRows)
@@ -133,6 +138,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Update the repair view for the employee to see updated information
         public static void UpdateRepairView(TextBox usernameTextBox, DataGridView repairsDataGridView)
         {
             //Update Repair status screen datagridview
@@ -145,6 +151,7 @@ namespace GlobalSanicElectronics
             repairsDataGridView.DataSource = ds.Tables[0];
         }
 
+        //Method to load information about the user's repairs
         public static void LoadRepairs(DataGridView repairsDataGridView, TextBox usernameTextBox)
         {
             //Update Repair status screen datagridview

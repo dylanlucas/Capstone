@@ -12,37 +12,45 @@ namespace GlobalSanicElectronics
 
         public string mainApplicationUsername { get; set; }
 
-        TelevisionDirectory TV = new TelevisionDirectory();
-        TabletDirectory Tablet = new TabletDirectory();
-        ConsoleDirectory Console = new ConsoleDirectory();
-        ComputerDirectory Computer = new ComputerDirectory();
-        Cart userCart = new Cart();
-        Purchases userPurchases = new Purchases();
+        TelevisionDirectory TV = new TelevisionDirectory();             //Create a Telvision Directory object for TV's
+        TabletDirectory Tablet = new TabletDirectory();                 //Create a Tablet Directory object for Tablet's
+        ConsoleDirectory Console = new ConsoleDirectory();              //Create a Console Directory object for Console's
+        ComputerDirectory Computer = new ComputerDirectory();           //Create a Computer Directory object for Computer's
+        Cart userCart = new Cart();                                     //Create a Cart object for user's cart
+        Purchases userPurchases = new Purchases();                      //Create a Purchase object for user's purchase's
 
         private void addToCartButton_Click(object sender, EventArgs e)
         {        
+            //If the Television directory is visible then add information about the TV to the cart
             if (televisionDirectoryDataGridView.Visible == true)
             {
+                //Call the database operation for stuff relating to the Television
                 DatabaseOperationsCart.TelevisionCart(TV, televisionDirectoryDataGridView, mainApplicationUsername);
-                userCart.Televisions.Add(TV);
+                userCart.Televisions.Add(TV);       //Add TV information to the cart
             }
 
+            //If the Tablet directory is visible then add information about the Tablet to the cart
             else if (tabletDirectorDataGridView.Visible == true)
             {
+                //Call the database operation for stuff relating to the Tablet
                 DatabaseOperationsCart.TabletCart(Tablet, tabletDirectorDataGridView, mainApplicationUsername);
-                userCart.Tablets.Add(Tablet);
+                userCart.Tablets.Add(Tablet);       //Add Tablet information to the cart
             }
 
+            //If the Console directory is visible then add information about the Console to the cart
             else if (consoleDirectoryDataGridView.Visible == true)
             {
+                //Call the database operation for stuff relating to the Console
                 DatabaseOperationsCart.ConsoleCart(Console, consoleDirectoryDataGridView, mainApplicationUsername);
-                userCart.Consoles.Add(Console);
+                userCart.Consoles.Add(Console);     //Add Console information to the cart
             }
 
+            //If Computer directory is visible then add information about the Computer to the cart
             else if (computerDirectoryDataGridView.Visible == true)
             {
+                //Call the database operation for stuff relating to the Computer
                 DatabaseOperationsCart.ComputerCart(Computer, computerDirectoryDataGridView, mainApplicationUsername);
-                userCart.Computers.Add(Computer);
+                userCart.Computers.Add(Computer);       //Add Computer information to the cart
             }
 
             //Display the Cart Item Total for the User
@@ -62,11 +70,12 @@ namespace GlobalSanicElectronics
 
                 //Go to the Cart Screen as user requested
                 UserCartForm cartForm = new UserCartForm();
-                cartForm.cartFormUsername = mainApplicationUsername;
+                cartForm.cartFormUsername = mainApplicationUsername;        //Send the username of the user back to the main form
                 cartForm.Show();
             }
             else
             {
+                //Send a message to tell the user that there is nothing in there cart so no reason to go to the cart
                 MessageBox.Show("Nothing is currently in your cart!");
             }
         }
@@ -78,7 +87,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RepairScreenForm as the user has requested it to allow the user with some options available in that category
             RepairScreenForm repairScreenForm = new RepairScreenForm();
-            repairScreenForm.repairScreenFormUsername = mainApplicationUsername;
+            repairScreenForm.repairScreenFormUsername = mainApplicationUsername;        //Send the username of the user to the repair form
             repairScreenForm.Show();
         }
 
@@ -89,7 +98,7 @@ namespace GlobalSanicElectronics
 
             //Go to the ReturnScreen as the user has requested it to allow the user with some options available in that category
             ReturnScreenForm returnScreenForm = new ReturnScreenForm();
-            returnScreenForm.refundScreenFormUsername = mainApplicationUsername;
+            returnScreenForm.refundScreenFormUsername = mainApplicationUsername;        //Send the username of the user to the refund form
             returnScreenForm.Show();
         }
 
@@ -119,23 +128,28 @@ namespace GlobalSanicElectronics
         {           
             //Allow the user to get contact information about the company incase needed and as they clicked the button they have requested to go here
             ContactScreenForm contactScreenForm = new ContactScreenForm();
-            contactScreenForm.contactScreenUsernameHolder = mainApplicationUsername;
+            contactScreenForm.contactScreenUsernameHolder = mainApplicationUsername;        //Send the usenramea of the user to the Contact screen
             contactScreenForm.Show();
         }
 
         private void orderButton_Click(object sender, EventArgs e)
         {
+            //Message to let the user know that this is the cart they are purchasing and they need to change it if they don't want an item in the cart form
             string message = "Does your cart contain all the items you would like to purchase? If so continue, if not please go back and remove items or add items";
+            //Message to confirm the cart
             string caption = "Confirm Cart";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;        //Create buttons for the MessageBox
+            DialogResult result;        //For the if statement depending on the messagebox selection
 
+            //set Result to what is correlating in the if statement
             result = MessageBox.Show(this, message, caption, buttons,
                 MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button1);
 
+            //If the user says that they like the items in there cart go through this method
             if (result == DialogResult.Yes)
             {               
+                //Call the CartValidation method to make sure that the user has a cart
                 if (DatabaseOperationsCart.CartValidation(userCart, mainApplicationUsername))
                 {
                     //Hide this form so the user can no longer see it as it is no longer needed
@@ -143,11 +157,12 @@ namespace GlobalSanicElectronics
 
                     //Allow the user go to the order screen, IF the cart is equal to or greater than 1
                     OrderScreenForm orderScreenForm = new OrderScreenForm();
-                    orderScreenForm.orderFormUsername = mainApplicationUsername;
+                    orderScreenForm.orderFormUsername = mainApplicationUsername;        //Send the username of the user to the order screen
                     orderScreenForm.Show();
                 }
                 else
                 {
+                    //Tell the user that there is nothing in there cart to purchase
                     MessageBox.Show("Nothing in cart to purchase!");
                 }
             }                        
@@ -265,11 +280,12 @@ namespace GlobalSanicElectronics
                 this.Hide();
 
                 TrackOrderForm trackOrderForm = new TrackOrderForm();
-                trackOrderForm.orderUsername = mainApplicationUsername;
+                trackOrderForm.orderUsername = mainApplicationUsername;     //Send the username of the user to the Track Order form
                 trackOrderForm.Show();
             }
             else
             {
+                //Tell the user that they have no orders that have been delivered or processed
                 MessageBox.Show("No orders currently being processed or delivered!");
             }
         }

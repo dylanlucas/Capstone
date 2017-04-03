@@ -32,8 +32,8 @@ namespace GlobalSanicElectronics
 
         private void TrackOrder_Load(object sender, EventArgs e)
         {
+            //Call the trackUserOrder databaseoperation
             DatabaseOperationsPurchases.TrackUserOrder(orderUsername, purchasesDataGridView);
-
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -49,12 +49,13 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = orderUsername;
+            mainApplicationForm.mainApplicationUsername = orderUsername;            //Send the username of the user to the orderUsername
             mainApplicationForm.Show();
         }
 
         private void moreInfoButton_Click(object sender, EventArgs e)
         {
+            //Get Statges for the delivery
             MessageBox.Show("Stage One = Order is currently being Processed and has not shipped" +
                 "\n" + "Stage Two = Order is being packed up to Ship" +
                 "\n" + "Stage Three = Order has been Shipped" +

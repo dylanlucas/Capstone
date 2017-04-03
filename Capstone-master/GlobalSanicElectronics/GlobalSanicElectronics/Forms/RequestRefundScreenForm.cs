@@ -10,18 +10,22 @@ namespace GlobalSanicElectronics
             InitializeComponent();
         }
 
-        public string refundRequestScreenUsername { get; set; }
+        public string refundRequestScreenUsername { get; set; }     //Get the username of the user
 
-        string email;
+        string email;                                               //Get the email of the user
 
         private void requestRefundButton_Click(object sender, EventArgs e)
         {
+            //Get the UserRequestedRefunds datagridview
             DatabaseOperationsRefunds.UserRequestRefunds(purchasesDataGridView, refundRequestScreenUsername);
 
+            //Get the RequestedRefund datagridview
             DatabaseOperationsRefunds.RequestRefundScreen(refundRequestScreenUsername, purchasesDataGridView);
 
+            //Fill the repair table
             DatabaseOperationsRepairs.FillRepair(refundRequestScreenUsername, purchasesDataGridView);
 
+            //Send an email to the user that they have requested a refund
             EmailOperations.RefundRequested(email, refundRequestScreenUsername);
         }
 
@@ -32,7 +36,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = refundRequestScreenUsername;
+            mainApplicationForm.mainApplicationUsername = refundRequestScreenUsername;      //Send the username of the user to the mainapplication
             mainApplicationForm.Show();
         }
 
@@ -52,6 +56,7 @@ namespace GlobalSanicElectronics
 
         private void RequestRefundScreen_Load(object sender, EventArgs e)
         {
+            //Fill the repair table information
             DatabaseOperationsRepairs.FillRepair(refundRequestScreenUsername, purchasesDataGridView);
         }
 

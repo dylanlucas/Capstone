@@ -17,6 +17,7 @@ namespace GlobalSanicElectronics
             //Declare variables
             bool verifyRefundTable;
                     
+            //Make sure user has a refund table
             if (verifyRefundTable = DatabaseOperationsRepairs.RequestRepairs(refundScreenFormUsername))
             {
                 //Hide this form so the user can no longer see it as it is no longer needed
@@ -24,7 +25,7 @@ namespace GlobalSanicElectronics
 
                 //Go to the RequestRefundScreen so the user can request refund on an item, IF the user has purchased an item from this company, if not will not allow them to proceed
                 RequestRefundScreenForm requestRefundScreenForm = new RequestRefundScreenForm();
-                requestRefundScreenForm.refundRequestScreenUsername = refundScreenFormUsername;
+                requestRefundScreenForm.refundRequestScreenUsername = refundScreenFormUsername;         //Send the username of the user to the refundscreenform
                 requestRefundScreenForm.Show();
             }
             else
@@ -40,7 +41,7 @@ namespace GlobalSanicElectronics
 
             //Go to the RefundStatusScreen so the user can check the status of their refund IF they have a refund currently in progress
             RefundStatusScreenForm refundStatusScreenForm = new RefundStatusScreenForm();
-            refundStatusScreenForm.refundStatusScreenUsername = refundScreenFormUsername;
+            refundStatusScreenForm.refundStatusScreenUsername = refundScreenFormUsername;           //Send the username of the user to the refundscreenform
             refundStatusScreenForm.Show();
         }
 
@@ -51,7 +52,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = refundScreenFormUsername;
+            mainApplicationForm.mainApplicationUsername = refundScreenFormUsername;             //Send the username of the user to the refundscreenform
             mainApplicationForm.Show();
         }
 

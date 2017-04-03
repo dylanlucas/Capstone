@@ -14,6 +14,7 @@ namespace GlobalSanicElectronics
 
         private void moreInfoButton_Click(object sender, EventArgs e)
         {
+            //Give a messagebox of information that correlates with repair orders
             MessageBox.Show("Stage One = Order is currently being Processed and has not been received" +
                 "\n" + "Stage Two = Order has been Received" +
                 "\n" + "Stage Three = Problem is currently being investigated" +
@@ -29,7 +30,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = repairStatusScreenUsername;
+            mainApplicationForm.mainApplicationUsername = repairStatusScreenUsername;       //Send the username to the main application
             mainApplicationForm.Show();
         }
 
@@ -49,6 +50,7 @@ namespace GlobalSanicElectronics
 
         private void RepairStatusScreen_Load(object sender, EventArgs e)
         {
+            //Call the RequestRepairScreen method from the DatabseOperations
             DatabaseOperationsRepairs.RequestRepairScreen(repairStatusScreenUsername, repairsDataGridView);
         }
     }

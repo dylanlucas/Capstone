@@ -6,6 +6,7 @@ namespace UnitTest
 {
     class AccountCreationVerification
     {
+        //Verification to make sure that a username is not null
         public static bool UsernameValidation(string username)
         {
             if (string.IsNullOrWhiteSpace(username))
@@ -16,6 +17,7 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that email is not null
         public static bool EmailValidation(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -37,6 +39,7 @@ namespace UnitTest
             }
         }
 
+        //Verification to make sure that the date of birth is not null
         public static bool BirthValidation(string dob)
         {
             if (string.IsNullOrWhiteSpace(dob))
@@ -47,6 +50,7 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the address is not null
         public static bool AddressValidation(string address)
         {
             if (string.IsNullOrWhiteSpace(address))
@@ -57,6 +61,7 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the city is not null
         public static bool CityValidation(string city)
         {
             if(string.IsNullOrWhiteSpace(city))
@@ -67,6 +72,9 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the state is not null
+        //not less than 2 characters, not more than 2 characters
+        //and is only letters
         public static bool StateValidation(string state)
         {
             if (string.IsNullOrWhiteSpace(state))
@@ -89,6 +97,9 @@ namespace UnitTest
             return true;
         }
 
+        //Verification to make sure that the zip is not null
+        //not less than 5 characters, not more than 5 characters
+        //is only numbers
         public static bool ZipValidation(string zip)
         {
             if (string.IsNullOrWhiteSpace(zip))
@@ -111,6 +122,9 @@ namespace UnitTest
             return true;
         }
 
+        //Method to make sure password is not null
+        //contains a lowercase letter, uppercase letter,
+        //one digit, one special character, and is at least 8 digits long
         public static bool PasswordValidation(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
@@ -141,6 +155,7 @@ namespace UnitTest
             return true;
         }
 
+        //Regex to check for appropriate fields in the password, zip, and state fields
         public static class AccountRegex
         {
             public static readonly string numbersOnly = @"^[\d]{5}$";

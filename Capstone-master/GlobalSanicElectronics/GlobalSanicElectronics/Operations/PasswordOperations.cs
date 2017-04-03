@@ -6,6 +6,7 @@ namespace GlobalSanicElectronics
 {
     class PasswordOperations
     {
+        //Method to hash and salt the password information
         public static string AccountPasswordHashing(string password)
         {
             string salt = "WquZ012C";

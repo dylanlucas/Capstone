@@ -8,6 +8,7 @@ namespace GlobalSanicElectronics
 {
     class DatabaseOperationsCart
     {
+        //Method to get information related to the Television that is in the Cart of the user
         public static void TelevisionCart(TelevisionDirectory TV, DataGridView televisionDirectory, string username)
         {
             foreach (DataGridViewRow row in televisionDirectory.SelectedRows)
@@ -46,6 +47,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get information related to the Tablet that is in the Cart of the user
         public static void TabletCart(TabletDirectory Tablet, DataGridView tabletDirectory, string username)
         {
             foreach (DataGridViewRow row in tabletDirectory.SelectedRows)
@@ -84,6 +86,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get information related to the Console that is in the Cart of the user
         public static void ConsoleCart(ConsoleDirectory Console, DataGridView consoleDirectory, string username)
         {
             foreach (DataGridViewRow row in consoleDirectory.SelectedRows)
@@ -115,6 +118,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get information related to the Computer that is in the Cart of the user
         public static void ComputerCart(ComputerDirectory Computer, DataGridView computerDirectory, string username)
         {
             foreach (DataGridViewRow row in computerDirectory.SelectedRows)
@@ -153,6 +157,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to display the cart total items information to the user
         public static void CartDisplay(Cart userCart, string username, Label cartDisplayLabel)
         {
             using (System.Data.SqlClient.SqlCommand cartDisplayCommand = new System.Data.SqlClient.SqlCommand())
@@ -167,6 +172,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to display the cart total price information to the user
         public static void CartPrice(Cart userCart, string username, Label cartPriceDisplayLabel)
         {
             using (System.Data.SqlClient.SqlCommand priceCommand = new System.Data.SqlClient.SqlCommand())
@@ -181,6 +187,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to make sure that the Cart is with the right user
         public static bool CartValidation(Cart userCart, string username)
         {
             using (System.Data.SqlClient.SqlCommand validateCart = new System.Data.SqlClient.SqlCommand())
@@ -198,6 +205,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to show cart information to the user
         public static void ShowCart(Cart userCart, string username, DataGridView cartDirectory)
         {
             using (System.Data.SqlClient.SqlCommand showCartCommand = new System.Data.SqlClient.SqlCommand())
@@ -216,6 +224,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get the user's email associated with the username
         public static string GetUserEmail(string username)
         {
             using (System.Data.SqlClient.SqlCommand selectEmailCommand = new System.Data.SqlClient.SqlCommand())
@@ -247,6 +256,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to delete the entire cart of the user
         public static void DeleteEntireCart(string username)
         {
             using (System.Data.SqlClient.SqlCommand deleteCartCommand = new System.Data.SqlClient.SqlCommand())
@@ -261,6 +271,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get Computer information about the Computer by it's ID
         private static ComputerDirectory GetComputerByID(int id)
         {
             using (SqlCommand getCommand = new SqlCommand())
@@ -289,6 +300,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get Console information about the Console by it's ID
         private static ConsoleDirectory GetConsoleByID(int id)
         {
             using (SqlCommand getCommand = new SqlCommand())
@@ -317,6 +329,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get Tablet information about the Tablet by it's ID
         private static TabletDirectory GetTabletByID(int id)
         {
             using (SqlCommand getCommand = new SqlCommand())
@@ -345,6 +358,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get Television information about the Television by it's ID
         private static TelevisionDirectory GetTelevisionByID(int id)
         {
             using (SqlCommand getCommand = new SqlCommand())
@@ -373,6 +387,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Get the Cart information of the User
         public static Cart GetCart(string username)
         {
             Cart userCart = new Cart();
@@ -453,6 +468,7 @@ namespace GlobalSanicElectronics
             return userCart;
         }
 
+        //Method to remove an item from the cart that the user has selected
         public static void RemoveItem(Cart userCart, DataGridView cartDirectory, GSEDatabaseDataSetTableAdapters.CartTableAdapter cartDataAdapter, GSEDatabaseDataSet gSEDatabaseDataSet)
         {
             if(cartDirectory.SelectedRows.Count > 0)
@@ -498,6 +514,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to display cart information for the user
         public static double DisplayCart(Cart userCart, DataGridView cartDirectory, string username, TabControl consoleTabControl, RadioButton consoleBundleRadioButton,
             RadioButton consoleWarrantyRadioButton, GroupBox computerGroupBox, RadioButton computerWarrantyRadioButton, GroupBox tabletGroupBox, RadioButton tabletWarrantyRadioButton,
             GroupBox televisionGroupBox, RadioButton televisionWarrantyRadioButton, bool consoleYesNo, bool computerYesNo, bool tabletYesNo, bool televisionYesNo, double userPrice,

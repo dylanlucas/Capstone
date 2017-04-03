@@ -9,9 +9,12 @@ namespace GlobalSanicElectronics
 {
     static public class DatabaseOperations
     {
+        //Establish the sqlConnection to the Database
         static public SqlConnection 
                 sqlConnectionLink = new SqlConnection(ConfigurationManager.ConnectionStrings["GlobalSanicElectronics"].ConnectionString);
 
+
+        //Method to go through and get the User's email
         public static string GetUserEmail(string username)
         {           
             using (System.Data.SqlClient.SqlCommand selectEmailCommand = new System.Data.SqlClient.SqlCommand())
@@ -43,6 +46,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to check username and email are correct and correlate with one another so that they user can get a new password
         public static bool ForgotPasswordEmail(TextBox usernameTextBox, TextBox emailTextBox)
         {
             using (SqlCommand forgotPassword = new SqlCommand())
@@ -64,6 +68,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get reset token information set for the username
         public static double ForgotPassword(TextBox usernameTextBox)
         {
             double temporaryPassword;
@@ -95,6 +100,7 @@ namespace GlobalSanicElectronics
             return temporaryPassword;
         }
 
+        //Method to make sure that the token entered is valid and is in the time allotted for the token
         public static bool ChangePassword(TextBox passwordTokenTextBox, TextBox usernameTextBox)
         {
             string salt = "WquZ023E";
@@ -122,6 +128,7 @@ namespace GlobalSanicElectronics
             return verifyToken;
         }
 
+        //Method to delete the token once the user has used it
         public static void CheckToken(Label label2, TextBox newPasswordTextBox, Button changeButton, TextBox usernameTextBox)
         {
             label2.Visible = true;
@@ -135,6 +142,7 @@ namespace GlobalSanicElectronics
             DatabaseOperations.sqlConnectionLink.Close();
         }
 
+        //Method to update the user's new password and store and hash / salt the information
         public static void UserChangesPassword(TextBox newPasswordTextBox, TextBox usernameTextBox)
         {
             //Change the password in CustomerInformation Table
@@ -160,6 +168,7 @@ namespace GlobalSanicElectronics
             MessageBox.Show("Password has been updated!");
         }
 
+        //Method to Update the delivery status of the user's order
         public static void UpdateDeliveryStatus(ComboBox deliveryComboBox, TextBox usernameTextBox, string email, DataGridView purchaseDirectory)
         {
             foreach (DataGridViewRow row in purchaseDirectory.SelectedRows)
@@ -202,6 +211,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to update the delivery view for the employee
         public static void UpdateDeliveryView(string usernameTextBox, DataGridView purchasesDataGridView)
         {
             var select = "SELECT * FROM Purchases WHERE Username= '" + usernameTextBox + "'";
@@ -213,6 +223,7 @@ namespace GlobalSanicElectronics
             purchasesDataGridView.DataSource = ds.Tables[0];
         }
 
+        //Method to load all the information related to the customer
         public static void LoadCustomerInformation(TextBox usernameTextBox, DataGridView purchasesDataGridView, DataGridView refundsDataGridView, DataGridView repairsDataGridView)
         {
             if (usernameTextBox.Text == "")

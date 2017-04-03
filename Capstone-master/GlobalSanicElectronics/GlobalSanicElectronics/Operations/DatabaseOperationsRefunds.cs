@@ -6,6 +6,7 @@ namespace GlobalSanicElectronics
 {
     class DatabaseOperationsRefunds
     {
+        //Method to store information that the user wants to request a refund on the order
         public static void UserRequestRefunds(DataGridView purchaseDataGridView, string refundRequestsScreenUsername)
         {
             using (SqlCommand userRequestsRefundCommand = new SqlCommand())
@@ -35,6 +36,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get all information related to the user's refund
         public static void RequestRefundScreen(string refundRequestsScreenUsername, DataGridView purchaseDataGridView)
         {
             using (SqlCommand requestRepairScreenCommand = new SqlCommand())
@@ -53,6 +55,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to update all refund information that the employee has set
         public static void UpdateRefundStatus(ComboBox refundStatusComboBox, TextBox usernameTextBox, string email, DataGridView refundDirectory)
         {
             foreach (DataGridViewRow row in refundDirectory.SelectedRows)
@@ -95,6 +98,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to update the refund view for the employee
         public static void UpdateRefundView(TextBox usernameTextBox, DataGridView refundsDataGridView)
         {
             var select = "SELECT * FROM Refunds WHERE Username= '" + usernameTextBox.Text + "'";

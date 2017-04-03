@@ -29,21 +29,28 @@ namespace GlobalSanicElectronics
 
         private void OrderScreenPartTwocs_Load(object sender, EventArgs e)
         {
+            //Get payment information for the user and make sure is correct
             GeneralOperations.DefaultInformation(shippingTwoRadioButton, totalPaymentDisplayLabel, yearComboBox, userPrice);
 
+            //Get the Shipping information of the User when they created there account
             DatabaseOperationsPurchases.ShippingInformation(userName, addressTextBox, cityTextBox, stateTextBox, zipTextBox);            
         }
 
         private void confirmShippingInformationButton_Click(object sender, EventArgs e)
         {
+            //Call Validation to make sure the Address is correct
             if (Validation.AddressValidation(addressTextBox, errorProvider))
             {
+                //Call Validation to make sure the City is correct
                 if (Validation.CityValidation(cityTextBox, errorProvider))
                 {
+                    //Call Validation to make sure State is correct
                     if (Validation.StateValidation(stateTextBox, errorProvider))
                     {
+                        //Call Validation to make sure Zip is correct
                         if (Validation.ZipValidation(zipTextBox, errorProvider))
                         {
+                            //Make sure the user has selected shipping information
                             GeneralOperations.ConfirmShipping(shippingGroupBox);
                         }
                     }
@@ -53,21 +60,28 @@ namespace GlobalSanicElectronics
 
         private void confirmPaymentButton_Click(object sender, EventArgs e)
         {
+            //Call Validation to make sure the Username is correct
             if (GeneralOperations.ConfirmName(nameTextBox, errorProvider))
             {
+                //Call Validation to make sure the Username is correct
                 if (GeneralOperations.ConfirmName(nameTextBox, errorProvider))
                 {
+                    //Call Validation to make sure Card Number is correct
                     if (GeneralOperations.ConfirmNumber(cardNumberTextBox, errorProvider))
                     {
+                        //Make sure Card number is 19 characters only
                         if (cardNumberTextBox.Text.Length == 19)
                         {
+                            //Call Validation for the Expiration Date to make sure it is in correct format
                             if (GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider))
                             {
+                                //Hash & Salt Credit Card information so nobody can see it
                                 DatabaseOperationsPurchases.HashCreditCard(cardNumberTextBox, nameTextBox, userName, paymentGroupBox);
                             }
                         }  
                         else
                         {
+                            //Send error message that the card number is incorrect
                             errorProvider.SetError(cardNumberTextBox, "Invalid card number.");
                         }                      
                     }
@@ -77,6 +91,7 @@ namespace GlobalSanicElectronics
 
         private void cardNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Making sure only numbers can be entered
             e.Handled = !(Char.IsNumber(e.KeyChar) || e.KeyChar == 8);
         }
 
@@ -88,18 +103,21 @@ namespace GlobalSanicElectronics
 
         private void expirationDateTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Making sure only numbers can be entered
             e.Handled = !(Char.IsNumber(e.KeyChar) || e.KeyChar == 8);
             
         }
 
         private void cardNumberTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            string value = cardNumberTextBox.Text;
+            string value = cardNumberTextBox.Text;      //Hold information of the card number
 
+            //Make sure that the card number is not null
             if (!string.IsNullOrEmpty(value) && e.KeyCode != Keys.Back)
             {
+                //Way to add - after every 4 characters
                 value = value.Replace("-", "");
-                string divide = Regex.Replace(value, @"\d\d\d\d(?!$)", "$0-");
+                string divide = Regex.Replace(value, @"\d\d\d\d(?!$)", "$0-");      //Regex to Add a - after every 4 characters in the number
                 cardNumberTextBox.Text = divide;
                 cardNumberTextBox.SelectionStart = cardNumberTextBox.Text.Length;
             }
@@ -107,6 +125,7 @@ namespace GlobalSanicElectronics
 
         private void confirmShippingSpeedButton_Click(object sender, EventArgs e)
         {
+            //Validation to make sure Shipping information is all correct
             GeneralOperations.ConfirmShippingSpeed(shippingOneRadioButton, userPrice, shippingSpeedGroupBox, totalPaymentDisplayLabel);
         }
 
@@ -117,8 +136,8 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             OrderScreenForm orderScreenForm = new OrderScreenForm();
-            orderScreenForm.orderFormUsername = userName;
-            orderScreenForm.overallPrice = userPrice;
+            orderScreenForm.orderFormUsername = userName;       //Send the username of the user to the order screen
+            orderScreenForm.overallPrice = userPrice;           //Send the price of the user to the order screen
             orderScreenForm.Show();
         }
 
@@ -147,41 +166,49 @@ namespace GlobalSanicElectronics
 
         private void addressTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Address
             Validation.AddressValidation(addressTextBox, errorProvider);
         }
 
         private void cityTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for City
             Validation.CityValidation(cityTextBox, errorProvider);
         }
 
         private void stateTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for State
             Validation.StateValidation(stateTextBox, errorProvider);
         }
 
         private void zipTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Zip
             Validation.ZipValidation(zipTextBox, errorProvider);
         }
 
         private void nameTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Name
             GeneralOperations.ConfirmName(nameTextBox, errorProvider);
         }
 
         private void cardNumberTextBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Card Number
             GeneralOperations.ConfirmNumber(cardNumberTextBox, errorProvider);
         }
 
         private void monthCombBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Expiration Date for month
             GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider);
         }
 
         private void yearComboBox_Validating(object sender, CancelEventArgs e)
         {
+            //To show error message for Expiration Date for year
             GeneralOperations.ConfirmExpirationDate(monthCombBox, yearComboBox, errorProvider);
         }
     }

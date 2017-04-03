@@ -22,6 +22,7 @@ namespace GlobalSanicElectronics
 
         private void moreInfoButton_Click(object sender, EventArgs e)
         {
+            //Send information about the Refund status
             MessageBox.Show("Stage One = Order is currently being Processed and has not been received" +
                 "\n" + "Stage Two = Order has been Received" +
                 "\n" + "Stage Three = Refund is currently being processed" +
@@ -36,7 +37,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = refundStatusScreenUsername;
+            mainApplicationForm.mainApplicationUsername = refundStatusScreenUsername;           //Send the username information of the user to the main application
             mainApplicationForm.Show();
         }
 
@@ -56,6 +57,7 @@ namespace GlobalSanicElectronics
 
         private void RefundStatusScreen_Load(object sender, EventArgs e)
         {
+            //Call the ReguestRefundScreen for the DatabaseOperation's class
             DatabaseOperationsRefunds.RequestRefundScreen(refundStatusScreenUsername, refundsDataGridView);
         }
 

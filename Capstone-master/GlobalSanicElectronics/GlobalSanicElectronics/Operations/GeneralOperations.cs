@@ -5,6 +5,7 @@ namespace GlobalSanicElectronics
 {
     class GeneralOperations
     {
+        //Method to add more information to the price depending on the bundle or warranty chosen by the user
         public static double UserPrice(RadioButton consoleBundleOne, RadioButton consoleBundleTwo, RadioButton consoleBundleThree,
             RadioButton consoleWarrantyOne, RadioButton consoleWarrantyTwo, RadioButton consoleWarrantyThree,
             RadioButton computerWarrantyOne, RadioButton computerWarrantyTwo, RadioButton computerWarrantyThree,
@@ -85,6 +86,7 @@ namespace GlobalSanicElectronics
             return userPrice;
         }        
 
+        //Method to get the Default information regarding what is already selected / checked on the orderscreenpartTwo
         public static void DefaultInformation(RadioButton shippingTwoRadioButton, Label totalPaymentDisplayLabel, ComboBox yearComboBox, double userPrice)
         {
             //Default the shipping option
@@ -103,6 +105,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to make sure the user know's that the shipping information that they have entered cannot be chagned once they confirm it
         public static void ConfirmShipping(GroupBox shippingGroupBox)
         {
             string message = "Is the shipping information currently displayed correct?";
@@ -120,6 +123,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to make sure that the name entered is not null and only contains letters
         public static bool ConfirmName(TextBox nameTextBox, ErrorProvider error)
         {
             if (string.IsNullOrWhiteSpace(nameTextBox.Text))
@@ -137,6 +141,7 @@ namespace GlobalSanicElectronics
             return true;
         }
 
+        //Method to make sure that the Card Number is not null and is not greater than 16 characters
         public static bool ConfirmNumber(TextBox cardNumberTextBox, ErrorProvider error)
         {
             if (string.IsNullOrWhiteSpace(cardNumberTextBox.Text))
@@ -154,6 +159,7 @@ namespace GlobalSanicElectronics
             return true;
         }
 
+        //Method to make sure that the expiration date on the card is not empty and is a valid date, meaning before this month of this year is not valid
         public static bool ConfirmExpirationDate(ComboBox monthCombBox, ComboBox yearComboBox, ErrorProvider error)
         {
             if (monthCombBox.SelectedItem == null || yearComboBox.SelectedItem == null)
@@ -180,6 +186,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to let the user select a shipping speed and confirm that it cannot be changed once they click confirm
         public static void ConfirmShippingSpeed(RadioButton shippingOneRadioButton, double userPrice, GroupBox shippingSpeedGroupBox, Label totalPaymentDisplayLabel)
         {
             if (shippingOneRadioButton.Checked)
@@ -204,6 +211,7 @@ namespace GlobalSanicElectronics
             totalPaymentDisplayLabel.Text = "$" + userPrice.ToString();
         }
 
+        //Regex to make sure that certain strings only contain letters and numbers
         public static class Regex
         {
             public static readonly string lettersOnly = @"^[a-zA-Z ]+$";

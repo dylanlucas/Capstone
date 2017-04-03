@@ -8,6 +8,7 @@ namespace GlobalSanicElectronics
 {
     class DatabaseOperationsPurchases
     {
+        //Method to help track order information for the user
         public static bool TrackOrder(Purchases userPurchases, string username)
         {
             using (System.Data.SqlClient.SqlCommand validateOrder = new System.Data.SqlClient.SqlCommand())
@@ -24,6 +25,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to get and place shipping information of the user
         public static void ShippingInformation(string userName, TextBox addressTextBox, TextBox cityTextBox, TextBox stateTextBox, TextBox zipTextBox)
         {
             using (System.Data.SqlClient.SqlCommand selectShipingInformationCommand = new System.Data.SqlClient.SqlCommand())
@@ -54,6 +56,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to hash and salt credit card information
         public static void HashCreditCard(TextBox cardNumberTextBox, TextBox nameTextBox, string userName, GroupBox paymentGroupBox)
         {
             string salt = "WquZ012C";
@@ -83,6 +86,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to update purchases table for the selected order
         public static void UpdatePurchases(string username, double number, string computer, string console, string television, string tablet, double price)
         {
             using (System.Data.SqlClient.SqlCommand updatePurchaseCommand = new System.Data.SqlClient.SqlCommand())
@@ -101,6 +105,7 @@ namespace GlobalSanicElectronics
             }
         }
 
+        //Method to load purchase information for the user
         public static void LoadPurchases(DataGridView purchasesDataGridView)
         {
             var selectOrder = "SELECT * FROM Purchases";
@@ -112,6 +117,7 @@ namespace GlobalSanicElectronics
             purchasesDataGridView.DataSource = orderDataSet.Tables[0];
         }
 
+        //Method to track user purchase order information
         public static void TrackUserOrder(string username, DataGridView purchaseDataGridView)
         {
             using (SqlCommand trackOrderCommand = new SqlCommand())

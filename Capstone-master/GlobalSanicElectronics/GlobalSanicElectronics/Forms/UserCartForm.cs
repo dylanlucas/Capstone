@@ -16,12 +16,15 @@ namespace GlobalSanicElectronics
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            //Method to make sure that at least more than 0 row's are selected
             if(cartDataGridView.SelectedRows.Count > 0)
             {
+                //Method to remove items from the carts
                 DatabaseOperationsCart.RemoveItem(userCart, cartDataGridView, cartTableAdapter, gSEDatabaseDataSet);
             }
             else
             {
+                //Send message to the user that they must select information to get deleted
                 MessageBox.Show("Please select a row to delete from your cart!");
             }
         }
@@ -33,7 +36,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = cartFormUsername;
+            mainApplicationForm.mainApplicationUsername = cartFormUsername;             //Send the username of the user to the cartForm
             mainApplicationForm.Show();
         }
 

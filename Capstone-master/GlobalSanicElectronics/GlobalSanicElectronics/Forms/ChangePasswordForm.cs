@@ -20,20 +20,26 @@ namespace GlobalSanicElectronics
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
+            //Boolean to help make sure that the token that the user enters is valid in the Reset table
             bool verifyToken;
 
+            //Call the DatabaseOperation method to change password and make sure token is correct
             if (verifyToken = DatabaseOperations.ChangePassword(passwordTokenTextBox, usernameTextBox))
             {
+                //Pass information for the check to make sure all fields are corresponding with the right information, IE username and password are the same
+                //then enable the button and label to let the user to change there password
                 DatabaseOperations.CheckToken(label2, newPasswordTextBox, changeButton, usernameTextBox);
             }
             else
             {
+                //Let the user know that the token they entered is incorrect
                 MessageBox.Show("Token is incorrect.");
             }
         }
 
         private void changeButton_Click(object sender, EventArgs e)
         {
+            //Call the DatabaseOperations method to update the user's new password
             DatabaseOperations.UserChangesPassword(newPasswordTextBox, usernameTextBox);
         }
 

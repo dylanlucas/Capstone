@@ -10,19 +10,19 @@ namespace GlobalSanicElectronics
             InitializeComponent();       
         }
 
-        double userPrice = 0;
+        double userPrice = 0;       //Default the userPrice to 0 if no items in cart
 
-        bool consoleYesNo;
-        bool computerYesNo;
-        bool tabletYesNo;
-        bool televisionYesNo;
+        bool consoleYesNo;          //To help get information if they have a console in cart
+        bool computerYesNo;         //To help get information if they have a computer in cart
+        bool tabletYesNo;           //To help get information if they have a tablet in the cart
+        bool televisionYesNo;       //To help get information if they have a television in the cart
         
 
-        public string orderFormUsername { get; set; }        
-        public double overallPrice { get; set; }
+        public string orderFormUsername { get; set; }     //Hold the username of the user   
+        public double overallPrice { get; set; }          //Hold the user's overall price of items in cart
 
-        Cart userCart = new Cart();
-        OrderScreenPartTwoForm orderScreenPartTwoForm = new OrderScreenPartTwoForm();
+        Cart userCart = new Cart();                     //Create a userCart object for the Cart
+        OrderScreenPartTwoForm orderScreenPartTwoForm = new OrderScreenPartTwoForm();       //Create a new form for the orderscreen
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
@@ -31,7 +31,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             MainApplicationForm mainApplicationForm = new MainApplicationForm();
-            mainApplicationForm.mainApplicationUsername = orderFormUsername;
+            mainApplicationForm.mainApplicationUsername = orderFormUsername;            //Send the username of the user to the main application
             mainApplicationForm.Show();
         }
 
@@ -57,6 +57,7 @@ namespace GlobalSanicElectronics
 
         private void OrderScreen_Load(object sender, EventArgs e)
         {
+            //Get the user price from the DisplayCart information in the DatabaseOperations class
             userPrice = DatabaseOperationsCart.DisplayCart(userCart, cartDataGridView, orderFormUsername, consoleTabControl,
                 consoleBundleFourRadioButton, consoleWarrantyFourRadioButton, computerGroupBox,
                 computerWarrantyFourRadioButton, tabletGroupBox, tabletWarrantyFourRadioButton, televisionGroupBox,
@@ -66,6 +67,7 @@ namespace GlobalSanicElectronics
 
         private void nextButton_Click(object sender, EventArgs e)
         {
+            //Get the user price from the DisplayCart information in the GeneralOperations class
             userPrice = GeneralOperations.UserPrice(consoleBundleOneRadioButton, consoleBundleTwoRadioButton, consoleBundleThreeRadioButton,
                 consoleWarrantyOneRadioButton, consoleWarrantyTwoRadioButton, consoleWarrantyThreeRadioButton,
                 computerWarrantyOneRadioButton, computerWarrantyTwoRadioButton, computerWarrantyThreeRadioButton,
@@ -78,7 +80,7 @@ namespace GlobalSanicElectronics
 
             //Go back to the Main Application since the user has requested to
             orderScreenPartTwoForm.userPrice = userPrice;
-            orderScreenPartTwoForm.userName = orderFormUsername;            
+            orderScreenPartTwoForm.userName = orderFormUsername;        //Send the username of the user to the OrderForm           
             orderScreenPartTwoForm.Show();
         }
 
