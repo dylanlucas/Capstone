@@ -242,7 +242,8 @@ namespace GlobalSanicElectronics
 
                     //Update and Refresh the datagridviews for Repair & Refund tables
                     var select = "SELECT * FROM Refunds WHERE Username= '" + usernameTextBox.Text + "'" +
-                        "SELECT * FROM Repairs WHERE Username= '" + usernameTextBox.Text + "'";
+                        "SELECT * FROM Repairs WHERE Username= '" + usernameTextBox.Text + "'" +
+                        "SELECT * FROM Purchases WHERE Username= '" + usernameTextBox.Text + "'";
                     var dataAdapter = new SqlDataAdapter(select, DatabaseOperations.sqlConnectionLink);
 
                     var commandBuilder = new SqlCommandBuilder(dataAdapter);
@@ -250,6 +251,7 @@ namespace GlobalSanicElectronics
                     dataAdapter.Fill(ds);
                     refundsDataGridView.DataSource = ds.Tables[0];
                     repairsDataGridView.DataSource = ds.Tables[1];
+                    purchasesDataGridView.DataSource = ds.Tables[2];
                 }
             }
         }        
