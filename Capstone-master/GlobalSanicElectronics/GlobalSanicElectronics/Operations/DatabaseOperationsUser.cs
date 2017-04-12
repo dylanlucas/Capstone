@@ -7,8 +7,10 @@ namespace GlobalSanicElectronics
     static public class DatabaseOperationsUser
     {
         //Method to create a user and store it into the database
-        public static void CreateUser(CustomerInformation customer)
+        public static bool CreateUser(CustomerInformation customer, TextBox usernameTextBox, TextBox emailTextBox, TextBox dOBTextBox, TextBox addressTextBox, TextBox cityTextBox, TextBox stateTextBox, TextBox zipTextBox)
         {
+            bool accountCreated = false;
+
             using (System.Data.SqlClient.SqlCommand createUserCommand = new System.Data.SqlClient.SqlCommand())
             {
                 try
@@ -28,12 +30,31 @@ namespace GlobalSanicElectronics
                     DatabaseOperations.sqlConnectionLink.Open();
                     createUserCommand.ExecuteNonQuery();
                     DatabaseOperations.sqlConnectionLink.Close();
+
+                    //Tell the user that their account has been created
+                    MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
+
+                    accountCreated = true;
+
+                    //Call the email operation to email the user that there account has been created with the information that it contains
+                    EmailOperations.UserCreatedEmail(emailTextBox.Text, usernameTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);                                       
+
+                    //Go to the MainApplication since the user has successfully logged in and created there account
+                    MainApplicationForm mainApplicationForm = new MainApplicationForm();
+                    string username = usernameTextBox.Text;
+                    mainApplicationForm.mainApplicationUsername = username;             //Send username information to next form
+                    mainApplicationForm.Show();
                 }                
-                catch (SqlException ex)
+                catch (SqlException)
                 {
-                    MessageBox.Show(ex.ToString());
+                    accountCreated = false;
+
+                    DatabaseOperations.sqlConnectionLink.Close();
+                    MessageBox.Show("Username already exists!");
                 }
             }
+
+            return accountCreated;
         }
 
         //Method to select user and make sure that it is correlating with the username and password in the same area

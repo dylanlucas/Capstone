@@ -6,6 +6,8 @@ namespace GlobalSanicElectronics
 {
     public partial class AccountCreationForm : Form
     {
+        bool accountCreated;
+
         public AccountCreationForm()
         {
             InitializeComponent();   
@@ -52,23 +54,10 @@ namespace GlobalSanicElectronics
                                                 newCustomer.Zip = zipTextBox.Text;
 
                                                 //Call the DatabaseOperation to create the new user
-                                                DatabaseOperationsUser.CreateUser(newCustomer);
-
-                                                //Tell the user that their account has been created
-                                                MessageBox.Show(usernameTextBox.Text + " has been created! Thank you for joining Global Sanic Electronics! An email has been sent to you to confirm your account registration!");
-
-                                                //Call the email operation to email the user that there account has been created with the information that it contains
-                                                EmailOperations.UserCreatedEmail(emailTextBox.Text, usernameTextBox.Text, dOBTextBox.Text, addressTextBox.Text, cityTextBox.Text, stateTextBox.Text, zipTextBox.Text);
-
-                                                //Hide this form so the user can no longer see it as it is no longer needed
-                                                this.Hide();
-
-                                                //Go to the MainApplication since the user has successfully logged in and created there account
-                                                MainApplicationForm mainApplicationForm = new MainApplicationForm();
-                                                string username = usernameTextBox.Text;
-                                                mainApplicationForm.mainApplicationUsername = username;             //Send username information to next form
-                                                mainApplicationForm.Show();
-
+                                                if (accountCreated = DatabaseOperationsUser.CreateUser(newCustomer, usernameTextBox, emailTextBox, dOBTextBox, addressTextBox, cityTextBox, stateTextBox, zipTextBox) == true)
+                                                {
+                                                    this.Hide();
+                                                }                                                
                                             }
                                             catch (SqlException ex)
                                             {

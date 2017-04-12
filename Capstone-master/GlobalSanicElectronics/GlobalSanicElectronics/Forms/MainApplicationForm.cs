@@ -349,7 +349,7 @@ namespace GlobalSanicElectronics
             DatabaseOperationsCart.CartDisplay(userCart, mainApplicationUsername, cartDisplayLabel);
 
             //Display the Cart Price Total for the User
-            DatabaseOperationsCart.CartPrice(userCart, mainApplicationUsername, cartPriceDisplayLabel);
+            DatabaseOperationsCart.CartPrice(userCart, mainApplicationUsername, cartPriceDisplayLabel);            
         }
     }
 }
