@@ -143,29 +143,37 @@ namespace GlobalSanicElectronics
         }
 
         //Method to update the user's new password and store and hash / salt the information
-        public static void UserChangesPassword(TextBox newPasswordTextBox, TextBox usernameTextBox)
+        public static void UserChangesPassword(TextBox newPasswordTextBox, TextBox usernameTextBox, ErrorProvider errorProvider)
         {
-            //Change the password in CustomerInformation Table
-
-            string salt = "WquZ012C";
-
-            var bytes = new UTF8Encoding().GetBytes(salt + newPasswordTextBox.Text);
-            byte[] hashBytes;
-            using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+            if (Validation.PasswordValidation(newPasswordTextBox, errorProvider))
             {
-                hashBytes = algorithm.ComputeHash(bytes);
+                //Change the password in CustomerInformation Table
+
+                string salt = "WquZ012C";
+
+                var bytes = new UTF8Encoding().GetBytes(salt + newPasswordTextBox.Text);
+                byte[] hashBytes;
+                using (var algorithm = new System.Security.Cryptography.SHA512Managed())
+                {
+                    hashBytes = algorithm.ComputeHash(bytes);
+                }
+
+                string passHash = Convert.ToBase64String(hashBytes);
+                SqlCommand cmd = new SqlCommand("UPDATE CustomerInformation SET Password = @Password WHERE Username = @Username; DELETE FROM ResetTickets WHERE Username = @Username");
+                cmd.Parameters.AddWithValue("@Password", passHash);
+                cmd.Parameters.AddWithValue("@Username", usernameTextBox.Text);
+                cmd.Connection = DatabaseOperations.sqlConnectionLink;
+                DatabaseOperations.sqlConnectionLink.Open();
+                cmd.ExecuteNonQuery();
+                DatabaseOperations.sqlConnectionLink.Close();
+
+                MessageBox.Show("Password has been updated!");
             }
+            else
+            {
+                MessageBox.Show("Password is not in correct format, must be 8 characters long, 1 uppercase, 1 lowercase, 1 number, and 1 special character.");
+            }            
 
-            string passHash = Convert.ToBase64String(hashBytes);
-            SqlCommand cmd = new SqlCommand("UPDATE CustomerInformation SET Password = @Password WHERE Username = @Username; DELETE FROM ResetTickets WHERE Username = @Username");
-            cmd.Parameters.AddWithValue("@Password", passHash);
-            cmd.Parameters.AddWithValue("@Username", usernameTextBox.Text);
-            cmd.Connection = DatabaseOperations.sqlConnectionLink;
-            DatabaseOperations.sqlConnectionLink.Open();
-            cmd.ExecuteNonQuery();
-            DatabaseOperations.sqlConnectionLink.Close();
-
-            MessageBox.Show("Password has been updated!");
         }
 
         //Method to Update the delivery status of the user's order

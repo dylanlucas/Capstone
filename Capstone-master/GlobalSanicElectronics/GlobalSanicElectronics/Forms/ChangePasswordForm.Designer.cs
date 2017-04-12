@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.genericLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.passwordTokenTextBox = new System.Windows.Forms.TextBox();
@@ -38,6 +39,8 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.changeButton = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // genericLabel
@@ -138,7 +141,11 @@
             this.changeButton.Visible = false;
             this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
-            // ChangePassword
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,8 +160,9 @@
             this.Controls.Add(this.passwordTokenTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.genericLabel);
-            this.Name = "ChangePassword";
+            this.Name = "ChangePasswordForm";
             this.Text = "ChangePasswordcs";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,5 +180,6 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button changeButton;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

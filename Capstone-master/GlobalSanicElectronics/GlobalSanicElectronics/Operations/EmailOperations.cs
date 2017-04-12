@@ -682,7 +682,7 @@ namespace GlobalSanicElectronics
                 const string subject = "Update on your Refund";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your repair status has updated to : " + refundStatusComboBox.SelectedItem + "\n" +
-                    "This means, Your refund should be complete now" +
+                    "This means, Your refund should be complete now" + "\n" +
                     "Sincerly, \n\n\n\n" +
                     "Global Sanic Electronics";
 
@@ -775,7 +775,7 @@ namespace GlobalSanicElectronics
                 var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
                 var toAddress = new MailAddress(email, usernameTextBox.Text);
                 const string fromPassword = "GSEPassword";
-                const string subject = "Update on your Repair";
+                const string subject = "Update on your Delivery";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
                     "This means, your order has been shipped" + "\n" +
@@ -810,7 +810,7 @@ namespace GlobalSanicElectronics
                 var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
                 var toAddress = new MailAddress(email, usernameTextBox.Text);
                 const string fromPassword = "GSEPassword";
-                const string subject = "Update on your Repair";
+                const string subject = "Update on your Delivery";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
                     "This means, your order has been delivered to local mailing facility" + "\n" +
@@ -845,7 +845,7 @@ namespace GlobalSanicElectronics
                 var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
                 var toAddress = new MailAddress(email, usernameTextBox.Text);
                 const string fromPassword = "GSEPassword";
-                const string subject = "Update on your Repair";
+                const string subject = "Update on your Delivery";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
                     "This means, Your order is out for delivery" + "\n" +
@@ -880,7 +880,7 @@ namespace GlobalSanicElectronics
                 var fromAddress = new MailAddress("GlobalSanicElectronics@gmail.com", "Global Sanic Electronics");
                 var toAddress = new MailAddress(email, usernameTextBox.Text);
                 const string fromPassword = "GSEPassword";
-                const string subject = "Update on your Repair";
+                const string subject = "Update on your Delivery";
                 string body = "Hello " + usernameTextBox.Text + "\n\n" +
                     "Your delivery status has updated to : " + deliveryComboBox.SelectedItem + "\n" +
                     "This means, Order has been shipped to you" + "\n" +

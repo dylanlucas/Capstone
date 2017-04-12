@@ -40,7 +40,7 @@ namespace GlobalSanicElectronics
         private void changeButton_Click(object sender, EventArgs e)
         {
             //Call the DatabaseOperations method to update the user's new password
-            DatabaseOperations.UserChangesPassword(newPasswordTextBox, usernameTextBox);
+            DatabaseOperations.UserChangesPassword(newPasswordTextBox, usernameTextBox, errorProvider);
         }
 
         private void ChangePasswordcs_Load(object sender, EventArgs e)

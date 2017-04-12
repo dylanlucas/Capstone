@@ -23,6 +23,7 @@ namespace GlobalSanicElectronics
 
                     userRequestsRefundCommand.CommandText = "INSERT into Refunds (OrderNumber, RefundStatus, Username) VALUES " +
                         "(@OrderNumber, @RefundStatus, @Username)" +
+                        "UPDATE Refunds SET RefundStatus = 'One' WHERE RefundStatus = 'Six' AND OrderNumber = '" + orderNumber + "'" +
                         "UPDATE Purchases SET Stages= 'Repair' WHERE Stages= 'Six' AND OrderNumber LIKE @OrderNumber";
                     userRequestsRefundCommand.Parameters.AddWithValue("@OrderNumber", orderNumber);
                     userRequestsRefundCommand.Parameters.AddWithValue("@RefundStatus", stages);

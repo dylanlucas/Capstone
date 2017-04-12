@@ -44,6 +44,7 @@ namespace GlobalSanicElectronics
 
                     userRequestRepairsCommand.CommandText = "INSERT into Repairs (RepairStatus, Username, OrderNumber) VALUES " +
                         "(@RepairStatus, @Username, @OrderNumber)" +
+                        "UPDATE Repairs SET RepairStatus = 'One' WHERE RepairStatus = 'Six' AND OrderNumber = '" + orderNumber + "'" +
                         "UPDATE Purchases SET Stages= 'Repair' WHERE Stages= 'Six' AND OrderNumber LIKE @OrderNumber";
                     userRequestRepairsCommand.Parameters.AddWithValue("@RepairStatus", stages);
                     userRequestRepairsCommand.Parameters.AddWithValue("@Username", username);
