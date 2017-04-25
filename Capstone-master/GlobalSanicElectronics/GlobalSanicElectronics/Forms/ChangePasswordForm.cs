@@ -29,6 +29,7 @@ namespace GlobalSanicElectronics
                 //Pass information for the check to make sure all fields are corresponding with the right information, IE username and password are the same
                 //then enable the button and label to let the user to change there password
                 DatabaseOperations.CheckToken(label2, newPasswordTextBox, changeButton, usernameTextBox);
+                confirmButton.Enabled = false;
             }
             else
             {

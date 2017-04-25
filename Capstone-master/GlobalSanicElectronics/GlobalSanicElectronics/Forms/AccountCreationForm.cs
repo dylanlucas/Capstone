@@ -36,40 +36,47 @@ namespace GlobalSanicElectronics
                                     //Call validation method to make sure password is correct 
                                     if (Validation.PasswordValidation(passwordTextBox, errorProvider))
                                     {
-                                        //Call validation method to make sure email is correct
-                                        if (Validation.EmailValidation(emailTextBox, errorProvider))
+                                        if (Validation.VerifyPassword(passwordTextBox, verifyPasswordTextBox, errorProvider))
                                         {
-                                            try
+                                            //Call validation method to make sure email is correct
+                                            if (Validation.EmailValidation(emailTextBox, errorProvider))
                                             {
-                                                //Create a Customer Information object and input all information to that object about the Customer
-                                                CustomerInformation newCustomer = new CustomerInformation();
-
-                                                newCustomer.Username = usernameTextBox.Text;
-                                                newCustomer.Password = PasswordOperations.AccountPasswordHashing(passwordTextBox.Text);
-                                                newCustomer.Email = emailTextBox.Text;
-                                                newCustomer.DOB = dOBTextBox.Text;
-                                                newCustomer.Address = addressTextBox.Text;
-                                                newCustomer.City = cityTextBox.Text;
-                                                newCustomer.State = stateTextBox.Text;
-                                                newCustomer.Zip = zipTextBox.Text;
-
-                                                //Call the DatabaseOperation to create the new user
-                                                if (accountCreated = DatabaseOperationsUser.CreateUser(newCustomer, usernameTextBox, emailTextBox, dOBTextBox, addressTextBox, cityTextBox, stateTextBox, zipTextBox) == true)
+                                                try
                                                 {
-                                                    this.Hide();
-                                                }                                                
+                                                    //Create a Customer Information object and input all information to that object about the Customer
+                                                    CustomerInformation newCustomer = new CustomerInformation();
+
+                                                    newCustomer.Username = usernameTextBox.Text;
+                                                    newCustomer.Password = PasswordOperations.AccountPasswordHashing(passwordTextBox.Text);
+                                                    newCustomer.Email = emailTextBox.Text;
+                                                    newCustomer.DOB = dOBTextBox.Text;
+                                                    newCustomer.Address = addressTextBox.Text;
+                                                    newCustomer.City = cityTextBox.Text;
+                                                    newCustomer.State = stateTextBox.Text;
+                                                    newCustomer.Zip = zipTextBox.Text;
+
+                                                    //Call the DatabaseOperation to create the new user
+                                                    if (accountCreated = DatabaseOperationsUser.CreateUser(newCustomer, usernameTextBox, emailTextBox, dOBTextBox, addressTextBox, cityTextBox, stateTextBox, zipTextBox) == true)
+                                                    {
+                                                        this.Hide();
+                                                    }
+                                                }
+                                                catch (SqlException ex)
+                                                {
+                                                    MessageBox.Show(ex.Message);
+                                                }
                                             }
-                                            catch (SqlException ex)
-                                            {
-                                                MessageBox.Show(ex.Message);
-                                            }
-                                        }
+                                        }                                        
                                     }
                                 }
                             }
                         }
                     }
                 }                
+            }
+            else
+            {
+                MessageBox.Show("Please make sure all fields are filled out correctly.");
             }            
         }
 
@@ -153,6 +160,12 @@ namespace GlobalSanicElectronics
         {
             //Show error messages for the Zip
             Validation.ZipValidation(zipTextBox, errorProvider);
+        }
+
+        private void verifyPasswordTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //Show error message if passwords do not match
+            Validation.VerifyPassword(passwordTextBox, verifyPasswordTextBox, errorProvider);
         }
     }
 }

@@ -121,7 +121,6 @@ C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\Glob
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GSEDatabase_log.ldf
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.pdb
-C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.Properties.Resources.resources
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csproj.GenerateResource.Cache
 C:\Users\dylan\Desktop\Capstone-master\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.exe.config
@@ -228,3 +227,4 @@ C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\Glob
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\bin\Debug\GlobalSanicElectronics.application
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.exe.manifest
 C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.application
+C:\Users\dylan\Source\Repos\Capstone\Capstone-master\GlobalSanicElectronics\GlobalSanicElectronics\obj\Debug\GlobalSanicElectronics.csprojResolveAssemblyReference.cache

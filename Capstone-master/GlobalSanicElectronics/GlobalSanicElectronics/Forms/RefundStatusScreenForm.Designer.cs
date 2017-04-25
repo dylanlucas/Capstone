@@ -118,9 +118,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.refundsDataGridView.DataSource = this.refundsBindingSource;
-            this.refundsDataGridView.Location = new System.Drawing.Point(40, 89);
+            this.refundsDataGridView.Location = new System.Drawing.Point(106, 96);
             this.refundsDataGridView.Name = "refundsDataGridView";
-            this.refundsDataGridView.Size = new System.Drawing.Size(443, 220);
+            this.refundsDataGridView.Size = new System.Drawing.Size(344, 220);
             this.refundsDataGridView.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn2
@@ -147,8 +147,9 @@
             this.dataGridViewTextBoxColumn9.DataPropertyName = "RefundID";
             this.dataGridViewTextBoxColumn9.HeaderText = "RefundID";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Visible = false;
             // 
-            // RefundStatusScreen
+            // RefundStatusScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +158,7 @@
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.moreInfoButton);
             this.Controls.Add(this.genericLabel);
-            this.Name = "RefundStatusScreen";
+            this.Name = "RefundStatusScreenForm";
             this.Text = "RefundStatusScreen";
             this.Load += new System.EventHandler(this.RefundStatusScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gSEDatabaseDataSet)).EndInit();

@@ -28,6 +28,9 @@ namespace GlobalSanicElectronics
         //Error message that the zip code should only contain numbers
         private static readonly string numbersOnlyMessage = "Zip should only be numbers ranging from 0-9";
 
+        //Error message that tells the user the passwords do not match
+        private static readonly string passwordsDoNotMatch = "Passwords do not match, please re-enter them";
+
         //Validation method for username to check certain conditions
         //Whether username is null and if it contains any special characters
         public static bool UsernameValidation(TextBox username, ErrorProvider error)
@@ -266,6 +269,19 @@ namespace GlobalSanicElectronics
             {
                 //Send the error message telling that the password needs at least one special character
                 error.SetError(password, containsCharMessage);
+                return false;
+            }
+
+            //Send no error message as all information is correct and return true
+            error.SetError(password, string.Empty);
+            return true;
+        }
+
+        public static bool VerifyPassword(TextBox password, TextBox verifyPassword, ErrorProvider error)
+        {
+            if (!password.Text.Equals(verifyPassword.Text))
+            {
+                error.SetError(password, passwordsDoNotMatch);
                 return false;
             }
 

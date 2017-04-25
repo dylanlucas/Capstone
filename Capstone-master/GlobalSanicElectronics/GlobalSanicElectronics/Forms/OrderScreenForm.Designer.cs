@@ -595,26 +595,30 @@
             this.dataGridViewTextBoxColumn18.DataPropertyName = "ComputerID";
             this.dataGridViewTextBoxColumn18.HeaderText = "ComputerID";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Visible = false;
             // 
             // dataGridViewTextBoxColumn19
             // 
             this.dataGridViewTextBoxColumn19.DataPropertyName = "ConsoleID";
             this.dataGridViewTextBoxColumn19.HeaderText = "ConsoleID";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Visible = false;
             // 
             // dataGridViewTextBoxColumn20
             // 
             this.dataGridViewTextBoxColumn20.DataPropertyName = "TabletID";
             this.dataGridViewTextBoxColumn20.HeaderText = "TabletID";
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Visible = false;
             // 
             // dataGridViewTextBoxColumn21
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "TelevisionID";
             this.dataGridViewTextBoxColumn21.HeaderText = "TelevisionID";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.Visible = false;
             // 
-            // OrderScreen
+            // OrderScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -630,7 +634,7 @@
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.genericLabel);
-            this.Name = "OrderScreen";
+            this.Name = "OrderScreenForm";
             this.Text = "OrderScreen";
             this.Load += new System.EventHandler(this.OrderScreen_Load);
             this.consoleGroupBox.ResumeLayout(false);
